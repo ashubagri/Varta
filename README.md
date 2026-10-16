@@ -149,3 +149,46 @@ You own the content and can adapt the project as needed.
   </footer>
 </body>
 </html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Culture & Nature — VARTA</title>
+  <meta name="description" content="Culture and nature on VARTA." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand"><img src="assets/logo.svg" alt="VARTA logo" class="brand-mark" /><span>VARTA</span></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="science.html">Science</a>
+        <a href="indian-knowledge.html">Indian Knowledge</a>
+        <a href="sound-nada.html">Sound & NADA</a>
+        <a href="culture-nature.html">Culture</a>
+        <a href="world-affairs.html">World Affairs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-wrap">
+    <div class="page-intro">
+      <span class="eyebrow dark">Section</span>
+      <h1>Culture & Nature</h1>
+      <p>Local landscapes, artistic traditions, memory, rituals, seasons and a deeper relationship with the natural world.</p>
+    </div>
+
+    <article class="card detail-card">
+      <h2>Featured story</h2>
+      <p>Use this section for visual storytelling, photo essays, and discussion about the living culture of Bharat.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container legal-line"><span>© 2026 VARTA Prototype</span></div>
+  </footer>
+</body>
+</html>
