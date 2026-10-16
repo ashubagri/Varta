@@ -192,3 +192,46 @@ You own the content and can adapt the project as needed.
   </footer>
 </body>
 </html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Affairs — VARTA</title>
+  <meta name="description" content="World affairs and geopolitics on VARTA." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand"><img src="assets/logo.svg" alt="VARTA logo" class="brand-mark" /><span>VARTA</span></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="science.html">Science</a>
+        <a href="indian-knowledge.html">Indian Knowledge</a>
+        <a href="sound-nada.html">Sound & NADA</a>
+        <a href="culture-nature.html">Culture</a>
+        <a href="world-affairs.html">World Affairs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-wrap">
+    <div class="page-intro">
+      <span class="eyebrow dark">Section</span>
+      <h1>World Affairs</h1>
+      <p>Public debate and analysis on geopolitics, energy, power, migration, climate and the global system.</p>
+    </div>
+
+    <article class="card detail-card">
+      <h2>Featured reading</h2>
+      <p>Use this page for geopolitical analysis, cross-country frameworks or summaries of global trends and energy policy.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container legal-line"><span>© 2026 VARTA Prototype</span></div>
+  </footer>
+</body>
+</html>
