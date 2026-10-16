@@ -104,3 +104,48 @@ You own the content and can adapt the project as needed.
   </footer>
 </body>
 </html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sound & NADA — VARTA</title>
+  <meta name="description" content="NADA, sound, vibration and media on VARTA." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand"><img src="assets/logo.svg" alt="VARTA logo" class="brand-mark" /><span>VARTA</span></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="science.html">Science</a>
+        <a href="indian-knowledge.html">Indian Knowledge</a>
+        <a href="sound-nada.html">Sound & NADA</a>
+        <a href="culture-nature.html">Culture</a>
+        <a href="world-affairs.html">World Affairs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-wrap">
+    <div class="page-intro">
+      <span class="eyebrow dark">Section</span>
+      <h1>Sound & NADA</h1>
+      <p>Ragas, mantras, music, vibration and the study of resonance — from sound science to spiritual practice.</p>
+    </div>
+
+    <article class="card detail-card">
+      <h2>Featured audio/video</h2>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Featured NADA video" allowfullscreen></iframe>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container legal-line"><span>© 2026 VARTA Prototype</span></div>
+  </footer>
+</body>
+</html>
