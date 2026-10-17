@@ -32,6 +32,20 @@ else{
   const back=document.createElement('a');back.href='posts.html';back.className='btn secondary';back.textContent='Community feed';actions.append(back);
   const {data:sessionData}=await supabase.auth.getSession();const user=sessionData.session?.user;
   if(user&&user.id!==profile.id){
+   const reportBtn=document.createElement('button');reportBtn.className='btn secondary';reportBtn.type='button';reportBtn.textContent='Report member';
+   reportBtn.addEventListener('click',async()=>{
+    const choices=['Spam','Harassment or hate','Threats or violence','Misinformation','Sexual content','Privacy violation','Other'];
+    const choice=window.prompt('Report reason:\n'+choices.map((x,i)=>(i+1)+'. '+x).join('\n')+'\n\nEnter a number from 1 to 7.');
+    if(choice===null)return;
+    const index=Number(choice);
+    if(!Number.isInteger(index)||index<1||index>choices.length){$('status').textContent='Report cancelled: choose a number from 1 to 7.';return;}
+    const detailsText=window.prompt('Optional details (up to 1000 characters). Leave blank if none:')||'';
+    reportBtn.disabled=true;
+    const {error:reportError}=await supabase.from('content_reports').insert({reporter_id:user.id,target_type:'member',target_id:profile.id,reason:choices[index-1],details:detailsText.trim().slice(0,1000)||null});
+    reportBtn.disabled=false;
+    $('status').textContent=reportError?'Could not submit report: '+reportError.message:'Thank you. Your report has been submitted for review.';
+   });
+   actions.append(reportBtn);
    const {data:rel}=await supabase.from('follows').select('follower_id').eq('follower_id',user.id).eq('following_id',profile.id).maybeSingle();
    const btn=document.createElement('button');btn.className='btn';btn.type='button';btn.textContent=rel?'Following · Unfollow':'＋ Follow';
    btn.addEventListener('click',async()=>{btn.disabled=true;const result=rel?await supabase.from('follows').delete().eq('follower_id',user.id).eq('following_id',profile.id):await supabase.from('follows').insert({follower_id:user.id,following_id:profile.id});btn.disabled=false;if(result.error){$('status').textContent='Could not update follow: '+result.error.message;return;}location.reload();});actions.append(btn);
