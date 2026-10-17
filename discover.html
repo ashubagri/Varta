@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Discover Members — VARTA</title><link rel="stylesheet" href="css/style.css">
+<style>
+.page-wrap{max-width:850px;margin:auto;padding:36px 15px}.panel,.member{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;margin:16px 0}.search{width:100%;box-sizing:border-box;padding:13px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}.member{display:flex;gap:16px;align-items:flex-start;justify-content:space-between}.member h2{font-size:1.15rem;margin:0 0 5px}.handle,.muted{color:#64748b}.bio{white-space:pre-wrap;overflow-wrap:anywhere}.btn{background:#174b8c;color:white;border:1px solid #174b8c;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;white-space:nowrap}.btn.following{background:white;color:#174b8c}.btn:disabled{opacity:.6}.main-nav{flex-wrap:wrap}#status{overflow-wrap:anywhere}@media(max-width:600px){.member{flex-direction:column}.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+</style></head>
+<body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="posts.html">Posts</a><a href="discover.html">Discover</a><a href="activity.html">Activity</a><a href="notifications.html">Notifications</a><a href="profile.html">My Profile</a></nav></div></header>
+<main class="page-wrap"><span class="eyebrow">Community</span><h1>Discover VARTA Members</h1><p class="tagline">Find people, explore their interests, and follow members whose posts you want to see.</p>
+<p id="auth" class="muted">Checking sign-in…</p><section class="panel"><label for="search"><strong>Search members</strong></label><input id="search" class="search" type="search" placeholder="Search by name, username or bio…" autocomplete="off"><p id="status" class="muted" role="status" aria-live="polite">Loading members…</p></section><section id="members" aria-live="polite"></section></main>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);let user=null,profiles=[],following=new Set(),followerCounts=new Map();
+const safe=(v)=>String(v||'').toLocaleLowerCase();
+async function init(){
+ const {data,error}=await supabase.auth.getSession();
+ if(error){$('auth').textContent='Could not check sign-in: '+error.message;return;}
+ user=data.session?.user||null;
+ $('auth').textContent=user?'Signed in. Follow or unfollow members below.':'You can browse members without signing in; sign in to follow people.';
+ if(!user){const a=document.createElement('a');a.href='login.html';a.textContent='Sign in';$('auth').append(' ',a);}
+ const p=await supabase.from('profiles').select('id,username,display_name,bio,created_at').order('display_name',{ascending:true}).limit(500);
+ if(p.error){$('status').textContent='Could not load members: '+p.error.message;return;}
+ profiles=(p.data||[]).filter(x=>!user||x.id!==user.id);
+ const f=await supabase.from('follows').select('follower_id,following_id');
+ if(!f.error)for(const rel of f.data||[]){followerCounts.set(rel.following_id,(followerCounts.get(rel.following_id)||0)+1);if(user&&rel.follower_id===user.id)following.add(rel.following_id);}
+ render();
+}
+function render(){
+ const q=safe($('search').value).trim(),root=$('members');root.replaceChildren();
+ const found=profiles.filter(p=>[p.display_name,p.username,p.bio].some(v=>safe(v).includes(q)));
+ $('status').textContent=found.length+' member(s)'+(q?' matching your search':' found');
+ if(!found.length){const p=document.createElement('p');p.className='muted';p.textContent=q?'No members match that search yet.':'No other member profiles are available yet.';root.append(p);return;}
+ for(const p of found){
+  const card=document.createElement('article');card.className='member';const info=document.createElement('div');
+  const name=document.createElement('h2');name.textContent=p.display_name||p.username||'VARTA Member';
+  const handle=document.createElement('p');handle.className='handle';handle.textContent=p.username?'@'+p.username:'VARTA member';
+  const bio=document.createElement('p');bio.className='bio';bio.textContent=p.bio||'No bio added yet.';
+  const stats=document.createElement('p');stats.className='muted';stats.textContent=(followerCounts.get(p.id)||0)+' follower(s)';
+  info.append(name,handle,bio,stats);card.append(info);
+  if(user){const btn=document.createElement('button');btn.type='button';btn.className='btn'+(following.has(p.id)?' following':'');btn.textContent=following.has(p.id)?'Following · Unfollow':'＋ Follow';btn.setAttribute('aria-pressed',String(following.has(p.id)));
+   btn.addEventListener('click',async()=>{btn.disabled=true;const wasFollowing=following.has(p.id);const result=wasFollowing?await supabase.from('follows').delete().eq('follower_id',user.id).eq('following_id',p.id):await supabase.from('follows').insert({follower_id:user.id,following_id:p.id});btn.disabled=false;if(result.error){$('status').textContent='Could not update follow: '+result.error.message;return;}if(wasFollowing){following.delete(p.id);followerCounts.set(p.id,Math.max(0,(followerCounts.get(p.id)||1)-1));}else{following.add(p.id);followerCounts.set(p.id,(followerCounts.get(p.id)||0)+1);}render();});
+   card.append(btn);
+  }else{const a=document.createElement('a');a.href='login.html';a.className='btn';a.textContent='Sign in to follow';card.append(a);}
+  root.append(card);
+ }
+}
+$('search').addEventListener('input',render);
+await init();
+</script></body></html>
