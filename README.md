@@ -6,6 +6,7 @@
 🔎 **Search:** https://ashubagri.github.io/Varta/search.html  
 👥 **Discover members:** https://ashubagri.github.io/Varta/discover.html  
 💬 **Community posts:** https://ashubagri.github.io/Varta/posts.html  
+📝 **Contribute knowledge:** https://ashubagri.github.io/Varta/contribute.html  
 🔐 **Join or sign in:** https://ashubagri.github.io/Varta/login.html
 
 ## Project goals
@@ -28,6 +29,7 @@ The repository currently includes a static web frontend hosted with GitHub Pages
 - Member discovery and keyword search across profiles and posts.
 - Activity and notification pages.
 - Member reporting for posts, replies, and profiles, with private report records and a documented owner review workflow (`MODERATION.md`).
+- Member knowledge suggestions for new guides, sources, corrections and discussion questions, with private submission history and a moderator-only editorial review queue.
 - Responsive page layouts and shared navigation.
 
 This is an evolving project. Feature availability and production readiness should be verified as development continues; this README is not a claim of a completed security or accessibility audit.
