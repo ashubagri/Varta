@@ -26,6 +26,18 @@ $('allTab').addEventListener('click',()=>setFeedMode('all'));
 $('followingTab').addEventListener('click',()=>setFeedMode('following'));
 function setFeedMode(mode){feedMode=mode;$('allTab').classList.toggle('active',mode==='all');$('followingTab').classList.toggle('active',mode==='following');$('allTab').setAttribute('aria-pressed',String(mode==='all'));$('followingTab').setAttribute('aria-pressed',String(mode==='following'));loadPosts();}
 $('content').addEventListener('input',()=>$('count').textContent=$('content').value.length);
+async function reportContent(targetType,targetId){
+  if(!user){$('status').textContent='Please sign in to report content.';return;}
+  const choices=['Spam','Harassment or hate','Threats or violence','Misinformation','Sexual content','Privacy violation','Other'];
+  const choice=window.prompt('Report reason:\n'+choices.map((x,i)=>(i+1)+'. '+x).join('\n')+'\n\nEnter a number from 1 to 7.');
+  if(choice===null)return;
+  const index=Number(choice);
+  if(!Number.isInteger(index)||index<1||index>choices.length){$('status').textContent='Report cancelled: choose a number from 1 to 7.';return;}
+  const details=window.prompt('Optional details (up to 1000 characters). Leave blank if none:')||'';
+  const {error}=await supabase.from('content_reports').insert({reporter_id:user.id,target_type:targetType,target_id:targetId,reason:choices[index-1],details:details.trim().slice(0,1000)||null});
+  if(error){$('status').textContent='Could not submit report: '+error.message;return;}
+  $('status').textContent='Thank you. Your report has been submitted for review.';
+}
 async function ensureOwnProfile(){
   if(!user)return;
   const {data:existing,error:readError}=await supabase.from('profiles').select('id').eq('id',user.id).maybeSingle();
@@ -112,6 +124,11 @@ async function loadPosts(){
       await loadPosts();
     });
     actions.append(repostButton);
+    if(user&&p.user_id!==user.id){
+      const reportButton=document.createElement('button');reportButton.type='button';reportButton.className='follow-btn';reportButton.textContent='Report post';
+      reportButton.addEventListener('click',()=>reportContent('post',p.id));
+      actions.append(reportButton);
+    }
     if(user&&p.user_id&&p.user_id!==user.id){
       const isFollowing=followingSet.has(p.user_id);
       const followButton=document.createElement('button');followButton.type='button';followButton.className='follow-btn'+(isFollowing?' following':'');
@@ -138,6 +155,11 @@ async function loadPosts(){
       const rpMeta=document.createElement('span');rpMeta.className='muted';rpMeta.textContent=' · '+new Date(reply.created_at).toLocaleString();
       const rpBody=document.createElement('p');rpBody.textContent=reply.content;
       rp.append(rpName,rpMeta,rpBody);
+      if(user&&reply.user_id!==user.id){
+        const reportReply=document.createElement('button');reportReply.type='button';reportReply.className='follow-btn';reportReply.textContent='Report reply';
+        reportReply.addEventListener('click',()=>reportContent('reply',reply.id));
+        rp.append(reportReply);
+      }
       if(user&&reply.user_id===user.id){const del=document.createElement('button');del.type='button';del.className='follow-btn';del.textContent='Delete reply';del.addEventListener('click',async()=>{del.disabled=true;const result=await supabase.from('replies').delete().eq('id',reply.id).eq('user_id',user.id);if(result.error){del.disabled=false;$('status').textContent='Could not delete reply: '+result.error.message;return;}await loadPosts();});rp.append(del);}
       replyList.append(rp);
     }
