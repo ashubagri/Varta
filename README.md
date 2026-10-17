@@ -27,6 +27,7 @@ The repository currently includes a static web frontend hosted with GitHub Pages
 - Follow and unfollow controls.
 - Member discovery and keyword search across profiles and posts.
 - Activity and notification pages.
+- Member reporting for posts, replies, and profiles, with private report records and a documented owner review workflow (`MODERATION.md`).
 - Responsive page layouts and shared navigation.
 
 This is an evolving project. Feature availability and production readiness should be verified as development continues; this README is not a claim of a completed security or accessibility audit.
