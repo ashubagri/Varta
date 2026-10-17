@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join VARTA — India's Knowledge & Conversation Network</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; padding: 24px;
+      display: grid; place-items: center;
+      font-family: Arial, sans-serif;
+      background: #f4f6fa; color: #172033;
+    }
+    .card {
+      width: 100%; max-width: 440px; padding: 30px;
+      background: white; border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+    .brand { font-size: 30px; font-weight: 800; color: #174b8c; }
+    h1 { margin-bottom: 8px; }
+    .muted { color: #64748b; line-height: 1.5; }
+    label { display: block; margin: 16px 0 6px; font-weight: 600; }
+    input {
+      width: 100%; padding: 12px; border: 1px solid #cbd5e1;
+      border-radius: 8px; font-size: 16px;
+    }
+    button {
+      width: 100%; padding: 13px; margin-top: 14px;
+      border: 0; border-radius: 8px; background: #174b8c;
+      color: white; font-size: 16px; font-weight: 700; cursor: pointer;
+    }
+    button.secondary { background: #e8eef7; color: #174b8c; }
+    button:disabled { opacity: .6; cursor: wait; }
+    #message { margin-top: 16px; overflow-wrap: anywhere; }
+    a { color: #174b8c; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <a href="index.html" style="text-decoration:none"><span class="brand">VARTA</span></a>
+    <h1>Join the conversation</h1>
+    <p class="muted">Create your account or sign in to India's Knowledge & Conversation Network.</p>
+
+    <form id="auth-form">
+      <label for="email">Email address</label>
+      <input id="email" type="email" autocomplete="email" required maxlength="254">
+
+      <label for="password">Password (at least 8 characters)</label>
+      <input id="password" type="password" autocomplete="current-password"
+             minlength="8" required>
+
+      <button id="signup" type="button">Create account</button>
+      <button id="signin" type="submit">Sign in</button>
+      <button id="reset" class="secondary" type="button">Forgot password?</button>
+    </form>
+
+    <p id="message" role="status" aria-live="polite" class="muted"></p>
+    <p class="muted"><a href="index.html">← Back to VARTA home</a></p>
+  </main>
+
+  <script type="module">
+    import { supabase } from './js/supabase-client.js';
+
+    const form = document.getElementById('auth-form');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const message = document.getElementById('message');
+    const buttons = [...form.querySelectorAll('button')];
+
+    function showMessage(text) {
+      message.textContent = text;
+    }
+
+    async function runAction(action) {
+      if (!email.value.trim()) {
+        showMessage('Please enter your email address.');
+        email.focus();
+        return;
+      }
+      if (action !== 'reset' && password.value.length < 8) {
+        showMessage('Please use a password with at least 8 characters.');
+        password.focus();
+        return;
+      }
+
+      buttons.forEach(button => button.disabled = true);
+      showMessage('Please wait…');
+
+      try {
+        let result;
+
+        if (action === 'signup') {
+          result = await supabase.auth.signUp({
+            email: email.value.trim(),
+            password: password.value,
+            options: {
+              emailRedirectTo: window.location.origin + '/Varta/login.html'
+            }
+          });
+        } else if (action === 'signin') {
+          result = await supabase.auth.signInWithPassword({
+            email: email.value.trim(),
+            password: password.value
+          });
+        } else {
+          result = await supabase.auth.resetPasswordForEmail(
+            email.value.trim(),
+            { redirectTo: window.location.origin + '/Varta/login.html' }
+          );
+        }
+
+        if (result.error) throw result.error;
+
+        if (action === 'signup') {
+          showMessage('Registration submitted. Check your email for a confirmation link if email confirmation is enabled.');
+        } else if (action === 'signin') {
+          showMessage('Signed in successfully. Sign-in is working; the member feed is the next step.');
+        } else {
+          showMessage('If an account exists for this email, password-reset instructions will be sent.');
+        }
+      } catch (error) {
+        showMessage('Unable to complete this action. ' + error.message);
+      } finally {
+        buttons.forEach(button => button.disabled = false);
+      }
+    }
+
+    document.getElementById('signup').addEventListener('click', () => runAction('signup'));
+    document.getElementById('signin').addEventListener('click', event => {
+      event.preventDefault();
+      runAction('signin');
+    });
+    document.getElementById('reset').addEventListener('click', () => runAction('reset'));
+
+    form.addEventListener('submit', event => event.preventDefault());
+  </script>
+</body>
+</html>
