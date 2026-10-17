@@ -25,6 +25,7 @@
     button{width:100%;padding:13px;margin-top:14px;border:0;border-radius:9px;background:#174b8c;color:#fff;font-size:15px;font-weight:800;cursor:pointer}
     button.secondary{background:#eef2f7;color:#174b8c}button:disabled{opacity:.6;cursor:wait}
     .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions button{margin-top:14px}
+    .turnstile-wrap{display:flex;justify-content:center;min-height:0;margin-top:14px}.turnstile-wrap:empty{display:none}
     #message{min-height:24px;margin:16px 0 0;overflow-wrap:anywhere;font-size:.94rem}
     .links{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:.92rem}
     a{color:#174b8c}.hint{font-size:.83rem;margin:7px 0 0}
@@ -59,6 +60,9 @@
         </div>
         <p class="hint muted">Use at least 8 characters for your password.</p>
 
+        <div id="turnstile-container" class="turnstile-wrap" aria-label="Security verification"></div>
+        <p id="captcha-hint" class="hint muted">Security verification loads automatically.</p>
+
         <div class="actions">
           <button id="signup" type="button">Create account</button>
           <button id="signin" type="submit">Sign in</button>
@@ -82,6 +86,10 @@
     const postsUrl = new URL('posts.html', window.location.href).href;
     const profileUrl = new URL('profile.html', window.location.href).href;
     const loginUrl = new URL('login.html', window.location.href).href;
+    const TURNSTILE_SITE_KEY = '0x4AAAAAAAFZSe5K-PV3J_XUA';
+    let captchaToken = '';
+    let turnstileWidgetId = null;
+    let turnstileReady = false;
 
     function showMessage(text, kind = 'info') {
       message.textContent = text;
@@ -106,6 +114,55 @@
       return true;
     }
 
+    function resetTurnstile() {
+      captchaToken = '';
+      if (turnstileReady && turnstileWidgetId !== null) {
+        try { window.turnstile.reset(turnstileWidgetId); } catch (_) {}
+      }
+    }
+
+    function loadTurnstile() {
+      const hint = $('captcha-hint');
+      const container = $('turnstile-container');
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        if (!window.turnstile || turnstileReady) return;
+        try {
+          turnstileWidgetId = window.turnstile.render(container, {
+            sitekey: TURNSTILE_SITE_KEY,
+            callback: token => {
+              captchaToken = token;
+              hint.textContent = 'Security verification complete.';
+              hint.style.color = '#047857';
+            },
+            'expired-callback': () => {
+              captchaToken = '';
+              hint.textContent = 'Verification expired. Please complete it again.';
+              hint.style.color = '#b45309';
+            },
+            'error-callback': () => {
+              captchaToken = '';
+              hint.textContent = 'Security verification could not load. Refresh the page and try again.';
+              hint.style.color = '#b91c1c';
+            }
+          });
+          turnstileReady = true;
+          hint.textContent = 'Complete the security check when prompted.';
+        } catch (_) {
+          hint.textContent = 'Security verification could not start. Refresh the page and try again.';
+          hint.style.color = '#b91c1c';
+        }
+      };
+      script.onerror = () => {
+        hint.textContent = 'Security verification could not load. Check your connection and refresh.';
+        hint.style.color = '#b91c1c';
+      };
+      document.head.appendChild(script);
+    }
+
     async function runAction(action) {
       if (!validate(action)) return;
       const buttonId = action === 'signup' ? 'signup' : action === 'signin' ? 'signin' : 'reset';
@@ -121,12 +178,19 @@
           result = await supabase.auth.signUp({
             email: address,
             password: password.value,
-            options: { emailRedirectTo: loginUrl }
+            options: { emailRedirectTo: loginUrl, ...(captchaToken ? { captchaToken } : {}) }
           });
         } else if (action === 'signin') {
-          result = await supabase.auth.signInWithPassword({ email: address, password: password.value });
+          result = await supabase.auth.signInWithPassword({
+            email: address,
+            password: password.value,
+            options: captchaToken ? { captchaToken } : {}
+          });
         } else {
-          result = await supabase.auth.resetPasswordForEmail(address, { redirectTo: loginUrl });
+          result = await supabase.auth.resetPasswordForEmail(address, {
+            redirectTo: loginUrl,
+            ...(captchaToken ? { captchaToken } : {})
+          });
         }
         if (result.error) throw result.error;
 
@@ -155,6 +219,7 @@
           : raw;
         showMessage('Unable to complete this action. ' + friendly, 'error');
       } finally {
+        resetTurnstile();
         setBusy(false);
         $(buttonId).textContent = originalLabel;
       }
@@ -169,6 +234,7 @@
     $('signup').addEventListener('click', () => runAction('signup'));
     form.addEventListener('submit', event => { event.preventDefault(); runAction('signin'); });
     $('reset').addEventListener('click', () => runAction('reset'));
+    loadTurnstile();
 
     const { data, error } = await supabase.auth.getSession();
     if (!error && data.session) {
