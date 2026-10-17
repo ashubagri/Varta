@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Moderation Dashboard — VARTA</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+main{max-width:1050px;margin:auto;padding:32px 16px}.panel,.report{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px;margin:14px 0}.muted{color:#64748b}.report-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.pill{display:inline-block;padding:4px 9px;border-radius:99px;background:#eff6ff;color:#1d4ed8;font-size:.85rem}.report-content{white-space:pre-wrap;overflow-wrap:anywhere;background:#f8fafc;border-radius:8px;padding:12px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.controls select,.controls button{font:inherit;padding:9px 12px;border-radius:8px;border:1px solid #cbd5e1}.controls button{background:#174b8c;color:white;border-color:#174b8c;cursor:pointer}.controls button:disabled{opacity:.5}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.toolbar select,.toolbar button{padding:9px 12px;font:inherit;border:1px solid #cbd5e1;border-radius:8px}.toolbar button{cursor:pointer;background:#174b8c;color:#fff}.notice{padding:12px;border-radius:8px;background:#eff6ff}#status{overflow-wrap:anywhere}@media(max-width:600px){.report-head{display:block}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="posts.html">Posts</a><a href="discover.html">Discover</a><a href="profile.html">My Profile</a></nav></div></header>
+<main>
+<span class="eyebrow">Owner tools</span><h1>Moderation Dashboard</h1>
+<p class="muted">Review member reports carefully. A report is an allegation, not proof of a violation.</p>
+<p id="status" class="notice" role="status" aria-live="polite">Checking moderator access…</p>
+<section id="dashboard" hidden>
+<div class="toolbar"><label for="filter">Show reports</label><select id="filter"><option value="open">Open</option><option value="reviewing">Under review</option><option value="resolved">Resolved</option><option value="dismissed">Dismissed</option><option value="all">All reports</option></select><button id="refresh" type="button">Refresh</button></div>
+<div id="reports"></div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype · Moderation tools</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);
+let currentUser=null;
+const statusText=(s)=>({open:'Open',reviewing:'Under review',resolved:'Resolved',dismissed:'Dismissed'}[s]||s);
+function addText(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text||'';if(cls)el.className=cls;parent.append(el);return el;}
+async function targetDescription(report){
+ try{
+  if(report.target_type==='post'){
+   const {data,error}=await supabase.from('posts').select('content,created_at,user_id').eq('id',report.target_id).maybeSingle();
+   if(error)return 'Could not load reported post: '+error.message;
+   return data?'Post by user '+data.user_id+' · '+new Date(data.created_at).toLocaleString()+'\n'+data.content:'Reported post is no longer available.';
+  }
+  if(report.target_type==='reply'){
+   const {data,error}=await supabase.from('replies').select('content,created_at,user_id,post_id').eq('id',report.target_id).maybeSingle();
+   if(error)return 'Could not load reported reply: '+error.message;
+   return data?'Reply by user '+data.user_id+' on post '+data.post_id+' · '+new Date(data.created_at).toLocaleString()+'\n'+data.content:'Reported reply is no longer available.';
+  }
+  const {data,error}=await supabase.from('profiles').select('username,display_name,bio,id').eq('id',report.target_id).maybeSingle();
+  if(error)return 'Could not load reported profile: '+error.message;
+  return data?'Member: '+(data.display_name||data.username)+' (@'+(data.username||'unknown')+')\n'+(data.bio||'No bio'):'Reported profile is no longer available.';
+ }catch(e){return 'Could not load reported content.';}
+}
+async function renderReports(){
+ const container=$('reports');container.replaceChildren();$('status').textContent='Loading reports…';
+ const filter=$('filter').value;
+ let query=supabase.from('content_reports').select('id,created_at,reporter_id,target_type,target_id,reason,details,status').order('created_at',{ascending:true}).limit(200);
+ if(filter!=='all')query=query.eq('status',filter);
+ const {data,error}=await query;
+ if(error){$('status').textContent='Could not load reports: '+error.message;return;}
+ $('status').textContent=(data?.length||0)+' report(s) loaded. Showing up to 200.';
+ if(!data?.length){addText(container,'p','No reports in this category.','muted');return;}
+ for(const report of data){
+  const card=document.createElement('article');card.className='report';
+  const head=document.createElement('div');head.className='report-head';
+  const title=document.createElement('h2');title.style.margin='0';title.textContent=report.target_type.toUpperCase()+' report · '+report.reason;head.append(title);
+  addText(head,'span',statusText(report.status),'pill');card.append(head);
+  addText(card,'p','Submitted '+new Date(report.created_at).toLocaleString()+' · Report ID '+report.id,'muted');
+  addText(card,'p','Reporter ID: '+report.reporter_id+' · Target ID: '+report.target_id,'muted');
+  const content=addText(card,'div','Loading reported content…','report-content');card.append(content);
+  targetDescription(report).then(text=>content.textContent=text);
+  if(report.details)addText(card,'p','Reporter details: '+report.details);
+  const controls=document.createElement('div');controls.className='controls';
+  const select=document.createElement('select');select.setAttribute('aria-label','New report status');
+  for(const [value,label] of [['open','Open'],['reviewing','Under review'],['resolved','Resolved'],['dismissed','Dismissed']]){const option=document.createElement('option');option.value=value;option.textContent=label;option.selected=value===report.status;select.append(option);}
+  const save=document.createElement('button');save.type='button';save.textContent='Save status';
+  save.addEventListener('click',async()=>{save.disabled=true;save.textContent='Saving…';const {error:saveError}=await supabase.from('content_reports').update({status:select.value}).eq('id',report.id);save.disabled=false;save.textContent='Save status';if(saveError){$('status').textContent='Could not update report: '+saveError.message;return;}await renderReports();});
+  controls.append(select,save);card.append(controls);container.append(card);
+ }
+}
+async function init(){
+ const {data,error}=await supabase.auth.getSession();
+ if(error||!data.session){$('status').textContent='Sign in with the authorized VARTA owner account to access moderation.';return;}
+ currentUser=data.session.user;
+ const {data:mod,error:modError}=await supabase.from('moderators').select('user_id').eq('user_id',currentUser.id).maybeSingle();
+ if(modError){$('status').textContent='Could not verify moderator access: '+modError.message;return;}
+ if(!mod){$('status').textContent='Access denied. This account is not an authorized moderator.';return;}
+ $('dashboard').hidden=false;$('status').textContent='Moderator access verified.';
+ await renderReports();
+}
+$('filter').addEventListener('change',renderReports);
+$('refresh').addEventListener('click',renderReports);
+supabase.auth.onAuthStateChange(()=>init());
+init();
+</script>
+</body>
+</html>
