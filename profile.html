@@ -59,11 +59,22 @@ $('profileform').addEventListener('submit',async e=>{
  const {error}=await supabase.from('profiles').upsert({id:user.id,username,display_name,bio},{onConflict:'id'});
  if(error){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent=error.code==='23505'?'That username is already taken. Please choose another.':'Could not save profile: '+error.message;return;}
  const selected=[...document.querySelectorAll('input[name="interest"]:checked')].map(input=>input.value.replace(/&amp;/g,'&'));
- const {error:clearError}=await supabase.from('member_interests').delete().eq('user_id',user.id);
- if(clearError){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent='Profile saved, but interests could not be updated: '+clearError.message;return;}
+ // Save newly selected interests before removing old ones, so an insert failure
+ // cannot erase the member's previously saved interests.
  if(selected.length){
-  const {error:interestError}=await supabase.from('member_interests').insert(selected.map(topic=>({user_id:user.id,topic})));
+  const {error:interestError}=await supabase.from('member_interests').upsert(
+   selected.map(topic=>({user_id:user.id,topic})),
+   {onConflict:'user_id,topic',ignoreDuplicates:true}
+  );
   if(interestError){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent='Profile saved, but interests could not be updated: '+interestError.message;return;}
+ }
+ const {data:currentInterests,error:readInterestsError}=await supabase.from('member_interests').select('topic').eq('user_id',user.id);
+ if(readInterestsError){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent='Profile saved, but existing interests could not be checked: '+readInterestsError.message;return;}
+ for(const item of currentInterests||[]){
+  if(!selected.includes(item.topic)){
+   const {error:removeError}=await supabase.from('member_interests').delete().eq('user_id',user.id).eq('topic',item.topic);
+   if(removeError){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent='Profile saved, but some old interests could not be removed: '+removeError.message;return;}
+  }
  }
  $('save').disabled=false;$('save').textContent='Save profile';
  $('message').textContent='Profile and knowledge interests saved. Your interests will appear on your public member profile.';
