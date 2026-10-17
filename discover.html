@@ -35,7 +35,7 @@ function render(){
  if(!found.length){const p=document.createElement('p');p.className='muted';p.textContent=q?'No members match that search yet.':'No other member profiles are available yet.';root.append(p);return;}
  for(const p of found){
   const card=document.createElement('article');card.className='member';const info=document.createElement('div');
-  const name=document.createElement('h2');name.textContent=p.display_name||p.username||'VARTA Member';
+  const name=document.createElement('h2');const profileLink=document.createElement('a');profileLink.href='member.html?id='+encodeURIComponent(p.id);profileLink.textContent=p.display_name||p.username||'VARTA Member';profileLink.style.color='inherit';profileLink.style.textDecoration='none';name.append(profileLink);
   const handle=document.createElement('p');handle.className='handle';handle.textContent=p.username?'@'+p.username:'VARTA member';
   const bio=document.createElement('p');bio.className='bio';bio.textContent=p.bio||'No bio added yet.';
   const stats=document.createElement('p');stats.className='muted';stats.textContent=(followerCounts.get(p.id)||0)+' follower(s)';
