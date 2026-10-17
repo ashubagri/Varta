@@ -6,7 +6,7 @@
 <title>VARTA Posts</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled,.follow-btn:disabled{opacity:.6;cursor:wait}.follow-btn{background:#fff;color:#174b8c;border:1px solid #174b8c;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.follow-btn.following{background:#174b8c;color:#fff}.reply-box{margin-top:16px;padding-top:14px;border-top:1px solid #e5e7eb}.reply-list{margin-top:10px}.reply-item{background:#f8fafc;border-radius:10px;padding:10px 12px;margin:8px 0}.reply-item p{margin:4px 0}.reply-form{display:flex;gap:8px;margin-top:10px}.reply-form input{flex:1;min-width:0;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.reply-count{font-size:.9rem;color:#64748b}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled,.follow-btn:disabled{opacity:.6;cursor:wait}.follow-btn{background:#fff;color:#174b8c;border:1px solid #174b8c;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.follow-btn.following{background:#174b8c;color:#fff}.repost-btn{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.repost-btn.reposted{background:#047857;color:#fff}.reply-box{margin-top:16px;padding-top:14px;border-top:1px solid #e5e7eb}.reply-list{margin-top:10px}.reply-item{background:#f8fafc;border-radius:10px;padding:10px 12px;margin:8px 0}.reply-item p{margin:4px 0}.reply-form{display:flex;gap:8px;margin-top:10px}.reply-form input{flex:1;min-width:0;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.reply-count{font-size:.9rem;color:#64748b}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
 </style>
 </head>
 <body>
@@ -49,9 +49,11 @@ async function loadPosts(){
   if(error){status.textContent='Could not load posts: '+error.message;return;}
   if(!posts?.length){status.textContent='No community posts yet. Be the first to share something.';return;}
   const postIds=posts.map(p=>p.id);
+  const {data:repostsData,error:repostsError}=await supabase.from('reposts').select('id,post_id,user_id,created_at').in('post_id',postIds);
+  const reposts=repostsError?[]:(repostsData||[]);
   const {data:repliesData,error:repliesError}=await supabase.from('replies').select('id,post_id,user_id,content,created_at').in('post_id',postIds).order('created_at',{ascending:true});
   const replies=repliesError?[]:(repliesData||[]);
-  const ids=[...new Set([...posts.map(p=>p.user_id),...replies.map(r=>r.user_id)].filter(Boolean))];let profiles=[],likes=[],follows=[];
+  const ids=[...new Set([...posts.map(p=>p.user_id),...replies.map(r=>r.user_id),...reposts.map(r=>r.user_id)].filter(Boolean))];let profiles=[],likes=[],follows=[];
   if(ids.length){const r=await supabase.from('profiles').select('id,username,display_name').in('id',ids);if(!r.error)profiles=r.data||[];}
   const lr=await supabase.from('likes').select('post_id,user_id').in('post_id',postIds);
   if(!lr.error)likes=lr.data||[];
@@ -60,6 +62,7 @@ async function loadPosts(){
   const likeMap=new Map();
   for(const like of likes){if(!likeMap.has(like.post_id))likeMap.set(like.post_id,[]);likeMap.get(like.post_id).push(like.user_id);}
   const repliesByPost=new Map();for(const reply of replies){if(!repliesByPost.has(reply.post_id))repliesByPost.set(reply.post_id,[]);repliesByPost.get(reply.post_id).push(reply);}
+  const repostsByPost=new Map();const myReposts=new Set();for(const repost of reposts){if(!repostsByPost.has(repost.post_id))repostsByPost.set(repost.post_id,[]);repostsByPost.get(repost.post_id).push(repost);if(user&&repost.user_id===user.id)myReposts.add(repost.post_id);}
   const followerMap=new Map();const followingSet=new Set();
   for(const rel of follows){if(!followerMap.has(rel.following_id))followerMap.set(rel.following_id,new Set());followerMap.get(rel.following_id).add(rel.follower_id);if(user&&rel.follower_id===user.id)followingSet.add(rel.following_id);}
   for(const p of posts){
@@ -84,6 +87,19 @@ async function loadPosts(){
       await loadPosts();
     });
     actions.append(button);
+    const postReposts=repostsByPost.get(p.id)||[];
+    const repostButton=document.createElement('button');repostButton.type='button';repostButton.className='repost-btn'+(myReposts.has(p.id)?' reposted':'');repostButton.textContent=(myReposts.has(p.id)?'↻ Reposted':'↻ Repost')+' · '+postReposts.length;repostButton.setAttribute('aria-pressed',String(myReposts.has(p.id)));
+    if(!user)repostButton.title='Sign in to repost';
+    repostButton.addEventListener('click',async()=>{
+      if(!user){$('status').textContent='Please sign in to repost.';return;}
+      if(p.user_id===user.id){$('status').textContent='You cannot repost your own post.';return;}
+      repostButton.disabled=true;
+      const result=myReposts.has(p.id)?await supabase.from('reposts').delete().eq('post_id',p.id).eq('user_id',user.id):await supabase.from('reposts').insert({post_id:p.id,user_id:user.id});
+      repostButton.disabled=false;
+      if(result.error){$('status').textContent='Could not update repost: '+result.error.message;return;}
+      await loadPosts();
+    });
+    actions.append(repostButton);
     if(user&&p.user_id&&p.user_id!==user.id){
       const isFollowing=followingSet.has(p.user_id);
       const followButton=document.createElement('button');followButton.type='button';followButton.className='follow-btn'+(isFollowing?' following':'');
