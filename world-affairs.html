@@ -9,6 +9,7 @@
 <article class="knowledge-card"><span class="knowledge-tag">Guide 02 · Media literacy</span><h2>How to read international news critically</h2><p>Compare reporting from multiple credible outlets, look for primary documents and distinguish confirmed events from commentary. Check publication dates, quoted evidence, missing context and whether headlines overstate what the article actually establishes.</p><p><strong>Explore further:</strong> <a href="https://www.un.org/en/global-issues" target="_blank" rel="noopener noreferrer">Reference resource ↗</a></p><p><a href="posts.html?topic=World%20Affairs&amp;guide=How%20to%20read%20international%20news%20critically">Discuss this topic on VARTA →</a></p></article>
 <article class="knowledge-card"><span class="knowledge-tag">Guide 03 · Global economy</span><h2>Trade, supply chains and strategic materials</h2><p>Modern economies depend on cross-border networks for components, food, medicines, energy and minerals. Disruptions can spread through prices and production, while diversification often involves trade-offs between cost, resilience and environmental impact.</p><p><strong>Explore further:</strong> <a href="https://www.wto.org/" target="_blank" rel="noopener noreferrer">Reference resource ↗</a></p><p><a href="posts.html?topic=World%20Affairs&amp;guide=Trade%2C%20supply%20chains%20and%20strategic%20materials">Discuss this topic on VARTA →</a></p></article>
 <article class="knowledge-card"><span class="knowledge-tag">Guide 04 · Climate policy</span><h2>Climate diplomacy and international cooperation</h2><p>Climate agreements depend on national commitments, finance, technology, reporting and implementation. Countries have different historical emissions, capabilities and development needs, which makes negotiation complex and progress uneven.</p><p><strong>Explore further:</strong> <a href="https://unfccc.int/" target="_blank" rel="noopener noreferrer">Reference resource ↗</a></p><p><a href="posts.html?topic=World%20Affairs&amp;guide=Climate%20diplomacy%20and%20international%20cooperation">Discuss this topic on VARTA →</a></p></article></section>
+<section id="published-guides" class="knowledge-grid" aria-label="Newly published World Affairs guides" hidden></section>
 <section class="community-discussions" aria-labelledby="community-discussions-title" style="margin:28px 0;padding:22px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px">
 <h2 id="community-discussions-title">Latest community discussions</h2>
 <p>Explore what VARTA members are discussing in World Affairs. New topic-tagged posts appear here automatically.</p>
@@ -43,5 +44,31 @@ async function loadCommunityDiscussions(){
  }catch(error){note('Community discussions could not be loaded right now.');}
 }
 loadCommunityDiscussions();
+</script>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const guideRoot=document.getElementById('published-guides');
+const guideTopic="World Affairs";
+async function loadPublishedGuides(){
+ try{
+  const {data,error}=await supabase.from('knowledge_guides').select('id,topic,title,summary,body,source_url,published_at').eq('topic',guideTopic).eq('status','published').order('published_at',{ascending:false}).limit(50);
+  if(error||!data?.length)return;
+  guideRoot.replaceChildren();
+  const heading=document.createElement('h2');heading.textContent='Community-published guides';heading.style.gridColumn='1 / -1';guideRoot.append(heading);
+  for(const guide of data){
+   const card=document.createElement('article');card.className='knowledge-card';
+   const tag=document.createElement('span');tag.className='knowledge-tag';tag.textContent='Community guide · '+(guide.published_at?new Date(guide.published_at).toLocaleDateString():'');card.append(tag);
+   const title=document.createElement('h2');title.textContent=guide.title;card.append(title);
+   const summary=document.createElement('p');summary.textContent=guide.summary;card.append(summary);
+   const details=document.createElement('details');const summaryLabel=document.createElement('summary');summaryLabel.textContent='Read full guide';details.append(summaryLabel);
+   const body=document.createElement('p');body.style.whiteSpace='pre-wrap';body.textContent=guide.body;details.append(body);card.append(details);
+   if(guide.source_url){const p=document.createElement('p');const a=document.createElement('a');a.href=guide.source_url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Reference resource ↗';p.append(a);card.append(p);}
+   const discuss=document.createElement('p');const link=document.createElement('a');link.href='posts.html?topic='+encodeURIComponent(guide.topic)+'&guide='+encodeURIComponent(guide.title);link.textContent='Discuss this guide on VARTA →';discuss.append(link);card.append(discuss);
+   guideRoot.append(card);
+  }
+  guideRoot.hidden=false;
+ }catch(error){/* Keep the established starter guides available if dynamic loading is unavailable. */}
+}
+loadPublishedGuides();
 </script>
 </body></html>
