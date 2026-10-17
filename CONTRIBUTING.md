@@ -9,6 +9,10 @@ Thank you for helping improve VARTA, India's knowledge and conversation network.
 - Improve documentation, wording or translations.
 - Submit a code change that is small, tested and easy to review.
 
+## Suggest knowledge content through the website
+
+Members can use the [VARTA knowledge contribution page](https://ashubagri.github.io/Varta/contribute.html) to suggest a new guide, share a source, propose a correction, or submit a discussion question. Suggestions are reviewed before publication and are not published automatically. Include useful references where possible, distinguish evidence from interpretation, and do not submit private information or material you do not have permission to share.
+
 ## Before opening an issue
 
 1. Search existing issues to avoid duplicates.
