@@ -26,6 +26,7 @@ main{max-width:1050px;margin:auto;padding:32px 16px}.panel,.report{background:#f
 import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
 let currentUser=null;
+let renderRun=0;
 const statusText=(s)=>({open:'Open',reviewing:'Under review',resolved:'Resolved',dismissed:'Dismissed'}[s]||s);
 function addText(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text||'';if(cls)el.className=cls;parent.append(el);return el;}
 async function targetDescription(report){
@@ -46,15 +47,18 @@ async function targetDescription(report){
  }catch(e){return 'Could not load reported content.';}
 }
 async function renderReports(){
+ const run=++renderRun;
  const container=$('reports');container.replaceChildren();$('status').textContent='Loading reports…';
  const filter=$('filter').value;
  let query=supabase.from('content_reports').select('id,created_at,reporter_id,target_type,target_id,reason,details,status').order('created_at',{ascending:true}).limit(200);
  if(filter!=='all')query=query.eq('status',filter);
  const {data,error}=await query;
+ if(run!==renderRun)return;
  if(error){$('status').textContent='Could not load reports: '+error.message;return;}
  $('status').textContent=(data?.length||0)+' report(s) loaded. Showing up to 200.';
  if(!data?.length){addText(container,'p','No reports in this category.','muted');return;}
  for(const report of data){
+  if(run!==renderRun)return;
   const card=document.createElement('article');card.className='report';
   const head=document.createElement('div');head.className='report-head';
   const title=document.createElement('h2');title.style.margin='0';title.textContent=report.target_type.toUpperCase()+' report · '+report.reason;head.append(title);
@@ -84,7 +88,6 @@ async function init(){
 }
 $('filter').addEventListener('change',renderReports);
 $('refresh').addEventListener('click',renderReports);
-supabase.auth.onAuthStateChange(()=>init());
 init();
 </script>
 </body>
