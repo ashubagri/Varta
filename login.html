@@ -1,140 +1,180 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join VARTA — India's Knowledge & Conversation Network</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Create a VARTA account or sign in to share ideas and join thoughtful conversations.">
+  <title>Join VARTA — India's Knowledge &amp; Conversation Network</title>
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-height: 100vh; padding: 24px;
-      display: grid; place-items: center;
-      font-family: Arial, sans-serif;
-      background: #f4f6fa; color: #172033;
-    }
-    .card {
-      width: 100%; max-width: 440px; padding: 30px;
-      background: white; border-radius: 18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.08);
-    }
-    .brand { font-size: 30px; font-weight: 800; color: #174b8c; }
-    h1 { margin-bottom: 8px; }
-    .muted { color: #64748b; line-height: 1.5; }
-    label { display: block; margin: 16px 0 6px; font-weight: 600; }
-    input {
-      width: 100%; padding: 12px; border: 1px solid #cbd5e1;
-      border-radius: 8px; font-size: 16px;
-    }
-    button {
-      width: 100%; padding: 13px; margin-top: 14px;
-      border: 0; border-radius: 8px; background: #174b8c;
-      color: white; font-size: 16px; font-weight: 700; cursor: pointer;
-    }
-    button.secondary { background: #e8eef7; color: #174b8c; }
-    button:disabled { opacity: .6; cursor: wait; }
-    #message { margin-top: 16px; overflow-wrap: anywhere; }
-    a { color: #174b8c; }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;padding:24px;display:grid;place-items:center;font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 10% 10%,#ffedd5 0,transparent 35%),#fffaf3;color:#172033}
+    .layout{width:100%;max-width:980px;display:grid;grid-template-columns:1fr 440px;gap:36px;align-items:center}
+    .intro{padding:24px 8px}.brand{display:inline-block;color:#174b8c;text-decoration:none;font-size:30px;font-weight:900;letter-spacing:.08em}
+    .eyebrow{display:block;margin-top:30px;color:#a75a00;font-size:.76rem;letter-spacing:.13em;font-weight:800;text-transform:uppercase}
+    h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.04em;margin:12px 0}
+    .intro p{max-width:430px;color:#526074;font-size:1.08rem;line-height:1.7}
+    .benefits{display:grid;gap:12px;margin-top:24px;color:#374151}.benefits span:before{content:"✓";color:#0f766e;font-weight:800;margin-right:10px}
+    .card{width:100%;padding:30px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;box-shadow:0 18px 48px rgba(15,23,42,.08)}
+    .card h2{margin:0 0 8px;font-size:1.55rem}.muted{color:#64748b;line-height:1.55}
+    label{display:block;margin:17px 0 7px;font-weight:700;font-size:.93rem}
+    input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:9px;font:inherit;font-size:16px;background:#fff}
+    input:focus{outline:3px solid #dbeafe;border-color:#2563eb}
+    .password-wrap{display:flex;gap:8px;align-items:center}.password-wrap input{min-width:0;flex:1}
+    .show-password{width:auto;flex:0 0 auto;padding:12px;background:#f1f5f9;color:#174b8c;font-size:.9rem}
+    button{width:100%;padding:13px;margin-top:14px;border:0;border-radius:9px;background:#174b8c;color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+    button.secondary{background:#eef2f7;color:#174b8c}button:disabled{opacity:.6;cursor:wait}
+    .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions button{margin-top:14px}
+    #message{min-height:24px;margin:16px 0 0;overflow-wrap:anywhere;font-size:.94rem}
+    .links{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:.92rem}
+    a{color:#174b8c}.hint{font-size:.83rem;margin:7px 0 0}
+    @media(max-width:760px){body{padding:16px}.layout{grid-template-columns:1fr;gap:16px}.intro{padding:10px 4px}.eyebrow{margin-top:16px}.intro p{font-size:1rem}.benefits{display:none}.card{padding:24px}}
   </style>
 </head>
 <body>
-  <main class="card">
-    <a href="index.html" style="text-decoration:none"><span class="brand">VARTA</span></a>
-    <h1>Join the conversation</h1>
-    <p class="muted">Create your account or sign in to India's Knowledge & Conversation Network.</p>
+  <main class="layout">
+    <section class="intro" aria-labelledby="welcome-title">
+      <a href="index.html" class="brand" aria-label="VARTA home">VARTA</a>
+      <span class="eyebrow">Bharat Digital Universe</span>
+      <h1 id="welcome-title">Good conversations start here.</h1>
+      <p>Join India's knowledge and conversation network. Share what you know, discover other perspectives and take part in thoughtful discussions.</p>
+      <div class="benefits" aria-label="VARTA features">
+        <span>Publish posts and reply to ideas</span>
+        <span>Follow members and discover conversations</span>
+        <span>Build a profile around your interests</span>
+      </div>
+    </section>
 
-    <form id="auth-form">
-      <label for="email">Email address</label>
-      <input id="email" type="email" autocomplete="email" required maxlength="254">
+    <section class="card" aria-labelledby="account-title">
+      <h2 id="account-title">Welcome to VARTA</h2>
+      <p class="muted">New here? Create an account. Already a member? Sign in below.</p>
+      <form id="auth-form" novalidate>
+        <label for="email">Email address</label>
+        <input id="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@example.com">
 
-      <label for="password">Password (at least 8 characters)</label>
-      <input id="password" type="password" autocomplete="current-password"
-             minlength="8" required>
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input id="password" type="password" autocomplete="current-password" minlength="8" required placeholder="At least 8 characters">
+          <button id="toggle-password" class="show-password" type="button" aria-pressed="false">Show</button>
+        </div>
+        <p class="hint muted">Use at least 8 characters for your password.</p>
 
-      <button id="signup" type="button">Create account</button>
-      <button id="signin" type="submit">Sign in</button>
-      <button id="reset" class="secondary" type="button">Forgot password?</button>
-    </form>
-
-    <p id="message" role="status" aria-live="polite" class="muted"></p>
-    <p class="muted"><a href="index.html">← Back to VARTA home</a></p>
+        <div class="actions">
+          <button id="signup" type="button">Create account</button>
+          <button id="signin" type="submit">Sign in</button>
+        </div>
+        <button id="reset" class="secondary" type="button">Forgot password?</button>
+      </form>
+      <p id="message" class="muted" role="status" aria-live="polite"></p>
+      <div class="links"><a href="index.html">← Back to home</a><a href="posts.html">Browse community</a></div>
+    </section>
   </main>
 
   <script type="module">
     import { supabase } from './js/supabase-client.js';
 
-    const form = document.getElementById('auth-form');
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const message = document.getElementById('message');
+    const $ = id => document.getElementById(id);
+    const form = $('auth-form');
+    const email = $('email');
+    const password = $('password');
+    const message = $('message');
     const buttons = [...form.querySelectorAll('button')];
+    const postsUrl = new URL('posts.html', window.location.href).href;
+    const profileUrl = new URL('profile.html', window.location.href).href;
+    const loginUrl = new URL('login.html', window.location.href).href;
 
-    function showMessage(text) {
+    function showMessage(text, kind = 'info') {
       message.textContent = text;
+      message.style.color = kind === 'error' ? '#b91c1c' : kind === 'success' ? '#047857' : '#64748b';
+    }
+    function setBusy(busy, label) {
+      buttons.forEach(button => button.disabled = busy);
+      if (label) $(label).textContent = 'Please wait…';
+    }
+    function validate(action) {
+      const address = email.value.trim();
+      if (!address || !email.validity.valid) {
+        showMessage('Please enter a valid email address.', 'error');
+        email.focus();
+        return false;
+      }
+      if (action !== 'reset' && password.value.length < 8) {
+        showMessage('Please use a password with at least 8 characters.', 'error');
+        password.focus();
+        return false;
+      }
+      return true;
     }
 
     async function runAction(action) {
-      if (!email.value.trim()) {
-        showMessage('Please enter your email address.');
-        email.focus();
-        return;
-      }
-      if (action !== 'reset' && password.value.length < 8) {
-        showMessage('Please use a password with at least 8 characters.');
-        password.focus();
-        return;
-      }
-
-      buttons.forEach(button => button.disabled = true);
-      showMessage('Please wait…');
+      if (!validate(action)) return;
+      const buttonId = action === 'signup' ? 'signup' : action === 'signin' ? 'signin' : 'reset';
+      const originalLabel = $(buttonId).textContent;
+      setBusy(true);
+      $(buttonId).textContent = 'Please wait…';
+      showMessage(action === 'reset' ? 'Preparing password-reset email…' : action === 'signup' ? 'Creating your account…' : 'Signing you in…');
 
       try {
         let result;
-
+        const address = email.value.trim();
         if (action === 'signup') {
           result = await supabase.auth.signUp({
-            email: email.value.trim(),
+            email: address,
             password: password.value,
-            options: {
-              emailRedirectTo: window.location.origin + '/Varta/login.html'
-            }
+            options: { emailRedirectTo: loginUrl }
           });
         } else if (action === 'signin') {
-          result = await supabase.auth.signInWithPassword({
-            email: email.value.trim(),
-            password: password.value
-          });
+          result = await supabase.auth.signInWithPassword({ email: address, password: password.value });
         } else {
-          result = await supabase.auth.resetPasswordForEmail(
-            email.value.trim(),
-            { redirectTo: window.location.origin + '/Varta/login.html' }
-          );
+          result = await supabase.auth.resetPasswordForEmail(address, { redirectTo: loginUrl });
         }
-
         if (result.error) throw result.error;
 
+        if (action === 'signin') {
+          showMessage('Signed in successfully. Opening the VARTA community…', 'success');
+          window.location.assign(postsUrl);
+          return;
+        }
         if (action === 'signup') {
-          showMessage('Registration submitted. Check your email for a confirmation link if email confirmation is enabled.');
-        } else if (action === 'signin') {
-          showMessage('Signed in successfully. Sign-in is working; the member feed is the next step.');
+          if (result.data?.session) {
+            showMessage('Your account is ready. Let’s set up your profile…', 'success');
+            window.location.assign(profileUrl);
+            return;
+          }
+          password.value = '';
+          showMessage('Registration received. Check your inbox for the confirmation link, then return here to sign in. If the email is missing, check your spam folder.', 'success');
         } else {
-          showMessage('If an account exists for this email, password-reset instructions will be sent.');
+          showMessage('If an account exists for this email, password-reset instructions will be sent. Please check your inbox and spam folder.', 'success');
         }
       } catch (error) {
-        showMessage('Unable to complete this action. ' + error.message);
+        const raw = error?.message || 'An unexpected error occurred.';
+        const friendly = /invalid login credentials/i.test(raw)
+          ? 'Email or password is incorrect. Check your details or use Forgot password.'
+          : /user already registered/i.test(raw)
+          ? 'An account may already exist for this email. Try signing in or use Forgot password.'
+          : raw;
+        showMessage('Unable to complete this action. ' + friendly, 'error');
       } finally {
-        buttons.forEach(button => button.disabled = false);
+        setBusy(false);
+        $(buttonId).textContent = originalLabel;
       }
     }
 
-    document.getElementById('signup').addEventListener('click', () => runAction('signup'));
-    document.getElementById('signin').addEventListener('click', event => {
-      event.preventDefault();
-      runAction('signin');
+    $('toggle-password').addEventListener('click', () => {
+      const visible = password.type === 'password';
+      password.type = visible ? 'text' : 'password';
+      $('toggle-password').textContent = visible ? 'Hide' : 'Show';
+      $('toggle-password').setAttribute('aria-pressed', String(visible));
     });
-    document.getElementById('reset').addEventListener('click', () => runAction('reset'));
+    $('signup').addEventListener('click', () => runAction('signup'));
+    form.addEventListener('submit', event => { event.preventDefault(); runAction('signin'); });
+    $('reset').addEventListener('click', () => runAction('reset'));
 
-    form.addEventListener('submit', event => event.preventDefault());
+    const { data, error } = await supabase.auth.getSession();
+    if (!error && data.session) {
+      showMessage('You are already signed in. Opening the community…', 'success');
+      window.location.replace(postsUrl);
+    }
   </script>
 </body>
 </html>
