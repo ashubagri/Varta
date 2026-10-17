@@ -14,17 +14,24 @@
 <main class="page-wrap">
 <span class="eyebrow">Community</span><h1>VARTA Posts</h1><p class="tagline">Share knowledge. Start a thoughtful conversation.</p>
 <p id="authstatus" class="muted">Checking sign-in…</p>
-<section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p id="topicContext" class="muted" hidden></p><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
+<section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p id="topicContext" class="muted" hidden></p><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><label for="postTopic"><strong>Knowledge area (optional)</strong></label><select id="postTopic" style="display:block;width:100%;margin:10px 0;padding:11px;border:1px solid #cbd5e1;border-radius:10px;font:inherit"><option value="">General discussion</option><option>Science &amp; Technology</option><option>Indian Knowledge</option><option>Sound &amp; NADA</option><option>Culture &amp; Nature</option><option>World Affairs</option></select><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
+<section class="feed-card" aria-label="Filter conversations"><strong>Browse by knowledge area</strong><div id="topicFilters" class="feed-tabs" role="group" aria-label="Filter posts by topic"><button type="button" class="feed-tab active" data-topic="">All topics</button><button type="button" class="feed-tab" data-topic="Science &amp; Technology">Science &amp; technology</button><button type="button" class="feed-tab" data-topic="Indian Knowledge">Indian knowledge</button><button type="button" class="feed-tab" data-topic="Sound &amp; NADA">Sound &amp; NADA</button><button type="button" class="feed-tab" data-topic="Culture &amp; Nature">Culture &amp; nature</button><button type="button" class="feed-tab" data-topic="World Affairs">World affairs</button></div><p class="muted">Choose a topic to discover conversations. Members can assign one knowledge area to each new post.</p></section>
 <div class="feed-tabs" role="group" aria-label="Choose feed"><button id="allTab" class="feed-tab active" type="button" aria-pressed="true">Community</button><button id="followingTab" class="feed-tab" type="button" aria-pressed="false">Following</button></div><p id="status" class="muted" role="status" aria-live="polite">Loading posts…</p><section id="feed"></section>
 </main>
 <footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
 <script type="module">
 import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
-let user=null,feedMode='all';
-const topicParam=new URLSearchParams(window.location.search).get('topic');
-const discussionTopic=(topicParam||'').trim().slice(0,120);
-if(discussionTopic){$('topicContext').hidden=false;$('topicContext').textContent='Starting a discussion about: '+discussionTopic;$('content').placeholder='Share a question, insight or source about '+discussionTopic+'…';document.title='Discuss '+discussionTopic+' — VARTA';}
+let user=null,feedMode='all',topicFilter='';
+const topicOptions=['Science & Technology','Indian Knowledge','Sound & NADA','Culture & Nature','World Affairs'];
+const params=new URLSearchParams(window.location.search);
+const topicParam=(params.get('topic')||'').trim();
+const guideParam=(params.get('guide')||'').trim().slice(0,160);
+if(topicOptions.includes(topicParam)){topicFilter=topicParam;$('postTopic').value=topicParam;}
+if(topicParam||guideParam){$('topicContext').hidden=false;$('topicContext').textContent=(guideParam?'Discussing guide: '+guideParam:'Starting a discussion about '+topicParam)+'. Choose the matching knowledge area before publishing.';$('content').placeholder='Share a question, insight or source'+(guideParam?' about '+guideParam:topicParam?' about '+topicParam:'')+'…';document.title='VARTA Topic Discussion';}
+function updateTopicFilters(){document.querySelectorAll('[data-topic]').forEach(b=>{const selected=b.dataset.topic===topicFilter;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});}
+document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>{topicFilter=b.dataset.topic;updateTopicFilters();loadPosts();}));
+updateTopicFilters();
 $('allTab').addEventListener('click',()=>setFeedMode('all'));
 $('followingTab').addEventListener('click',()=>setFeedMode('following'));
 function setFeedMode(mode){feedMode=mode;$('allTab').classList.toggle('active',mode==='all');$('followingTab').classList.toggle('active',mode==='following');$('allTab').setAttribute('aria-pressed',String(mode==='all'));$('followingTab').setAttribute('aria-pressed',String(mode==='following'));loadPosts();}
@@ -76,6 +83,10 @@ async function loadPosts(){
   if(error){status.textContent='Could not load posts: '+error.message;return;}
   if(!posts?.length){status.textContent=feedMode==='following'?'No posts from followed members yet.':'No community posts yet. Be the first to share something.';return;}
   const postIds=posts.map(p=>p.id);
+  const {data:topicRows,error:topicError}=await supabase.from('post_topics').select('post_id,topic').in('post_id',postIds);
+  const topicMap=new Map((topicError?[]:(topicRows||[])).map(row=>[String(row.post_id),row.topic]));
+  const visiblePosts=topicFilter?posts.filter(p=>topicMap.get(String(p.id))===topicFilter):posts;
+  if(!visiblePosts.length){status.textContent=topicFilter?'No posts in this knowledge area yet. Be the first to start a conversation.':'No community posts yet. Be the first to share something.';return;}
   const {data:repostsData,error:repostsError}=await supabase.from('reposts').select('id,post_id,user_id,created_at').in('post_id',postIds);
   const reposts=repostsError?[]:(repostsData||[]);
   const {data:repliesData,error:repliesError}=await supabase.from('replies').select('id,post_id,user_id,content,created_at').in('post_id',postIds).order('created_at',{ascending:true});
@@ -92,10 +103,10 @@ async function loadPosts(){
   const repostsByPost=new Map();const myReposts=new Set();for(const repost of reposts){if(!repostsByPost.has(repost.post_id))repostsByPost.set(repost.post_id,[]);repostsByPost.get(repost.post_id).push(repost);if(user&&repost.user_id===user.id)myReposts.add(repost.post_id);}
   const followerMap=new Map();const followingSet=new Set();
   for(const rel of follows){if(!followerMap.has(rel.following_id))followerMap.set(rel.following_id,new Set());followerMap.get(rel.following_id).add(rel.follower_id);if(user&&rel.follower_id===user.id)followingSet.add(rel.following_id);}
-  for(const p of posts){
+  for(const p of visiblePosts){
     const prof=map.get(p.user_id),card=document.createElement('article');card.className='feed-card';
     const h=document.createElement('h2');const authorLink=document.createElement('a');authorLink.href='member.html?id='+encodeURIComponent(p.user_id);authorLink.textContent=prof?.display_name||prof?.username||'VARTA Member';authorLink.style.color='inherit';authorLink.style.textDecoration='none';h.append(authorLink);
-    const meta=document.createElement('p');meta.className='meta';meta.textContent=(prof?.username?'@'+prof.username+' · ':'')+new Date(p.created_at).toLocaleString();
+    const meta=document.createElement('p');meta.className='meta';meta.textContent=(prof?.username?'@'+prof.username+' · ':'')+new Date(p.created_at).toLocaleString()+(topicMap.get(String(p.id))?' · '+topicMap.get(String(p.id)):'');
     const body=document.createElement('p');body.className='postbody';body.textContent=p.content;
     const actions=document.createElement('div');actions.className='post-actions';
     const postLikes=likeMap.get(p.id)||[];
@@ -176,16 +187,18 @@ async function loadPosts(){
     }else{const login=document.createElement('a');login.href='login.html';login.textContent='Sign in to reply';replyBox.append(login);}
     card.append(replyBox);feed.append(card);
   }
-  status.textContent=posts.length+(feedMode==='following'?' post(s) from members you follow':' recent community post(s)');
+  status.textContent=visiblePosts.length+(topicFilter?' post(s) in '+topicFilter:feedMode==='following'?' post(s) from members you follow':' recent community post(s)');
 }
 $('form').addEventListener('submit',async e=>{
   e.preventDefault();const content=$('content').value.trim();
   if(!user){$('status').textContent='Please sign in first.';return;}
   if(!content)return;
   $('publish').disabled=true;$('publish').textContent='Publishing…';
-  const {error}=await supabase.from('posts').insert({user_id:user.id,content});
+  const {data:created,error}=await supabase.from('posts').insert({user_id:user.id,content}).select('id').single();
   $('publish').disabled=false;$('publish').textContent='Publish post';
   if(error){$('status').textContent='Could not publish: '+error.message;return;}
+  const selectedTopic=$('postTopic').value;
+  if(selectedTopic){const {error:tagError}=await supabase.from('post_topics').insert({post_id:created.id,user_id:user.id,topic:selectedTopic});if(tagError){$('status').textContent='Your post was published, but its topic could not be saved: '+tagError.message;return;}}
   $('content').value='';$('count').textContent='0';await loadPosts();
 });
 await refreshAuth();await loadPosts();
