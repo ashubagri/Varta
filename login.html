@@ -69,6 +69,15 @@
         </div>
         <button id="reset" class="secondary" type="button">Forgot password?</button>
       </form>
+      <section id="recovery-panel" hidden aria-labelledby="recovery-title">
+        <h2 id="recovery-title">Choose a new password</h2>
+        <p class="muted">Your password-reset link is verified. Enter and confirm your new password.</p>
+        <label for="new-password">New password</label>
+        <input id="new-password" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters">
+        <label for="confirm-password">Confirm new password</label>
+        <input id="confirm-password" type="password" autocomplete="new-password" minlength="8" required placeholder="Re-enter your new password">
+        <button id="save-password" type="button">Update password</button>
+      </section>
       <p id="message" class="muted" role="status" aria-live="polite"></p>
       <div class="links"><a href="index.html">← Back to home</a><a href="posts.html">Browse community</a></div>
     </section>
@@ -90,6 +99,7 @@
     let captchaToken = '';
     let turnstileWidgetId = null;
     let turnstileReady = false;
+    let recoveryMode = new URLSearchParams(window.location.hash.slice(1)).get('type') === 'recovery';
 
     function showMessage(text, kind = 'info') {
       message.textContent = text;
@@ -165,6 +175,12 @@
 
     async function runAction(action) {
       if (!validate(action)) return;
+      if (!captchaToken) {
+        showMessage('Please complete the Cloudflare security check before continuing.', 'error');
+        $('captcha-hint').style.color = '#b91c1c';
+        $('captcha-hint').textContent = 'Security verification is required.';
+        return;
+      }
       const buttonId = action === 'signup' ? 'signup' : action === 'signin' ? 'signin' : 'reset';
       const originalLabel = $(buttonId).textContent;
       setBusy(true);
@@ -234,10 +250,59 @@
     $('signup').addEventListener('click', () => runAction('signup'));
     form.addEventListener('submit', event => { event.preventDefault(); runAction('signin'); });
     $('reset').addEventListener('click', () => runAction('reset'));
+    $('save-password').addEventListener('click', async () => {
+      const nextPassword = $('new-password').value;
+      const confirmPassword = $('confirm-password').value;
+      if (nextPassword.length < 8) {
+        showMessage('Please use a new password with at least 8 characters.', 'error');
+        $('new-password').focus();
+        return;
+      }
+      if (nextPassword !== confirmPassword) {
+        showMessage('The new passwords do not match.', 'error');
+        $('confirm-password').focus();
+        return;
+      }
+      $('save-password').disabled = true;
+      $('save-password').textContent = 'Updating…';
+      try {
+        const { error: updateError } = await supabase.auth.updateUser({ password: nextPassword });
+        if (updateError) throw updateError;
+        showMessage('Your password has been updated. You can now sign in with it.', 'success');
+        $('new-password').value = '';
+        $('confirm-password').value = '';
+        await supabase.auth.signOut();
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        recoveryMode = false;
+        $('recovery-panel').hidden = true;
+        form.hidden = false;
+      } catch (error) {
+        showMessage('Unable to update your password. ' + (error?.message || 'Please request a new reset link.'), 'error');
+      } finally {
+        $('save-password').disabled = false;
+        $('save-password').textContent = 'Update password';
+      }
+    });
+
+    function showRecoveryPanel() {
+      recoveryMode = true;
+      form.hidden = true;
+      $('recovery-panel').hidden = false;
+      $('account-title').textContent = 'Reset your VARTA password';
+      showMessage('Choose a new password below.');
+      $('new-password').focus();
+    }
+
+    supabase.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY' || recoveryMode) showRecoveryPanel();
+    });
+
     loadTurnstile();
 
     const { data, error } = await supabase.auth.getSession();
-    if (!error && data.session) {
+    if (recoveryMode) {
+      showRecoveryPanel();
+    } else if (!error && data.session) {
       showMessage('You are already signed in. Opening the community…', 'success');
       window.location.replace(postsUrl);
     }
