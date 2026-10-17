@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VARTA Editorial Review</title><link rel="stylesheet" href="css/style.css">
+<style>
+.page-wrap{max-width:1000px;margin:auto;padding:34px 15px}.panel,.item{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;margin:16px 0}.muted{color:#64748b}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.controls label{font-weight:700;font-size:.92rem}.controls select,.controls textarea{width:100%;box-sizing:border-box;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;margin-top:5px}.controls textarea{min-height:75px}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:10px 15px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6}.item h2{font-size:1.15rem;margin:8px 0}.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:.85rem}.item-body{white-space:pre-wrap;overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.controls{grid-template-columns:1fr}.panel,.item{padding:15px}}
+</style></head>
+<body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="posts.html">Posts</a><a href="contribute.html">Contribute</a><a href="moderation.html">Reports</a><a href="editorial.html" aria-current="page">Editorial review</a></nav></div></header>
+<main class="page-wrap"><span class="eyebrow">Moderator tools</span><h1>Knowledge contribution review</h1><p>Review member-submitted ideas before deciding whether to accept them, request changes or decline them. Acceptance records a decision; it does not automatically publish a guide.</p>
+<section class="panel"><p id="status" class="muted" role="status" aria-live="polite">Verifying moderator access…</p><div id="dashboard" hidden><label for="filter"><strong>Filter submissions</strong></label> <select id="filter"><option value="submitted">Submitted</option><option value="reviewing">Under review</option><option value="accepted">Accepted</option><option value="needs_changes">Changes requested</option><option value="declined">Not accepted</option><option value="all">All submissions</option></select> <button id="refresh" class="btn" type="button">Refresh</button><div id="items"></div></div></section>
+<p><a href="contribute.html">Open the member contribution page →</a></p></main>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA · Editorial review</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);let runId=0;
+const topics=['Science & Technology','Indian Knowledge','Sound & NADA','Culture & Nature','World Affairs'];
+const kindLabel={new_guide:'New guide',source:'Source',correction:'Correction',discussion_question:'Discussion question'};
+const statusLabel={submitted:'Submitted',reviewing:'Under review',accepted:'Accepted',needs_changes:'Changes requested',declined:'Not accepted'};
+function add(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text||'';if(cls)el.className=cls;parent.append(el);return el;}
+async function loadItems(){
+ const thisRun=++runId,root=$('items');root.replaceChildren();$('status').textContent='Loading submissions…';
+ let query=supabase.from('knowledge_suggestions').select('id,user_id,topic,suggestion_type,title,description,source_url,status,moderator_note,created_at').order('created_at',{ascending:false}).limit(200);
+ if($('filter').value!=='all')query=query.eq('status',$('filter').value);
+ const {data,error}=await query;if(thisRun!==runId)return;
+ if(error){$('status').textContent='Could not load submissions: '+error.message;return;}
+ $('status').textContent=(data?.length||0)+' submission(s) loaded. Showing up to 200.';
+ if(!data?.length){add(root,'p','No submissions in this category.','muted');return;}
+ for(const row of data){
+  const card=document.createElement('article');card.className='item';
+  const head=document.createElement('div');head.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap';
+  add(head,'span',statusLabel[row.status]||row.status,'pill');add(head,'span',row.topic,'pill');add(head,'span',kindLabel[row.suggestion_type]||row.suggestion_type,'pill');card.append(head);
+  add(card,'h2',row.title);add(card,'p','Submitted '+new Date(row.created_at).toLocaleString()+' · Member ID '+row.user_id,'muted');add(card,'p',row.description,'item-body');
+  if(row.source_url){const a=document.createElement('a');a.href=row.source_url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Open source in new tab ↗';card.append(a);}
+  const controls=document.createElement('div');controls.className='controls';
+  const statusWrap=document.createElement('label');statusWrap.textContent='Editorial decision';const select=document.createElement('select');
+  for(const [value,label] of [['submitted','Submitted'],['reviewing','Under review'],['accepted','Accepted'],['needs_changes','Changes requested'],['declined','Not accepted']]){const o=document.createElement('option');o.value=value;o.textContent=label;o.selected=value===row.status;select.append(o);}statusWrap.append(select);controls.append(statusWrap);
+  const noteWrap=document.createElement('label');noteWrap.textContent='Note to contributor (optional)';const note=document.createElement('textarea');note.maxLength=1000;note.placeholder='Explain what is useful or what needs improvement…';note.value=row.moderator_note||'';noteWrap.append(note);controls.append(noteWrap);card.append(controls);
+  const save=document.createElement('button');save.className='btn';save.type='button';save.textContent='Save editorial decision';
+  save.addEventListener('click',async()=>{save.disabled=true;save.textContent='Saving…';const {error:saveError}=await supabase.from('knowledge_suggestions').update({status:select.value,moderator_note:note.value.trim()||null,updated_at:new Date().toISOString()}).eq('id',row.id);save.disabled=false;save.textContent='Save editorial decision';if(saveError){$('status').textContent='Could not save decision: '+saveError.message;return;}await loadItems();});
+  card.append(save);root.append(card);
+ }
+}
+async function init(){
+ const {data,error}=await supabase.auth.getSession();
+ if(error||!data.session){$('status').textContent='Sign in with the authorised VARTA moderator account to access editorial review.';return;}
+ const {data:mod,error:modError}=await supabase.from('moderators').select('user_id').eq('user_id',data.session.user.id).maybeSingle();
+ if(modError){$('status').textContent='Could not verify moderator access: '+modError.message;return;}
+ if(!mod){$('status').textContent='Access denied. This account is not an authorised moderator.';return;}
+ $('dashboard').hidden=false;$('status').textContent='Moderator access verified.';await loadItems();
+}
+$('filter').addEventListener('change',loadItems);$('refresh').addEventListener('click',loadItems);await init();
+</script></body></html>
