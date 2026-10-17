@@ -4,20 +4,29 @@
 .page-wrap{max-width:900px;margin:auto;padding:36px 15px}.panel,.result{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;margin:16px 0}.search-form{display:flex;gap:10px}.search-form input{flex:1;min-width:0;padding:13px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}.btn{background:#174b8c;color:white;border:0;border-radius:9px;padding:12px 18px;font-weight:700;cursor:pointer}.muted{color:#64748b}.result h3{margin:0 0 6px}.result a{color:#174b8c;text-decoration:none}.result p{white-space:pre-wrap;overflow-wrap:anywhere}.section-title{margin-top:28px}.main-nav{flex-wrap:wrap}#status{overflow-wrap:anywhere}@media(max-width:600px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.search-form{flex-direction:column}}
 </style></head><body>
 <header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="posts.html">Posts</a><a href="search.html">Search</a><a href="discover.html">Discover</a><a href="activity.html">Activity</a><a href="notifications.html">Notifications</a><a href="profile.html">My Profile</a></nav></div></header>
-<main class="page-wrap"><span class="eyebrow">Explore the community</span><h1>Search VARTA</h1><p class="tagline">Find conversations and members by keyword.</p>
-<section class="panel"><form id="form" class="search-form"><input id="q" type="search" maxlength="100" placeholder="Search posts, names, usernames or bios…" required><button class="btn" id="submit" type="submit">Search</button></form><p id="status" class="muted" role="status" aria-live="polite">Enter a keyword to search community posts and member profiles.</p></section>
-<h2 class="section-title">Members</h2><section id="members"></section><h2 class="section-title">Posts</h2><section id="posts"></section></main>
+<main class="page-wrap"><span class="eyebrow">Explore the community</span><h1>Search VARTA</h1><p class="tagline">Search members, conversations and knowledge areas—or open a topic directly.</p>
+<section class="panel"><form id="form" class="search-form"><input id="q" type="search" maxlength="100" placeholder="Search posts, names, usernames or bios…" required><button class="btn" id="submit" type="submit">Search</button></form><p id="status" class="muted" role="status" aria-live="polite">Enter a keyword to search community posts, member profiles and knowledge topics.</p></section>
+<h2 class="section-title">Knowledge areas</h2><section id="topics"></section><h2 class="section-title">Members</h2><section id="members"></section><h2 class="section-title">Posts</h2><section id="posts"></section></main>
 <footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
 <script type="module">
 import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
 function resultCard(title,subtitle,body,url,label){const card=document.createElement('article');card.className='result';const h=document.createElement('h3'),a=document.createElement('a');a.href=url;a.textContent=title;h.append(a);card.append(h);if(subtitle){const meta=document.createElement('p');meta.className='muted';meta.textContent=subtitle;card.append(meta);}if(body){const p=document.createElement('p');p.textContent=body;card.append(p);}return card;}
 function empty(root,message){const p=document.createElement('p');p.className='muted';p.textContent=message;root.append(p);}
+const topics=[
+ {name:'Science & Technology',desc:'Hydrogen, clean energy, climate science and AI.'},
+ {name:'Indian Knowledge',desc:'Sanskrit, Indian philosophy, Vedic texts and oral traditions.'},
+ {name:'Sound & NADA',desc:'Ragas, acoustics, Nāda Yoga and meditation.'},
+ {name:'Culture & Nature',desc:'Heritage, festivals, biodiversity and architecture.'},
+ {name:'World Affairs',desc:'Geopolitics, energy security, trade and climate diplomacy.'}
+];
+function topicCard(t){return resultCard(t.name,'VARTA knowledge area',t.desc,'posts.html?topic='+encodeURIComponent(t.name));}
 $('form').addEventListener('submit',async e=>{
  e.preventDefault();const q=$('q').value.trim();if(!q)return;
- $('submit').disabled=true;$('submit').textContent='Searching…';$('status').textContent='Searching members and posts…';$('members').replaceChildren();$('posts').replaceChildren();
+ $('submit').disabled=true;$('submit').textContent='Searching…';$('status').textContent='Searching knowledge areas, members and posts…';$('topics').replaceChildren();$('members').replaceChildren();$('posts').replaceChildren();
  const cleanQ=q.replace(/[\\%_]/g,'').trim();
  const pattern='%'+cleanQ+'%';
+ const matchingTopics=topics.filter(t=>(t.name+' '+t.desc).toLocaleLowerCase().includes(q.toLocaleLowerCase()));
  const [byName,byUsername,byBio,po]=await Promise.all([
   supabase.from('profiles').select('id,username,display_name,bio').ilike('display_name',pattern).limit(30),
   supabase.from('profiles').select('id,username,display_name,bio').ilike('username',pattern).limit(30),
@@ -29,15 +38,19 @@ $('form').addEventListener('submit',async e=>{
  const pr={data:[...memberMap.values()],error:profileErrors.length===3?profileErrors[0].error:null};
  $('submit').disabled=false;$('submit').textContent='Search';
  if(pr.error&&po.error){$('status').textContent='Search failed: '+pr.error.message+'; '+po.error.message;return;}
+ if(matchingTopics.length){for(const t of matchingTopics)$('topics').append(topicCard(t));}else{empty($('topics'),'No matching knowledge areas. Browse all topics below.');}
+ if(!matchingTopics.length){for(const t of topics)$('topics').append(topicCard(t));}
  let members=pr.data||[],posts=po.data||[];
  if(pr.error){empty($('members'),'Member search failed: '+pr.error.message);}else if(!members.length){empty($('members'),'No matching members found.');}else for(const p of members){$('members').append(resultCard(p.display_name||p.username||'VARTA Member',p.username?'@'+p.username:'VARTA member',p.bio||'No bio added yet.','member.html?id='+encodeURIComponent(p.id)));}
  if(po.error){empty($('posts'),'Post search failed: '+po.error.message);}else if(!posts.length){empty($('posts'),'No matching posts found.');}else{
   const ids=[...new Set(posts.map(p=>p.user_id).filter(Boolean))];let profiles=[];
   if(ids.length){const r=await supabase.from('profiles').select('id,username,display_name').in('id',ids);if(!r.error)profiles=r.data||[];}
   const map=new Map(profiles.map(p=>[p.id,p]));
-  for(const p of posts){const author=map.get(p.user_id);$('posts').append(resultCard(author?.display_name||author?.username||'VARTA Member',(author?.username?'@'+author.username+' · ':'')+new Date(p.created_at).toLocaleString(),p.content,'posts.html'));}
+  const {data:tagRows,error:tagError}=await supabase.from('post_topics').select('post_id,topic').in('post_id',posts.map(p=>p.id));
+  const tags=new Map((tagError?[]:(tagRows||[])).map(t=>[String(t.post_id),t.topic]));
+  for(const p of posts){const author=map.get(p.user_id),topic=tags.get(String(p.id));$('posts').append(resultCard(author?.display_name||author?.username||'VARTA Member',(topic?topic+' · ':'')+(author?.username?'@'+author.username+' · ':'')+new Date(p.created_at).toLocaleString(),p.content,'posts.html?'+(topic?'topic='+encodeURIComponent(topic):'')));}
  }
- $('status').textContent='Search complete: '+members.length+' member(s), '+posts.length+' post(s) matching “'+q+'”.';
+ $('status').textContent='Search complete: '+matchingTopics.length+' knowledge area(s), '+members.length+' member(s), '+posts.length+' post(s) matching “'+q+'”.';
 });
 const initial=new URLSearchParams(location.search).get('q');if(initial){$('q').value=initial;$('form').requestSubmit();}
 </script></body></html>
