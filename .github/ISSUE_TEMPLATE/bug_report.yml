@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a problem so it can be reproduced and fixed.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Please do not include passwords, access tokens, private messages or other sensitive information."
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+      placeholder: "I expected… but…"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: List the steps someone can follow to see the problem.
+      placeholder: |
+        1. Open…
+        2. Click…
+        3. Observe…
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+      placeholder: "https://ashubagri.github.io/Varta/..."
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Edge
+        - Firefox
+        - Safari
+        - Other
+        - Not sure
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Windows desktop/laptop
+        - Mac
+        - Android phone/tablet
+        - iPhone/iPad
+        - Other
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional details
+      description: Add non-sensitive error messages or screenshots if useful.
