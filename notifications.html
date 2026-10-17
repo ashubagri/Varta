@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Notifications — VARTA</title><link rel="stylesheet" href="css/style.css"><style>
+.page-wrap{max-width:850px;margin:auto;padding:36px 15px}.notice{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px;margin:12px 0}.notice.unread{border-left:4px solid #174b8c;background:#f8fbff}.muted{color:#64748b}.notice p{margin:7px 0}.notice a{color:#174b8c}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+</style></head><body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="science.html">Science</a><a href="indian-knowledge.html">Indian Knowledge</a><a href="sound-nada.html">Sound &amp; NADA</a><a href="culture-nature.html">Culture</a><a href="world-affairs.html">World Affairs</a><a href="posts.html">Posts</a><a href="activity.html">Activity</a><a href="notifications.html">Notifications <span id="navcount"></span></a><a href="profile.html">My Profile</a></nav></div></header>
+<main class="page-wrap"><span class="eyebrow">Your account</span><h1>Notifications <span id="unreadbadge"></span></h1><p class="muted">See who liked, replied to, followed or reposted your content.</p><p id="status" class="muted" role="status" aria-live="polite">Checking sign-in…</p><button id="markall" class="btn" hidden>Mark all as read</button><section id="feed"></section></main><footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);let user=null;
+const messages={like:'liked your post.',reply:'replied to your post.',follow:'started following you.',repost:'reposted your post.'};
+async function load(){
+ const {data:session,error:authError}=await supabase.auth.getSession();user=session?.session?.user||null;
+ if(authError){$('status').textContent='Could not check sign-in: '+authError.message;return;}
+ if(!user){$('status').textContent='Please sign in to view your notifications.';const a=document.createElement('a');a.href='login.html';a.textContent=' Open VARTA Login';$('status').append(a);return;}
+ $('status').textContent='Loading notifications…';$('feed').replaceChildren();
+ const {data,error}=await supabase.from('notifications').select('id,actor_id,kind,post_id,created_at,read_at').eq('recipient_id',user.id).order('created_at',{ascending:false}).limit(100);
+ if(error){$('status').textContent='Could not load notifications: '+error.message;return;}
+ const notes=data||[],unread=notes.filter(n=>!n.read_at).length;
+ $('navcount').textContent=unread?'('+unread+')':'';$('unreadbadge').textContent=unread?'· '+unread+' unread':'';
+ $('markall').hidden=!unread;
+ if(!notes.length){$('status').textContent='No notifications yet. When members interact with your posts or follow you, you will see it here.';return;}
+ const actorIds=[...new Set(notes.map(n=>n.actor_id).filter(Boolean))];let profiles=[];
+ if(actorIds.length){const r=await supabase.from('profiles').select('id,username,display_name').in('id',actorIds);if(!r.error)profiles=r.data||[];}
+ const map=new Map(profiles.map(p=>[p.id,p]));
+ for(const n of notes){
+  const card=document.createElement('article');card.className='notice'+(!n.read_at?' unread':'');
+  const actor=map.get(n.actor_id),name=actor?.display_name||actor?.username||'A VARTA member';
+  const p=document.createElement('p');p.textContent=name+' '+(messages[n.kind]||'interacted with you.');
+  const meta=document.createElement('p');meta.className='muted';meta.textContent=new Date(n.created_at).toLocaleString();
+  card.append(p,meta);
+  if(n.post_id){const a=document.createElement('a');a.href='posts.html';a.textContent='Open community posts';card.append(a);}
+  if(!n.read_at){const b=document.createElement('button');b.className='btn';b.textContent='Mark as read';b.style.marginLeft='10px';b.addEventListener('click',async()=>{b.disabled=true;const result=await supabase.from('notifications').update({read_at:new Date().toISOString()}).eq('id',n.id).eq('recipient_id',user.id);if(result.error){b.disabled=false;$('status').textContent='Could not mark as read: '+result.error.message;return;}await load();});card.append(b);}
+  $('feed').append(card);
+ }
+ $('status').textContent=notes.length+' notification(s)';
+}
+$('markall').addEventListener('click',async()=>{if(!user)return;$('markall').disabled=true;const result=await supabase.from('notifications').update({read_at:new Date().toISOString()}).eq('recipient_id',user.id).is('read_at',null);$('markall').disabled=false;if(result.error){$('status').textContent='Could not mark notifications as read: '+result.error.message;return;}await load();});
+await load();
+</script></body></html>
