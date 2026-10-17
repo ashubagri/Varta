@@ -79,7 +79,7 @@ async function loadPosts(){
   for(const rel of follows){if(!followerMap.has(rel.following_id))followerMap.set(rel.following_id,new Set());followerMap.get(rel.following_id).add(rel.follower_id);if(user&&rel.follower_id===user.id)followingSet.add(rel.following_id);}
   for(const p of posts){
     const prof=map.get(p.user_id),card=document.createElement('article');card.className='feed-card';
-    const h=document.createElement('h2');h.textContent=prof?.display_name||prof?.username||'VARTA Member';
+    const h=document.createElement('h2');const authorLink=document.createElement('a');authorLink.href='member.html?id='+encodeURIComponent(p.user_id);authorLink.textContent=prof?.display_name||prof?.username||'VARTA Member';authorLink.style.color='inherit';authorLink.style.textDecoration='none';h.append(authorLink);
     const meta=document.createElement('p');meta.className='meta';meta.textContent=(prof?.username?'@'+prof.username+' · ':'')+new Date(p.created_at).toLocaleString();
     const body=document.createElement('p');body.className='postbody';body.textContent=p.content;
     const actions=document.createElement('div');actions.className='post-actions';
@@ -134,7 +134,7 @@ async function loadPosts(){
     const replyList=document.createElement('div');replyList.className='reply-list';
     for(const reply of (repliesByPost.get(p.id)||[])){
       const rp=document.createElement('div');rp.className='reply-item';
-      const rpName=document.createElement('strong');const rprof=map.get(reply.user_id);rpName.textContent=rprof?.display_name||rprof?.username||'VARTA Member';
+      const rpName=document.createElement('strong');const rprof=map.get(reply.user_id);const replyAuthorLink=document.createElement('a');replyAuthorLink.href='member.html?id='+encodeURIComponent(reply.user_id);replyAuthorLink.textContent=rprof?.display_name||rprof?.username||'VARTA Member';replyAuthorLink.style.color='inherit';replyAuthorLink.style.textDecoration='none';rpName.append(replyAuthorLink);
       const rpMeta=document.createElement('span');rpMeta.className='muted';rpMeta.textContent=' · '+new Date(reply.created_at).toLocaleString();
       const rpBody=document.createElement('p');rpBody.textContent=reply.content;
       rp.append(rpName,rpMeta,rpBody);
