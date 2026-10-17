@@ -9,5 +9,39 @@
 <article class="knowledge-card"><span class="knowledge-tag">Guide 02 · Energy transition</span><h2>Green hydrogen: how it is made</h2><p>Electrolysis uses electricity to split water into hydrogen and oxygen. When the electricity comes from low-emissions sources, the hydrogen can have a lower production footprint. Equipment, water use, electricity availability, transport and cost all matter.</p><p><strong>Explore further:</strong> <a href="https://www.iea.org/reports/global-hydrogen-review-2024" target="_blank" rel="noopener noreferrer">Reference resource ↗</a></p><p><a href="posts.html?topic=Science%20%26%20Technology&amp;guide=Green%20hydrogen%3A%20how%20it%20is%20made">Discuss this topic on VARTA →</a></p></article>
 <article class="knowledge-card"><span class="knowledge-tag">Guide 03 · Climate science</span><h2>Climate change: evidence and solutions</h2><p>Climate science combines measurements, physical theory and observations to understand a warming planet. Solutions include clean electricity, efficiency, electrification, lower-emissions industry and adaptation. Different solutions suit different places and sectors.</p><p><strong>Explore further:</strong> <a href="https://science.nasa.gov/climate-change/" target="_blank" rel="noopener noreferrer">Reference resource ↗</a></p><p><a href="posts.html?topic=Science%20%26%20Technology&amp;guide=Climate%20change%3A%20evidence%20and%20solutions">Discuss this topic on VARTA →</a></p></article>
 <article class="knowledge-card"><span class="knowledge-tag">Guide 04 · Digital technology</span><h2>Artificial intelligence: capability and limits</h2><p>AI systems can identify patterns and generate text, images or predictions, but they can also produce errors and reflect weaknesses in their data. Important questions include evaluation, privacy, transparency, security and who is accountable for decisions.</p><p><strong>Explore further:</strong> <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">Reference resource ↗</a></p><p><a href="posts.html?topic=Science%20%26%20Technology&amp;guide=Artificial%20intelligence%3A%20capability%20and%20limits">Discuss this topic on VARTA →</a></p></article></section>
+<section class="community-discussions" aria-labelledby="community-discussions-title" style="margin:28px 0;padding:22px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px">
+<h2 id="community-discussions-title">Latest community discussions</h2>
+<p>Explore what VARTA members are discussing in Science &amp; Technology. New topic-tagged posts appear here automatically.</p>
+<div id="community-discussions" aria-live="polite"><p class="muted">Loading recent discussions…</p></div>
+<p><a class="knowledge-btn" href="posts.html?topic=Science%20%26%20Technology">Join the Science &amp; Technology discussion →</a></p>
+</section>
 <section class="knowledge-footer"><h2>Help build VARTA's knowledge library</h2><p>Have a useful source, a correction or a different perspective? Bring it to the community. Be respectful, identify your sources, and distinguish evidence from opinion.</p><a class="knowledge-btn" href="posts.html">Share a contribution</a></section></main>
-<footer class="site-footer"><div class="container"><p>© 2026 VARTA — India's Knowledge &amp; Conversation Network</p></div></footer></body></html>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA — India's Knowledge &amp; Conversation Network</p></div></footer><script type="module">
+import {supabase} from './js/supabase-client.js';
+const root=document.getElementById('community-discussions');
+const topic="Science & Technology";
+const esc=(value)=>String(value||'');
+function note(message){const p=document.createElement('p');p.className='muted';p.textContent=message;root.replaceChildren(p);}
+async function loadCommunityDiscussions(){
+ try{
+  const {data:tags,error:tagError}=await supabase.from('post_topics').select('post_id').eq('topic',topic).order('created_at',{ascending:false}).limit(3);
+  if(tagError){note('Community discussions are temporarily unavailable. You can still open the topic feed below.');return;}
+  if(!tags?.length){note('No discussions in this knowledge area yet. Be the first to start one.');return;}
+  const {data:posts,error:postError}=await supabase.from('posts').select('id,user_id,content,created_at').in('id',tags.map(t=>t.post_id)).order('created_at',{ascending:false}).limit(3);
+  if(postError){note('Community discussions are temporarily unavailable. You can still open the topic feed below.');return;}
+  if(!posts?.length){note('No discussions in this knowledge area yet. Be the first to start one.');return;}
+  const ids=[...new Set(posts.map(p=>p.user_id).filter(Boolean))];
+  const {data:profiles}=ids.length?await supabase.from('profiles').select('id,username,display_name').in('id',ids):{data:[]};
+  const byId=new Map((profiles||[]).map(p=>[p.id,p]));
+  root.replaceChildren();
+  for(const post of posts){
+   const card=document.createElement('article');card.style.cssText='background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;margin:10px 0';
+   const author=byId.get(post.user_id);const meta=document.createElement('p');meta.className='muted';meta.textContent=(author?.display_name||author?.username||'VARTA member')+' · '+new Date(post.created_at).toLocaleDateString();card.append(meta);
+   const body=document.createElement('p');body.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere';body.textContent=esc(post.content);card.append(body);
+   const link=document.createElement('a');link.href='posts.html?topic='+encodeURIComponent(topic);link.textContent='Open topic conversation →';card.append(link);root.append(card);
+  }
+ }catch(error){note('Community discussions could not be loaded right now.');}
+}
+loadCommunityDiscussions();
+</script>
+</body></html>
