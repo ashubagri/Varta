@@ -6,7 +6,7 @@
 <title>VARTA Posts</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled{opacity:.6;cursor:wait}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled,.follow-btn:disabled{opacity:.6;cursor:wait}.follow-btn{background:#fff;color:#174b8c;border:1px solid #174b8c;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.follow-btn.following{background:#174b8c;color:#fff}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
 </style>
 </head>
 <body>
@@ -48,14 +48,17 @@ async function loadPosts(){
   const {data:posts,error}=await supabase.from('posts').select('id,user_id,content,created_at').order('created_at',{ascending:false}).limit(50);
   if(error){status.textContent='Could not load posts: '+error.message;return;}
   if(!posts?.length){status.textContent='No community posts yet. Be the first to share something.';return;}
-  const ids=[...new Set(posts.map(p=>p.user_id).filter(Boolean))];let profiles=[],likes=[];
+  const ids=[...new Set(posts.map(p=>p.user_id).filter(Boolean))];let profiles=[],likes=[],follows=[];
   if(ids.length){const r=await supabase.from('profiles').select('id,username,display_name').in('id',ids);if(!r.error)profiles=r.data||[];}
   const postIds=posts.map(p=>p.id);
   const lr=await supabase.from('likes').select('post_id,user_id').in('post_id',postIds);
   if(!lr.error)likes=lr.data||[];
+  if(ids.length){const fr=await supabase.from('follows').select('follower_id,following_id').in('following_id',ids);if(!fr.error)follows=fr.data||[];}
   const map=new Map(profiles.map(p=>[p.id,p]));
   const likeMap=new Map();
   for(const like of likes){if(!likeMap.has(like.post_id))likeMap.set(like.post_id,[]);likeMap.get(like.post_id).push(like.user_id);}
+  const followerMap=new Map();const followingSet=new Set();
+  for(const rel of follows){if(!followerMap.has(rel.following_id))followerMap.set(rel.following_id,new Set());followerMap.get(rel.following_id).add(rel.follower_id);if(user&&rel.follower_id===user.id)followingSet.add(rel.following_id);}
   for(const p of posts){
     const prof=map.get(p.user_id),card=document.createElement('article');card.className='feed-card';
     const h=document.createElement('h2');h.textContent=prof?.display_name||prof?.username||'VARTA Member';
@@ -78,6 +81,22 @@ async function loadPosts(){
       await loadPosts();
     });
     actions.append(button);
+    if(user&&p.user_id&&p.user_id!==user.id){
+      const isFollowing=followingSet.has(p.user_id);
+      const followButton=document.createElement('button');followButton.type='button';followButton.className='follow-btn'+(isFollowing?' following':'');
+      followButton.textContent=(isFollowing?'Following':'Follow')+' · '+(followerMap.get(p.user_id)?.size||0);
+      followButton.setAttribute('aria-pressed',String(isFollowing));
+      followButton.addEventListener('click',async()=>{
+        followButton.disabled=true;
+        let result;
+        if(followingSet.has(p.user_id)) result=await supabase.from('follows').delete().eq('follower_id',user.id).eq('following_id',p.user_id);
+        else result=await supabase.from('follows').insert({follower_id:user.id,following_id:p.user_id});
+        followButton.disabled=false;
+        if(result.error){$('status').textContent='Could not update follow: '+result.error.message;return;}
+        await loadPosts();
+      });
+      actions.append(followButton);
+    }
     card.append(h,meta,body,actions);feed.append(card);
   }
   status.textContent=posts.length+' recent post(s)';
