@@ -16,11 +16,17 @@ function empty(root,message){const p=document.createElement('p');p.className='mu
 $('form').addEventListener('submit',async e=>{
  e.preventDefault();const q=$('q').value.trim();if(!q)return;
  $('submit').disabled=true;$('submit').textContent='Searching…';$('status').textContent='Searching members and posts…';$('members').replaceChildren();$('posts').replaceChildren();
- const pattern='%'+q.replace(/[\\%_]/g,'')+'%';
- const [pr,po]=await Promise.all([
-  supabase.from('profiles').select('id,username,display_name,bio').or('display_name.ilike.'+pattern+',username.ilike.'+pattern+',bio.ilike.'+pattern).limit(30),
+ const cleanQ=q.replace(/[\\%_]/g,'').trim();
+ const pattern='%'+cleanQ+'%';
+ const [byName,byUsername,byBio,po]=await Promise.all([
+  supabase.from('profiles').select('id,username,display_name,bio').ilike('display_name',pattern).limit(30),
+  supabase.from('profiles').select('id,username,display_name,bio').ilike('username',pattern).limit(30),
+  supabase.from('profiles').select('id,username,display_name,bio').ilike('bio',pattern).limit(30),
   supabase.from('posts').select('id,user_id,content,created_at').ilike('content',pattern).order('created_at',{ascending:false}).limit(50)
  ]);
+ const profileErrors=[byName,byUsername,byBio].filter(r=>r.error);
+ const memberMap=new Map();for(const r of [byName,byUsername,byBio])for(const p of r.data||[])memberMap.set(p.id,p);
+ const pr={data:[...memberMap.values()],error:profileErrors.length===3?profileErrors[0].error:null};
  $('submit').disabled=false;$('submit').textContent='Search';
  if(pr.error&&po.error){$('status').textContent='Search failed: '+pr.error.message+'; '+po.error.message;return;}
  let members=pr.data||[],posts=po.data||[];
