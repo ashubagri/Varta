@@ -1,0 +1,37 @@
+name: Feature request
+description: Suggest a focused improvement for VARTA.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem should this solve?
+      description: Describe the user need, not only the proposed solution.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: What would you like to happen?
+      description: Explain the feature or improvement you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other ways to solve the problem?
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area of VARTA is this about?
+      options:
+        - Registration and profiles
+        - Posts and replies
+        - Search and discovery
+        - Notifications and activity
+        - Accessibility
+        - Security and privacy
+        - Design and mobile experience
+        - Other
