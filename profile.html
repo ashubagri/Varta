@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Profile — VARTA</title><link rel="stylesheet" href="css/style.css">
+<style>
+.page-wrap{max-width:760px;margin:auto;padding:36px 15px}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin:18px 0}.field{margin:18px 0}.field label{display:block;font-weight:700;margin-bottom:7px}.field input,.field textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit;box-sizing:border-box}.field textarea{min-height:120px;resize:vertical}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.muted{color:#64748b}#message{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+</style>
+</head><body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="science.html">Science</a><a href="indian-knowledge.html">Indian Knowledge</a><a href="sound-nada.html">Sound &amp; NADA</a><a href="culture-nature.html">Culture</a><a href="world-affairs.html">World Affairs</a><a href="posts.html">Posts</a><a href="profile.html">My Profile</a></nav></div></header>
+<main class="page-wrap"><span class="eyebrow">Member account</span><h1>My VARTA Profile</h1><p class="tagline">Choose how other members see you.</p>
+<p id="authstatus" class="muted">Checking sign-in…</p>
+<form id="profileform" class="panel" hidden>
+<div class="field"><label for="display_name">Display name</label><input id="display_name" maxlength="60" required placeholder="Your name"></div>
+<div class="field"><label for="username">Username</label><input id="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+" required placeholder="letters, numbers and underscores"><small class="muted">3–30 characters; letters, numbers and underscores only.</small></div>
+<div class="field"><label for="bio">Bio</label><textarea id="bio" maxlength="300" placeholder="Tell the VARTA community a little about yourself (max 300 characters)"></textarea><small class="muted"><span id="biocount">0</span>/300</small></div>
+<button id="save" class="btn" type="submit">Save profile</button>
+</form>
+<p id="message" class="muted" role="status" aria-live="polite"></p><p><a href="posts.html">← Back to community posts</a></p></main>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);let user=null;
+$('bio').addEventListener('input',()=>$('biocount').textContent=$('bio').value.length);
+async function init(){
+ const {data,error}=await supabase.auth.getSession();
+ if(error){$('authstatus').textContent='Could not check sign-in: '+error.message;return;}
+ user=data.session?.user||null;
+ if(!user){$('authstatus').textContent='Please sign in to edit your profile.';const a=document.createElement('a');a.href='login.html';a.textContent='Open VARTA Login';$('authstatus').append(' ',a);return;}
+ $('authstatus').textContent='Signed in. Changes apply to your member profile.';
+ const {data:p,error:e}=await supabase.from('profiles').select('username,display_name,bio').eq('id',user.id).maybeSingle();
+ if(e){$('message').textContent='Could not load profile: '+e.message;return;}
+ if(p){$('username').value=p.username||'';$('display_name').value=p.display_name||'';$('bio').value=p.bio||'';}
+ else {
+  const emailName=(user.email||'varta-member').split('@')[0];
+  const base=emailName.toLowerCase().replace(/[^a-z0-9_]/g,'_').replace(/^_+|_+$/g,'').slice(0,20)||'varta_member';
+  $('username').value=(base.length<3?'member_'+base:base)+'_'+user.id.replace(/-/g,'').slice(0,6).toLowerCase();
+  $('display_name').value=emailName.replace(/[._-]+/g,' ').trim().replace(/\b\w/g,ch=>ch.toUpperCase()).slice(0,60)||'VARTA Member';
+ }
+ $('biocount').textContent=$('bio').value.length;$('profileform').hidden=false;
+}
+$('profileform').addEventListener('submit',async e=>{
+ e.preventDefault();if(!user)return;
+ const username=$('username').value.trim().toLowerCase(),display_name=$('display_name').value.trim(),bio=$('bio').value.trim();
+ if(!/^[a-z0-9_]{3,30}$/.test(username)){$('message').textContent='Username must be 3–30 characters using letters, numbers and underscores.';return;}
+ if(!display_name){$('message').textContent='Please enter a display name.';return;}
+ $('save').disabled=true;$('save').textContent='Saving…';$('message').textContent='';
+ const {error}=await supabase.from('profiles').upsert({id:user.id,username,display_name,bio},{onConflict:'id'});
+ $('save').disabled=false;$('save').textContent='Save profile';
+ if(error){$('message').textContent=error.code==='23505'?'That username is already taken. Please choose another.':'Could not save profile: '+error.message;return;}
+ $('message').textContent='Profile saved successfully. Your name and username will appear on your posts.';
+});
+await init();
+</script></body></html>
