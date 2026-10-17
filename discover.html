@@ -13,7 +13,7 @@
 <footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
 <script type="module">
 import {supabase} from './js/supabase-client.js';
-const $=id=>document.getElementById(id);let user=null,profiles=[],following=new Set(),followerCounts=new Map();
+const $=id=>document.getElementById(id);let user=null,profiles=[],following=new Set(),followerCounts=new Map(),interestsByUser=new Map();
 const safe=(v)=>String(v||'').toLocaleLowerCase();
 async function init(){
  const {data,error}=await supabase.auth.getSession();
@@ -26,20 +26,25 @@ async function init(){
  profiles=(p.data||[]).filter(x=>!user||x.id!==user.id);
  const f=await supabase.from('follows').select('follower_id,following_id');
  if(!f.error)for(const rel of f.data||[]){followerCounts.set(rel.following_id,(followerCounts.get(rel.following_id)||0)+1);if(user&&rel.follower_id===user.id)following.add(rel.following_id);}
+ const ir=await supabase.from('member_interests').select('user_id,topic');
+ if(!ir.error)for(const row of ir.data||[]){if(!interestsByUser.has(row.user_id))interestsByUser.set(row.user_id,[]);interestsByUser.get(row.user_id).push(row.topic);}
  render();
 }
 function render(){
- const q=safe($('search').value).trim(),root=$('members');root.replaceChildren();
- const found=profiles.filter(p=>[p.display_name,p.username,p.bio].some(v=>safe(v).includes(q)));
+ const q=safe($('search').value).trim(),topic=$('topicFilter').value,root=$('members');root.replaceChildren();
+ const found=profiles.filter(p=>[p.display_name,p.username,p.bio].some(v=>safe(v).includes(q))&&(!topic||(interestsByUser.get(p.id)||[]).includes(topic)));
  $('status').textContent=found.length+' member(s)'+(q?' matching your search':' found');
- if(!found.length){const p=document.createElement('p');p.className='muted';p.textContent=q?'No members match that search yet.':'No other member profiles are available yet.';root.append(p);return;}
+ if(!found.length){const p=document.createElement('p');p.className='muted';p.textContent=q||topic?'No members match those filters yet.':'No other member profiles are available yet.';root.append(p);return;}
  for(const p of found){
   const card=document.createElement('article');card.className='member';const info=document.createElement('div');
   const name=document.createElement('h2');const profileLink=document.createElement('a');profileLink.href='member.html?id='+encodeURIComponent(p.id);profileLink.textContent=p.display_name||p.username||'VARTA Member';profileLink.style.color='inherit';profileLink.style.textDecoration='none';name.append(profileLink);
   const handle=document.createElement('p');handle.className='handle';handle.textContent=p.username?'@'+p.username:'VARTA member';
   const bio=document.createElement('p');bio.className='bio';bio.textContent=p.bio||'No bio added yet.';
   const stats=document.createElement('p');stats.className='muted';stats.textContent=(followerCounts.get(p.id)||0)+' follower(s)';
-  info.append(name,handle,bio,stats);card.append(info);
+  info.append(name,handle,bio);
+  const topics=interestsByUser.get(p.id)||[];
+  if(topics.length){const list=document.createElement('p');list.className='muted';list.textContent='Knowledge interests: '+topics.join(' · ');info.append(list);}
+  info.append(stats);card.append(info);
   if(user){const btn=document.createElement('button');btn.type='button';btn.className='btn'+(following.has(p.id)?' following':'');btn.textContent=following.has(p.id)?'Following · Unfollow':'＋ Follow';btn.setAttribute('aria-pressed',String(following.has(p.id)));
    btn.addEventListener('click',async()=>{btn.disabled=true;const wasFollowing=following.has(p.id);const result=wasFollowing?await supabase.from('follows').delete().eq('follower_id',user.id).eq('following_id',p.id):await supabase.from('follows').insert({follower_id:user.id,following_id:p.id});btn.disabled=false;if(result.error){$('status').textContent='Could not update follow: '+result.error.message;return;}if(wasFollowing){following.delete(p.id);followerCounts.set(p.id,Math.max(0,(followerCounts.get(p.id)||1)-1));}else{following.add(p.id);followerCounts.set(p.id,(followerCounts.get(p.id)||0)+1);}render();});
    card.append(btn);
@@ -47,6 +52,6 @@ function render(){
   root.append(card);
  }
 }
-$('search').addEventListener('input',render);
+$('search').addEventListener('input',render);$('topicFilter').addEventListener('change',render);
 await init();
 </script></body></html>
