@@ -14,7 +14,7 @@
 <main class="page-wrap">
 <span class="eyebrow">Community</span><h1>VARTA Posts</h1><p class="tagline">Share knowledge. Start a thoughtful conversation.</p>
 <p id="authstatus" class="muted">Checking sign-in…</p>
-<section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
+<section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p id="topicContext" class="muted" hidden></p><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
 <div class="feed-tabs" role="group" aria-label="Choose feed"><button id="allTab" class="feed-tab active" type="button" aria-pressed="true">Community</button><button id="followingTab" class="feed-tab" type="button" aria-pressed="false">Following</button></div><p id="status" class="muted" role="status" aria-live="polite">Loading posts…</p><section id="feed"></section>
 </main>
 <footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
@@ -22,6 +22,9 @@
 import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
 let user=null,feedMode='all';
+const topicParam=new URLSearchParams(window.location.search).get('topic');
+const discussionTopic=(topicParam||'').trim().slice(0,120);
+if(discussionTopic){$('topicContext').hidden=false;$('topicContext').textContent='Starting a discussion about: '+discussionTopic;$('content').placeholder='Share a question, insight or source about '+discussionTopic+'…';document.title='Discuss '+discussionTopic+' — VARTA';}
 $('allTab').addEventListener('click',()=>setFeedMode('all'));
 $('followingTab').addEventListener('click',()=>setFeedMode('following'));
 function setFeedMode(mode){feedMode=mode;$('allTab').classList.toggle('active',mode==='all');$('followingTab').classList.toggle('active',mode==='following');$('allTab').setAttribute('aria-pressed',String(mode==='all'));$('followingTab').setAttribute('aria-pressed',String(mode==='following'));loadPosts();}
