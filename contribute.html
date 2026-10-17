@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contribute Knowledge | VARTA</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-wrap{max-width:850px;margin:auto;padding:34px 15px}.panel{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;margin:18px 0}.field{display:block;margin:14px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}.field textarea{min-height:120px;resize:vertical}.btn{background:#174b8c;color:#fff;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6}.muted{color:#64748b}.suggestion{border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin:12px 0;overflow-wrap:anywhere}.pill{display:inline-block;border-radius:999px;background:#eff6ff;color:#1d4ed8;padding:4px 9px;font-size:.85rem}.status-submitted{background:#eff6ff;color:#1d4ed8}.status-reviewing{background:#fff7ed;color:#9a3412}.status-accepted{background:#ecfdf5;color:#047857}.status-needs_changes{background:#fefce8;color:#854d0e}.status-declined{background:#fef2f2;color:#b91c1c}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="science.html">Science</a><a href="indian-knowledge.html">Indian Knowledge</a><a href="sound-nada.html">Sound &amp; NADA</a><a href="culture-nature.html">Culture</a><a href="world-affairs.html">World Affairs</a><a href="posts.html">Posts</a><a href="contribute.html" aria-current="page">Contribute</a><a href="search.html">Search</a><a href="discover.html">Discover</a><a href="profile.html">My Profile</a></nav></div></header>
+<main class="page-wrap">
+<span class="eyebrow">Help shape the library</span><h1>Contribute knowledge to VARTA</h1>
+<p class="tagline">Suggest a guide, share a trustworthy source, flag a correction or propose a thoughtful discussion question.</p>
+<section class="panel">
+<h2>Submission guidelines</h2>
+<ul><li>Be specific, constructive and respectful.</li><li>For factual claims, include a credible source when possible.</li><li>Separate established evidence from interpretation, tradition or personal belief.</li><li>Do not submit private information, copied articles, promotional spam or material you do not have permission to share.</li></ul>
+<p class="muted">Submissions go to the VARTA editorial review queue. Submitting an idea does not automatically publish it.</p>
+</section>
+<p id="authstatus" class="muted" role="status" aria-live="polite">Checking sign-in…</p>
+<section id="formPanel" class="panel" hidden>
+<h2>Send a contribution</h2>
+<form id="suggestionForm">
+<div class="field"><label for="topic">Knowledge area</label><select id="topic" required><option value="Science &amp; Technology">Science &amp; Technology</option><option value="Indian Knowledge">Indian Knowledge</option><option value="Sound &amp; NADA">Sound &amp; NADA</option><option value="Culture &amp; Nature">Culture &amp; Nature</option><option value="World Affairs">World Affairs</option></select></div>
+<div class="field"><label for="kind">What are you suggesting?</label><select id="kind" required><option value="new_guide">A new knowledge guide</option><option value="source">A useful source or reference</option><option value="correction">A correction or improvement</option><option value="discussion_question">A discussion question</option></select></div>
+<div class="field"><label for="title">Short title</label><input id="title" required minlength="5" maxlength="160" placeholder="For example: How do traditional stepwells conserve water?"></div>
+<div class="field"><label for="description">Explain your suggestion</label><textarea id="description" required minlength="20" maxlength="2000" placeholder="What should the library include, what needs correcting, or why is this useful?"></textarea><p class="muted"><span id="count">0</span>/2000 characters</p></div>
+<div class="field"><label for="source">Source link (optional)</label><input id="source" type="url" maxlength="1000" placeholder="https://…"><p class="muted">Prefer primary research, recognised institutions, original texts or reliable reference works.</p></div>
+<button class="btn" id="submitBtn" type="submit">Submit for review</button>
+</form>
+<p id="message" class="muted" role="status" aria-live="polite"></p>
+</section>
+<section class="panel"><h2>My submissions</h2><p class="muted">Only you and authorised VARTA moderators can see your submission history and editorial notes.</p><div id="mySuggestions"><p class="muted">Sign in to view your submissions.</p></div></section>
+<p><a href="posts.html">← Return to community discussions</a></p>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA — India's Knowledge &amp; Conversation Network</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);let currentUser=null;
+const topics=['Science & Technology','Indian Knowledge','Sound & NADA','Culture & Nature','World Affairs'];
+const labels={new_guide:'New guide',source:'Source',correction:'Correction',discussion_question:'Discussion question'};
+const statusLabels={submitted:'Submitted',reviewing:'Under review',accepted:'Accepted',needs_changes:'Changes requested',declined:'Not accepted'};
+function add(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text||'';if(cls)el.className=cls;parent.append(el);return el;}
+function renderMine(rows){
+ const root=$('mySuggestions');root.replaceChildren();
+ if(!rows?.length){add(root,'p','You have not submitted any ideas yet.','muted');return;}
+ for(const row of rows){
+  const card=document.createElement('article');card.className='suggestion';
+  const head=document.createElement('div');head.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap';
+  add(head,'strong',row.title);add(head,'span',statusLabels[row.status]||row.status,'pill status-'+row.status);card.append(head);
+  add(card,'p',row.topic+' · '+(labels[row.suggestion_type]||row.suggestion_type)+' · '+new Date(row.created_at).toLocaleDateString(),'muted');
+  add(card,'p',row.description);
+  if(row.source_url){const link=document.createElement('a');link.href=row.source_url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Open submitted source ↗';card.append(link);}
+  if(row.moderator_note)add(card,'p','Editorial note: '+row.moderator_note);
+  root.append(card);
+ }
+}
+async function loadMine(){
+ const {data,error}=await supabase.from('knowledge_suggestions').select('id,topic,suggestion_type,title,description,source_url,status,moderator_note,created_at').eq('user_id',currentUser.id).order('created_at',{ascending:false}).limit(50);
+ if(error){$('mySuggestions').textContent='Could not load submissions: '+error.message;return;}
+ renderMine(data);
+}
+async function init(){
+ const {data,error}=await supabase.auth.getSession();
+ if(error){$('authstatus').textContent='Could not check sign-in: '+error.message;return;}
+ currentUser=data.session?.user||null;
+ if(!currentUser){$('authstatus').replaceChildren(document.createTextNode('Please sign in to send and track a contribution. '));const a=document.createElement('a');a.href='login.html';a.textContent='Sign in to VARTA';$('authstatus').append(a);return;}
+ $('authstatus').textContent='Signed in. Your submissions are private to you and authorised moderators.';
+ $('formPanel').hidden=false;await loadMine();
+}
+$('description').addEventListener('input',()=>$('count').textContent=$('description').value.length);
+$('suggestionForm').addEventListener('submit',async event=>{
+ event.preventDefault();if(!currentUser)return;
+ const topic=$('topic').value.replace(/&amp;/g,'&'),kind=$('kind').value,title=$('title').value.trim(),description=$('description').value.trim(),source=$('source').value.trim();
+ if(!topics.includes(topic)){ $('message').textContent='Choose a valid knowledge area.';return; }
+ if(title.length<5||description.length<20){$('message').textContent='Please provide a descriptive title and at least 20 characters of explanation.';return;}
+ if(source&&!/^https?:\/\//i.test(source)){$('message').textContent='Source links must begin with http:// or https://';return;}
+ const button=$('submitBtn');button.disabled=true;button.textContent='Submitting…';$('message').textContent='';
+ try{
+  const row={user_id:currentUser.id,topic,suggestion_type:kind,title,description,source_url:source||null};
+  const {error}=await supabase.from('knowledge_suggestions').insert(row);
+  if(error)throw error;
+  $('suggestionForm').reset();$('count').textContent='0';$('message').textContent='Your contribution has been submitted for editorial review. Thank you for helping improve VARTA.';
+  await loadMine();
+ }catch(error){$('message').textContent='Could not submit your contribution: '+(error?.message||'Please try again.');}
+ finally{button.disabled=false;button.textContent='Submit for review';}
+});
+await init();
+</script>
+</body></html>
