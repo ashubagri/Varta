@@ -14,6 +14,13 @@
 <div class="field"><label for="display_name">Display name</label><input id="display_name" maxlength="60" required placeholder="Your name"></div>
 <div class="field"><label for="username">Username</label><input id="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+" required placeholder="letters, numbers and underscores"><small class="muted">3–30 characters; letters, numbers and underscores only.</small></div>
 <div class="field"><label for="bio">Bio</label><textarea id="bio" maxlength="300" placeholder="Tell the VARTA community a little about yourself (max 300 characters)"></textarea><small class="muted"><span id="biocount">0</span>/300</small></div>
+<fieldset class="field" id="interests"><legend><strong>Knowledge interests</strong></legend><p class="muted">Choose the topics you enjoy learning about. These will appear on your public member profile.</p>
+<label><input type="checkbox" name="interest" value="Science &amp; Technology"> Science &amp; Technology</label>
+<label><input type="checkbox" name="interest" value="Indian Knowledge"> Indian Knowledge</label>
+<label><input type="checkbox" name="interest" value="Sound &amp; NADA"> Sound &amp; NADA</label>
+<label><input type="checkbox" name="interest" value="Culture &amp; Nature"> Culture &amp; Nature</label>
+<label><input type="checkbox" name="interest" value="World Affairs"> World Affairs</label>
+</fieldset>
 <button id="save" class="btn" type="submit">Save profile</button>
 </form>
 <p id="message" class="muted" role="status" aria-live="polite"></p><p><a href="posts.html">← Back to community posts</a></p></main>
@@ -37,6 +44,10 @@ async function init(){
   $('username').value=(base.length<3?'member_'+base:base)+'_'+user.id.replace(/-/g,'').slice(0,6).toLowerCase();
   $('display_name').value=emailName.replace(/[._-]+/g,' ').trim().replace(/\b\w/g,ch=>ch.toUpperCase()).slice(0,60)||'VARTA Member';
  }
+ const {data: interests, error: interestsError}=await supabase.from('member_interests').select('topic').eq('user_id',user.id);
+ if(interestsError){$('message').textContent='Profile loaded, but interests could not be loaded: '+interestsError.message;return;}
+ const selected=new Set((interests||[]).map(item=>item.topic));
+ document.querySelectorAll('input[name="interest"]').forEach(input=>{input.checked=selected.has(input.value.replace(/&amp;/g,'&'));});
  $('biocount').textContent=$('bio').value.length;$('profileform').hidden=false;
 }
 $('profileform').addEventListener('submit',async e=>{
@@ -46,9 +57,16 @@ $('profileform').addEventListener('submit',async e=>{
  if(!display_name){$('message').textContent='Please enter a display name.';return;}
  $('save').disabled=true;$('save').textContent='Saving…';$('message').textContent='';
  const {error}=await supabase.from('profiles').upsert({id:user.id,username,display_name,bio},{onConflict:'id'});
+ if(error){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent=error.code==='23505'?'That username is already taken. Please choose another.':'Could not save profile: '+error.message;return;}
+ const selected=[...document.querySelectorAll('input[name="interest"]:checked')].map(input=>input.value.replace(/&amp;/g,'&'));
+ const {error:clearError}=await supabase.from('member_interests').delete().eq('user_id',user.id);
+ if(clearError){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent='Profile saved, but interests could not be updated: '+clearError.message;return;}
+ if(selected.length){
+  const {error:interestError}=await supabase.from('member_interests').insert(selected.map(topic=>({user_id:user.id,topic})));
+  if(interestError){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent='Profile saved, but interests could not be updated: '+interestError.message;return;}
+ }
  $('save').disabled=false;$('save').textContent='Save profile';
- if(error){$('message').textContent=error.code==='23505'?'That username is already taken. Please choose another.':'Could not save profile: '+error.message;return;}
- $('message').textContent='Profile saved successfully. Your name and username will appear on your posts.';
+ $('message').textContent='Profile and knowledge interests saved. Your interests will appear on your public member profile.';
 });
 await init();
 </script></body></html>
