@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Member Activity — VARTA</title><link rel="stylesheet" href="css/style.css">
+<style>.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.activity-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:16px 0}.muted{color:#64748b}.activity-label{font-size:.9rem;color:#047857;font-weight:700;margin-bottom:8px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}</style></head><body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="science.html">Science</a><a href="indian-knowledge.html">Indian Knowledge</a><a href="sound-nada.html">Sound &amp; NADA</a><a href="culture-nature.html">Culture</a><a href="world-affairs.html">World Affairs</a><a href="posts.html">Posts</a><a href="activity.html">Activity</a><a href="profile.html">My Profile</a></nav></div></header>
+<main class="page-wrap"><span class="eyebrow">Community</span><h1>Member Activity</h1><p class="tagline">Recent posts and reposts from the VARTA community.</p><p id="status" class="muted" role="status" aria-live="polite">Loading activity…</p><section id="feed"></section><p><a href="posts.html">Go to posts to like, reply, follow or repost.</a></p></main><footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);
+async function loadActivity(){
+ const status=$('status'),feed=$('feed');status.textContent='Loading activity…';feed.replaceChildren();
+ const [pr,rr]=await Promise.all([
+  supabase.from('posts').select('id,user_id,content,created_at').order('created_at',{ascending:false}).limit(50),
+  supabase.from('reposts').select('id,post_id,user_id,created_at').order('created_at',{ascending:false}).limit(50)
+ ]);
+ if(pr.error){status.textContent='Could not load posts: '+pr.error.message;return;}
+ if(rr.error){status.textContent='Could not load repost activity: '+rr.error.message;return;}
+ const posts=pr.data||[],reposts=rr.data||[];
+ const postMap=new Map(posts.map(p=>[p.id,p]));
+ const missing=[...new Set(reposts.map(r=>r.post_id).filter(id=>!postMap.has(id)))];
+ if(missing.length){const extra=await supabase.from('posts').select('id,user_id,content,created_at').in('id',missing);if(!extra.error)for(const p of extra.data||[])postMap.set(p.id,p);}
+ const events=[...posts.map(p=>({kind:'post',created_at:p.created_at,actor_id:p.user_id,post:p})),...reposts.map(r=>({kind:'repost',created_at:r.created_at,actor_id:r.user_id,post:postMap.get(r.post_id)})).filter(e=>e.post)].sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).slice(0,75);
+ if(!events.length){status.textContent='No member activity yet. Be the first to post.';return;}
+ const ids=[...new Set(events.flatMap(e=>[e.actor_id,e.post.user_id]).filter(Boolean))];
+ let profiles=[];
+ if(ids.length){const result=await supabase.from('profiles').select('id,username,display_name').in('id',ids);if(!result.error)profiles=result.data||[];}
+ const map=new Map(profiles.map(p=>[p.id,p]));
+ for(const event of events){
+  const card=document.createElement('article');card.className='activity-card';
+  const actor=map.get(event.actor_id),author=map.get(event.post.user_id);
+  const label=document.createElement('div');label.className='activity-label';label.textContent=event.kind==='repost'?'↻ '+(actor?.display_name||actor?.username||'A member')+' reposted':'✦ New post';
+  const title=document.createElement('h2');title.textContent=event.kind==='repost'?(author?.display_name||author?.username||'VARTA Member'):(actor?.display_name||actor?.username||'VARTA Member');
+  const meta=document.createElement('p');meta.className='muted';meta.textContent=(event.kind==='repost'&&author?.username?'@'+author.username+' · ':'')+new Date(event.created_at).toLocaleString();
+  const body=document.createElement('p');body.className='postbody';body.textContent=event.post.content;
+  card.append(label,title,meta,body);feed.append(card);
+ }
+ status.textContent=events.length+' recent activity item(s)';
+}
+await loadActivity();
+</script></body></html>
