@@ -79,6 +79,20 @@ async function loadPosts(){
     if(!ids.length){status.textContent='You are not following anyone yet. Visit Discover to find members.';const a=document.createElement('a');a.href='discover.html';a.textContent='Discover members';status.append(' ',a);return;}
     query=query.in('user_id',ids);
   }
+  if(topicFilter){
+    const {data:topicMatches,error:topicLookupError}=await supabase.from('post_topics').select('post_id').eq('topic',topicFilter).order('created_at',{ascending:false}).limit(200);
+    if(topicLookupError){status.textContent='Could not load topic conversations: '+topicLookupError.message;return;}
+    const topicPostIds=(topicMatches||[]).map(row=>row.post_id);
+    if(!topicPostIds.length){status.textContent='No posts in this knowledge area yet. Be the first to start a conversation.';return;}
+    query=supabase.from('posts').select('id,user_id,content,created_at').in('id',topicPostIds).order('created_at',{ascending:false}).limit(50);
+    if(feedMode==='following'&&user){
+      const {data:relations,error:followError}=await supabase.from('follows').select('following_id').eq('follower_id',user.id);
+      if(followError){status.textContent='Could not load your followed members: '+followError.message;return;}
+      const ids=(relations||[]).map(r=>r.following_id);
+      if(!ids.length){status.textContent='You are not following anyone yet. Visit Discover to find members.';return;}
+      query=query.in('user_id',ids);
+    }
+  }
   const {data:posts,error}=await query;
   if(error){status.textContent='Could not load posts: '+error.message;return;}
   if(!posts?.length){status.textContent=feedMode==='following'?'No posts from followed members yet.':'No community posts yet. Be the first to share something.';return;}
