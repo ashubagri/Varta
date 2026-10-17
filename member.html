@@ -28,6 +28,16 @@ else{
   const handle=document.createElement('p');handle.className='muted';handle.textContent=profile.username?'@'+profile.username:'VARTA member';
   details.append(name,handle);head.append(avatar,details);box.append(head);
   const bio=document.createElement('p');bio.className='bio';bio.textContent=profile.bio||'This member has not added a bio yet.';box.append(bio);
+  const {data: interests, error: interestsError}=await supabase.from('member_interests').select('topic').eq('user_id',profile.id);
+  if(!interestsError&&interests?.length){
+   const interestSection=document.createElement('section');interestSection.style.cssText='margin-top:18px';
+   const interestHeading=document.createElement('h2');interestHeading.textContent='Knowledge interests';interestSection.append(interestHeading);
+   const chips=document.createElement('div');chips.style.cssText='display:flex;flex-wrap:wrap;gap:8px';
+   for(const item of interests){
+    const chip=document.createElement('span');chip.textContent=item.topic;chip.style.cssText='display:inline-block;background:#eef4fb;color:#174b8c;border:1px solid #d6e4f5;border-radius:999px;padding:7px 12px;font-size:.92rem;font-weight:600';chips.append(chip);
+   }
+   interestSection.append(chips);box.append(interestSection);
+  }
   const actions=document.createElement('div');actions.style.cssText='display:flex;gap:10px;flex-wrap:wrap;margin-top:18px';
   const back=document.createElement('a');back.href='posts.html';back.className='btn secondary';back.textContent='Community feed';actions.append(back);
   const {data:sessionData}=await supabase.auth.getSession();const user=sessionData.session?.user;
