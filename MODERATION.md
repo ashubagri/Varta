@@ -16,7 +16,9 @@ A member can submit one report per target. Reports are private: members can only
 
 ## Review reports as the project owner
 
-Open the VARTA Supabase project and use the SQL Editor while signed in as the project owner. Review open reports with:
+Open the [VARTA Moderation Dashboard](https://ashubagri.github.io/Varta/moderation.html) while signed in with an authorized moderator account. It lists reports, shows the reported content when it is still available, and lets moderators change report status. The dashboard is not indexed by search engines, but its security comes from Supabase authentication and moderator-role policies, not from the URL being secret.
+
+If you need direct database review, open the VARTA Supabase project and use the SQL Editor while signed in as the project owner. Review open reports with:
 
 ```sql
 select
