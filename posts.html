@@ -23,11 +23,24 @@ import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
 let user=null;
 $('content').addEventListener('input',()=>$('count').textContent=$('content').value.length);
+async function ensureOwnProfile(){
+  if(!user)return;
+  const {data:existing,error:readError}=await supabase.from('profiles').select('id').eq('id',user.id).maybeSingle();
+  if(readError){console.warn('Could not check member profile:',readError.message);return;}
+  if(existing)return;
+  const emailName=(user.email||'varta-member').split('@')[0];
+  const base=emailName.toLowerCase().replace(/[^a-z0-9_]/g,'_').replace(/^_+|_+$/g,'').slice(0,20)||'varta_member';
+  const suffix=user.id.replace(/-/g,'').slice(0,6).toLowerCase();
+  const username=(base.length<3?'member_'+base:base)+'_'+suffix;
+  const displayName=emailName.replace(/[._-]+/g,' ').trim().replace(/\\b\\w/g,ch=>ch.toUpperCase()).slice(0,60)||'VARTA Member';
+  const {error}=await supabase.from('profiles').insert({id:user.id,username,display_name:displayName,bio:''});
+  if(error)console.warn('Could not create member profile:',error.message);
+}
 async function refreshAuth(){
   const {data,error}=await supabase.auth.getSession();
   if(error){$('authstatus').textContent='Sign-in status error: '+error.message;return;}
   user=data.session?.user||null;
-  if(user){$('authstatus').textContent='Signed in — you can publish.';$('composer').hidden=false;}
+  if(user){await ensureOwnProfile();$('authstatus').textContent='Signed in — you can publish.';$('composer').hidden=false;}
   else{$('authstatus').textContent='Sign in to publish posts.';$('composer').hidden=true;const link=document.createElement('a');link.href='login.html';link.textContent='Open VARTA Login';$('authstatus').append(' ',link);}
 }
 async function loadPosts(){
