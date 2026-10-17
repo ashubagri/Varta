@@ -6,7 +6,7 @@
 <title>VARTA Posts</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled,.follow-btn:disabled{opacity:.6;cursor:wait}.follow-btn{background:#fff;color:#174b8c;border:1px solid #174b8c;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.follow-btn.following{background:#174b8c;color:#fff}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled,.follow-btn:disabled{opacity:.6;cursor:wait}.follow-btn{background:#fff;color:#174b8c;border:1px solid #174b8c;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.follow-btn.following{background:#174b8c;color:#fff}.reply-box{margin-top:16px;padding-top:14px;border-top:1px solid #e5e7eb}.reply-list{margin-top:10px}.reply-item{background:#f8fafc;border-radius:10px;padding:10px 12px;margin:8px 0}.reply-item p{margin:4px 0}.reply-form{display:flex;gap:8px;margin-top:10px}.reply-form input{flex:1;min-width:0;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.reply-count{font-size:.9rem;color:#64748b}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
 </style>
 </head>
 <body>
@@ -48,15 +48,18 @@ async function loadPosts(){
   const {data:posts,error}=await supabase.from('posts').select('id,user_id,content,created_at').order('created_at',{ascending:false}).limit(50);
   if(error){status.textContent='Could not load posts: '+error.message;return;}
   if(!posts?.length){status.textContent='No community posts yet. Be the first to share something.';return;}
-  const ids=[...new Set(posts.map(p=>p.user_id).filter(Boolean))];let profiles=[],likes=[],follows=[];
-  if(ids.length){const r=await supabase.from('profiles').select('id,username,display_name').in('id',ids);if(!r.error)profiles=r.data||[];}
   const postIds=posts.map(p=>p.id);
+  const {data:repliesData,error:repliesError}=await supabase.from('replies').select('id,post_id,user_id,content,created_at').in('post_id',postIds).order('created_at',{ascending:true});
+  const replies=repliesError?[]:(repliesData||[]);
+  const ids=[...new Set([...posts.map(p=>p.user_id),...replies.map(r=>r.user_id)].filter(Boolean))];let profiles=[],likes=[],follows=[];
+  if(ids.length){const r=await supabase.from('profiles').select('id,username,display_name').in('id',ids);if(!r.error)profiles=r.data||[];}
   const lr=await supabase.from('likes').select('post_id,user_id').in('post_id',postIds);
   if(!lr.error)likes=lr.data||[];
   if(ids.length){const fr=await supabase.from('follows').select('follower_id,following_id').in('following_id',ids);if(!fr.error)follows=fr.data||[];}
   const map=new Map(profiles.map(p=>[p.id,p]));
   const likeMap=new Map();
   for(const like of likes){if(!likeMap.has(like.post_id))likeMap.set(like.post_id,[]);likeMap.get(like.post_id).push(like.user_id);}
+  const repliesByPost=new Map();for(const reply of replies){if(!repliesByPost.has(reply.post_id))repliesByPost.set(reply.post_id,[]);repliesByPost.get(reply.post_id).push(reply);}
   const followerMap=new Map();const followingSet=new Set();
   for(const rel of follows){if(!followerMap.has(rel.following_id))followerMap.set(rel.following_id,new Set());followerMap.get(rel.following_id).add(rel.follower_id);if(user&&rel.follower_id===user.id)followingSet.add(rel.following_id);}
   for(const p of posts){
@@ -97,7 +100,28 @@ async function loadPosts(){
       });
       actions.append(followButton);
     }
-    card.append(h,meta,body,actions);feed.append(card);
+    card.append(h,meta,body,actions);
+    const replyBox=document.createElement('section');replyBox.className='reply-box';
+    const replyHeading=document.createElement('p');replyHeading.className='reply-count';replyHeading.textContent='Replies · '+(repliesByPost.get(p.id)||[]).length;replyBox.append(replyHeading);
+    const replyList=document.createElement('div');replyList.className='reply-list';
+    for(const reply of (repliesByPost.get(p.id)||[])){
+      const rp=document.createElement('div');rp.className='reply-item';
+      const rpName=document.createElement('strong');const rprof=map.get(reply.user_id);rpName.textContent=rprof?.display_name||rprof?.username||'VARTA Member';
+      const rpMeta=document.createElement('span');rpMeta.className='muted';rpMeta.textContent=' · '+new Date(reply.created_at).toLocaleString();
+      const rpBody=document.createElement('p');rpBody.textContent=reply.content;
+      rp.append(rpName,rpMeta,rpBody);
+      if(user&&reply.user_id===user.id){const del=document.createElement('button');del.type='button';del.className='follow-btn';del.textContent='Delete reply';del.addEventListener('click',async()=>{del.disabled=true;const result=await supabase.from('replies').delete().eq('id',reply.id).eq('user_id',user.id);if(result.error){del.disabled=false;$('status').textContent='Could not delete reply: '+result.error.message;return;}await loadPosts();});rp.append(del);}
+      replyList.append(rp);
+    }
+    replyBox.append(replyList);
+    if(user){
+      const form=document.createElement('form');form.className='reply-form';
+      const input=document.createElement('input');input.type='text';input.maxLength=500;input.required=true;input.placeholder='Write a reply…';
+      const send=document.createElement('button');send.type='submit';send.className='btn';send.textContent='Reply';
+      form.append(input,send);form.addEventListener('submit',async ev=>{ev.preventDefault();const content=input.value.trim();if(!content)return;send.disabled=true;send.textContent='Sending…';const result=await supabase.from('replies').insert({post_id:p.id,user_id:user.id,content});if(result.error){send.disabled=false;send.textContent='Reply';$('status').textContent='Could not add reply: '+result.error.message;return;}await loadPosts();});
+      replyBox.append(form);
+    }else{const login=document.createElement('a');login.href='login.html';login.textContent='Sign in to reply';replyBox.append(login);}
+    card.append(replyBox);feed.append(card);
   }
   status.textContent=posts.length+' recent post(s)';
 }
