@@ -1,44 +1,64 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts — VARTA</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VARTA Posts</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-wrap">
-      <a href="index.html" class="brand">VARTA</a>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="science.html">Science</a>
-        <a href="indian-knowledge.html">Indian Knowledge</a>
-        <a href="sound-nada.html">Sound & NADA</a>
-        <a href="culture-nature.html">Culture</a>
-        <a href="world-affairs.html">World Affairs</a>
-        <a href="posts.html">Posts</a>
-      </nav>
-    </div>
-  </header>
-  <main class="container page-wrap">
-    <div class="page-intro">
-      <span class="eyebrow dark">Community Essays</span>
-      <h1>Posts</h1>
-      <p class="tagline">Fresh insights, reflections, and public commentary.</p>
-    </div>
-   <article class="card detail-card">
-  <h2>Reflections from Hydrogen Awakening: Building a Knowledge Hub</h2>
-  <span class="post-tag">Community Blog</span>
-  <p>Welcome to the VARTA community blog roll. This space is dedicated to sharing ongoing reflections, project notes, and deep dives into the intersection of modern technology, ancient systems, and public discourse.</p>
-  <p>Stay tuned for upcoming essays, community updates, and interactive discussions as we continue expanding this platform together.</p>
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/W4ekQt-pGSg" title="Hydrogen Awakening Video" allowfullscreen></iframe>
-  </div>
-</article>
-  </main>
-  <footer class="site-footer">
-    <div class="container"><p>© 2026 VARTA Prototype</p></div>
-  </footer>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="science.html">Science</a><a href="indian-knowledge.html">Indian Knowledge</a><a href="sound-nada.html">Sound &amp; NADA</a><a href="culture-nature.html">Culture</a><a href="world-affairs.html">World Affairs</a><a href="posts.html">Posts</a></nav></div></header>
+<main class="page-wrap">
+<span class="eyebrow">Community</span><h1>VARTA Posts</h1><p class="tagline">Share knowledge. Start a thoughtful conversation.</p>
+<p id="authstatus" class="muted">Checking sign-in…</p>
+<section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
+<p id="status" class="muted" role="status" aria-live="polite">Loading posts…</p><section id="feed"></section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);
+let user=null;
+$('content').addEventListener('input',()=>$('count').textContent=$('content').value.length);
+async function refreshAuth(){
+  const {data,error}=await supabase.auth.getSession();
+  if(error){$('authstatus').textContent='Sign-in status error: '+error.message;return;}
+  user=data.session?.user||null;
+  if(user){$('authstatus').textContent='Signed in — you can publish.';$('composer').hidden=false;}
+  else{$('authstatus').textContent='Sign in to publish posts.';$('composer').hidden=true;const link=document.createElement('a');link.href='login.html';link.textContent='Open VARTA Login';$('authstatus').append(' ',link);}
+}
+async function loadPosts(){
+  const status=$('status'),feed=$('feed');status.textContent='Loading posts…';feed.replaceChildren();
+  const {data:posts,error}=await supabase.from('posts').select('id,user_id,content,created_at').order('created_at',{ascending:false}).limit(50);
+  if(error){status.textContent='Could not load posts: '+error.message;return;}
+  if(!posts?.length){status.textContent='No community posts yet. Be the first to share something.';return;}
+  const ids=[...new Set(posts.map(p=>p.user_id).filter(Boolean))];let profiles=[];
+  if(ids.length){const r=await supabase.from('profiles').select('id,username,display_name').in('id',ids);if(!r.error)profiles=r.data||[];}
+  const map=new Map(profiles.map(p=>[p.id,p]));
+  for(const p of posts){
+    const prof=map.get(p.user_id),card=document.createElement('article');card.className='feed-card';
+    const h=document.createElement('h2');h.textContent=prof?.display_name||prof?.username||'VARTA Member';
+    const meta=document.createElement('p');meta.className='meta';meta.textContent=(prof?.username?'@'+prof.username+' · ':'')+new Date(p.created_at).toLocaleString();
+    const body=document.createElement('p');body.className='postbody';body.textContent=p.content;
+    card.append(h,meta,body);feed.append(card);
+  }
+  status.textContent=posts.length+' recent post(s)';
+}
+$('form').addEventListener('submit',async e=>{
+  e.preventDefault();const content=$('content').value.trim();
+  if(!user){$('status').textContent='Please sign in first.';return;}
+  if(!content)return;
+  $('publish').disabled=true;$('publish').textContent='Publishing…';
+  const {error}=await supabase.from('posts').insert({user_id:user.id,content});
+  $('publish').disabled=false;$('publish').textContent='Publish post';
+  if(error){$('status').textContent='Could not publish: '+error.message;return;}
+  $('content').value='';$('count').textContent='0';await loadPosts();
+});
+await refreshAuth();await loadPosts();
+supabase.auth.onAuthStateChange(()=>{refreshAuth();});
+</script>
 </body>
 </html>
