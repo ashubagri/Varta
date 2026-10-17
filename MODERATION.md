@@ -60,3 +60,8 @@ Use `dismissed` instead of `resolved` when no action is warranted. Replace `REPO
 - Report records store target IDs and reason/details; they do not take a snapshot of the reported content. If content is edited or removed, review available context before deciding.
 - Keep review actions restricted to trusted project administrators. Do not grant ordinary members permission to update report status.
 - Publish clear community standards and a contact route before opening VARTA to a larger public audience.
+
+
+## Review knowledge contributions
+
+Open the [VARTA Editorial Review Queue](https://ashubagri.github.io/Varta/editorial.html) while signed in with an authorized moderator account. Review member suggestions, select a decision, and optionally leave a note for the contributor. Accepted suggestions are not automatically published; editorial content must still be prepared and added to the relevant knowledge page deliberately. Access is enforced by Supabase authentication and moderator-role policies.
