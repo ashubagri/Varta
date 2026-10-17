@@ -6,7 +6,7 @@
 <title>VARTA Posts</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled,.follow-btn:disabled{opacity:.6;cursor:wait}.follow-btn{background:#fff;color:#174b8c;border:1px solid #174b8c;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.follow-btn.following{background:#174b8c;color:#fff}.repost-btn{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.repost-btn.reposted{background:#047857;color:#fff}.reply-box{margin-top:16px;padding-top:14px;border-top:1px solid #e5e7eb}.reply-list{margin-top:10px}.reply-item{background:#f8fafc;border-radius:10px;padding:10px 12px;margin:8px 0}.reply-item p{margin:4px 0}.reply-form{display:flex;gap:8px;margin-top:10px}.reply-form input{flex:1;min-width:0;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.reply-count{font-size:.9rem;color:#64748b}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
+.page-wrap{max-width:900px;margin:auto;padding:36px 15px}.feed-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}.composer textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;box-sizing:border-box}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.meta{color:#64748b;font-size:.9rem;margin:8px 0 14px}.postbody{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.post-actions{display:flex;align-items:center;gap:10px;margin-top:16px}.like-btn{background:#f1f5f9;color:#174b8c;border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.like-btn.liked{background:#fee2e2;color:#b91c1c;border-color:#fecaca}.like-btn:disabled,.follow-btn:disabled{opacity:.6;cursor:wait}.follow-btn{background:#fff;color:#174b8c;border:1px solid #174b8c;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.follow-btn.following{background:#174b8c;color:#fff}.repost-btn{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}.repost-btn.reposted{background:#047857;color:#fff}.reply-box{margin-top:16px;padding-top:14px;border-top:1px solid #e5e7eb}.reply-list{margin-top:10px}.reply-item{background:#f8fafc;border-radius:10px;padding:10px 12px;margin:8px 0}.reply-item p{margin:4px 0}.reply-form{display:flex;gap:8px;margin-top:10px}.reply-form input{flex:1;min-width:0;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.reply-count{font-size:.9rem;color:#64748b}.feed-tabs{display:flex;gap:8px;margin:18px 0}.feed-tab{border:1px solid #cbd5e1;background:#fff;color:#174b8c;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}.feed-tab.active{background:#174b8c;color:#fff}.muted{color:#64748b}#status{overflow-wrap:anywhere}.main-nav{flex-wrap:wrap}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
 </style>
 </head>
 <body>
@@ -15,13 +15,16 @@
 <span class="eyebrow">Community</span><h1>VARTA Posts</h1><p class="tagline">Share knowledge. Start a thoughtful conversation.</p>
 <p id="authstatus" class="muted">Checking sign-in…</p>
 <section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
-<p id="status" class="muted" role="status" aria-live="polite">Loading posts…</p><section id="feed"></section>
+<div class="feed-tabs" role="group" aria-label="Choose feed"><button id="allTab" class="feed-tab active" type="button" aria-pressed="true">Community</button><button id="followingTab" class="feed-tab" type="button" aria-pressed="false">Following</button></div><p id="status" class="muted" role="status" aria-live="polite">Loading posts…</p><section id="feed"></section>
 </main>
 <footer class="site-footer"><div class="container"><p>© 2026 VARTA Prototype</p></div></footer>
 <script type="module">
 import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
-let user=null;
+let user=null,feedMode='all';
+$('allTab').addEventListener('click',()=>setFeedMode('all'));
+$('followingTab').addEventListener('click',()=>setFeedMode('following'));
+function setFeedMode(mode){feedMode=mode;$('allTab').classList.toggle('active',mode==='all');$('followingTab').classList.toggle('active',mode==='following');$('allTab').setAttribute('aria-pressed',String(mode==='all'));$('followingTab').setAttribute('aria-pressed',String(mode==='following'));loadPosts();}
 $('content').addEventListener('input',()=>$('count').textContent=$('content').value.length);
 async function ensureOwnProfile(){
   if(!user)return;
@@ -45,9 +48,18 @@ async function refreshAuth(){
 }
 async function loadPosts(){
   const status=$('status'),feed=$('feed');status.textContent='Loading posts…';feed.replaceChildren();
-  const {data:posts,error}=await supabase.from('posts').select('id,user_id,content,created_at').order('created_at',{ascending:false}).limit(50);
+  let query=supabase.from('posts').select('id,user_id,content,created_at').order('created_at',{ascending:false}).limit(50);
+  if(feedMode==='following'){
+    if(!user){status.textContent='Sign in to see posts from members you follow.';const a=document.createElement('a');a.href='login.html';a.textContent='Sign in';status.append(' ',a);return;}
+    const {data:relations,error:followError}=await supabase.from('follows').select('following_id').eq('follower_id',user.id);
+    if(followError){status.textContent='Could not load your followed members: '+followError.message;return;}
+    const ids=(relations||[]).map(r=>r.following_id);
+    if(!ids.length){status.textContent='You are not following anyone yet. Visit Discover to find members.';const a=document.createElement('a');a.href='discover.html';a.textContent='Discover members';status.append(' ',a);return;}
+    query=query.in('user_id',ids);
+  }
+  const {data:posts,error}=await query;
   if(error){status.textContent='Could not load posts: '+error.message;return;}
-  if(!posts?.length){status.textContent='No community posts yet. Be the first to share something.';return;}
+  if(!posts?.length){status.textContent=feedMode==='following'?'No posts from followed members yet.':'No community posts yet. Be the first to share something.';return;}
   const postIds=posts.map(p=>p.id);
   const {data:repostsData,error:repostsError}=await supabase.from('reposts').select('id,post_id,user_id,created_at').in('post_id',postIds);
   const reposts=repostsError?[]:(repostsData||[]);
@@ -139,7 +151,7 @@ async function loadPosts(){
     }else{const login=document.createElement('a');login.href='login.html';login.textContent='Sign in to reply';replyBox.append(login);}
     card.append(replyBox);feed.append(card);
   }
-  status.textContent=posts.length+' recent post(s)';
+  status.textContent=posts.length+(feedMode==='following'?' post(s) from members you follow':' recent community post(s)');
 }
 $('form').addEventListener('submit',async e=>{
   e.preventDefault();const content=$('content').value.trim();
