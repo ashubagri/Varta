@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VARTA is India's knowledge and conversation network for science, Indian knowledge, sound, culture and thoughtful public discussion.">
+    <meta name="theme-color" content="#0f172a">
     <title>VARTA — India's Knowledge & Conversation Network</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,14 +12,20 @@
   <header class="site-header">
     <div class="container header-wrap">
       <a href="index.html" class="brand">VARTA</a>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
         <a href="science.html">Science</a>
         <a href="indian-knowledge.html">Indian Knowledge</a>
-        <a href="sound-nada.html">Sound & NADA</a>
+        <a href="sound-nada.html">Sound &amp; NADA</a>
         <a href="culture-nature.html">Culture</a>
         <a href="world-affairs.html">World Affairs</a>
         <a href="posts.html">Posts</a>
+        <a href="search.html">Search</a>
+        <a href="discover.html">Discover</a>
+        <a href="activity.html">Activity</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="profile.html">My Profile</a>
+        <a href="login.html">Sign in</a>
       </nav>
     </div>
   </header>
@@ -27,47 +35,73 @@
       <div>
         <span class="eyebrow">Bharat Digital Universe</span>
         <h1>VARTA</h1>
-        <p class="tagline">India’s Knowledge & Conversation Network</p>
-        <p>A premium platform for public discussion, knowledge sharing, sound, wellness, science, culture and modern ideas rooted in Indian wisdom.</p>
+        <p class="tagline">India’s Knowledge &amp; Conversation Network</p>
+        <p class="lead">A place for thoughtful conversation, knowledge sharing, sound, science, culture and modern ideas rooted in Indian wisdom.</p>
+        <div class="cta-row">
+          <a class="button primary" href="login.html">Join the community</a>
+          <a class="button secondary" href="posts.html">Explore conversations</a>
+          <a class="button secondary" href="discover.html">Discover members</a>
+        </div>
       </div>
     </div>
   </main>
 
   <section class="section container">
-    <h2>What we build</h2>
+    <div class="section-header">
+      <span class="eyebrow">Explore VARTA</span>
+      <h2>Knowledge areas</h2>
+    </div>
     <div class="grid three-up">
       <article class="card">
-        <h3>Science & technology</h3>
+        <h3>Science &amp; technology</h3>
         <p>Discussion, discoveries and critical thinking on modern science, climate, energy and innovation.</p>
-        <a href="science.html">Explore</a>
+        <a href="science.html">Explore science</a>
       </article>
       <article class="card">
         <h3>Indian knowledge</h3>
-        <p>Essays, learning and contemporary interpretation of philosophy, rituals and memory traditions.</p>
-        <a href="indian-knowledge.html">Explore</a>
+        <p>Learning and contemporary interpretation of philosophy, rituals, Sanskrit and memory traditions.</p>
+        <a href="indian-knowledge.html">Explore Indian knowledge</a>
       </article>
       <article class="card">
-        <h3>Sound & NADA</h3>
-        <p>Ragas, mantras, vibration, sound healing, meditation and the science of resonance.</p>
-        <a href="sound-nada.html">Explore</a>
+        <h3>Sound &amp; NADA</h3>
+        <p>Ragas, mantras, music, vibration, meditation and the study of resonance.</p>
+        <a href="sound-nada.html">Explore sound &amp; NADA</a>
+      </article>
+      <article class="card">
+        <h3>Culture &amp; nature</h3>
+        <p>Discover traditions, artistic expression, local landscapes and the relationship between people and nature.</p>
+        <a href="culture-nature.html">Explore culture</a>
+      </article>
+      <article class="card">
+        <h3>World affairs</h3>
+        <p>Discuss geopolitics, energy, global change and the ideas shaping our shared future.</p>
+        <a href="world-affairs.html">Explore world affairs</a>
+      </article>
+      <article class="card">
+        <h3>Community conversations</h3>
+        <p>Publish a post, reply to ideas, follow members and find conversations that matter to you.</p>
+        <a href="posts.html">Open the community feed</a>
       </article>
     </div>
   </section>
-<section class="section feature-band" style="padding: 40px 0; background: rgba(255,245,230,0.8); border-top: 1px solid rgba(15,23,42,0.06); border-bottom: 1px solid rgba(15,23,42,0.06); margin: 30px 0;">
-  <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center;">
-    <div>
-      <span class="eyebrow dark" style="color: #b45309; font-weight: 700; font-size: 0.76rem; text-transform: uppercase;">Featured content</span>
-      <h2 style="margin: 8px 0 12px; font-size: 2rem;">Hydrogen Awakening & NADA</h2>
-      <p style="color: #4b5563; line-height: 1.6;">Sound, resonance, and energy in conversation. Watch our featured video directly from the channel.</p>
+
+  <section class="section feature-band">
+    <div class="container feature-grid">
+      <div>
+        <span class="eyebrow dark">Featured content</span>
+        <h2>Hydrogen Awakening &amp; NADA</h2>
+        <p class="lead">Sound, resonance and energy in conversation. Watch featured content connected to the ideas explored across VARTA.</p>
+      </div>
+      <div class="feature-video">
+        <iframe src="https://www.youtube.com/embed/W4ekQt-pGSg" title="Featured Hydrogen Awakening video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
     </div>
-    <div class="feature-video">
-      <iframe width="100%" height="280" src="https://www.youtube.com/embed/W4ekQt-pGSg" title="Hydrogen Awakening Video" style="border: 0; border-radius: 16px;" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
+  </section>
+
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 VARTA Prototype. All rights reserved.</p>
+    <div class="container legal-line">
+      <span>© 2026 VARTA — India's Knowledge &amp; Conversation Network</span>
+      <span><a href="login.html">Sign in or create an account</a></span>
     </div>
   </footer>
 </body>
