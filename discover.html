@@ -7,6 +7,28 @@
 .page-wrap{max-width:850px;margin:auto;padding:36px 15px}.panel,.member{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;margin:16px 0}.search{width:100%;box-sizing:border-box;padding:13px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}.member{display:flex;gap:16px;align-items:flex-start;justify-content:space-between}.member h2{font-size:1.15rem;margin:0 0 5px}.handle,.muted{color:#64748b}.bio{white-space:pre-wrap;overflow-wrap:anywhere}.btn{background:#174b8c;color:white;border:1px solid #174b8c;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;white-space:nowrap}.btn.following{background:white;color:#174b8c}.btn:disabled{opacity:.6}.main-nav{flex-wrap:wrap}#status{overflow-wrap:anywhere}@media(max-width:600px){.member{flex-direction:column}.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
 </style></head>
 <body>
+
+<div id="varta-language-panel" role="region" aria-label="Choose your language" style="position:relative;z-index:1000;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:8px 16px;background:#f1f5f9;color:#0f172a;font:14px Arial,sans-serif;border-bottom:1px solid #dbe3ec">
+  <span aria-hidden="true">🌐</span><strong>Language / भाषा</strong>
+  <div id="google_translate_element"></div>
+  <noscript>Use your browser's translation feature to read VARTA in your language.</noscript>
+</div>
+<script>
+function googleTranslateElementInit() {
+  if (window.google && google.translate && document.getElementById('google_translate_element')) {
+    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'af,sq,am,ar,hy,az,eu,be,bn,bs,bg,my,ca,zh-CN,zh-TW,hr,cs,da,nl,en,eo,et,tl,fi,fr,gl,ka,de,el,gu,ht,ha,he,hi,hu,is,id,ga,it,ja,jv,kn,kk,km,ko,lo,la,lv,lt,mk,mg,ms,ml,mt,mr,mn,ne,no,ny,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,si,sk,sl,so,es,su,sw,sv,ta,te,th,tr,uk,ur,uz,vi,cy,xh,yi,yo,zu', layout:google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay:false}, 'google_translate_element');
+  }
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<style>
+#varta-language-panel .goog-te-gadget{font:14px Arial,sans-serif!important;color:#0f172a!important}
+#varta-language-panel .goog-te-gadget-simple{border:1px solid #cbd5e1!important;border-radius:8px!important;padding:7px!important;background:#fff!important}
+#varta-language-panel .goog-te-gadget img{display:none!important}
+#varta-language-panel .goog-te-gadget span{border:0!important}
+@media(max-width:480px){#varta-language-panel{justify-content:center;flex-wrap:wrap;padding:8px}#varta-language-panel strong{font-size:13px}}
+</style>
+
 <header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="posts.html">Posts</a><a href="contribute.html">Contribute</a><a href="search.html">Search</a><a href="discover.html">Discover</a><a href="activity.html">Activity</a><a href="notifications.html">Notifications</a><a href="profile.html">My Profile</a></nav></div></header>
 <main class="page-wrap"><span class="eyebrow">Community</span><h1>Discover VARTA Members</h1><p class="tagline">Find people, explore their interests, and follow members whose posts you want to see.</p>
 <p id="auth" class="muted">Checking sign-in…</p><section class="panel"><label for="search"><strong>Search members</strong></label><input id="search" class="search" type="search" placeholder="Search by name, username or bio…" autocomplete="off"><label for="topicFilter"><strong>Filter by knowledge interest</strong></label><select id="topicFilter" class="search" style="margin:8px 0 12px"><option value="">All knowledge interests</option><option>Science &amp; Technology</option><option>Indian Knowledge</option><option>Sound &amp; NADA</option><option>Culture &amp; Nature</option><option>World Affairs</option></select><p id="status" class="muted" role="status" aria-live="polite">Loading members…</p></section><section id="members" aria-live="polite"></section></main>
