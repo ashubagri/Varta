@@ -69,3 +69,18 @@ a { overflow-wrap: anywhere; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Keep the VARTA wordmark on one line at every viewport size. */
+.site-header .brand {
+  white-space: nowrap;
+  flex: 0 0 auto;
+  min-width: max-content;
+  line-height: 1;
+}
+.site-header .header-wrap {
+  min-width: 0;
+}
+.site-header .main-nav {
+  min-width: 0;
+}
