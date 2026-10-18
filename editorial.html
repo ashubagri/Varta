@@ -7,6 +7,28 @@
 .page-wrap{max-width:1050px;margin:auto;padding:32px 15px}.panel,.item{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;margin:16px 0}.muted{color:#64748b}.field{display:block;margin:13px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea,.controls select,.controls textarea{width:100%;box-sizing:border-box;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.field textarea{min-height:110px;resize:vertical}.btn{background:#174b8c;color:#fff;border:0;border-radius:8px;padding:10px 15px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.controls label{font-weight:700;font-size:.92rem}.controls textarea{min-height:75px;margin-top:5px}.controls select{margin-top:5px}.item h3{font-size:1.1rem;margin:8px 0}.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:.85rem;margin-right:5px}.item-body{white-space:pre-wrap;overflow-wrap:anywhere}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.main-nav{flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}@media(max-width:650px){.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.controls,.grid2{grid-template-columns:1fr}.panel,.item{padding:15px}}
 </style></head>
 <body>
+
+<div id="varta-language-panel" role="region" aria-label="Choose your language" style="position:relative;z-index:1000;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:8px 16px;background:#f1f5f9;color:#0f172a;font:14px Arial,sans-serif;border-bottom:1px solid #dbe3ec">
+  <span aria-hidden="true">🌐</span><strong>Language / भाषा</strong>
+  <div id="google_translate_element"></div>
+  <noscript>Use your browser's translation feature to read VARTA in your language.</noscript>
+</div>
+<script>
+function googleTranslateElementInit() {
+  if (window.google && google.translate && document.getElementById('google_translate_element')) {
+    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'af,sq,am,ar,hy,az,eu,be,bn,bs,bg,my,ca,zh-CN,zh-TW,hr,cs,da,nl,en,eo,et,tl,fi,fr,gl,ka,de,el,gu,ht,ha,he,hi,hu,is,id,ga,it,ja,jv,kn,kk,km,ko,lo,la,lv,lt,mk,mg,ms,ml,mt,mr,mn,ne,no,ny,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,si,sk,sl,so,es,su,sw,sv,ta,te,th,tr,uk,ur,uz,vi,cy,xh,yi,yo,zu', layout:google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay:false}, 'google_translate_element');
+  }
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<style>
+#varta-language-panel .goog-te-gadget{font:14px Arial,sans-serif!important;color:#0f172a!important}
+#varta-language-panel .goog-te-gadget-simple{border:1px solid #cbd5e1!important;border-radius:8px!important;padding:7px!important;background:#fff!important}
+#varta-language-panel .goog-te-gadget img{display:none!important}
+#varta-language-panel .goog-te-gadget span{border:0!important}
+@media(max-width:480px){#varta-language-panel{justify-content:center;flex-wrap:wrap;padding:8px}#varta-language-panel strong{font-size:13px}}
+</style>
+
 <header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="posts.html">Posts</a><a href="contribute.html">Contribute</a><a href="moderation.html">Reports</a><a href="editorial.html" aria-current="page">Editorial &amp; publishing</a></nav></div></header>
 <main class="page-wrap"><span class="eyebrow">Authorised moderator tools</span><h1>Editorial review &amp; publishing</h1><p>Review community suggestions, prepare a guide, save drafts and publish approved guides to the matching public knowledge area. Published guides appear automatically on their category page.</p>
 <p id="status" class="muted" role="status" aria-live="polite">Verifying moderator access…</p>
