@@ -5,7 +5,19 @@
 <title>Discover Members — VARTA</title><link rel="stylesheet" href="css/style.css">
 <style>
 .page-wrap{max-width:850px;margin:auto;padding:36px 15px}.panel,.member{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;margin:16px 0}.search{width:100%;box-sizing:border-box;padding:13px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}.member{display:flex;gap:16px;align-items:flex-start;justify-content:space-between}.member h2{font-size:1.15rem;margin:0 0 5px}.handle,.muted{color:#64748b}.bio{white-space:pre-wrap;overflow-wrap:anywhere}.btn{background:#174b8c;color:white;border:1px solid #174b8c;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;white-space:nowrap}.btn.following{background:white;color:#174b8c}.btn:disabled{opacity:.6}.main-nav{flex-wrap:wrap}#status{overflow-wrap:anywhere}@media(max-width:600px){.member{flex-direction:column}.header-wrap{align-items:flex-start;flex-direction:column;padding:14px 0}}
-</style></head>
+</style>
+<style id="varta-mobile-navigation-fix">
+@media (max-width: 700px) {
+  .site-header .header-wrap { align-items: flex-start !important; flex-direction: column !important; gap: 10px !important; padding-top: 12px !important; padding-bottom: 12px !important; }
+  .site-header .main-nav { display: flex !important; flex-wrap: nowrap !important; justify-content: flex-start !important; gap: 14px !important; width: 100% !important; max-width: 100% !important; overflow-x: auto !important; overflow-y: hidden !important; padding: 4px 2px 9px !important; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+  .site-header .main-nav a { flex: 0 0 auto !important; white-space: nowrap !important; }
+  .site-header .brand { flex: 0 0 auto; }
+  .post-actions, .feed-tabs { flex-wrap: wrap; }
+  .page-wrap, main { overflow-wrap: anywhere; }
+  input, select, textarea, button { max-width: 100%; }
+}
+</style>
+</head>
 <body>
 
 <div id="varta-language-panel" role="region" aria-label="Choose your language" style="position:relative;z-index:1000;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:8px 16px;background:#f1f5f9;color:#0f172a;font:14px Arial,sans-serif;border-bottom:1px solid #dbe3ec">
