@@ -27,7 +27,7 @@
 
 <header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="science.html">Science</a><a href="indian-knowledge.html">Indian Knowledge</a><a href="sound-nada.html">Sound &amp; NADA</a><a href="culture-nature.html">Culture</a><a href="world-affairs.html">World Affairs</a><a href="posts.html">Posts</a><a href="search.html">Search</a><a href="discover.html">Discover</a><a href="profile.html">My Profile</a><a href="notifications.html">Notifications</a></nav></div></header>
 <main class="page-wrap"><span class="eyebrow">Member account</span><h1>My VARTA Profile</h1><p class="tagline">Choose how other members see you.</p>
-<p id="authstatus" class="muted">Checking sign-in…</p>
+<p id="authstatus" class="muted">Checking sign-in…</p><p><button id="signout" class="btn" type="button" hidden>Sign out</button></p>
 <form id="profileform" class="panel" hidden>
 <div class="field"><label for="display_name">Display name</label><input id="display_name" maxlength="60" required placeholder="Your name"></div>
 <div class="field"><label for="username">Username</label><input id="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+" required placeholder="letters, numbers and underscores"><small class="muted">3–30 characters; letters, numbers and underscores only.</small></div>
@@ -52,6 +52,7 @@ async function init(){
  const {data,error}=await supabase.auth.getSession();
  if(error){$('authstatus').textContent='Could not check sign-in: '+error.message;return;}
  user=data.session?.user||null;
+ $('signout').hidden=!user;
  if(!user){$('authstatus').textContent='Please sign in to edit your profile.';const a=document.createElement('a');a.href='login.html';a.textContent='Open VARTA Login';$('authstatus').append(' ',a);return;}
  $('authstatus').textContent='Signed in. Changes apply to your member profile.';
  const {data:p,error:e}=await supabase.from('profiles').select('username,display_name,bio,preferred_language').eq('id',user.id).maybeSingle();
@@ -69,6 +70,7 @@ async function init(){
  document.querySelectorAll('input[name="interest"]').forEach(input=>{input.checked=selected.has(input.value.replace(/&amp;/g,'&'));});
  $('biocount').textContent=$('bio').value.length;$('profileform').hidden=false;
 }
+$('signout').addEventListener('click',async()=>{ $('signout').disabled=true; $('signout').textContent='Signing out…'; const {error}=await supabase.auth.signOut(); if(error){$('signout').disabled=false;$('signout').textContent='Sign out';$('message').textContent='Could not sign out: '+error.message;return;} window.location.href='login.html'; });
 $('profileform').addEventListener('submit',async e=>{
  e.preventDefault();if(!user)return;
  const username=$('username').value.trim().toLowerCase(),display_name=$('display_name').value.trim(),bio=$('bio').value.trim();
