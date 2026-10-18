@@ -86,7 +86,7 @@ else{
    btn.addEventListener('click',async()=>{btn.disabled=true;const result=rel?await supabase.from('follows').delete().eq('follower_id',user.id).eq('following_id',profile.id):await supabase.from('follows').insert({follower_id:user.id,following_id:profile.id});btn.disabled=false;if(result.error){$('status').textContent='Could not update follow: '+result.error.message;return;}location.reload();});actions.append(btn);
   }
   box.append(actions);box.hidden=false;
-  const {data:sessionProfile}=await supabase.from('profiles').select('preferred_language').eq('id',user?.id||'00000000-0000-0000-0000-000000000000').maybeSingle();const targetLanguage=sessionProfile?.preferred_language||'en';
+  const {data:memberSession}=await supabase.auth.getSession();const currentUserId=memberSession.session?.user?.id;const {data:sessionProfile}=currentUserId?await supabase.from('profiles').select('preferred_language').eq('id',currentUserId).maybeSingle():{data:null};const targetLanguage=sessionProfile?.preferred_language||'en';
   const {data:posts,error:postError}=await supabase.from('posts').select('id,content,created_at,language_code').eq('user_id',profile.id).order('created_at',{ascending:false}).limit(50);
   if(postError){$('status').textContent='Profile loaded, but posts could not be loaded: '+postError.message;}
   else{
