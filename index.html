@@ -121,6 +121,67 @@ function googleTranslateElementInit() {
     </div>
   </section>
 
+
+  <section class="section container" id="latest-knowledge-guides">
+    <div class="section-header">
+      <span class="eyebrow">Fresh from the library</span>
+      <h2>Latest knowledge guides</h2>
+      <p class="lead">Read a short explainer, explore its topic, and continue the conversation with the community.</p>
+    </div>
+    <div id="latest-guides-status" class="knowledge-note" role="status" aria-live="polite">Loading published guides…</div>
+    <div id="latest-guides-grid" class="grid three-up" aria-live="polite"></div>
+    <p style="margin-top:18px"><a class="button secondary" href="contribute.html">Suggest a guide or correction</a></p>
+  </section>
+  <script type="module">
+    import { supabase } from './js/supabase-client.js';
+    const guideTopicPages = {
+      'Science & Technology': 'science.html',
+      'Indian Knowledge': 'indian-knowledge.html',
+      'Sound & NADA': 'sound-nada.html',
+      'Culture & Nature': 'culture-nature.html',
+      'World Affairs': 'world-affairs.html'
+    };
+    const statusEl = document.getElementById('latest-guides-status');
+    const gridEl = document.getElementById('latest-guides-grid');
+    function addText(parent, tag, text, className) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      el.textContent = text || '';
+      parent.append(el);
+      return el;
+    }
+    try {
+      const { data, error } = await supabase
+        .from('knowledge_guides')
+        .select('id,topic,title,summary,published_at')
+        .eq('status', 'published')
+        .order('published_at', { ascending: false, nullsFirst: false })
+        .limit(6);
+      if (error) throw error;
+      gridEl.replaceChildren();
+      if (!data || data.length === 0) {
+        statusEl.textContent = 'The library is ready for more published guides. You can suggest a topic or correction.';
+      } else {
+        statusEl.hidden = true;
+        for (const guide of data) {
+          const card = document.createElement('article');
+          card.className = 'card';
+          addText(card, 'p', guide.topic || 'VARTA Knowledge', 'eyebrow');
+          addText(card, 'h3', guide.title || 'Knowledge guide');
+          addText(card, 'p', guide.summary || 'Open this guide to explore the topic and its references.');
+          const link = document.createElement('a');
+          link.href = guideTopicPages[guide.topic] || 'search.html';
+          link.textContent = 'Explore this topic →';
+          card.append(link);
+          gridEl.append(card);
+        }
+      }
+    } catch (err) {
+      statusEl.textContent = 'Published guides are available in the knowledge hubs. Open a hub above to continue reading.';
+      console.error('Could not load latest knowledge guides:', err);
+    }
+  </script>
+
   <section class="section feature-band">
     <div class="container feature-grid">
       <div>
