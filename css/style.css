@@ -70,17 +70,17 @@ a { overflow-wrap: anywhere; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
-
-/* Keep the VARTA wordmark on one line at every viewport size. */
+/* Keep the VARTA wordmark intact even when the navigation is crowded. */
 .site-header .brand {
-  white-space: nowrap;
-  flex: 0 0 auto;
-  min-width: max-content;
-  line-height: 1;
+  display: inline-flex !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+  line-height: 1.1 !important;
 }
-.site-header .header-wrap {
-  min-width: 0;
-}
-.site-header .main-nav {
-  min-width: 0;
-}
+.site-header .header-wrap { min-width: 0; }
+.site-header .main-nav { min-width: 0; }
