@@ -37,6 +37,9 @@ import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
 const id=new URLSearchParams(location.search).get('id');
 const escText=(el,text)=>{el.textContent=text||'';return el;};
+const languageNames={en:'English',hi:'Hindi',bn:'Bengali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',kn:'Kannada',ml:'Malayalam',ne:'Nepali',ar:'Arabic',fr:'French',de:'German',es:'Spanish',pt:'Portuguese',ru:'Russian','zh-CN':'Chinese','zh-TW':'Traditional Chinese',ja:'Japanese',ko:'Korean',id:'Indonesian',tr:'Turkish',it:'Italian',fa:'Persian',uk:'Ukrainian',vi:'Vietnamese',sw:'Swahili',el:'Greek'};
+async function translateText(text,target){const url='https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl='+encodeURIComponent(target)+'&dt=t&q='+encodeURIComponent(text);const response=await fetch(url);if(!response.ok)throw new Error('Translation service returned '+response.status);const data=await response.json();return (data[0]||[]).map(part=>part[0]||'').join('')||text;}
+function addTranslationControl(container,original,target){const button=document.createElement('button');button.type='button';button.className='btn secondary';button.textContent='Translate to '+(languageNames[target]||target);const translated=document.createElement('p');translated.hidden=true;translated.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f9ff;border-left:3px solid #0284c7;padding:10px 12px;border-radius:6px';button.addEventListener('click',async()=>{if(!translated.hidden){translated.hidden=true;button.textContent='Translate to '+(languageNames[target]||target);return;}button.disabled=true;button.textContent='Translating…';try{translated.textContent=await translateText(original,target);translated.hidden=false;button.textContent='Hide translation';}catch(e){translated.textContent='Translation is temporarily unavailable. Please try again later.';translated.hidden=false;button.textContent='Retry translation';}finally{button.disabled=false;}});container.append(button,translated);}
 if(!id){$('status').textContent='No member was selected. Open Discover and choose a member.';}
 else{
  const {data:profile,error}=await supabase.from('profiles').select('id,username,display_name,bio,created_at').eq('id',id).maybeSingle();
@@ -83,12 +86,13 @@ else{
    btn.addEventListener('click',async()=>{btn.disabled=true;const result=rel?await supabase.from('follows').delete().eq('follower_id',user.id).eq('following_id',profile.id):await supabase.from('follows').insert({follower_id:user.id,following_id:profile.id});btn.disabled=false;if(result.error){$('status').textContent='Could not update follow: '+result.error.message;return;}location.reload();});actions.append(btn);
   }
   box.append(actions);box.hidden=false;
-  const {data:posts,error:postError}=await supabase.from('posts').select('id,content,created_at').eq('user_id',profile.id).order('created_at',{ascending:false}).limit(50);
+  const {data:sessionProfile}=await supabase.from('profiles').select('preferred_language').eq('id',user?.id||'00000000-0000-0000-0000-000000000000').maybeSingle();const targetLanguage=sessionProfile?.preferred_language||'en';
+  const {data:posts,error:postError}=await supabase.from('posts').select('id,content,created_at,language_code').eq('user_id',profile.id).order('created_at',{ascending:false}).limit(50);
   if(postError){$('status').textContent='Profile loaded, but posts could not be loaded: '+postError.message;}
   else{
    $('status').textContent='Member profile loaded.';$('postsHeading').hidden=false;
    if(!posts?.length){const p=document.createElement('p');p.className='muted';p.textContent='This member has not published any posts yet.';$('posts').append(p);}
-   for(const post of posts||[]){const card=document.createElement('article');card.className='post';const meta=document.createElement('p');meta.className='muted';meta.textContent=new Date(post.created_at).toLocaleString();const body=document.createElement('p');body.className='postbody';body.textContent=post.content;card.append(meta,body);$('posts').append(card);}
+   for(const post of posts||[]){const card=document.createElement('article');card.className='post';const meta=document.createElement('p');meta.className='muted';meta.textContent=new Date(post.created_at).toLocaleString();const body=document.createElement('p');body.className='postbody';body.textContent=post.content;const tools=document.createElement('div');tools.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:8px';addTranslationControl(tools,post.content,targetLanguage);const lang=document.createElement('span');lang.className='muted';lang.textContent='Original language: '+(post.language_code==='auto'?'auto-detected':languageNames[post.language_code]||post.language_code||'not specified');tools.append(lang);card.append(meta,body,tools);$('posts').append(card);}
   }
  }
 }
