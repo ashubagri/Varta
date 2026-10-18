@@ -9,6 +9,12 @@
 📝 **Contribute knowledge:** https://ashubagri.github.io/Varta/contribute.html  
 🔐 **Join or sign in:** https://ashubagri.github.io/Varta/login.html
 
+## Grow VARTA
+
+A practical, zero-budget launch and community-growth checklist is maintained in [GROWTH_PLAN.md](GROWTH_PLAN.md). It focuses on reliability, useful recurring discussions, genuine community participation, and search discoverability—not vanity metrics or paid promotion.
+
+Public crawl guidance and a sitemap are provided in [`robots.txt`](robots.txt) and [`sitemap.xml`](sitemap.xml). Sitemap submission is a hint to search engines, not a guarantee of indexing.
+
 ## Project goals
 
 - Give people a simple place to publish posts and discuss ideas.
