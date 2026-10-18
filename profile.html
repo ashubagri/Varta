@@ -19,6 +19,7 @@
 <form id="profileform" class="panel" hidden>
 <div class="field"><label for="display_name">Display name</label><input id="display_name" maxlength="60" required placeholder="Your name"></div>
 <div class="field"><label for="username">Username</label><input id="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+" required placeholder="letters, numbers and underscores"><small class="muted">3–30 characters; letters, numbers and underscores only.</small></div>
+<div class="field"><label for="preferred_language">Preferred reading language</label><select id="preferred_language" required><option value="en">English</option><option value="hi">हिन्दी (Hindi)</option><option value="bn">বাংলা (Bengali)</option><option value="ta">தமிழ் (Tamil)</option><option value="te">తెలుగు (Telugu)</option><option value="mr">मराठी (Marathi)</option><option value="gu">ગુજરાતી (Gujarati)</option><option value="pa">ਪੰਜਾਬੀ (Punjabi)</option><option value="ur">اردو (Urdu)</option><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="ml">മലയാളം (Malayalam)</option><option value="ne">नेपाली (Nepali)</option><option value="ar">العربية (Arabic)</option><option value="fr">Français (French)</option><option value="de">Deutsch (German)</option><option value="es">Español (Spanish)</option><option value="pt">Português (Portuguese)</option><option value="ru">Русский (Russian)</option><option value="zh-CN">简体中文</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="id">Bahasa Indonesia</option><option value="tr">Türkçe</option></select><small class="muted">Used as your default language for translating community posts and replies.</small></div>
 <div class="field"><label for="bio">Bio</label><textarea id="bio" maxlength="300" placeholder="Tell the VARTA community a little about yourself (max 300 characters)"></textarea><small class="muted"><span id="biocount">0</span>/300</small></div>
 <fieldset class="field" id="interests"><legend><strong>Knowledge interests</strong></legend><p class="muted">Choose the topics you enjoy learning about. These will appear on your public member profile.</p>
 <label><input type="checkbox" name="interest" value="Science &amp; Technology"> Science &amp; Technology</label>
@@ -41,9 +42,9 @@ async function init(){
  user=data.session?.user||null;
  if(!user){$('authstatus').textContent='Please sign in to edit your profile.';const a=document.createElement('a');a.href='login.html';a.textContent='Open VARTA Login';$('authstatus').append(' ',a);return;}
  $('authstatus').textContent='Signed in. Changes apply to your member profile.';
- const {data:p,error:e}=await supabase.from('profiles').select('username,display_name,bio').eq('id',user.id).maybeSingle();
+ const {data:p,error:e}=await supabase.from('profiles').select('username,display_name,bio,preferred_language').eq('id',user.id).maybeSingle();
  if(e){$('message').textContent='Could not load profile: '+e.message;return;}
- if(p){$('username').value=p.username||'';$('display_name').value=p.display_name||'';$('bio').value=p.bio||'';}
+ if(p){$('username').value=p.username||'';$('display_name').value=p.display_name||'';$('bio').value=p.bio||'';$('preferred_language').value=p.preferred_language||'en';}
  else {
   const emailName=(user.email||'varta-member').split('@')[0];
   const base=emailName.toLowerCase().replace(/[^a-z0-9_]/g,'_').replace(/^_+|_+$/g,'').slice(0,20)||'varta_member';
@@ -62,7 +63,8 @@ $('profileform').addEventListener('submit',async e=>{
  if(!/^[a-z0-9_]{3,30}$/.test(username)){$('message').textContent='Username must be 3–30 characters using letters, numbers and underscores.';return;}
  if(!display_name){$('message').textContent='Please enter a display name.';return;}
  $('save').disabled=true;$('save').textContent='Saving…';$('message').textContent='';
- const {error}=await supabase.from('profiles').upsert({id:user.id,username,display_name,bio},{onConflict:'id'});
+ const preferred_language=$('preferred_language').value||'en';
+ const {error}=await supabase.from('profiles').upsert({id:user.id,username,display_name,bio,preferred_language},{onConflict:'id'});
  if(error){$('save').disabled=false;$('save').textContent='Save profile';$('message').textContent=error.code==='23505'?'That username is already taken. Please choose another.':'Could not save profile: '+error.message;return;}
  const selected=[...document.querySelectorAll('input[name="interest"]:checked')].map(input=>input.value.replace(/&amp;/g,'&'));
  // Save newly selected interests before removing old ones, so an insert failure
@@ -83,7 +85,7 @@ $('profileform').addEventListener('submit',async e=>{
   }
  }
  $('save').disabled=false;$('save').textContent='Save profile';
- $('message').textContent='Profile and knowledge interests saved. Your interests will appear on your public member profile.';
+ $('message').textContent='Profile, preferred reading language and knowledge interests saved.';
 });
 await init();
 </script></body></html>
