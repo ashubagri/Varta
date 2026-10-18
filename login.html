@@ -33,6 +33,28 @@
   </style>
 </head>
 <body>
+
+<div id="varta-language-panel" role="region" aria-label="Choose your language" style="position:relative;z-index:1000;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:8px 16px;background:#f1f5f9;color:#0f172a;font:14px Arial,sans-serif;border-bottom:1px solid #dbe3ec">
+  <span aria-hidden="true">🌐</span><strong>Language / भाषा</strong>
+  <div id="google_translate_element"></div>
+  <noscript>Use your browser's translation feature to read VARTA in your language.</noscript>
+</div>
+<script>
+function googleTranslateElementInit() {
+  if (window.google && google.translate && document.getElementById('google_translate_element')) {
+    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'af,sq,am,ar,hy,az,eu,be,bn,bs,bg,my,ca,zh-CN,zh-TW,hr,cs,da,nl,en,eo,et,tl,fi,fr,gl,ka,de,el,gu,ht,ha,he,hi,hu,is,id,ga,it,ja,jv,kn,kk,km,ko,lo,la,lv,lt,mk,mg,ms,ml,mt,mr,mn,ne,no,ny,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,si,sk,sl,so,es,su,sw,sv,ta,te,th,tr,uk,ur,uz,vi,cy,xh,yi,yo,zu', layout:google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay:false}, 'google_translate_element');
+  }
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<style>
+#varta-language-panel .goog-te-gadget{font:14px Arial,sans-serif!important;color:#0f172a!important}
+#varta-language-panel .goog-te-gadget-simple{border:1px solid #cbd5e1!important;border-radius:8px!important;padding:7px!important;background:#fff!important}
+#varta-language-panel .goog-te-gadget img{display:none!important}
+#varta-language-panel .goog-te-gadget span{border:0!important}
+@media(max-width:480px){#varta-language-panel{justify-content:center;flex-wrap:wrap;padding:8px}#varta-language-panel strong{font-size:13px}}
+</style>
+
   <main class="layout">
     <section class="intro" aria-labelledby="welcome-title">
       <a href="index.html" class="brand" aria-label="VARTA home">VARTA</a>
