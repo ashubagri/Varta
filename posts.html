@@ -20,7 +20,7 @@
 <main class="page-wrap">
 <span class="eyebrow">Community</span><h1>VARTA Posts</h1><p class="tagline">Share knowledge. Start a thoughtful conversation.</p>
 <p id="authstatus" class="muted">Checking sign-in…</p>
-<section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p id="topicContext" class="muted" hidden></p><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><label for="postTopic"><strong>Knowledge area (optional)</strong></label><select id="postTopic" style="display:block;width:100%;margin:10px 0;padding:11px;border:1px solid #cbd5e1;border-radius:10px;font:inherit"><option value="">General discussion</option><option>Science &amp; Technology</option><option>Indian Knowledge</option><option>Sound &amp; NADA</option><option>Culture &amp; Nature</option><option>World Affairs</option></select><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
+<section id="composer" class="feed-card composer" hidden><h2>Write a post</h2><p id="topicContext" class="muted" hidden></p><p class="muted">Maximum 500 characters.</p><form id="form"><textarea id="content" maxlength="500" required placeholder="What would you like to share?"></textarea><label for="postLanguage"><strong>Post language</strong></label><select id="postLanguage" style="display:block;width:100%;margin:8px 0 12px;padding:11px;border:1px solid #cbd5e1;border-radius:10px;font:inherit"><option value="auto">Detect automatically</option><option value="en">English</option><option value="hi">हिन्दी (Hindi)</option><option value="bn">বাংলা (Bengali)</option><option value="ta">தமிழ் (Tamil)</option><option value="te">తెలుగు (Telugu)</option><option value="mr">मराठी (Marathi)</option><option value="gu">ગુજરાતી (Gujarati)</option><option value="pa">ਪੰਜਾਬੀ (Punjabi)</option><option value="ur">اردو (Urdu)</option><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="ml">മലയാളം (Malayalam)</option><option value="ne">नेपाली (Nepali)</option><option value="ar">العربية (Arabic)</option><option value="fr">Français (French)</option><option value="de">Deutsch (German)</option><option value="es">Español (Spanish)</option><option value="pt">Português (Portuguese)</option><option value="ru">Русский (Russian)</option><option value="zh-CN">简体中文 (Chinese)</option><option value="ja">日本語 (Japanese)</option><option value="ko">한국어 (Korean)</option><option value="id">Bahasa Indonesia</option><option value="tr">Türkçe (Turkish)</option></select><label for="postTopic"><strong>Knowledge area (optional)</strong></label><select id="postTopic" style="display:block;width:100%;margin:10px 0;padding:11px;border:1px solid #cbd5e1;border-radius:10px;font:inherit"><option value="">General discussion</option><option>Science &amp; Technology</option><option>Indian Knowledge</option><option>Sound &amp; NADA</option><option>Culture &amp; Nature</option><option>World Affairs</option></select><p class="muted"><span id="count">0</span>/500 <button id="publish" class="btn" type="submit">Publish post</button></p></form></section>
 <section class="feed-card" aria-label="Filter conversations"><strong>Browse by knowledge area</strong><div id="topicFilters" class="feed-tabs" role="group" aria-label="Filter posts by topic"><button type="button" class="feed-tab active" data-topic="">All topics</button><button type="button" class="feed-tab" data-topic="Science &amp; Technology">Science &amp; technology</button><button type="button" class="feed-tab" data-topic="Indian Knowledge">Indian knowledge</button><button type="button" class="feed-tab" data-topic="Sound &amp; NADA">Sound &amp; NADA</button><button type="button" class="feed-tab" data-topic="Culture &amp; Nature">Culture &amp; nature</button><button type="button" class="feed-tab" data-topic="World Affairs">World affairs</button></div><p class="muted">Choose a topic to discover conversations. Members can assign one knowledge area to each new post.</p></section>
 <div class="feed-tabs" role="group" aria-label="Choose feed"><button id="allTab" class="feed-tab active" type="button" aria-pressed="true">Community</button><button id="followingTab" class="feed-tab" type="button" aria-pressed="false">Following</button></div><p id="status" class="muted" role="status" aria-live="polite">Loading posts…</p><section id="feed"></section>
 </main>
@@ -28,13 +28,16 @@
 <script type="module">
 import {supabase} from './js/supabase-client.js';
 const $=id=>document.getElementById(id);
-let user=null,feedMode='all',topicFilter='';
+let user=null,feedMode='all',topicFilter='',preferredLanguage='en';
 const topicOptions=['Science & Technology','Indian Knowledge','Sound & NADA','Culture & Nature','World Affairs'];
 const params=new URLSearchParams(window.location.search);
 const topicParam=(params.get('topic')||'').trim();
 const guideParam=(params.get('guide')||'').trim().slice(0,160);
 if(topicOptions.includes(topicParam)){topicFilter=topicParam;$('postTopic').value=topicParam;}
 if(topicParam||guideParam){$('topicContext').hidden=false;$('topicContext').textContent=(guideParam?'Discussing guide: '+guideParam:'Starting a discussion about '+topicParam)+'. Choose the matching knowledge area before publishing.';$('content').placeholder='Share a question, insight or source'+(guideParam?' about '+guideParam:topicParam?' about '+topicParam:'')+'…';document.title='VARTA Topic Discussion';}
+const languageNames={en:'English',hi:'Hindi',bn:'Bengali',ta:'Tamil',te:'Telugu',mr:'Marathi',gu:'Gujarati',pa:'Punjabi',ur:'Urdu',kn:'Kannada',ml:'Malayalam',ne:'Nepali',ar:'Arabic',fr:'French',de:'German',es:'Spanish',pt:'Portuguese',ru:'Russian','zh-CN':'Chinese (Simplified)','zh-TW':'Chinese (Traditional)',ja:'Japanese',ko:'Korean',id:'Indonesian',tr:'Turkish',it:'Italian',fa:'Persian',uk:'Ukrainian',vi:'Vietnamese',sw:'Swahili',el:'Greek'};
+async function translateText(text,target){const url='https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl='+encodeURIComponent(target)+'&dt=t&q='+encodeURIComponent(text);const response=await fetch(url);if(!response.ok)throw new Error('Translation service returned '+response.status);const data=await response.json();return (data[0]||[]).map(part=>part[0]||'').join('')||text;}
+function addTranslationControl(container,original,targetLanguage){const button=document.createElement('button');button.type='button';button.className='follow-btn';button.textContent='Translate to '+(languageNames[targetLanguage]||targetLanguage);const output=document.createElement('p');output.className='translated-text';output.hidden=true;output.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f9ff;border-left:3px solid #0284c7;padding:10px 12px;border-radius:6px;margin-top:10px';button.addEventListener('click',async()=>{if(!output.hidden){output.hidden=true;button.textContent='Translate to '+(languageNames[targetLanguage]||targetLanguage);return;}button.disabled=true;button.textContent='Translating…';try{output.textContent=await translateText(original,targetLanguage);output.hidden=false;button.textContent='Hide translation';}catch(e){output.textContent='Translation is temporarily unavailable. Please try again later.';output.hidden=false;button.textContent='Retry translation';}finally{button.disabled=false;}});container.append(button,output);}
 function updateTopicFilters(){document.querySelectorAll('[data-topic]').forEach(b=>{const selected=b.dataset.topic===topicFilter;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});}
 document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>{topicFilter=b.dataset.topic;updateTopicFilters();loadPosts();}));
 updateTopicFilters();
@@ -71,12 +74,12 @@ async function refreshAuth(){
   const {data,error}=await supabase.auth.getSession();
   if(error){$('authstatus').textContent='Sign-in status error: '+error.message;return;}
   user=data.session?.user||null;
-  if(user){await ensureOwnProfile();$('authstatus').textContent='Signed in — you can publish.';$('composer').hidden=false;}
+  if(user){await ensureOwnProfile();const {data:prof}=await supabase.from('profiles').select('preferred_language').eq('id',user.id).maybeSingle();preferredLanguage=prof?.preferred_language||'en';$('postLanguage').value=preferredLanguage;$('authstatus').textContent='Signed in — choose your post language. Readers can translate your posts.';$('composer').hidden=false;}
   else{$('authstatus').textContent='Sign in to publish posts.';$('composer').hidden=true;const link=document.createElement('a');link.href='login.html';link.textContent='Open VARTA Login';$('authstatus').append(' ',link);}
 }
 async function loadPosts(){
   const status=$('status'),feed=$('feed');status.textContent='Loading posts…';feed.replaceChildren();
-  let query=supabase.from('posts').select('id,user_id,content,created_at').order('created_at',{ascending:false}).limit(50);
+  let query=supabase.from('posts').select('id,user_id,content,created_at,language_code').order('created_at',{ascending:false}).limit(50);
   if(feedMode==='following'){
     if(!user){status.textContent='Sign in to see posts from members you follow.';const a=document.createElement('a');a.href='login.html';a.textContent='Sign in';status.append(' ',a);return;}
     const {data:relations,error:followError}=await supabase.from('follows').select('following_id').eq('follower_id',user.id);
@@ -128,6 +131,8 @@ async function loadPosts(){
     const h=document.createElement('h2');const authorLink=document.createElement('a');authorLink.href='member.html?id='+encodeURIComponent(p.user_id);authorLink.textContent=prof?.display_name||prof?.username||'VARTA Member';authorLink.style.color='inherit';authorLink.style.textDecoration='none';h.append(authorLink);
     const meta=document.createElement('p');meta.className='meta';meta.textContent=(prof?.username?'@'+prof.username+' · ':'')+new Date(p.created_at).toLocaleString()+(topicMap.get(String(p.id))?' · '+topicMap.get(String(p.id)):'');
     const body=document.createElement('p');body.className='postbody';body.textContent=p.content;
+    const translationTools=document.createElement('div');translationTools.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:8px';addTranslationControl(translationTools,p.content,preferredLanguage);
+    const originalLanguage=document.createElement('span');originalLanguage.className='muted';originalLanguage.textContent='Original language: '+(p.language_code==='auto'?'auto-detected':languageNames[p.language_code]||p.language_code||'not specified');originalLanguage.style.cssText='font-size:.85rem;margin-left:4px';translationTools.append(originalLanguage);
     const actions=document.createElement('div');actions.className='post-actions';
     const postLikes=likeMap.get(p.id)||[];
     const button=document.createElement('button');button.type='button';button.className='like-btn'+(user&&postLikes.includes(user.id)?' liked':'');button.setAttribute('aria-pressed',String(!!user&&postLikes.includes(user.id)));
@@ -179,7 +184,7 @@ async function loadPosts(){
       });
       actions.append(followButton);
     }
-    card.append(h,meta,body,actions);
+    card.append(h,meta,body,translationTools,actions);
     const replyBox=document.createElement('section');replyBox.className='reply-box';
     const replyHeading=document.createElement('p');replyHeading.className='reply-count';replyHeading.textContent='Replies · '+(repliesByPost.get(p.id)||[]).length;replyBox.append(replyHeading);
     const replyList=document.createElement('div');replyList.className='reply-list';
@@ -188,7 +193,7 @@ async function loadPosts(){
       const rpName=document.createElement('strong');const rprof=map.get(reply.user_id);const replyAuthorLink=document.createElement('a');replyAuthorLink.href='member.html?id='+encodeURIComponent(reply.user_id);replyAuthorLink.textContent=rprof?.display_name||rprof?.username||'VARTA Member';replyAuthorLink.style.color='inherit';replyAuthorLink.style.textDecoration='none';rpName.append(replyAuthorLink);
       const rpMeta=document.createElement('span');rpMeta.className='muted';rpMeta.textContent=' · '+new Date(reply.created_at).toLocaleString();
       const rpBody=document.createElement('p');rpBody.textContent=reply.content;
-      rp.append(rpName,rpMeta,rpBody);
+      rp.append(rpName,rpMeta,rpBody);const replyTranslate=document.createElement('div');replyTranslate.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:6px';addTranslationControl(replyTranslate,reply.content,preferredLanguage);rp.append(replyTranslate);
       if(user&&reply.user_id!==user.id){
         const reportReply=document.createElement('button');reportReply.type='button';reportReply.className='follow-btn';reportReply.textContent='Report reply';
         reportReply.addEventListener('click',()=>reportContent('reply',reply.id));
@@ -214,7 +219,8 @@ $('form').addEventListener('submit',async e=>{
   if(!user){$('status').textContent='Please sign in first.';return;}
   if(!content)return;
   $('publish').disabled=true;$('publish').textContent='Publishing…';
-  const {data:created,error}=await supabase.from('posts').insert({user_id:user.id,content}).select('id').single();
+  const languageCode=$('postLanguage').value||'auto';
+  const {data:created,error}=await supabase.from('posts').insert({user_id:user.id,content,language_code:languageCode}).select('id').single();
   $('publish').disabled=false;$('publish').textContent='Publish post';
   if(error){$('status').textContent='Could not publish: '+error.message;return;}
   const selectedTopic=$('postTopic').value;
