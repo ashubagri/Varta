@@ -65,8 +65,8 @@ async function makeVideoCard(row,own=false,review=false){
   actions.append(makeButton('Approve video',()=>reviewVideo(row.id,'published')),makeButton('Reject video',()=>reviewVideo(row.id,'rejected')));
   card.append(actions);
  }
- if(own&&['pending','rejected'].includes(row.status)){
-  card.append(makeButton('Delete submission',()=>deleteVideo(row)));
+ if((user&&row.user_id===user.id)||isModerator){
+  card.append(makeButton(row.status==='published'?'Delete video':'Delete submission',()=>deleteVideo(row)));
  }
  return card;
 }
