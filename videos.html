@@ -92,10 +92,14 @@ async function loadVideos(){
  for(const row of published||[])feed.append(await makeVideoCard(row));
  setStatus('feedStatus',published?.length?published.length+' approved video(s).':'No approved videos yet. Be the first to submit a useful video.');
  if(!user)return;
- const {data:ownRows,error:ownError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('user_id',user.id).in('status',['pending','rejected']).order('created_at',{ascending:false}).limit(20);
+ const {data:ownRows,error:ownError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('user_id',user.id).order('created_at',{ascending:false}).limit(100);
  if(!ownError&&ownRows?.length){
-  const heading=document.createElement('h3');heading.textContent='Your submissions';feed.prepend(heading);
-  for(const row of ownRows)feed.append(await makeVideoCard(row,true,false));
+  const heading=document.createElement('h3');heading.textContent='Your videos and submissions';feed.prepend(heading);
+  for(const row of ownRows){
+   if(row.status!=='published'||!(published||[]).some(publicRow=>publicRow.id===row.id)){
+    feed.append(await makeVideoCard(row,true,false));
+   }
+  }
  }
  if(isModerator){
   $('reviewPanel').hidden=false;setStatus('reviewStatus','Loading pending submissions…');
