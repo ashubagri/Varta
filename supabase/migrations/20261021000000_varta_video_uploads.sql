@@ -17,11 +17,14 @@ create table if not exists public.video_posts (
 );
 create index if not exists video_posts_status_created_at_idx on public.video_posts(status,created_at desc);
 create index if not exists video_posts_user_created_at_idx on public.video_posts(user_id,created_at desc);
+create index if not exists video_posts_reviewed_by_idx on public.video_posts(reviewed_by);
 alter table public.video_posts enable row level security;
 drop policy if exists "Published videos are visible to everyone" on public.video_posts;
-create policy "Published videos are visible to everyone" on public.video_posts for select to anon,authenticated using (status='published');
 drop policy if exists "Owners and moderators can view own or review videos" on public.video_posts;
-create policy "Owners and moderators can view own or review videos" on public.video_posts for select to authenticated using (user_id=(select auth.uid()) or exists(select 1 from public.moderators m where m.user_id=(select auth.uid())));
+drop policy if exists "Published videos or authorized submissions are visible" on public.video_posts;
+create policy "Published videos or authorized submissions are visible" on public.video_posts for select to anon,authenticated using (
+ status='published' or ((select auth.uid()) is not null and (user_id=(select auth.uid()) or exists(select 1 from public.moderators m where m.user_id=(select auth.uid()))))
+);
 drop policy if exists "Members can submit their own pending videos" on public.video_posts;
 create policy "Members can submit their own pending videos" on public.video_posts for insert to authenticated with check (user_id=(select auth.uid()) and status='pending' and object_path like (select auth.uid())::text || '/%');
 drop policy if exists "Owners can delete their own pending or rejected videos" on public.video_posts;
