@@ -219,7 +219,7 @@ async function loadPosts(){
       const form=document.createElement('form');form.className='reply-form';
       const input=document.createElement('input');input.type='text';input.maxLength=500;input.required=true;input.placeholder='Write a reply…';
       const send=document.createElement('button');send.type='submit';send.className='btn';send.textContent='Reply';
-      form.append(input,send);form.addEventListener('submit',async ev=>{ev.preventDefault();const content=input.value.trim();if(!content)return;send.disabled=true;send.textContent='Sending…';const result=await supabase.from('replies').insert({post_id:p.id,user_id:user.id,content});if(result.error){send.disabled=false;send.textContent='Reply';$('status').textContent='Could not add reply: '+result.error.message;return;}await loadPosts();});
+      form.append(input,send);form.addEventListener('submit',async ev=>{ev.preventDefault();const content=input.value.trim();if(!content)return;send.disabled=true;send.textContent='Checking…';const check=await supabase.functions.invoke('varta-moderate-text',{body:{content,content_type:'reply'}});if(check.error||!check.data?.allowed){send.disabled=false;send.textContent='Reply';$('status').textContent=check.data?.message||check.data?.error||'Automatic moderation is unavailable. Your reply was not published; please try again later.';return;}send.textContent='Sending…';const result=await supabase.from('replies').insert({post_id:p.id,user_id:user.id,content});if(result.error){send.disabled=false;send.textContent='Reply';$('status').textContent='Could not add reply: '+result.error.message;return;}await loadPosts();});
       replyBox.append(form);
     }else{const login=document.createElement('a');login.href='login.html';login.textContent='Sign in to reply';replyBox.append(login);}
     card.append(replyBox);feed.append(card);
@@ -232,6 +232,8 @@ $('form').addEventListener('submit',async e=>{
   if(!content)return;
   $('publish').disabled=true;$('publish').textContent='Publishing…';
   const languageCode=$('postLanguage').value||'auto';
+  const check=await supabase.functions.invoke('varta-moderate-text',{body:{content,content_type:'post'}});
+  if(check.error||!check.data?.allowed){$('publish').disabled=false;$('publish').textContent='Publish post';$('status').textContent=check.data?.message||check.data?.error||'Automatic moderation is unavailable. Your post was not published; please try again later.';return;}
   const {data:created,error}=await supabase.from('posts').insert({user_id:user.id,content,language_code:languageCode}).select('id').single();
   $('publish').disabled=false;$('publish').textContent='Publish post';
   if(error){$('status').textContent='Could not publish: '+error.message;return;}
