@@ -56,6 +56,18 @@ async function makeVideoCard(row,own=false,review=false){
  const desc=document.createElement('p');desc.style.whiteSpace='pre-wrap';desc.textContent=row.description;
  card.append(video,title,meta,status,desc);
  if(row.source_url){try{const u=new URL(row.source_url);if(['https:','http:'].includes(u.protocol)){const a=document.createElement('a');a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Open supporting source';card.append(a);}}catch{}}
+ if(own&&row.status==='pending'){
+  const retry=makeButton('Retry automatic checks',async()=>{
+   retry.disabled=true;retry.textContent='Checking…';
+   const {data:result,error}=await supabase.functions.invoke('varta-moderate-video',{body:{video_id:row.id}});
+   if(error){setStatus('uploadStatus','Automatic moderation could not finish. Your video remains private and pending. '+error.message);}
+   else if(result?.status==='published'){setStatus('uploadStatus','Automatic moderation passed. Your video is now published.');}
+   else if(result?.status==='rejected'){setStatus('uploadStatus','Automatic moderation blocked this video: '+(result.reason||'please revise the title and description')+'.');}
+   else{setStatus('uploadStatus',result?.error||'Your video remains private and pending.');}
+   await loadVideos();
+  });
+  card.append(retry);
+ }
  if(own&&row.status==='rejected'){const note=document.createElement('p');note.className='muted';note.textContent=row.moderation_reason||'This submission was blocked by VARTA automatic checks. You may delete it and submit a revised version.';card.append(note);}
 if((user&&row.user_id===user.id)||isModerator){
   card.append(makeButton(row.status==='published'?'Delete video':'Delete submission',()=>deleteVideo(row)));
