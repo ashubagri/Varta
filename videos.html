@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VARTA Videos — Learn, Report, Understand</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.video-wrap{max-width:1000px;margin:auto;padding:32px 15px}.panel{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;margin:18px 0}.muted{color:#64748b}.field{display:block;width:100%;box-sizing:border-box;padding:12px;margin:7px 0 14px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}.btn{background:#174b8c;color:white;border:0;border-radius:8px;padding:11px 16px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}.video-card{border:1px solid #e2e8f0;border-radius:14px;padding:14px;min-width:0}.video-card video{display:block;width:100%;max-height:420px;background:#0f172a;border-radius:10px}.status-pill{display:inline-block;border-radius:999px;padding:4px 9px;background:#fff7ed;color:#9a3412;font-size:.85rem}.status-pill.published{background:#dcfce7;color:#166534}.status-pill.rejected{background:#fee2e2;color:#991b1b}.help{font-size:.92rem;line-height:1.5}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.main-nav{flex-wrap:wrap}@media(max-width:700px){.site-header .header-wrap{align-items:flex-start!important;flex-direction:column!important;gap:10px!important;padding-top:12px!important;padding-bottom:12px!important}.site-header .main-nav{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start!important;gap:14px!important;width:100%!important;max-width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;padding:4px 2px 9px!important;-webkit-overflow-scrolling:touch;scrollbar-width:thin}.site-header .main-nav a{flex:0 0 auto!important;white-space:nowrap!important}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-wrap"><a href="index.html" class="brand">VARTA</a><nav class="main-nav"><a href="index.html">Home</a><a href="science.html">Science</a><a href="indian-knowledge.html">Indian Knowledge</a><a href="sound-nada.html">Sound &amp; NADA</a><a href="culture-nature.html">Culture</a><a href="world-affairs.html">World Affairs</a><a href="posts.html">Posts</a><a href="videos.html" aria-current="page">Videos</a><a href="contribute.html">Contribute</a><a href="search.html">Search</a><a href="discover.html">Discover</a><a href="activity.html">Activity</a><a href="notifications.html">Notifications</a><a href="profile.html">My Profile</a></nav></div></header>
+<main class="video-wrap">
+<span class="eyebrow">VARTA Video</span>
+<h1>Learn. Report. Understand.</h1>
+<p class="tagline">Videos for knowledge, citizen reports, discoveries and thoughtful discussion.</p>
+<div class="panel">
+<h2>Share a video</h2>
+<p id="authStatus" class="muted">Checking sign-in…</p>
+<form id="uploadForm" hidden>
+<label for="title"><strong>Video title</strong></label><input class="field" id="title" maxlength="120" minlength="5" required placeholder="What will people learn or understand?">
+<label for="description"><strong>Description and context</strong></label><textarea class="field" id="description" maxlength="2000" minlength="20" rows="4" required placeholder="Explain what the video shows, what you observed, and why it matters (20–2,000 characters)."></textarea>
+<label for="topic"><strong>Category</strong></label><select class="field" id="topic" required><option value="Science &amp; Technology">Science &amp; Technology</option><option value="Indian Knowledge">Indian Knowledge</option><option value="Sound &amp; NADA">Sound &amp; NADA</option><option value="Culture &amp; Nature">Culture &amp; Nature</option><option value="World Affairs">World Affairs</option><option value="Citizen Reports">Citizen Reports</option></select>
+<label for="source"><strong>Source or supporting link (optional)</strong></label><input class="field" id="source" type="url" maxlength="1000" placeholder="https://…">
+<label for="videoFile"><strong>Choose a video file</strong></label><input class="field" id="videoFile" type="file" accept="video/mp4,video/webm,video/quicktime" required>
+<p class="help muted">MP4, WebM or MOV; maximum 50 MB. For reliable playback and manageable costs, start with short, compressed videos. Uploads are sent for review before appearing publicly. Please don't upload private footage, copyrighted material you don't have permission to share, or unverified allegations about identifiable people.</p>
+<button class="btn" id="uploadButton" type="submit">Upload for review</button>
+</form>
+<p id="uploadStatus" class="muted" role="status" aria-live="polite"></p>
+</div>
+<section class="panel">
+<h2>Community videos</h2>
+<p class="muted">Only approved videos appear in the public feed. Please assess source links and context critically.</p>
+<p id="feedStatus" class="muted" role="status" aria-live="polite">Loading videos…</p>
+<div id="videoFeed" class="video-grid"></div>
+</section>
+<section id="reviewPanel" class="panel" hidden>
+<h2>Moderator review queue</h2><p class="muted">Approve only videos that meet VARTA's knowledge-first community standards.</p><p id="reviewStatus" class="muted"></p><div id="reviewFeed" class="video-grid"></div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 VARTA — Less noise. More knowledge. Better conversations.</p></div></footer>
+<script type="module">
+import {supabase} from './js/supabase-client.js';
+const $=id=>document.getElementById(id);
+let user=null,isModerator=false;
+const bucket='varta-videos';
+const maxBytes=50*1024*1024;
+function setStatus(id,message){$(id).textContent=message;}
+function makeButton(label,fn){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.addEventListener('click',fn);return b;}
+function makeVideoCard(row,own=false,review=false){
+ const card=document.createElement('article');card.className='video-card';
+ const video=document.createElement('video');video.controls=true;video.preload='metadata';video.playsInline=true;video.src=supabase.storage.from(bucket).getPublicUrl(row.object_path).data.publicUrl;video.setAttribute('aria-label',row.title);
+ const title=document.createElement('h3');title.textContent=row.title;
+ const meta=document.createElement('p');meta.className='muted';meta.textContent=row.topic+' · '+new Date(row.created_at).toLocaleString();
+ const status=document.createElement('span');status.className='status-pill '+row.status;status.textContent=row.status==='pending'?'Pending review':row.status==='published'?'Approved':'Not approved';
+ const desc=document.createElement('p');desc.style.whiteSpace='pre-wrap';desc.textContent=row.description;
+ card.append(video,title,meta,status,desc);
+ if(row.source_url){try{const u=new URL(row.source_url);if(['https:','http:'].includes(u.protocol)){const a=document.createElement('a');a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Open supporting source';card.append(a);}}catch{}}
+ if(own&&row.status==='rejected'){const note=document.createElement('p');note.className='muted';note.textContent='This submission was not approved. You may delete it and submit a revised version.';card.append(note);}
+ if(review&&isModerator&&row.status==='pending'){
+  const actions=document.createElement('div');actions.className='actions';
+  actions.append(makeButton('Approve video',()=>reviewVideo(row.id,'published')),makeButton('Reject video',()=>reviewVideo(row.id,'rejected')));
+  card.append(actions);
+ }
+ if(own&&['pending','rejected'].includes(row.status)){
+  card.append(makeButton('Delete submission',()=>deleteVideo(row)));
+ }
+ return card;
+}
+async function reviewVideo(id,status){
+ setStatus('reviewStatus','Saving review…');
+ const {error}=await supabase.from('video_posts').update({status,reviewed_at:new Date().toISOString(),reviewed_by:user.id}).eq('id',id);
+ if(error){setStatus('reviewStatus','Review failed: '+error.message);return;}
+ setStatus('reviewStatus','Review saved.');await loadVideos();
+}
+async function deleteVideo(row){
+ if(!confirm('Delete this video submission? This cannot be undone.'))return;
+ const {error:dbError}=await supabase.from('video_posts').delete().eq('id',row.id);
+ if(dbError){setStatus('uploadStatus','Could not delete submission: '+dbError.message);return;}
+ const {error:storageError}=await supabase.storage.from(bucket).remove([row.object_path]);
+ if(storageError)console.warn('Submission deleted, but stored file cleanup failed:',storageError.message);
+ setStatus('uploadStatus','Submission deleted.');await loadVideos();
+}
+async function loadVideos(){
+ const feed=$('videoFeed'),reviewFeed=$('reviewFeed');feed.replaceChildren();reviewFeed.replaceChildren();
+ setStatus('feedStatus','Loading approved videos…');
+ const {data:published,error}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('status','published').order('created_at',{ascending:false}).limit(30);
+ if(error){setStatus('feedStatus','Could not load videos: '+error.message);return;}
+ for(const row of published||[])feed.append(makeVideoCard(row));
+ setStatus('feedStatus',published?.length?published.length+' approved video(s).':'No approved videos yet. Be the first to submit a useful video.');
+ if(!user)return;
+ const {data:ownRows,error:ownError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('user_id',user.id).in('status',['pending','rejected']).order('created_at',{ascending:false}).limit(20);
+ if(!ownError&&ownRows?.length){
+  const heading=document.createElement('h3');heading.textContent='Your submissions';feed.prepend(heading);
+  for(const row of ownRows)feed.append(makeVideoCard(row,true,false));
+ }
+ if(isModerator){
+  $('reviewPanel').hidden=false;setStatus('reviewStatus','Loading pending submissions…');
+  const {data:pending,error:pendingError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('status','pending').order('created_at',{ascending:true}).limit(50);
+  if(pendingError){setStatus('reviewStatus','Could not load review queue: '+pendingError.message);return;}
+  for(const row of pending||[])reviewFeed.append(makeVideoCard(row,false,true));
+  setStatus('reviewStatus',pending?.length?pending.length+' submission(s) awaiting review.':'No submissions awaiting review.');
+ }
+}
+async function refreshAuth(){
+ const {data,error}=await supabase.auth.getSession();
+ if(error){setStatus('authStatus','Sign-in check failed: '+error.message);return;}
+ user=data.session?.user||null;
+ if(!user){setStatus('authStatus','Sign in to upload a video.');const a=document.createElement('a');a.href='login.html';a.textContent='Open VARTA Login';$('authStatus').append(' ',a);$('uploadForm').hidden=true;return;}
+ $('authStatus').textContent='Signed in. New videos are private to your submission until approved.';
+ $('uploadForm').hidden=false;
+ const {data:mod,error:modError}=await supabase.from('moderators').select('user_id').eq('user_id',user.id).maybeSingle();
+ isModerator=!modError&&!!mod;
+}
+$('uploadForm').addEventListener('submit',async e=>{
+ e.preventDefault();if(!user){setStatus('uploadStatus','Please sign in first.');return;}
+ const file=$('videoFile').files?.[0];if(!file){setStatus('uploadStatus','Choose a video file first.');return;}
+ const allowed=['video/mp4','video/webm','video/quicktime'];
+ if(!allowed.includes(file.type)){setStatus('uploadStatus','Use an MP4, WebM or MOV video.');return;}
+ if(file.size>maxBytes){setStatus('uploadStatus','This file exceeds 50 MB. Compress it or choose a shorter video.');return;}
+ const title=$('title').value.trim(),description=$('description').value.trim(),topic=$('topic').value,source=$('source').value.trim();
+ if(title.length<5||description.length<20){setStatus('uploadStatus','Please add a clear title and at least 20 characters of context.');return;}
+ if(source){try{const u=new URL(source);if(!['https:','http:'].includes(u.protocol))throw new Error();}catch{setStatus('uploadStatus','Enter a valid http or https source link, or leave it blank.');return;}}
+ const ext=file.type==='video/webm'?'webm':file.type==='video/quicktime'?'mov':'mp4';
+ const path=user.id+'/'+crypto.randomUUID()+'.'+ext;
+ const btn=$('uploadButton');btn.disabled=true;btn.textContent='Uploading…';setStatus('uploadStatus','Uploading video. Please keep this page open.');
+ const {error:uploadError}=await supabase.storage.from(bucket).upload(path,file,{contentType:file.type,cacheControl:'3600',upsert:false});
+ if(uploadError){btn.disabled=false;btn.textContent='Upload for review';setStatus('uploadStatus','Upload failed: '+uploadError.message);return;}
+ const {error:insertError}=await supabase.from('video_posts').insert({user_id:user.id,title,description,topic,object_path:path,source_url:source||null,status:'pending'});
+ if(insertError){
+  const {error:cleanupError}=await supabase.storage.from(bucket).remove([path]);
+  btn.disabled=false;btn.textContent='Upload for review';
+  setStatus('uploadStatus','Video uploaded but submission could not be saved: '+insertError.message+(cleanupError?' (file cleanup also needs attention)':' The uploaded file was cleaned up.'));
+  return;
+ }
+ $('uploadForm').reset();btn.disabled=false;btn.textContent='Upload for review';setStatus('uploadStatus','Submitted successfully. A moderator must approve it before it appears in the public feed.');
+ await loadVideos();
+});
+await refreshAuth();await loadVideos();
+supabase.auth.onAuthStateChange(()=>{refreshAuth().then(loadVideos);});
+</script>
+</body>
+</html>
