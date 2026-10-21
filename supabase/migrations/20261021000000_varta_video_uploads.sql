@@ -36,7 +36,8 @@ create policy "Published or authorized video objects can be read" on storage.obj
    (vp.status='published' or vp.user_id=(select auth.uid()) or exists(select 1 from public.moderators m where m.user_id=(select auth.uid())))
  )
 );
-\ndrop policy if exists "Authenticated members can upload video to own folder" on storage.objects;
+
+drop policy if exists "Authenticated members can upload video to own folder" on storage.objects;
 create policy "Authenticated members can upload video to own folder" on storage.objects for insert to authenticated with check (bucket_id='varta-videos' and (storage.foldername(name))[1]=(select auth.uid())::text);
 drop policy if exists "Authenticated members can update video in own folder" on storage.objects;
 create policy "Authenticated members can update video in own folder" on storage.objects for update to authenticated using (bucket_id='varta-videos' and (storage.foldername(name))[1]=(select auth.uid())::text) with check (bucket_id='varta-videos' and (storage.foldername(name))[1]=(select auth.uid())::text);
