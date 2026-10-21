@@ -105,7 +105,7 @@ async function refreshAuth(){
  if(error){setStatus('authStatus','Sign-in check failed: '+error.message);return;}
  user=data.session?.user||null;
  if(!user){setStatus('authStatus','Sign in to upload a video.');const a=document.createElement('a');a.href='login.html';a.textContent='Open VARTA Login';$('authStatus').append(' ',a);$('uploadForm').hidden=true;return;}
- $('authStatus').textContent='Signed in. New videos are checked automatically; submissions that pass the basic checks are published immediately.';
+ $('authStatus').textContent='Signed in. Each submission stays private until its title and description pass automatic checks. Checks do not analyse the video/audio or verify copyright or factual accuracy.';
  $('uploadForm').hidden=false;
  const {data:mod,error:modError}=await supabase.from('moderators').select('user_id').eq('user_id',user.id).maybeSingle();
  isModerator=!modError&&!!mod;
