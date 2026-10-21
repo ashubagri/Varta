@@ -28,7 +28,10 @@ create policy "Published videos or authorized submissions are visible" on public
 drop policy if exists "Members can submit their own pending videos" on public.video_posts;
 create policy "Members can submit their own pending videos" on public.video_posts for insert to authenticated with check (user_id=(select auth.uid()) and status='pending' and object_path like (select auth.uid())::text || '/%');
 drop policy if exists "Owners can delete their own pending or rejected videos" on public.video_posts;
-create policy "Owners can delete their own pending or rejected videos" on public.video_posts for delete to authenticated using (user_id=(select auth.uid()) and status in ('pending','rejected'));
+drop policy if exists "Owners or moderators can delete videos" on public.video_posts;
+create policy "Owners or moderators can delete videos" on public.video_posts for delete to authenticated using (
+ user_id=(select auth.uid()) or exists(select 1 from public.moderators m where m.user_id=(select auth.uid()))
+);
 drop policy if exists "Moderators can review videos" on public.video_posts;
 create policy "Moderators can review videos" on public.video_posts for update to authenticated using (exists(select 1 from public.moderators m where m.user_id=(select auth.uid()))) with check (exists(select 1 from public.moderators m where m.user_id=(select auth.uid())));
 
@@ -45,6 +48,12 @@ create policy "Authenticated members can upload video to own folder" on storage.
 drop policy if exists "Authenticated members can update video in own folder" on storage.objects;
 create policy "Authenticated members can update video in own folder" on storage.objects for update to authenticated using (bucket_id='varta-videos' and (storage.foldername(name))[1]=(select auth.uid())::text) with check (bucket_id='varta-videos' and (storage.foldername(name))[1]=(select auth.uid())::text);
 drop policy if exists "Authenticated members can delete video in own folder" on storage.objects;
-create policy "Authenticated members can delete video in own folder" on storage.objects for delete to authenticated using (bucket_id='varta-videos' and (storage.foldername(name))[1]=(select auth.uid())::text);
+drop policy if exists "Owners or moderators can delete video files" on storage.objects;
+create policy "Owners or moderators can delete video files" on storage.objects for delete to authenticated using (
+ bucket_id='varta-videos' and (
+  (storage.foldername(name))[1]=(select auth.uid())::text
+  or exists(select 1 from public.moderators m where m.user_id=(select auth.uid()))
+ )
+);
 grant select on public.video_posts to anon,authenticated;
 grant insert,delete,update on public.video_posts to authenticated;
