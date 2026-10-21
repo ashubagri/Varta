@@ -48,9 +48,9 @@ const bucket='varta-videos';
 const maxBytes=50*1024*1024;
 function setStatus(id,message){$(id).textContent=message;}
 function makeButton(label,fn){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.addEventListener('click',fn);return b;}
-function makeVideoCard(row,own=false,review=false){
+async function makeVideoCard(row,own=false,review=false){
  const card=document.createElement('article');card.className='video-card';
- const video=document.createElement('video');video.controls=true;video.preload='metadata';video.playsInline=true;video.src=supabase.storage.from(bucket).getPublicUrl(row.object_path).data.publicUrl;video.setAttribute('aria-label',row.title);
+ const video=document.createElement('video');video.controls=true;video.preload='metadata';video.playsInline=true;video.setAttribute('aria-label',row.title);const signed=await supabase.storage.from(bucket).createSignedUrl(row.object_path,21600);if(signed.error){const unavailable=document.createElement('p');unavailable.className='muted';unavailable.textContent='Video preview is temporarily unavailable.';card.append(title,unavailable);return card;}video.src=signed.data.signedUrl;
  const title=document.createElement('h3');title.textContent=row.title;
  const meta=document.createElement('p');meta.className='muted';meta.textContent=row.topic+' · '+new Date(row.created_at).toLocaleString();
  const status=document.createElement('span');status.className='status-pill '+row.status;status.textContent=row.status==='pending'?'Pending review':row.status==='published'?'Approved':'Not approved';
@@ -87,19 +87,19 @@ async function loadVideos(){
  setStatus('feedStatus','Loading approved videos…');
  const {data:published,error}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('status','published').order('created_at',{ascending:false}).limit(30);
  if(error){setStatus('feedStatus','Could not load videos: '+error.message);return;}
- for(const row of published||[])feed.append(makeVideoCard(row));
+ for(const row of published||[])feed.append(await makeVideoCard(row));
  setStatus('feedStatus',published?.length?published.length+' approved video(s).':'No approved videos yet. Be the first to submit a useful video.');
  if(!user)return;
  const {data:ownRows,error:ownError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('user_id',user.id).in('status',['pending','rejected']).order('created_at',{ascending:false}).limit(20);
  if(!ownError&&ownRows?.length){
   const heading=document.createElement('h3');heading.textContent='Your submissions';feed.prepend(heading);
-  for(const row of ownRows)feed.append(makeVideoCard(row,true,false));
+  for(const row of ownRows)feed.append(await makeVideoCard(row,true,false));
  }
  if(isModerator){
   $('reviewPanel').hidden=false;setStatus('reviewStatus','Loading pending submissions…');
   const {data:pending,error:pendingError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('status','pending').order('created_at',{ascending:true}).limit(50);
   if(pendingError){setStatus('reviewStatus','Could not load review queue: '+pendingError.message);return;}
-  for(const row of pending||[])reviewFeed.append(makeVideoCard(row,false,true));
+  for(const row of pending||[])reviewFeed.append(await makeVideoCard(row,false,true));
   setStatus('reviewStatus',pending?.length?pending.length+' submission(s) awaiting review.':'No submissions awaiting review.');
  }
 }
