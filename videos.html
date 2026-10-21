@@ -78,7 +78,7 @@ async function loadVideos(){
  for(const row of published||[])feed.append(await makeVideoCard(row));
  setStatus('feedStatus',published?.length?published.length+' approved video(s).':'No approved videos yet. Be the first to submit a useful video.');
  if(!user)return;
- const {data:ownRows,error:ownError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,created_at').eq('user_id',user.id).order('created_at',{ascending:false}).limit(100);
+ const {data:ownRows,error:ownError}=await supabase.from('video_posts').select('id,user_id,title,description,topic,object_path,source_url,status,moderation_reason,created_at').eq('user_id',user.id).order('created_at',{ascending:false}).limit(100);
  if(!ownError&&ownRows?.length){
   const heading=document.createElement('h3');heading.textContent='Your videos and submissions';feed.prepend(heading);
   for(const row of ownRows){
@@ -115,7 +115,7 @@ $('uploadForm').addEventListener('submit',async e=>{
  const {data:submitted,error:insertError}=await supabase.from('video_posts').insert({user_id:user.id,title,description,topic,object_path:path,source_url:source||null,status:'pending'}).select('status,moderation_reason').single();
  if(insertError){
   const {error:cleanupError}=await supabase.storage.from(bucket).remove([path]);
-  btn.disabled=false;btn.textContent='Upload for review';
+  btn.disabled=false;btn.textContent='Upload video';
   setStatus('uploadStatus','Video uploaded but submission could not be saved: '+insertError.message+(cleanupError?' (file cleanup also needs attention)':' The uploaded file was cleaned up.'));
   return;
  }
