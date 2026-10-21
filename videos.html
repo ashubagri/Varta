@@ -59,7 +59,7 @@ async function makeVideoCard(row,own=false,review=false){
  if(own&&row.status==='pending'){
   const retry=makeButton('Retry automatic checks',async()=>{
    retry.disabled=true;retry.textContent='Checking…';
-   const {data:result,error}=await supabase.functions.invoke('varta-moderate-video',{body:{video_id:row.id}});
+   const {data:result,error}=await supabase.functions.invoke('varta-moderate-video',{body:{video_id:String(row.id)}});
    if(error){setStatus('uploadStatus','Automatic moderation could not finish. Your video remains private and pending. '+error.message);}
    else if(result?.status==='published'){setStatus('uploadStatus','Automatic moderation passed. Your video is now published.');}
    else if(result?.status==='rejected'){setStatus('uploadStatus','Automatic moderation blocked this video: '+(result.reason||'please revise the title and description')+'.');}
@@ -132,7 +132,7 @@ $('uploadForm').addEventListener('submit',async e=>{
   return;
  }
  setStatus('uploadStatus','Upload complete. Running automatic moderation; the video remains private until checks finish.');
- const {data:moderation,error:moderationError}=await supabase.functions.invoke('varta-moderate-video',{body:{video_id:submitted.id}});
+ const {data:moderation,error:moderationError}=await supabase.functions.invoke('varta-moderate-video',{body:{video_id:String(submitted.id)}});
  $('uploadForm').reset();btn.disabled=false;btn.textContent='Upload video';
  if(moderationError){
   setStatus('uploadStatus','Your video is uploaded but remains private and pending because automatic moderation could not finish. Please retry later. Details: '+moderationError.message);
