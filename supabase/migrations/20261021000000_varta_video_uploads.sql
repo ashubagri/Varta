@@ -56,4 +56,6 @@ create policy "Owners or moderators can delete video files" on storage.objects f
  )
 );
 grant select on public.video_posts to anon,authenticated;
+-- Table privileges are needed for policy subqueries; RLS still limits moderator rows to the signed-in user's own row.
+grant select on public.moderators to anon,authenticated;
 grant insert,delete,update on public.video_posts to authenticated;
