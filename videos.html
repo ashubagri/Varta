@@ -50,8 +50,10 @@ function setStatus(id,message){$(id).textContent=message;}
 function makeButton(label,fn){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.addEventListener('click',fn);return b;}
 async function makeVideoCard(row,own=false,review=false){
  const card=document.createElement('article');card.className='video-card';
- const video=document.createElement('video');video.controls=true;video.preload='metadata';video.playsInline=true;video.setAttribute('aria-label',row.title);const signed=await supabase.storage.from(bucket).createSignedUrl(row.object_path,21600);if(signed.error){const unavailable=document.createElement('p');unavailable.className='muted';unavailable.textContent='Video preview is temporarily unavailable.';card.append(title,unavailable);return card;}video.src=signed.data.signedUrl;
  const title=document.createElement('h3');title.textContent=row.title;
+ const signed=await supabase.storage.from(bucket).createSignedUrl(row.object_path,21600);
+ if(signed.error){const unavailable=document.createElement('p');unavailable.className='muted';unavailable.textContent='Video preview is temporarily unavailable.';card.append(title,unavailable);return card;}
+ const video=document.createElement('video');video.controls=true;video.preload='metadata';video.playsInline=true;video.setAttribute('aria-label',row.title);video.src=signed.data.signedUrl;
  const meta=document.createElement('p');meta.className='muted';meta.textContent=row.topic+' · '+new Date(row.created_at).toLocaleString();
  const status=document.createElement('span');status.className='status-pill '+row.status;status.textContent=row.status==='pending'?'Pending review':row.status==='published'?'Approved':'Not approved';
  const desc=document.createElement('p');desc.style.whiteSpace='pre-wrap';desc.textContent=row.description;
