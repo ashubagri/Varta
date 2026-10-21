@@ -1,0 +1,4 @@
+-- VARTA AI text moderation is performed by the varta-moderate-text Edge Function
+-- before the public client inserts posts or replies. Keep the existing database
+-- heuristic triggers as a second safety layer; do not remove them.
+-- This migration is a documentation marker for the deployed Edge Function/frontend flow.
