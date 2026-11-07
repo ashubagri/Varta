@@ -7,48 +7,63 @@
     <style>
         body { font-family: Arial, sans-serif; background-color: #0f1115; color: #f4f4f4; line-height: 1.6; margin: 0; padding: 0; }
         header { background: #1a1a24; border-bottom: 1px solid #d4af37; padding: 20px 40px; text-align: center; }
-        header h1 { color: #d4af37; margin: 0; font-size: 2rem; }
+        header h1 { color: #d4af37; margin: 0; font-size: 2.2rem; letter-spacing: 2px; }
+        header p { color: #aaa; margin-top: 5px; }
+        nav { margin-top: 15px; }
+        nav a { color: #f4f4f4; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        nav a.active { color: #d4af37; }
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .section-title { color: #d4af37; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
         .card { background: #1a1a24; border: 1px solid #333; border-radius: 8px; padding: 25px; margin-bottom: 25px; transition: border-color 0.3s; }
         .card:hover { border-color: #d4af37; }
         .card h2 { color: #d4af37; margin-top: 0; }
+        .card p { color: #ddd; }
         .card a { display: inline-block; background-color: #d4af37; color: #000; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; margin-top: 15px; }
-        .youtube-box { border: 1px solid #d4af37; padding: 20px; margin-top: 40px; background-color: #1a1a24; border-radius: 8px; text-align: center; }
-        .youtube-box a { background-color: #d4af37; color: #000; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 10px; }
-        footer { text-align: center; padding: 20px; color: #777; font-size: 0.9rem; border-top: 1px solid #222; margin-top: 60px; }
+        .youtube-box { border: 1px solid #d4af37; padding: 25px; margin-top: 50px; background-color: #1a1a24; border-radius: 8px; text-align: center; }
+        .youtube-box a { background-color: #d4af37; color: #000; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 15px; }
+        footer { text-align: center; padding: 30px; color: #777; font-size: 0.9rem; border-top: 1px solid #222; margin-top: 60px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>VARTA</h1>
-        <p>Exploring Science, Vedic Acoustics, and Global Geopolitics</p>
+        <p>Exploring Science, Vedic Acoustics, Sound & NADA, and Global Geopolitics</p>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="posts.html">Posts</a>
+            <a href="https://youtube.com/@hydrogenawakening" target="_blank">YouTube</a>
+        </nav>
     </header>
 
     <div class="container">
-        <h2>Latest Research Essays</h2>
+        <h2 class="section-title">Latest Research & Essays</h2>
 
+        <!-- Essay 1 Card -->
         <div class="card">
             <h2>The Acoustic Fire Wall: Physics of Sound Waves & Suppression</h2>
             <p>Explore how 30–60 Hz sub-bass acoustic waves physically tear flames away from fuel sources and disrupt combustion chain reactions without chemical blankets.</p>
             <a href="acoustic-fire-suppression.html">Read Full Essay</a>
         </div>
 
+        <!-- Essay 2 Card -->
         <div class="card">
             <h2>The Primordial Matrix: Sound as the Root of Panchamahabhutas</h2>
             <p>Examining ancient Vedic cosmology where the entire manifest universe emerges from a single root matrix: Shabd and Nada Brahma.</p>
-            <p><em>(Make sure to upload your primordial-matrix-cosmology.html file to GitHub)</em></p>
+            <a href="primordial-matrix-cosmology.html">Read Full Essay</a>
         </div>
 
+        <!-- Essay 3 Card -->
         <div class="card">
             <h2>Focused Force: Acoustic Beamforming and Military Defense</h2>
-            <p>An in-depth look at constructuve wave interference, phased transducer arrays, and modern directional sonic defense systems.</p>
-            <p><em>(Make sure to upload your acoustic-beamforming-defense.html file to GitHub)</em></p>
+            <p>An in-depth look at constructive wave interference, phased transducer arrays, and modern directional sonic defense systems.</p>
+            <a href="acoustic-beamforming-defense.html">Read Full Essay</a>
         </div>
 
+        <!-- YouTube Cross-Link Integration Box -->
         <div class="youtube-box">
-            <h3 style="margin-top: 0; color: #d4af37;">📺 Watch the Visual Breakdowns</h3>
-            <p>Every essay is backed by multimedia investigations on <strong>Hydrogen Awakening</strong>. Subscribe for Shorts and long-form analysis.</p>
+            <h3 style="margin-top: 0; color: #d4af37;">📺 Watch the Visual Breakdowns on YouTube</h3>
+            <p>Every essay on Varta is backed by multimedia investigations on <strong>Hydrogen Awakening</strong>. Subscribe for Shorts and long-form analysis covering the intersection of sound, physics, and energy infrastructure.</p>
             <a href="https://youtube.com/@hydrogenawakening" target="_blank">Visit Hydrogen Awakening Channel</a>
         </div>
     </div>
