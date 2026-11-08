@@ -86,3 +86,10 @@ Based on the Hydrogen Awakening festival video: https://www.youtube.com/watch?v=
 **Editorial basis:** Original VARTA explainer developed around recurring Nāda, swara, raga and chakra themes in Hydrogen Awakening. It is not a verbatim transcript or attributed to a specific video pending transcript-level source review.  
 **Research anchors:** Haṭha Yoga Pradīpikā, Chapter 4 (Nāda-anusandhāna); Nature Reviews Neuroscience review *Music in the brain* (2022); systematic review and meta-analysis of musical rhythm networks (2022); *Musical neurodynamics* (2025).  
 **Editorial distinction:** Acoustics, auditory neuroscience, Indian music theory and traditional chakra/planetary correspondences are treated as distinct evidence categories.
+
+
+## Published article — Hydrogen, prāṇa and the science of life
+[Hydrogen, Prāṇa and the Science of Life: Where Biology Meets Indian Thought](https://ashubagri.github.io/Varta/hydrogen-prana-science-of-life.html)  
+**Editorial basis:** Original VARTA explainer developed around recurring hydrogen, life-energy and Indian-knowledge themes in Hydrogen Awakening. It is not attributed to a specific transcript-reviewed video.  
+**Research anchors:** Mitochondrial respiratory-chain review (Nature Reviews Molecular Cell Biology, 2022); molecular hydrogen reviews (2023–2024); historical study of prāṇa and prāṇāyāma (2022); Praśna Upaniṣad, Chapter 3.  
+**Editorial distinction:** Molecular hydrogen (H₂), hydrogen ions (H⁺), oxygen, ATP and prāṇa are explicitly distinguished; preliminary molecular-hydrogen research is not presented as established medical treatment.
