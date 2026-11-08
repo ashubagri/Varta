@@ -100,3 +100,10 @@ Based on the Hydrogen Awakening festival video: https://www.youtube.com/watch?v=
 **Editorial basis:** Original VARTA explainer developed around Hydrogen Awakening themes connecting Indian knowledge, nature and science. It is not attributed to a specific transcript-reviewed video.  
 **Research anchors:** Stanford Encyclopedia of Philosophy entry on naturalism in classical Indian philosophy; Internet Encyclopedia of Philosophy entry on Sāṃkhya; Vidyasagar University paper on the five elements; NASA and U.S. Department of Energy explainers on states of matter and plasma.  
 **Editorial distinction:** Pancha Mahābhūta is treated as a family of traditional philosophical models, not an ancient periodic table or an exact five-state classification of modern matter.
+
+
+## Published article — The human body as a microcosm of the universe
+[The Human Body as a Microcosm of the Universe](https://ashubagri.github.io/Varta/human-body-microcosm-universe.html)  
+**Editorial basis:** Original VARTA explainer developed around Hydrogen Awakening's connected themes of Indian knowledge, human systems and science. It is not attributed to a specific transcript-reviewed channel video.  
+**Research anchors:** Ṛg Veda 10.90 (Puruṣa Sūkta); Taittirīya Upaniṣad, Ānandavallī; Caraka Saṃhitā, Śārīrasthāna chapter 5; Alex Wayman, *History of Religions* (1982); NIH/NIGMS circadian-rhythm overview; NASA material on the cosmic origins of elements; Encyclopaedia Iranica comparative entry on microcosm and macrocosm.  
+**Editorial distinction:** Traditional cosmological and contemplative models are distinguished from empirical biology and astronomy; analogy is not treated as proof of physical equivalence.
