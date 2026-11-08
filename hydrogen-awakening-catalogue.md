@@ -107,3 +107,32 @@ Based on the Hydrogen Awakening festival video: https://www.youtube.com/watch?v=
 **Editorial basis:** Original VARTA explainer developed around Hydrogen Awakening's connected themes of Indian knowledge, human systems and science. It is not attributed to a specific transcript-reviewed channel video.  
 **Research anchors:** Ṛg Veda 10.90 (Puruṣa Sūkta); Taittirīya Upaniṣad, Ānandavallī; Caraka Saṃhitā, Śārīrasthāna chapter 5; Alex Wayman, *History of Religions* (1982); NIH/NIGMS circadian-rhythm overview; NASA material on the cosmic origins of elements; Encyclopaedia Iranica comparative entry on microcosm and macrocosm.  
 **Editorial distinction:** Traditional cosmological and contemplative models are distinguished from empirical biology and astronomy; analogy is not treated as proof of physical equivalence.
+
+
+## Discovery batch 02 — expanded subject searches
+Search date: 2026-11-08. These are additional public YouTube discovery leads found through channel/topic searches. Titles and descriptions were checked where page extraction was available; **none is marked transcript-reviewed**. Publication dates and durations are left blank where not reliably exposed.
+
+### Indian knowledge, Vedic thought and civilisation
+| Video | Review status |
+|---|---|
+| [India's Justice Crisis: Vedic Dharma Was the Real Solution!](https://www.youtube.com/watch?v=SqusmDPfp0U) | Discovery lead; governance/history claims require primary-source review |
+| [Why Gandhari’s Curse Worked Without Water — Shakti vs Rishi](https://www.youtube.com/watch?v=H_qVSMrB23U) | Discovery lead; epic narrative and explanatory claims require textual review |
+| [Vedas, Upanishads & Puranas Explained — Outer Ritual to Inner Realization](https://www.youtube.com/watch?v=f0Jl546T1Ec) | Possible related/alternate version of batch 01 entry; compare before counting separately |
+| [Vedic Secrets: What Numbers REALLY Mean in the Vedas!](https://www.youtube.com/watch?v=Mn8rgM5EAVU) | Discovery lead; verify textual references and numerical claims |
+| [Vedic Gods Decoded: What Agni, Indra & Varuna Really Mean](https://www.youtube.com/watch?v=sHiYuS20N20) | Discovery lead; compare interpretations with source texts |
+| [The Hidden Vedic Truth of Creation — Nasadiya Sukta Decoded](https://www.youtube.com/watch?v=ErK-oet1PKg) | Discovery lead; review against Ṛg Veda 10.129 |
+
+### Nāda, sound, mantra and consciousness
+| Video | Review status |
+|---|---|
+| [Can Sound Bring Back Life? Based on Ancient Vedic Science](https://www.youtube.com/watch?v=IbSkIE_oiA8) | Discovery lead; distinguish textual story, sound physics and medical evidence |
+| [Ancient Sound Frequencies & Vedic Ragas Rewire Your Brain](https://www.youtube.com/watch?v=ptHas4Yv5fQ) | Discovery lead; neuroscience claims require independent verification |
+| [Nada Brahman: The Shiva Frequency Hidden in Indian Music](https://www.youtube.com/watch?v=vOpfJ41wK1s) | Description reviewed; claims about 432 Hz, Maheshwara Sutras and “frequencies” need careful source-checking |
+| [The Secret Science of Nāda Yoga Hidden in the Vedas](https://www.youtube.com/watch?v=GAfYo4i80AU) | Discovery lead; compare with batch 01 Nāda Yoga videos |
+| [The Science & Spiritual Power of Akasha (Space Element)](https://www.youtube.com/watch?v=jJr59cGdZGU) | Discovery lead; compare traditional ākāśa concepts with acoustics without equating them |
+| [Sound is not entertainment](https://www.youtube.com/watch?v=WqMRKDA6hVk) | Description reviewed; likely related to the raga/chakra cluster, check for overlap |
+
+### Discovery quality notes
+- Search results sometimes surface Shorts, alternate edits and near-duplicate titles; these are retained as leads until compared.
+- A YouTube page exposing a “Transcript” heading does not mean transcript text was successfully retrieved. No transcript-review status is assigned in this batch.
+- The channel-wide inventory remains incomplete. Next editorial action: retrieve and review actual captions for the strongest source clusters, then map each published VARTA article to specific supporting videos only where the transcript genuinely supports the connection.
