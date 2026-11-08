@@ -38,7 +38,7 @@
 <p class="tagline">A small collection of the living world's soundscapes.</p>
 <p class="nature-intro">Pause and listen to birdsong, rain, moving water, wind and forest ambience. Notice how each recording changes in rhythm, texture, intensity and distance. This library brings together freely reusable recordings for learning and mindful listening.</p>
 </section>
-<div class="nature-note"><strong>Listening note:</strong> Start at a comfortable volume. These are short field recordings, not continuous meditation tracks. Audio is streamed from Wikimedia Commons, so playback requires an internet connection. Each source link includes the recording details and reuse information.</div>
+<div class="nature-note"><strong>Listening note:</strong> Start at a comfortable volume. These are short field recordings, not continuous meditation tracks. MP3 versions are streamed from Wikimedia Commons for wider browser compatibility; playback requires an internet connection. Each source link includes the recording details and reuse information.</div>
 <section class="sound-card" id="nature-player" style="margin:18px 0">
 <span class="sound-tag">Continuous listening · six recordings</span>
 <h2 id="nowPlaying">Choose a nature sound</h2>
@@ -115,12 +115,12 @@
 <script>
 (function(){
  const tracks=[
- {title:"Birdsong on a Mild Sunny Day",src:"https://upload.wikimedia.org/wikipedia/commons/7/75/Birdsong_mild_sunny_day.ogg"},
- {title:"Rain, Thunder and Birds",src:"https://upload.wikimedia.org/wikipedia/commons/a/ab/Rain_thunder_and_birds.ogg"},
- {title:"Walk in the Rainforest",src:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Walk_in_the_rainforest.ogg"},
- {title:"Gentle Breeze and Birds Singing",src:"https://upload.wikimedia.org/wikipedia/commons/0/0e/Gentle_breeze_and_birds_singing.ogg"},
- {title:"Flowing Water",src:"https://upload.wikimedia.org/wikipedia/commons/2/26/Flowing-water-100019.ogg"},
- {title:"A Small Stream by a Hemlock",src:"https://upload.wikimedia.org/wikipedia/commons/3/32/Hemlock_stream.ogg"}
+ {title:"Birdsong on a Mild Sunny Day",src:"https://upload.wikimedia.org/wikipedia/commons/transcoded/7/75/Birdsong_mild_sunny_day.ogg/Birdsong_mild_sunny_day.ogg.mp3"},
+ {title:"Rain, Thunder and Birds",src:"https://upload.wikimedia.org/wikipedia/commons/transcoded/a/ab/Rain_thunder_and_birds.ogg/Rain_thunder_and_birds.ogg.mp3"},
+ {title:"Walk in the Rainforest",src:"https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b4/Walk_in_the_rainforest.ogg/Walk_in_the_rainforest.ogg.mp3"},
+ {title:"Gentle Breeze and Birds Singing",src:"https://upload.wikimedia.org/wikipedia/commons/transcoded/0/0e/Gentle_breeze_and_birds_singing.ogg/Gentle_breeze_and_birds_singing.ogg.mp3"},
+ {title:"Flowing Water",src:"https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Flowing-water-100019.ogg/Flowing-water-100019.ogg.mp3"},
+ {title:"A Small Stream by a Hemlock",src:"https://upload.wikimedia.org/wikipedia/commons/transcoded/3/32/Hemlock_stream.ogg/Hemlock_stream.ogg.mp3"}
  ];
  const audio=document.getElementById("natureAudio"),title=document.getElementById("nowPlaying"),status=document.getElementById("playerStatus"),queue=document.getElementById("soundQueue");
  let current=0;
