@@ -79,3 +79,10 @@ Based on the Hydrogen Awakening festival video: https://www.youtube.com/watch?v=
 **Editorial basis:** Original VARTA explainer developed around recurring self-inquiry themes explored on Hydrogen Awakening. It is not attributed to a specific video because a transcript-reviewed source video has not yet been identified.  
 **Research anchors:** Internet Encyclopedia of Philosophy overview of the Upaniṣads; Stanford Encyclopedia of Philosophy entry on personhood in classical Indian philosophy; 2026 *Frontiers in Psychology* hypothesis paper on self-inquiry and neurophenomenology.  
 **Status:** Article published; claims and interpretations are distinguished as philosophical, scriptural or empirical.
+
+
+## Published article — Nāda, swaras, ragas and chakras
+[Nāda, the Seven Swaras, Ragas and Chakras: Where Music, Mind and Tradition Meet](https://ashubagri.github.io/Varta/nada-swaras-ragas-chakras.html)  
+**Editorial basis:** Original VARTA explainer developed around recurring Nāda, swara, raga and chakra themes in Hydrogen Awakening. It is not a verbatim transcript or attributed to a specific video pending transcript-level source review.  
+**Research anchors:** Haṭha Yoga Pradīpikā, Chapter 4 (Nāda-anusandhāna); Nature Reviews Neuroscience review *Music in the brain* (2022); systematic review and meta-analysis of musical rhythm networks (2022); *Musical neurodynamics* (2025).  
+**Editorial distinction:** Acoustics, auditory neuroscience, Indian music theory and traditional chakra/planetary correspondences are treated as distinct evidence categories.
