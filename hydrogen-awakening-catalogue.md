@@ -136,3 +136,34 @@ Search date: 2026-11-08. These are additional public YouTube discovery leads fou
 - Search results sometimes surface Shorts, alternate edits and near-duplicate titles; these are retained as leads until compared.
 - A YouTube page exposing a “Transcript” heading does not mean transcript text was successfully retrieved. No transcript-review status is assigned in this batch.
 - The channel-wide inventory remains incomplete. Next editorial action: retrieve and review actual captions for the strongest source clusters, then map each published VARTA article to specific supporting videos only where the transcript genuinely supports the connection.
+
+
+## Free transcript-review workflow and priority clusters — 2026-11-08
+
+**Cost constraint:** The paid browser-automation route is not being used. This archive will use free, first-party or locally run methods wherever possible.
+
+### Transcript retrieval methods
+1. **YouTube's own transcript panel (free):** Open a video in a desktop browser, expand the description, choose **Show transcript** if available, then copy the text and retain the video URL. This works only when a caption track exists.
+2. **Creator-side captions (free, strongest provenance):** For videos on the channel, check YouTube Studio → Subtitles. Record whether the track is creator-uploaded or automatic, its language, and whether it is published.
+3. **Local open-source extraction (free software):** Where a caption track is public, use an up-to-date local `yt-dlp` installation to list and save available subtitles without downloading the video. Prefer creator-uploaded captions; otherwise label the source as auto-generated. This may fail when YouTube restricts requests from a network.
+4. **No captions available:** Do not invent or reconstruct a transcript from the title or description. Mark it “No public caption track found”. Audio transcription is a separate task and must be clearly labelled as machine-generated if used.
+
+### Priority clusters for manual/free review
+| Priority | Cluster | Candidate videos | Review questions |
+|---|---|---|---|
+| 1 | Nāda, swara, raga and chakra | 5Bu4E-huwLw; jV5M2RJWY2E; PIBzhSlxL5E; be4LEz-WeQE; ZWJGtfbZw2M; vOpfJ41wK1s; GAfYo4i80AU; ptHas4Yv5fQ; WqMRKDA6hVk | Which concepts are grounded in music theory or primary texts? Which physiological or frequency claims need independent evidence? Are any videos alternate edits? |
+| 2 | Consciousness and self-inquiry | PzdDr3cjyyc; 0sI1LnTlaZI; O-eiXhEcEnQ; KPuHty0g6k0 | What is actually said about awareness, mind and self? Separate philosophical positions from neuroscience findings. |
+| 3 | Vedic texts and cosmology | P08grJbYHj8; gSeXwQ50sdM; f0Jl546T1Ec; ErK-oet1PKg; sHiYuS20N20; Mn8rgM5EAVU | Verify quotations and verse references against primary texts; compare duplicate/alternate versions. |
+| 4 | Hydrogen, biology and energy | BP6Tg5Qj26s; PLwHnonMi8Q; RoYuHKwM98A; Q5_9tvJFpFA; Tm7h_QSluF8; pQhvpUyCQPM; 83aKDwvSO3A | Separate established hydrogen chemistry/energy engineering from speculative links to prāṇa, ancient texts or health. |
+| 5 | Pancha Mahābhūta, ākāśa and nature | jJr59cGdZGU; related five-elements material | Distinguish traditional philosophical categories from modern physics; avoid one-to-one equivalence claims. |
+
+### Evidence log template for each reviewed video
+- Video title, URL, video ID and published date.
+- Caption availability: yes/no; language; creator-uploaded or auto-generated.
+- Transcript review date and reviewer.
+- Exact timestamped passages relevant to a proposed article.
+- Claims requiring independent fact-checking and the sources used.
+- Duplicate/alternate-edit relationship, if any.
+- Decision: use as source / contextual lead only / exclude.
+
+**Current status:** The priority clusters above are an editorial work plan, not a claim that transcripts have been obtained. No new video is marked transcript-reviewed until its actual caption text has been inspected. The local command-line route has not yet been executed in this environment because outbound network access is unavailable; the user can run it on a computer with internet access if needed.
