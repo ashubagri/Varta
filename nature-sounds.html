@@ -39,41 +39,60 @@
 <p class="nature-intro">Pause and listen to birdsong, rain, moving water, wind and forest ambience. Notice how each recording changes in rhythm, texture, intensity and distance. This library brings together freely reusable recordings for learning and mindful listening.</p>
 </section>
 <div class="nature-note"><strong>Listening note:</strong> Start at a comfortable volume. These are short field recordings, not continuous meditation tracks. Audio is streamed from Wikimedia Commons, so playback requires an internet connection. Each source link includes the recording details and reuse information.</div>
+<section class="sound-card" id="nature-player" style="margin:18px 0">
+<span class="sound-tag">Continuous listening · six recordings</span>
+<h2 id="nowPlaying">Choose a nature sound</h2>
+<p id="playerHint">Press play once. The library will move to the next recording automatically when each one finishes.</p>
+<audio id="natureAudio" controls preload="auto" playsinline style="width:100%;margin:12px 0"></audio>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button class="knowledge-btn" id="prevSound" type="button">← Previous</button>
+<button class="knowledge-btn" id="nextSound" type="button">Next →</button>
+</div>
+<ol id="soundQueue" style="line-height:1.9;margin-top:12px">
+<li><button type="button" data-track="0">Birdsong on a Mild Sunny Day</button></li>
+<li><button type="button" data-track="1">Rain, Thunder and Birds</button></li>
+<li><button type="button" data-track="2">Walk in the Rainforest</button></li>
+<li><button type="button" data-track="3">Gentle Breeze and Birds Singing</button></li>
+<li><button type="button" data-track="4">Flowing Water</button></li>
+<li><button type="button" data-track="5">A Small Stream by a Hemlock</button></li>
+</ol>
+<p class="muted" id="playerStatus" role="status" aria-live="polite">Ready. Choose a track, then press play.</p>
+</section>
 <section class="sound-grid" aria-label="Nature audio recordings">
 <article class="sound-card">
 <span class="sound-tag">Birds · 37 seconds</span><h2>Birdsong on a Mild Sunny Day</h2>
 <p>Listen for separate calls, overlapping phrases and the changing distance between bird sounds.</p>
-<audio controls preload="none"><source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Birdsong_mild_sunny_day.ogg" type="audio/ogg">Your browser does not support audio playback.</audio>
+<p class="muted">Use the continuous player above to listen to this recording.</p>
 <p class="sound-source">Recording by Stephan · Public domain. <a href="https://commons.wikimedia.org/wiki/File:Birdsong_mild_sunny_day.ogg" target="_blank" rel="noopener noreferrer">Source and licence</a></p>
 </article>
 <article class="sound-card">
 <span class="sound-tag">Rain · thunder · birds · 2 min 14 sec</span><h2>Rain, Thunder and Birds</h2>
 <p>Notice the contrast between the broad sound of rainfall, distant thunder and distinct bird calls.</p>
-<audio controls preload="none"><source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rain_thunder_and_birds.ogg" type="audio/ogg">Your browser does not support audio playback.</audio>
+<p class="muted">Use the continuous player above to listen to this recording.</p>
 <p class="sound-source">Recording by ezwa · Public domain. <a href="https://commons.wikimedia.org/wiki/File:Rain_thunder_and_birds.ogg" target="_blank" rel="noopener noreferrer">Source and licence</a></p>
 </article>
 <article class="sound-card">
 <span class="sound-tag">Forest · birds · 31 seconds</span><h2>Walk in the Rainforest</h2>
 <p>Listen to the layered ambience of a rainforest walk, including birds and the subtle background of the habitat.</p>
-<audio controls preload="none"><source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Walk_in_the_rainforest.ogg" type="audio/ogg">Your browser does not support audio playback.</audio>
+<p class="muted">Use the continuous player above to listen to this recording.</p>
 <p class="sound-source">Recording by ezwa · Public domain. <a href="https://commons.wikimedia.org/wiki/File:Walk_in_the_rainforest.ogg" target="_blank" rel="noopener noreferrer">Source and licence</a></p>
 </article>
 <article class="sound-card">
 <span class="sound-tag">Breeze · birds · 33 seconds</span><h2>Gentle Breeze and Birds Singing</h2>
 <p>Notice the softer rustling and how wind can blend with, or partly mask, bird vocalisations.</p>
-<audio controls preload="none"><source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentle_breeze_and_birds_singing.ogg" type="audio/ogg">Your browser does not support audio playback.</audio>
+<p class="muted">Use the continuous player above to listen to this recording.</p>
 <p class="sound-source">Recording by ezwa · Public domain. <a href="https://commons.wikimedia.org/wiki/File:Gentle_breeze_and_birds_singing.ogg" target="_blank" rel="noopener noreferrer">Source and licence</a></p>
 </article>
 <article class="sound-card">
 <span class="sound-tag">Water · stream · 19 seconds</span><h2>Flowing Water</h2>
 <p>Listen for the continuous movement and small fluctuations in the sound of flowing water.</p>
-<audio controls preload="none"><source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Flowing-water-100019.ogg" type="audio/ogg">Your browser does not support audio playback.</audio>
+<p class="muted">Use the continuous player above to listen to this recording.</p>
 <p class="sound-source">Recording by Fg2 · Public domain. <a href="https://commons.wikimedia.org/wiki/File:Flowing-water-100019.ogg" target="_blank" rel="noopener noreferrer">Source and licence</a></p>
 </article>
 <article class="sound-card">
 <span class="sound-tag">Stream · trickling water · 20 seconds</span><h2>A Small Stream by a Hemlock</h2>
 <p>A quiet stream recording. Compare its texture with the stronger, more varied flow in the previous track.</p>
-<audio controls preload="none"><source src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hemlock_stream.ogg" type="audio/ogg">Your browser does not support audio playback.</audio>
+<p class="muted">Use the continuous player above to listen to this recording.</p>
 <p class="sound-source">Recording by Dirtslayer · Public domain. <a href="https://commons.wikimedia.org/wiki/File:Hemlock_stream.ogg" target="_blank" rel="noopener noreferrer">Source and licence</a></p>
 </article>
 </section>
@@ -93,4 +112,31 @@
 <p><a href="sound-nada.html">← Return to Sound &amp; NADA</a></p>
 </main>
 <footer class="site-footer"><div class="container"><p>© 2026 VARTA — India's Knowledge &amp; Conversation Network</p><p><a href="index.html">Home</a> · <a href="community-guidelines.html">Community Guidelines</a></p></div></footer>
-</body></html>
+<script>
+(function(){
+ const tracks=[
+ {title:"Birdsong on a Mild Sunny Day",src:"https://upload.wikimedia.org/wikipedia/commons/7/75/Birdsong_mild_sunny_day.ogg"},
+ {title:"Rain, Thunder and Birds",src:"https://upload.wikimedia.org/wikipedia/commons/a/ab/Rain_thunder_and_birds.ogg"},
+ {title:"Walk in the Rainforest",src:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Walk_in_the_rainforest.ogg"},
+ {title:"Gentle Breeze and Birds Singing",src:"https://upload.wikimedia.org/wikipedia/commons/0/0e/Gentle_breeze_and_birds_singing.ogg"},
+ {title:"Flowing Water",src:"https://upload.wikimedia.org/wikipedia/commons/2/26/Flowing-water-100019.ogg"},
+ {title:"A Small Stream by a Hemlock",src:"https://upload.wikimedia.org/wikipedia/commons/3/32/Hemlock_stream.ogg"}
+ ];
+ const audio=document.getElementById("natureAudio"),title=document.getElementById("nowPlaying"),status=document.getElementById("playerStatus"),queue=document.getElementById("soundQueue");
+ let current=0;
+ function selectTrack(i,play){
+  current=(i+tracks.length)%tracks.length;
+  audio.src=tracks[current].src;audio.load();
+  title.textContent=tracks[current].title;
+  status.textContent="Track "+(current+1)+" of "+tracks.length+" selected.";
+  [...queue.querySelectorAll("button")].forEach((b,j)=>{b.setAttribute("aria-current",j===current?"true":"false");});
+  if(play) audio.play().then(()=>{status.textContent="Playing "+tracks[current].title+".";}).catch(()=>{status.textContent="Tap the play button on the audio player to start.";});
+ }
+ audio.addEventListener("ended",()=>{if(current<tracks.length-1){selectTrack(current+1,true);}else{status.textContent="You have reached the end of the Nature Sound Library. Select play again to restart."; }});
+ audio.addEventListener("error",()=>{status.textContent="This recording could not load. Check your internet connection, then choose another track.";});
+ queue.addEventListener("click",e=>{const b=e.target.closest("button[data-track]");if(b)selectTrack(Number(b.dataset.track),true);});
+ document.getElementById("prevSound").addEventListener("click",()=>selectTrack(current-1,true));
+ document.getElementById("nextSound").addEventListener("click",()=>selectTrack(current+1,true));
+ selectTrack(0,false);
+})();
+</script></body></html>
