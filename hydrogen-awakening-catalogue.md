@@ -72,3 +72,10 @@ Searches restricted to the Hydrogen Awakening channel ID. Search date: 2026-11-0
 Based on the Hydrogen Awakening festival video: https://www.youtube.com/watch?v=ON8qdN6ywh8
 
 **Status:** The archive hub and this working source register are live repository files. The channel-wide catalogue and article programme are in progress; completeness is not yet claimed.
+
+
+## Published article — Self-inquiry and the question “Who am I?”
+[Who Am I? From Body and Mind to the Question of the Self](https://ashubagri.github.io/Varta/who-am-i-self-inquiry.html)  
+**Editorial basis:** Original VARTA explainer developed around recurring self-inquiry themes explored on Hydrogen Awakening. It is not attributed to a specific video because a transcript-reviewed source video has not yet been identified.  
+**Research anchors:** Internet Encyclopedia of Philosophy overview of the Upaniṣads; Stanford Encyclopedia of Philosophy entry on personhood in classical Indian philosophy; 2026 *Frontiers in Psychology* hypothesis paper on self-inquiry and neurophenomenology.  
+**Status:** Article published; claims and interpretations are distinguished as philosophical, scriptural or empirical.
