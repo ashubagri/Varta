@@ -93,3 +93,10 @@ Based on the Hydrogen Awakening festival video: https://www.youtube.com/watch?v=
 **Editorial basis:** Original VARTA explainer developed around recurring hydrogen, life-energy and Indian-knowledge themes in Hydrogen Awakening. It is not attributed to a specific transcript-reviewed video.  
 **Research anchors:** Mitochondrial respiratory-chain review (Nature Reviews Molecular Cell Biology, 2022); molecular hydrogen reviews (2023–2024); historical study of prāṇa and prāṇāyāma (2022); Praśna Upaniṣad, Chapter 3.  
 **Editorial distinction:** Molecular hydrogen (H₂), hydrogen ions (H⁺), oxygen, ATP and prāṇa are explicitly distinguished; preliminary molecular-hydrogen research is not presented as established medical treatment.
+
+
+## Published article — Pancha Mahābhūta and modern science
+[Pancha Mahābhūta and Modern Science: Earth, Water, Fire, Air and Space](https://ashubagri.github.io/Varta/pancha-mahabhuta-five-elements-science.html)  
+**Editorial basis:** Original VARTA explainer developed around Hydrogen Awakening themes connecting Indian knowledge, nature and science. It is not attributed to a specific transcript-reviewed video.  
+**Research anchors:** Stanford Encyclopedia of Philosophy entry on naturalism in classical Indian philosophy; Internet Encyclopedia of Philosophy entry on Sāṃkhya; Vidyasagar University paper on the five elements; NASA and U.S. Department of Energy explainers on states of matter and plasma.  
+**Editorial distinction:** Pancha Mahābhūta is treated as a family of traditional philosophical models, not an ancient periodic table or an exact five-state classification of modern matter.
