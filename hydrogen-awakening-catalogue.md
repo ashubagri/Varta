@@ -784,3 +784,27 @@ Individual page metadata confirms exact titles and descriptions for these seven 
 Exact individual watch IDs remain unresolved for: Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health; Quantum Physics & Spirituality: The Hidden Science of Consciousness; Why Is a Child Called Bhagwan Ka Roop?; Energies Affecting Humans: Universal, Planetary & Internal Forces; Align with the Cosmos: A Guided Meditation for Energy Harmony; The Secret Curse That Explains Why India Has Almost No Brahma Temples; Jyotirlinga & The Human Body; Brahma, Vishnu & Shiva in Your Body; Vedic Science & AI: Researching the Future of Consciousness, Space & Brainwaves; Harnessing Your Inner Power: The Human Body as a Biological Battery; Yama's Court vs. Indian Courts; and the data-related video title visible at the bottom of the screenshot. Search did not return a sufficiently reliable exact match for these; no guessed IDs have been added.
 
 A separate title “The Hydrogen Code | Hydrogen Awakening | Cosmic Hydrogen” appears as a 5-minute item in the channel's Hydrogen Alchemy playlist, while the resolved upload “The Hydrogen Code: The Secret of the Universe” has a different title and video ID. Do not merge them until the exact screenshot item is resolved.
+
+
+## Latest-episodes screenshot — third verification pass (2026-11-09)
+
+Five more individual watch URLs resolved from the screenshot. These are knowledge videos, not music entries.
+
+| Video | YouTube URL | Category |
+|---|---|---|
+| Why is a Child Called Bhagwan Ka Roop? Science & Spirituality Explained! | https://www.youtube.com/watch?v=F40O78Yn9G0 | Child development / spirituality explainer |
+| Energies Affecting Humans: Universal, Planetary & Internal Forces Explained | https://www.youtube.com/watch?v=SjuKnqPrIZg | Energy and human systems explainer |
+| The Secret Curse That Explains Why India Has Almost No Brahma Temples | https://www.youtube.com/watch?v=_Vc8A7sweic | Mythology / temple-history explainer; metadata is sparse, title match found |
+| Jyotirlinga & The Human Body: The Hidden Connection of Brahma, Vishnu, and Shiva | https://www.youtube.com/watch?v=BzSWEUGmQnE | Jyotirlinga / body symbolism explainer |
+| Vedic Science & AI: Researching the Future of Consciousness, Space & Brainwaves! | https://www.youtube.com/watch?v=_kFDAEgF9M8 | Vedic science / AI / consciousness explainer |
+
+Page titles and descriptions were retrieved for all five. Full transcripts and claims have not yet been reviewed.
+
+### Remaining exact screenshot titles still unresolved
+- Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health — playlist index exposes title and 5:05 duration, but no individual video ID yet.
+- Quantum Physics & Spirituality: The Hidden Science of Consciousness.
+- Align with the Cosmos: A Guided Meditation for Energy Harmony — playlist index exposes title and duration, but no individual video ID yet.
+- Brahma, Vishnu & Shiva in Your Body: Ancient Code to Human Potential.
+- Harnessing Your Inner Power: The Human Body as a Biological Battery — playlist index exposes title and duration, but no individual video ID yet.
+- Yama's Court vs. Indian Courts (two similar uploads visible; exact individual IDs need title-specific resolution and duplicate comparison).
+- The data-related video title at the bottom of the screenshot.
