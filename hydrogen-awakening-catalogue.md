@@ -945,3 +945,22 @@ Five more individual Hydrogen Awakening uploads were confirmed from their YouTub
 **Still unresolved:** the exact screenshot title “Brahma, Vishnu & Shiva in Your Body”, “Align with the Cosmos”, “Harnessing Your Inner Power”, and the specific “Sound & Hydrogen” playlist item did not yield reliable individual watch URLs in this pass. No guessed IDs were added.
 
 **Editorial note:** Channel ownership and page identity are verified; transcript and independent scientific/textual claim review are still pending. The approximately one-minute landscape upload is retained as a distinct upload but flagged for format review rather than assumed to be a conventional long-form episode.
+
+
+## Additional knowledge uploads — twelfth verification pass (2026-11-09)
+
+Two further channel uploads were verified:
+
+| Exact title | YouTube URL | Classification | Verification |
+|---|---|---|---|
+| Hydrogen Is The SECRET To A Better WORLD \| Hydrogen Awakening | https://www.youtube.com/watch?v=LXtUWCBWcf0 | Hydrogen / science and spirituality | A — page text explicitly identifies Hydrogen Awakening as the uploader; title, date and description visible |
+| Hydrogen Awakening — The Silence Before Creation \| 4:00 AM Meditation Experience | https://www.youtube.com/watch?v=A9tQOtdZupU | Meditation / contemplative experience | B — exact title and @HydrogenAwakening handle appear in page title and description; full page text was not exposed in this fetch |
+
+Not added:
+- “This Body Will Die — But Knowledge Lives On” (yY2ILg2dJaY) is a Short and excluded from the full-length knowledge register.
+- “Why Shiva & Shakti May Be Symbolically Connected to Hydrogen & Energy” (uHUNFl7aiFw) has a promising related-video trail, but this fetch did not expose direct uploader identity; held pending stronger confirmation.
+- “Sound, Vibration, and the Universe: How Nada Yoga Meets Science” (S91qQC2gt_I) page identity was not exposed clearly enough to confirm channel ownership.
+- “The Science of Divine Concerts”, “Can Hydrogen Unlock Higher States of Consciousness?”, and other candidates also remain unverified at uploader level.
+- “HYDROGEN AWAKENING: The Master Map of Sound, Chakras, Planets & Consciousness” (dzVF-piY3XA) was already present in the earlier catalogue discovery register; it is not counted as a new discovery in this pass.
+
+Transcript review remains pending for both added entries.
