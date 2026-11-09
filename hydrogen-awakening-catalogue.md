@@ -964,3 +964,14 @@ Not added:
 - “HYDROGEN AWAKENING: The Master Map of Sound, Chakras, Planets & Consciousness” (dzVF-piY3XA) was already present in the earlier catalogue discovery register; it is not counted as a new discovery in this pass.
 
 Transcript review remains pending for both added entries.
+
+## Additional knowledge uploads — thirteenth verification pass (2026-11-09)
+
+Two further full-length knowledge uploads were matched to individual YouTube watch pages. Both pages expose the exact title and the Hydrogen Awakening handle in the title metadata; both have 1280×720 video metadata.
+
+| Exact title | YouTube URL | Classification | Verification |
+|---|---|---|---|
+| What Are Siddhis? Unlocking Superhuman Powers Through Yogic Science | https://www.youtube.com/watch?v=kqIBDLczucU | Yogic traditions / siddhis | B — exact page title, description and @HydrogenAwakening title marker; regular 1280×720 video page |
+| What Is Reality? The Greatest Mystery of Existence | https://www.youtube.com/watch?v=RR-U6cCD7R8 | Philosophy / consciousness / self-inquiry | B — exact page title, description and @HydrogenAwakening title marker; regular 1280×720 video page |
+
+Transcript review and independent verification of the philosophical, historical or scientific claims remain pending. Search results that lacked direct page attribution, including similar Nada Yoga and hydrogen-themed candidates, were held back rather than inferred from snippets.
