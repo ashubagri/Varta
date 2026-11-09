@@ -893,3 +893,18 @@ Three more individual channel uploads were verified and added to the knowledge-v
 | Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness | https://www.youtube.com/watch?v=vOpfJ41wK1s | Nāda Brahman / Indian music | Exact title, Hydrogen Awakening metadata tag and description verified |
 
 Duplicate caution: another search result surfaced a similarly titled Nada Brahman upload (Bk478mPnd_U). It is not added as a separate item pending comparison; the verified vOpfJ41wK1s entry is retained as the current canonical record. Shorts found in this pass were excluded.
+
+
+## Additional knowledge uploads — ninth verification pass (2026-11-09)
+
+Three further full-length individual uploads were verified and added:
+
+| Exact title | YouTube URL | Category | Verification notes |
+|---|---|---|---|
+| Ancient Texts & Hydrogen: Hidden Knowledge in Vedic & Spiritual Teachings | https://www.youtube.com/watch?v=WZGenZVDds0 | Hydrogen / Vedic texts | Full-length page; Hydrogen Awakening appears in video metadata tag; 7:16 related-video result also shows another channel upload, but this entry itself is independently tagged |
+| The Hidden Universe | Science Meets Shiva & Shakti | https://www.youtube.com/watch?v=-rm6T4k4cf0 | Cosmology / Shiva-Shakti symbolism | Full-length 1280×720 page; title explicitly includes @HydrogenAwakening |
+| Are Hydrogen & Oxygen the Shiva & Shakti of the Universe? | https://www.youtube.com/watch?v=4uKB9NAVHDo | Hydrogen / symbolic science | Full-length page; page text identifies Hydrogen Awakening as the channel |
+
+Not added in this pass:
+- “What is Vedic Mysticism?” (pL4foNJ_bNk) and “Tejas Mystica” (FHwhX6dzy7s) are Shorts and excluded.
+- Other candidates lacked sufficient direct channel/title confirmation or were not yet checked for duplicates.
