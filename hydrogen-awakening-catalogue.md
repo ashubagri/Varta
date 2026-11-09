@@ -465,3 +465,22 @@ The page includes a “View all” control, but its destination is not exposed i
 - A public Facebook post describes a Hydrogen Awakening feature about why old songs endure, memory, Nāda and consciousness. It is a useful discovery lead, but no corresponding YouTube watch page or exact uploader-owned music track was verified in this pass; therefore it is not added to the confirmed-work count.
 
 **Counting rule:** batch 05 adds one provisional music-related Short to the video register, but adds **zero confirmed standalone compositions**. The existing ONE HEART, ONE GAME canonical work remains one work despite its playlist, video and Short references.
+
+
+## Music discovery batch 06 — 2026-11-09
+
+### Ganesha song — playlist-level verification
+- **गणेश — The Divine Symbol of Wisdom | Ganesha Song | Ancient Wisdom Meets Modern Science**
+- Playlist: https://www.youtube.com/playlist?list=PLDpGZxutQ1u4
+- Public search indexing identifies the playlist as **Ganesha**, attributes the 6:37 item to **Hydrogen Awakening**, and exposes the full title above.
+- A matching creator Facebook video also exists: https://www.facebook.com/ashu.bagri.948/videos/-%E0%A4%97%E0%A4%A3%E0%A5%87%E0%A4%B6-the-divine-symbol-of-wisdom-ganesha-song-ancient-wisdom-meets-modern-scien/1395333646044748/
+- Classification: **devotional / philosophical song candidate**. Playlist-level evidence supports a Hydrogen Awakening music item, but the exact YouTube watch ID and its full description/audio credits were not exposed by public extraction. Keep as a verified playlist lead, not yet a fully verified individual upload; do not count as a confirmed canonical work until its individual video page is located.
+
+### Related Ganesha Shorts — kept separate from the song
+- https://www.youtube.com/shorts/coFQFDzwVxo — **बुद्धि, शक्ति और सफलता के देवता — श्री गणेश**. Public page metadata confirms the title and devotional topic, but channel attribution was not independently established in this pass; keep as an unverified Short lead.
+- https://www.youtube.com/shorts/9xjEaeWHxkw — **Why Does Ganesha Have an Elephant Head? The Hidden Meaning**. Public page metadata confirms an educational Short title and description opening; treat as educational/spoken content, not as the Ganesha song. Channel attribution remains provisional.
+
+### Other title checks
+Exact-title searches for **Chandni Raat**, **The Music That Touches the Soul**, **Ananta Nada**, and **Naam Bhagavate Vasudevaya** did not surface an attributable individual Hydrogen Awakening YouTube watch page in this pass. They remain discovery leads from earlier screenshots, not verified catalogue entries.
+
+**Counting rule:** batch 06 adds one playlist-verified Ganesha song lead and two unverified Short leads; it adds **zero new confirmed standalone compositions** until the individual upload and attribution can be checked. The Ganesha playlist item is not double-counted as the Facebook video.
