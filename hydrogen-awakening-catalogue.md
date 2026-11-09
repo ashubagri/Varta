@@ -846,3 +846,16 @@ Two additional exact-title YouTube results were located:
 | Divine Anatomy: Exploring the Cosmic Symbolism of Shiva | https://www.youtube.com/watch?v=8w4WPgrYR-s | Shiva symbolism / spiritual interpretation | B — exact title and Hydrogen Awakening channel reference in search result; direct page metadata unavailable |
 
 No transcript or factual-claim review is implied. Other similar Vasus search results were excluded because they were different videos, not the exact screenshot title. The remaining playlist-only leads and the second Yama's Court item remain unresolved.
+
+
+## Latest-episodes screenshot — sixth verification pass (2026-11-09)
+
+Additional exact-title searches were run for the remaining screenshot leads. No safe individual watch URL was found for:
+- Brahma, Vishnu & Shiva in Your Body: The Ancient Code to Human Potential.
+- Align with the Cosmos: A Guided Meditation for Energy Harmony.
+- Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health.
+- The second Yama's Court screenshot entry.
+
+The “Harnessing Your Inner Power: The Human Body as a Biological Battery” title is independently visible in the Hydrogen Alchemy playlist search result (2:06; Hydrogen Awakening; 36 views), but search still exposed only the playlist URL, not an individual watch URL. It remains a playlist-level lead and is not promoted into the verified video list.
+
+A fresh Yama's Court search returned only the already indexed video ID KSXiC-GDQSQ; no second distinct upload was confirmed. Playlist-page extraction did not expose individual track links. No speculative links or duplicates were added.
