@@ -484,3 +484,22 @@ The page includes a “View all” control, but its destination is not exposed i
 Exact-title searches for **Chandni Raat**, **The Music That Touches the Soul**, **Ananta Nada**, and **Naam Bhagavate Vasudevaya** did not surface an attributable individual Hydrogen Awakening YouTube watch page in this pass. They remain discovery leads from earlier screenshots, not verified catalogue entries.
 
 **Counting rule:** batch 06 adds one playlist-verified Ganesha song lead and two unverified Short leads; it adds **zero new confirmed standalone compositions** until the individual upload and attribution can be checked. The Ganesha playlist item is not double-counted as the Facebook video.
+
+
+## Music discovery batch 07 — 2026-11-09
+
+### Hero Flute Theme — individual Short and playlist cross-check
+- **Hero Flute Theme: The Breath That Awakens Love | Hydrogen Awakening**
+  - Short: https://www.youtube.com/shorts/vogmmsVJ5DY
+  - The public Music of India playlist search result lists the same title under **Hydrogen Awakening — Knowledge Hub**, with a duration of **5:12**. The individual Short page metadata confirms the title and description opening: it discusses the flute associated with the film *Hero* and Jackie Shroff.
+  - Classification: **music/cultural commentary or mixed Short**, not yet a standalone original composition. The title references a film-associated flute theme; do not label the underlying melody as Ashu Bagri's original composition without audio/rights verification. The full video and Short may be related versions of one editorial item.
+
+### Shiva Damru search result — excluded as third-party
+- A search surfaced **The Damru Beats of Mahadev | Cosmic Shiva Song for Power, Clarity & Inner Awakening** (https://www.youtube.com/watch?v=jDaIwjVvyPg), but the extracted page did not establish Hydrogen Awakening as its uploader. It is therefore **not added** to the creator archive.
+- Another result, **Shiva Damarukam Divine Echoes** (https://www.youtube.com/watch?v=1K4rw1_S3-8), explicitly identifies the channel **GITANJALI** and is excluded as third-party. This is an example of why title similarity alone is not enough to attribute a work.
+
+### Other candidate searches
+- Exact-title searches for **Pancha Nada** and **The Sound of Five Elements** did not surface additional attributable individual pages in this pass. Their earlier provisional entries remain unchanged.
+- Hinglaj Mata remains the existing canonical devotional work with two related uploads; this batch did not establish a third distinct composition.
+
+**Counting rule:** batch 07 adds one playlist-cross-checked music-related Short/editorial item, but **zero new confirmed standalone compositions**. Third-party Shiva Damru results are explicitly excluded.
