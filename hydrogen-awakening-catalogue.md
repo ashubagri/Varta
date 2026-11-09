@@ -1109,3 +1109,62 @@ A second screenshot of the channel's Playlists page reveals more knowledge, geop
 - Music collections route to the separate music archive; Shorts and other short-form collections remain excluded from the full-length knowledge register.
 - For geopolitical, historical, financial and current-affairs videos, record publication date and independently verify factual claims before producing VARTA articles.
 - The screenshot is evidence of visible playlist names and counts only. Individual video URLs, playlist IDs, authorship and transcript contents still require direct verification.
+
+## Additional playlist discovery — third owner screenshot (2026-11-09)
+
+A third screenshot of the channel's Playlists page reveals further collections spanning hydrogen, prana, consciousness, Vedic cosmology, sound, mantras, Sanskrit, Indian civilisation, geography and public affairs. Counts below are transcribed from the visible screenshot and are not independently refreshed. Truncated titles are marked with an ellipsis.
+
+### Hydrogen, prana, body and consciousness
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Hydrogen Awakening: 60-Second Secrets & Ancient … | 138 videos | Hydrogen / short-form discovery; inspect format before inclusion |
+| Hydrogen in the Body: The Bio-Spiritual Science … | 116 videos | Human body / hydrogen / science-and-spirituality discovery |
+| Hydrogen, Prana & Consciousness \| Energy, Lif… | 79 videos | Hydrogen / prana / consciousness discovery |
+| Hydrogen & Vedic Yajna: The Sacrifice of Light … | 9 videos | Hydrogen / Vedic ritual symbolism discovery |
+| Sunlight & Soul: The Hydrogen-Solar Connection … | 3 videos | Solar science / symbolism discovery |
+| Water, Breath & Consciousness: The Liquid … | 67 videos | Water / breath / consciousness discovery |
+| Brainwaves, Mantras & Consciousness Expansion | 76 videos | Neuroscience / mantra / consciousness discovery |
+| Inner Alchemy & Kundalini: The Bio-Electric Supercharge… | 40 videos | Kundalini / physiology claims; require careful scientific review |
+
+### Vedic knowledge, cosmology, elements and civilisation
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| New, Latest & Best Top Ancient Secrets & Quantum … | 405 videos | Broad discovery list; inspect contents and avoid treating title as evidence |
+| Top 100 Hype Videos: Ancient Science & Quantum … | 289 videos | Broad discovery list; title is transcribed as displayed; assess relevance item-by-item |
+| Hydrogen Awakening \| Vedic Mysticism Decoded … | 26 videos | Vedic knowledge / hydrogen discovery |
+| You Are the Yajna: The Science of Inner Fire | 13 videos | Yajna / inner-fire symbolism and science claims |
+| From Indus to Infinity: A Vedic Civilizational Lens … | 13 videos | Indian civilisation / history discovery |
+| Trimurti, Brahman & Advaita: The Quantum Trinity Decod… | 28 videos | Vedanta / philosophy / quantum analogies; keep scientific and philosophical claims distinct |
+| Cosmic Cycles, Creation & The Universe \| Vedic … | 140 videos | Cosmology discovery; compare with earlier same-title collections by playlist ID |
+| From OM to Atom: The Sound Code of Creation \| … | 47 videos | OM / sound / cosmology discovery |
+| Mount Kailash, Meru & Cosmic Geography: The … | 10 videos | Sacred geography / cosmology discovery |
+| Ancient Civilizations & Universal Wisdom: The … | 36 videos | Civilizational history / traditional knowledge discovery |
+| Spiritual Science of the Elements: The Alchemy of … | 58 videos | Five elements / traditional interpretation / science comparison |
+| Vedic Deities & Cosmic Archetypes: The Quantum … | 58 videos | Vedic deities / archetypes; scientific analogies need careful labelling |
+| Celebrities, Politics & Spiritual Archetypes: The … | 14 videos | Public figures / politics / archetypes; time-sensitive and interpretive claims need sourcing |
+| Celebrities, Politics & Spiritual Archetypes: The … | 41 videos | A second visible collection with a similar title and different count; keep separate pending playlist-ID comparison |
+| Earth's Forbidden Zones: Unsolved Mysteries & Vedic … | 19 videos | Geography / mysteries / Vedic interpretations; independently verify factual claims |
+
+### Sound, mantra, Sanskrit and inner practices
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Raga & Bhasha: The Hidden Energy of India … | 108 videos | Music / language / culture discovery; route music works to separate music register |
+| Sanskrit Mantras for Daily Life: 5 Sound Codes to … | 50 videos | Sanskrit / mantra / practice discovery |
+| Sacred Frequencies: The Science of Sound Healing … | 92 videos | Sound / acoustics / healing claims; distinguish measurable evidence from traditional belief |
+| Beej Mantras & Cosmic Vibrations: The DNA of … | 111 videos | Mantra / vibration / symbolic analogy discovery |
+| Shreem Hreem Kleem: The Wealth Algorithm Decoded … | 39 videos | Mantra / prosperity traditions; claims require careful contextualisation |
+| Dhanyavaad Series: Gratitude is the New Wealth … | 5 videos | Gratitude / philosophy discovery |
+
+### Economy, culture and topical collections
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Dharmonomics: The Rise of India \| धर्म और अर्थव्यवस्था… | 63 videos | Indian economy / dharma / society discovery |
+| Welcome to Hydrogen Awakening \| Start Here | 37 videos | Channel orientation; already recorded from prior screenshot, compare playlist ID |
+| Best Songs / music and other music-related collections | — | Route to separate music register; do not mix with knowledge archive |
+
+### Screenshot boundary and verification notes
+- A further row is only partially visible at the bottom of the screenshot. Its titles and counts are not transcribed because the text is cut off; do not infer missing words or counts.
+- Similar titles and differing counts (including Cosmic Cycles, Celebrities/Politics/Spiritual Archetypes, and other recurring collections) remain separate until playlist IDs and item IDs are compared.
+- Displayed playlist counts are not unique-video totals and can change. Do not add counts across playlists to estimate the channel's total archive.
+- Some collections may contain Shorts, courses, music or mixed-format items. Inspect individual video URLs and formats before routing them.
+- Scientific-sounding titles are not evidence of scientific validity. VARTA entries and articles must separate established physical/biological science, historical evidence, scriptural text, traditional interpretation, and philosophical hypothesis.
