@@ -1168,3 +1168,53 @@ A third screenshot of the channel's Playlists page reveals further collections s
 - Displayed playlist counts are not unique-video totals and can change. Do not add counts across playlists to estimate the channel's total archive.
 - Some collections may contain Shorts, courses, music or mixed-format items. Inspect individual video URLs and formats before routing them.
 - Scientific-sounding titles are not evidence of scientific validity. VARTA entries and articles must separate established physical/biological science, historical evidence, scriptural text, traditional interpretation, and philosophical hypothesis.
+
+## Additional playlist discovery — fourth owner screenshot (2026-11-09)
+
+A fourth screenshot of the channel's Playlists page shows further collections covering spiritual practice, Vedic science, Sanskrit sound, cosmology, Indian history, geopolitics, afterlife concepts and the human senses. Counts are transcribed from the visible screenshot and are not independently refreshed. Truncated titles are marked with an ellipsis.
+
+### Spiritual practice, meditation and consciousness
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Spiritual Practices for Inner Awakening: The Bio-Hacker … | 11 videos | Meditation / inner practice discovery |
+| The Power of Gratitude: Dhanyavaad in Practice | 10 videos | Gratitude / philosophy discovery |
+| Meditation: The Science of Biological Overclocking … | 7 videos | Meditation / biology claims; verify scientific language |
+| Kundalini Awakening: Divine Power or Dangerous Power? … | 4 videos | Kundalini / traditional practice; handle health and safety claims carefully |
+| The 5 Indriyas: Mastering Your Bio-Sensors \| इन्द्रिय… | 45 videos | Senses / perception / human body discovery |
+| Atma & Preta: The Physics of the Afterlife … | 9 videos | Afterlife / philosophy; classify as metaphysical unless supported by empirical evidence |
+| Atma & Preta: Science of Afterlife | 17 videos | Similar subject/title; keep separate until playlist IDs and video IDs are compared |
+
+### Vedic science, cosmology, Sanskrit and sound
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Vedic Science & Modern Reality: Decoding Ancient … | 82 videos | Vedic knowledge / science comparison |
+| Shivalinga Decoded: 7 Swarās, Chakras & Gods … | 20 videos | Shivalinga / swara / chakra traditions; distinguish symbolic interpretation from physical science |
+| Sound Chant — The Sacred Science of Vibration | 53 videos | Sound / mantra / music discovery; route original music to separate music archive |
+| Yugas & Vishnu Avatars: The 4 Ages of Entropy \| … | 33 videos | Yuga traditions / cosmology / philosophy |
+| Sanatan Science: Ancient Technology & Quantum … | 221 videos | Broad Vedic / technology / quantum-analogy discovery; assess each item independently |
+| Sacred Kashmir Series: The Crown Chakra of Bharat … | 62 videos | Kashmir / sacred geography / cultural history |
+| Sanatana Dharma: Eternal Laws of the Universe | 4 videos | Dharma / philosophy discovery |
+| OM & AUM: The Hidden Acoustic Technology of … | 15 videos | Sanskrit phonetics / sound / OM traditions |
+| RAM: The Bio-Solar Code of the Universe \| … | 15 videos | Mantra / symbolism / solar analogy discovery |
+| Rta & Swabhava: The Physics of Cosmic Law \| … | 73 videos | Ṛta / philosophy / natural law; distinguish philosophical meaning from physical laws |
+| Akshaya Tritiya: The Science of Non-D… | 12 videos | Festival / culture / traditional interpretation; title is truncated |
+| The Brahma Mystery: Why the Creator Has No Temples … | 8 videos | Hindu traditions / history / theology |
+| What the Gods Teach Us: The Cosmic Code of Human … | 2 videos | Deities / philosophy / ethics |
+| Rudra Protocol: The Cosmic Reset | 40 videos | Rudra / cosmology / symbolic interpretation |
+| Ancient Secrets & Hidden Science: The Unheard Truth … | 851 videos | Broad mixed-topic discovery; large playlist needs staged extraction and deduplication |
+
+### History, geopolitics and strategic thought
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Balochistan: Voices of Struggle \| The Human & … | 12 videos | Regional history / geopolitics / human stories; verify sourcing |
+| Chanakya's Secret: How to Defeat an Enemy Without W… | 56 videos | Chanakya / strategy / political thought; title truncated |
+| Ancient Civilizations & Their Deities: The Unified Field of … | 19 videos | Ancient history / comparative traditions |
+| From Hydrogen to Dhanyavaad: Bridging … | 3 videos | Hydrogen / gratitude / philosophy discovery |
+| Welcome to Hydrogen Awakening \| Channel Trailer | 3 videos | Channel orientation; compare with other visible trailer collections by playlist ID |
+
+### Exclusions and handling flags
+- “Vedic Secrets of the Universe (9-Part Shorts …)” is visibly a Shorts-oriented collection (42 videos); retain as a Shorts discovery source only, not in the full-length register.
+- “Was Michael Jackson …” is a third-party music-related collection (3 videos); do not treat it as an original Hydrogen Awakening music work.
+- Similar Atma & Preta collections are kept separate pending playlist-ID and item-ID comparison.
+- The bottom row of the screenshot is cut off. Its titles and counts are not transcribed or inferred.
+- As with prior screenshots, visible names and counts do not establish individual video IDs, channel authorship, transcript contents or scientific validity. Extract exact watch URLs and verify each video page before adding it to the canonical archive.
