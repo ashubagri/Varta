@@ -435,3 +435,16 @@ The public profile page currently exposes **12 songs** as its profile count and 
 3. Search for an exact YouTube upload by title and distinctive lyric phrases, then verify the uploader/channel ID and compare audio before linking.
 4. Group alternate Suno generations under one canonical creative work where evidence supports that relationship.
 5. Keep a separate list of Suno projects not yet found on YouTube and YouTube videos not yet matched to Suno.
+
+
+## Suno public-profile inventory check — 2026-11-09 (follow-up)
+
+The public profile at https://suno.com/@stratosphericmogul036 was rechecked. It displays **12 songs** on the profile page, but the publicly extracted page exposes only two individual song links:
+- https://suno.com/song/ffecd0f7-a2ae-4da3-8d66-7f008d7a43b8 — भारत की आत्मा
+- https://suno.com/song/0d06ae8e-6295-47cc-b28f-e6fd220d0f55 — भारत की आत्मा
+
+The page includes a “View all” control, but its destination is not exposed in the public page links available to this inspection. A targeted public search for the exact profile handle did not return additional attributable project pages; results using the initials “RTA” were unrelated creators and were excluded.
+
+**Inventory integrity note:** 12 is the public profile's displayed song count at the time of inspection, not 12 individually verified project records. The two linked projects remain the only Suno song pages confirmed from this public profile in this pass. The user's separately reported private library count of 134 remains a user-reported figure and is not contradicted by the smaller public-profile view. No additional YouTube match was established, and no audio comparison was performed.
+
+**Next verification route:** Continue with the creator's publicly exposed Suno project pages when available; do not infer project URLs or attribute unrelated “RTA” search results to this account. Private-library enumeration would require access through the user's own signed-in Suno interface or an authorized connector; no credentials are requested or stored.
