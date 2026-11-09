@@ -201,7 +201,7 @@ Search date: 2026-11-09. These six additional video IDs surfaced in targeted pub
 
 ## Published article — Hanuman and the five elements
 [Hanuman and the Five Elements: Epic Text, Symbol and Meaning](https://ashubagri.github.io/Varta/hanuman-five-elements-text-symbol.html)  
-**Creator/source attribution:** Ashu Bagri, Hydrogen Awakening; prompted by the public video [Hanumanji in the Five Elements? Fire, Water, Earth, Air & Space — Part 2](https://www.youtube.com/watch?v=gP0vOCqurbU).  
+**Creator/source attribution:** Ashu Bagri is credited as the creator of the Hydrogen Awakening archive. The video [Hanumanji in the Five Elements? Fire, Water, Earth, Air & Space — Part 2](https://www.youtube.com/watch?v=gP0vOCqurbU) appeared in public search results under “Hydrogen Awakening — Knowledge Hub”; its individual uploader/channel-ID match remains pending because the watch-page extraction did not expose the uploader field.  
 **Source-review status:** Public title and opening description excerpt reviewed; transcript not available in this batch. The article explicitly states this limitation and does not claim to summarise the full spoken argument.  
 **Research anchors:** Vālmīki Rāmāyaṇa, Sundara Kāṇḍa 5.1, 5.3, 5.54 and 5.55; Taittirīya Upaniṣad 2.1; Garbha Upaniṣad, Section 1; Bhattacharya & Banerji (2023), “Concept of Five Elements — An Ancient Indian Approach”.  
 **Editorial distinction:** Hanuman's association with Vāyu is grounded in the epic; the five-element mapping of mountain, ocean, fire, wind and sky is explicitly presented as a modern symbolic reading, not a direct scriptural declaration or scientific equivalence.
