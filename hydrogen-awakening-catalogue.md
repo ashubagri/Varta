@@ -908,3 +908,20 @@ Three further full-length individual uploads were verified and added:
 Not added in this pass:
 - “What is Vedic Mysticism?” (pL4foNJ_bNk) and “Tejas Mystica” (FHwhX6dzy7s) are Shorts and excluded.
 - Other candidates lacked sufficient direct channel/title confirmation or were not yet checked for duplicates.
+
+
+
+## Additional knowledge upload — tenth verification pass (2026-11-09)
+
+- **India’s Secret Plan to Control China | Hidden Chanakya’s Vedic Science Revealed**
+  - YouTube: https://www.youtube.com/watch?v=K53SpPx41mg
+  - Classification: Chanakya / ancient strategy and geopolitics.
+  - Verification: B — the individual YouTube page's related-video list identifies the upload as “Hydrogen Awakening”; page metadata confirms the exact title and 1280×720 video page. Transcript review pending.
+  - Editorial caution: strategic claims and historical attributions require independent source-checking; the title alone is not evidence that the claims are historically established.
+
+Other candidates held back in this pass:
+- “Unlocking Inner Harmony: Nada Yoga & the 7 Chakras Explained” (itRUKhmAEDE): page metadata did not expose the uploader, so channel ownership is not sufficiently established.
+- “Music is vibration arranged with consciousness” (W4ekQt-pGSg): page metadata did not expose the uploader or a channel marker.
+- “BTS, Hydrogen & The Hidden Science of Sound Energy” (LnQGEtCQkog): title/description mention Hydrogen Awakening, but direct uploader evidence was not exposed.
+- “Sama, Dana, Bheda, Danda” (T9GeSPJC5fY) and “How Chanakya Niti Explains India’s Secret Modern Geopolitics” (iIIjUMoxl7o): exact titles surfaced, but the fetched pages did not establish the uploader.
+- “Chanakya Niti Explained: How India Can Strategically Control Its Neighbors” (1_hBO8wQgVc) resolves to a Shorts page and is excluded from the full-length register.
