@@ -1000,3 +1000,54 @@ Two further regular uploads were added after checking their individual YouTube p
 | Indian Aviation Crisis to Comeback — Problems, Challenges & Solutions | https://www.youtube.com/watch?v=nEH5NOW0hLQ | India / aviation / economy | B — exact page title includes @HydrogenAwakening; description and regular 1280×720 page verified |
 
 Transcript review and independent fact-checking remain pending. Similar candidates were held back where page-level attribution was insufficient. Shorts were excluded.
+
+## Playlist and course discovery — screenshot supplied 2026-11-09
+
+A channel Playlists-page screenshot supplied by the channel owner was reviewed. The following visible collections are recorded as discovery sources. Counts below are the counts displayed in the screenshot at capture time, not independently rechecked current totals. Playlist names are transcribed as legibly as possible; truncated titles are marked with an ellipsis.
+
+### Knowledge and research playlists
+| Visible playlist / course title | Displayed count | Register / next action |
+|---|---:|---|
+| Science Meets Ancient Wisdom | 45 videos | Knowledge discovery; extract individual watch URLs |
+| Mythology Decoded | 12 videos | Indian knowledge / mythology discovery |
+| Hidden Habits That Destroy Awareness | 24 videos | Awareness / psychology discovery |
+| Who Am I? \| Vedanta & Self-Knowledge | 12 videos | Consciousness / Vedanta discovery |
+| Decode Reality \| Bhagavad Gita & … | 10 videos | Gita / Indian philosophy discovery; title truncated |
+| Brahman: The Ultimate Reality | 8 videos | Consciousness / philosophy discovery |
+| Destiny Is Created, Not Predicted | 38 videos | Philosophy / life and decision-making discovery |
+| Hydrogen Science, Health & Longevity \| The Molecule of … | 314 lessons | Course; lesson count, not video count |
+| Meditation & Consciousness \| Mind, Awareness & Inner … | 7 lessons | Course; lesson count, not video count |
+| Kundalini, Yoga, Chakras & Energy Systems | 2 lessons | Course; lesson count, not video count |
+| Vedic Science & Ancient Wisdom \| Vedas, … | 1 lesson | Course; lesson count, not video count |
+| Cosmic Cycles, Creation & The Universe \| Vedic … | 9 lessons | Course; lesson count, not video count |
+| Vedic Gods & Archetypes \| Brahma, Vishnu, Shiva & … | 5 lessons | Course; lesson count, not video count |
+
+### World affairs and topical collections
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Geopolitics, Energy & Global Power Shifts | 10 videos | World affairs discovery |
+| Geopolitics, Energy & Global Power Shifts | 8 videos | Second visible collection with same displayed title; keep separate until playlist IDs and contents are compared |
+| Trending Topics & 60-Second Knowledge \| Shorts & Quick… | 6 videos | Shorts / quick-content discovery only; exclude from full-length knowledge register |
+
+### Music and separate cultural collections
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Hydrogen Awakening — Original Songs & AI Music | 50 videos | Music register only; compare against canonical music works |
+| ONE HEART, ONE GAME \| Global Football Anthem 2026 | 7 videos | Music register; compare versions before counting works |
+| Music of Asia | 63 videos | Music discovery |
+| Music of Asia | 69 videos | Second visible collection with same title; keep separate pending playlist-ID comparison |
+| Music of India | 72 videos | Music discovery |
+| prem ka anant geet | 5 videos | Music discovery |
+| Best Songs of All Time \| Sound is Energy, Vibration & … | 53 videos | Music discovery |
+| Retro India: Rare Archives & Icons | 2 videos | Cultural/music discovery; assess item-by-item |
+| Ganesha | 3 videos | Cultural / devotional collection; classify individual entries before routing |
+| Mahakali | 19 videos | Cultural / devotional collection; classify individual entries before routing |
+| SHORTS \| Hydrogen Awakening | 92 videos | Shorts discovery only; do not mix into full-length knowledge or music registers |
+
+### Verification and handling notes
+- This screenshot proves that these collection titles and displayed counts were visible on the channel Playlists page at capture time. It does not by itself provide playlist IDs, individual video IDs, exact uploader attribution for every item, or current counts.
+- The two visible “Geopolitics, Energy & Global Power Shifts” collections and two “Music of Asia” collections remain separate until their playlist IDs and contents are compared.
+- The “Music of Asia” entries, original-song collections and other music lists belong to the separate music workflow; do not merge them into the knowledge archive.
+- Courses are labelled in lessons, not videos. Preserve that distinction.
+- Shorts collections are discovery-only and remain excluded from the full-length knowledge archive.
+- Next step: open each knowledge playlist, collect exact individual watch URLs, compare duplicate IDs across collections, then verify each candidate's page identity and format before adding it to the canonical video register.
