@@ -989,3 +989,14 @@ Three further regular YouTube uploads were verified from individual page metadat
 Editorial caution: the titles and descriptions are channel claims or explorations, not independent proof of historical, medical, or scientific propositions. Transcript review and external claim-checking remain pending.
 
 Held back: “Akshauhini: The Vedic Science of War & Consciousness” (FwYHa0bjYlo), “Vedic Secrets: What Numbers REALLY Mean in the Vedas!” (Mn8rgM5EAVU), and “The Vedic Science Behind Side Stance” (97aXe1H55R4) resolve to Shorts and are excluded from the full-length register. “Apsaras of Indraloka” (0VNo3J3DPp4) has a matching search result with the channel handle but its fetched page metadata did not expose a channel tag; held pending stronger direct attribution.
+
+## Additional knowledge uploads — fifteenth verification pass (2026-11-09)
+
+Two further regular uploads were added after checking their individual YouTube pages:
+
+| Exact title | YouTube URL | Classification | Verification |
+|---|---|---|---|
+| Hydrogen Awakening: Cosmic Codes — Vedic Secrets of Energy & Light | https://www.youtube.com/watch?v=KMTb9bz2r3k | Hydrogen / Vedic cosmology | B — exact page title and description; description explicitly includes @HydrogenAwakening; regular 1280×720 page |
+| Indian Aviation Crisis to Comeback — Problems, Challenges & Solutions | https://www.youtube.com/watch?v=nEH5NOW0hLQ | India / aviation / economy | B — exact page title includes @HydrogenAwakening; description and regular 1280×720 page verified |
+
+Transcript review and independent fact-checking remain pending. Similar candidates were held back where page-level attribution was insufficient. Shorts were excluded.
