@@ -721,3 +721,21 @@ The page lists one canonical entry per distinct full-length YouTube music work:
 - ONE HEART, ONE GAME — https://www.youtube.com/watch?v=Ls2QZYs2l5w (alternate promotional uploads are not separately counted)
 
 Editorial exclusions remain in force: no Facebook items, Shorts, explainers, third-party works, Hero Flute theme or Michael Jackson-related material in the music index. Traditional mantras are not credited as original compositions. The website labels this as a working index; audio comparison and detailed production-credit checks remain pending for some entries. The wider channel catalogue is not yet complete.
+
+
+## YouTube Music playlist discovery sources — screenshot cross-check (2026-11-09)
+
+The user's channel screenshot showed these Hydrogen Awakening playlist collections. They are now linked from the VARTA archive page under **YouTube Music Playlists — Discovery Sources**:
+https://ashubagri.github.io/Varta/hydrogen-awakening-archive.html#youtube-playlists
+
+Verified public playlist/profile URLs:
+- Hydrogen Awakening — Original Songs & AI Music profile collection: https://music.youtube.com/@HydrogenAwakening (profile result indexes this collection; individual playlist URL not exposed)
+- Best Shiva Songs in India 2026: https://music.youtube.com/playlist?list=PLbkEtoPVjuV-Y6k1cwz5BPepDn09XyCA2
+- prem ka anant geet: https://www.youtube.com/playlist?list=PLbkEtoPVjuV9uxaYG_J6OLjwU2nJIlWt8 (search index says 5 tracks)
+- Best Songs of All Time | Sound is Energy, Vibration & Medicine: https://www.youtube.com/playlist?list=PLbkEtoPVjuV_6IV_3iFJsdPOVzFCeGZQv
+- Music of Asia: https://www.youtube.com/playlist?list=PLbkEtoPVjuV_f9Rq7Y4siqsXTTfR78Fmq and https://www.youtube.com/playlist?list=PLKzyKFQuCixI (two versions/collections with similar title; do not merge without checking video IDs)
+- Music of India: https://www.youtube.com/playlist?list=PLbkEtoPVjuV_vqhqyTXRYVgqf9-t_fcJU
+- Sound Chant — The Sacred Science of Vibration: https://music.youtube.com/playlist?list=PLbkEtoPVjuV8DEqEHFQ_fbnzo5uUmaq27
+- Ganesha: https://www.youtube.com/playlist?list=PLDpGZxutQ1u4
+
+The screenshot also showed a My Mix and a New, Latest & Best / Top Ancient Secrets & Quantum Science playlist; these are not treated as music-source lists. A second Best Songs of All Time tile and duplicate-looking Music of Asia tiles are not separate compositions. Playlist membership is only a discovery lead: only individual full-length videos uploaded by Hydrogen Awakening qualify for the creator music register. Third-party tracks, Shorts, explainers and duplicate video IDs are excluded.
