@@ -859,3 +859,13 @@ Additional exact-title searches were run for the remaining screenshot leads. No 
 The “Harnessing Your Inner Power: The Human Body as a Biological Battery” title is independently visible in the Hydrogen Alchemy playlist search result (2:06; Hydrogen Awakening; 36 views), but search still exposed only the playlist URL, not an individual watch URL. It remains a playlist-level lead and is not promoted into the verified video list.
 
 A fresh Yama's Court search returned only the already indexed video ID KSXiC-GDQSQ; no second distinct upload was confirmed. Playlist-page extraction did not expose individual track links. No speculative links or duplicates were added.
+
+
+## Latest-episodes screenshot — seventh verification pass (2026-11-09)
+
+Further indexed search surfaced stronger playlist-level metadata, but still no individual watch URLs:
+- **Harnessing Your Inner Power: The Human Body as a Biological Battery** — appears in the Hydrogen Alchemy playlist result with a 2:06 duration and a Hydrogen Awakening attribution (36 views; search snippet).
+- **Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health** — appears in the Hydrogen Flow of Life playlist result with a 5:05 duration.
+- **Align with the Cosmos: A Guided Meditation for Energy Harmony** — appears in a YouTube meditation-hashtag result with a 2:00 duration, but the result does not establish the individual upload URL or channel ownership.
+
+The Yama's Court playlist snippet again surfaced the already indexed title and did not establish a second distinct upload. The exact-title searches for “Brahma, Vishnu & Shiva in Your Body” returned no reliable match. No guessed watch IDs were added; playlist/hashtag entries remain discovery leads only.
