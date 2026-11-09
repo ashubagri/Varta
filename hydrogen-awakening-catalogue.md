@@ -702,3 +702,22 @@ Scope remains restricted to distinct full-length Hydrogen Awakening music upload
 - **जब ज़िंदगी मुश्किल लगे… बस इतना याद रखना | Main Abhi Yahan Hoon** remains a promotional/alternate presentation of the existing Main Abhi Yahan Hoon canonical work; not counted again.
 - **NAAD OF THE 5 ELEMENTS | Chakra Swaras Awakening Through Sound & Mantra** remains the distinct long-form upload added in the previous pass: https://www.youtube.com/watch?v=NEldA-t-zWs.
 - Explanatory music videos and unverified uploads were not added as songs.
+
+
+## VARTA website music-index publication — 2026-11-09
+
+The public archive hub now includes a dedicated **Hydrogen Awakening — Music & Audio Archive** section:
+https://ashubagri.github.io/Varta/hydrogen-awakening-archive.html#music-archive
+
+The page lists one canonical entry per distinct full-length YouTube music work:
+- तू प्रकृति का सबसे सुंदर रूप — https://www.youtube.com/watch?v=4COEoAPyIhA
+- मैं अभी यहाँ हूँ / I Am Still Here — https://www.youtube.com/watch?v=8rpd3U-a1KM
+- चाँदनी में तुम — https://www.youtube.com/watch?v=w-pFGc0bMkc
+- Hinglaj Mata — Makran Ki Pukaar — https://www.youtube.com/watch?v=Xqi9cniqU94 (second upload https://www.youtube.com/watch?v=P1F3zI15K7w treated as a version, not a second work)
+- HUM Mahadev — https://www.youtube.com/watch?v=OTXGFUUp8-Y
+- Pancha Nada — The Five Inner Elements — https://www.youtube.com/watch?v=8DV8-DQKZdc
+- NAAD OF THE 5 ELEMENTS — https://www.youtube.com/watch?v=NEldA-t-zWs
+- The Sound of Five Elements — https://www.youtube.com/watch?v=3iCPoybBXzQ (related version not separately counted)
+- ONE HEART, ONE GAME — https://www.youtube.com/watch?v=Ls2QZYs2l5w (alternate promotional uploads are not separately counted)
+
+Editorial exclusions remain in force: no Facebook items, Shorts, explainers, third-party works, Hero Flute theme or Michael Jackson-related material in the music index. Traditional mantras are not credited as original compositions. The website labels this as a working index; audio comparison and detailed production-credit checks remain pending for some entries. The wider channel catalogue is not yet complete.
