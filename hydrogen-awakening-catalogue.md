@@ -680,3 +680,25 @@ Scope: Hydrogen Awakening YouTube full-length music uploads only. Facebook sourc
 - **जब ज़िंदगी मुश्किल लगे… बस इतना याद रखना | Main Abhi Yahan Hoon** — https://www.youtube.com/watch?v=gOsGd0WvQbU. Alternate/promo presentation of the already catalogued **मैं अभी यहाँ हूँ / I Am Still Here**; not a new canonical work.
 - **RiseUp / Jago Yeh Waqt Hai** — https://www.youtube.com/watch?v=ycQV0X0olVA. Search result did not establish Hydrogen Awakening as uploader; excluded.
 - Music explainers surfaced in search were not added as songs.
+
+
+## YouTube music-only pass 02 — 2026-11-09
+
+Scope remains restricted to distinct full-length Hydrogen Awakening music uploads. No Facebook material or Shorts included.
+
+### New distinct music upload
+
+- **HUM Mahadev | Shiva Meditation Music to Calm the Mind**
+  - YouTube: https://www.youtube.com/watch?v=OTXGFUUp8-Y
+  - YouTube page description identifies it as a Shiva meditation song inspired by silence, stillness and awareness, using the bija mantra HUM.
+  - Classification: devotional / meditation music.
+  - This individual video ID was not previously listed as a canonical work in the catalogue; added as a distinct music-video entry.
+  - Verification: B — YouTube page title and description retrieved; full audio and detailed production credits not independently reviewed.
+  - Attribution: do not claim the traditional bija mantra itself as an original composition; credit only Ashu Bagri's original concept/creative direction where supported. Preserve AI-production disclosure where stated by the original upload.
+
+### Duplicate and non-music checks
+
+- **ONE HEART, ONE GAME** results https://www.youtube.com/watch?v=jmv5aY98WtA and https://www.youtube.com/watch?v=8y8quKl2shc are title/description variants of the already catalogued football anthem. They are not counted as new compositions.
+- **जब ज़िंदगी मुश्किल लगे… बस इतना याद रखना | Main Abhi Yahan Hoon** remains a promotional/alternate presentation of the existing Main Abhi Yahan Hoon canonical work; not counted again.
+- **NAAD OF THE 5 ELEMENTS | Chakra Swaras Awakening Through Sound & Mantra** remains the distinct long-form upload added in the previous pass: https://www.youtube.com/watch?v=NEldA-t-zWs.
+- Explanatory music videos and unverified uploads were not added as songs.
