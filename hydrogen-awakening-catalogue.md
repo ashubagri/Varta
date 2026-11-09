@@ -1051,3 +1051,61 @@ A channel Playlists-page screenshot supplied by the channel owner was reviewed. 
 - Courses are labelled in lessons, not videos. Preserve that distinction.
 - Shorts collections are discovery-only and remain excluded from the full-length knowledge archive.
 - Next step: open each knowledge playlist, collect exact individual watch URLs, compare duplicate IDs across collections, then verify each candidate's page identity and format before adding it to the canonical video register.
+
+## Additional playlist discovery — second owner screenshot (2026-11-09)
+
+A second screenshot of the channel's Playlists page reveals more knowledge, geopolitics, history, India-affairs, sound and music collections. Counts are transcribed from the screenshot and are a point-in-time visual record only. Some titles are truncated by the YouTube grid and are marked with an ellipsis.
+
+### Vedic knowledge, cosmology and sound
+| Visible playlist / course title | Displayed count | Register / next action |
+|---|---:|---|
+| Ancient Civilizations & Hidden Mysteries \| Lost … | 5 videos | Ancient history / civilizations discovery |
+| Vedic Gods & Archetypes \| Brahma, Vishnu, Shiva & … | 7 videos | Vedic / symbolic traditions discovery; compare with same-title 5-video collection in earlier screenshot |
+| Cosmic Cycles, Creation & The Universe \| Vedic … | 2 videos | Cosmology discovery; compare with earlier 9-video collection by playlist ID |
+| Ancient Vedic Science: Laws of Reality Explained | 2 videos | Vedic science discovery |
+| Ancient Vedic Science: Laws of Reality Explained | 1 lesson | Course entry; keep distinct from the 2-video playlist |
+| Nāda Mantra, Ragas & Sound Science | 59 videos | Sound / music / Nāda discovery; route music items to separate music register |
+| Hydrogen Science, Health & Longevity \| The Molecule of … | 315 videos | Playlist; compare with earlier 314-lesson course/collection by ID and preserve video-versus-lesson distinction |
+| Welcome to Hydrogen Awakening \| Start Here | 37 videos | Channel orientation / introductory discovery |
+
+### Geopolitics, war, global affairs and history
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Geopolitics, Energy & Global Power Shifts | 48 videos | World affairs discovery; compare with other same-title collections by playlist ID |
+| Geopolitics, Energy & Global Power Shifts | 53 videos | World affairs discovery; keep separate pending ID comparison |
+| Geopolitics, Energy & Global Power Shifts | 74 videos | World affairs discovery; keep separate pending ID comparison |
+| Energy Wars & The Future of Energy | 99 videos | Energy geopolitics discovery |
+| Middle East Conflict Timeline: 1980–2019 … | 6 videos | Middle East / conflict history discovery |
+| The Chain Reaction of Wars (1979–2019) | 4 videos | War history discovery |
+| Hidden History of World Wars & Global Politics | 16 videos | Modern history / geopolitics discovery |
+| The Ultimate Comparison \| Who Wins? | 69 videos | Comparative geopolitics / military topics; inspect individual claims and dates |
+| India's Hidden System: Fear, Pressure & Power | 15 videos | India / institutions / society discovery |
+| The Parliament Files: Secret Decisions | 9 videos | Indian governance / parliament discovery |
+| Media Exposed: Who Controls Your Frequency? … | 38 videos | Media / information ecosystem discovery; title truncated |
+| Complete Guide to Commercial Aircraft & … | 22 videos | Aviation / industry discovery; title truncated |
+| Corporate Loan Defaults & Banking Reforms \| … | 12 videos | Banking / economy discovery; title truncated |
+
+### India, current affairs and explainers
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Truth, Facts & Did You Know? \| Uncovering the Unseen | 131 videos | General knowledge / fact-checking discovery |
+| WHY? \| Uncovering Hidden Truths | 103 videos | Explainers / inquiry discovery |
+| India Global Pulse: Inside & Out | 103 videos | India affairs discovery |
+| India & Its Neighbours \| Power, Borders & The Future … | 27 videos | India / neighbourhood geopolitics discovery; title truncated |
+| Google Trends 2026: The Global Energy Pulse … | 4 videos | Current-trends discovery; verify dates and current relevance |
+| LIVE: Ancient Science, Global Limitations & Real-Time … | 18 videos | Live/current affairs and science discovery; title truncated |
+
+### Music and channel orientation
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Best Songs of All Time \| Sound is Energy, Vibration & … | 56 videos | Music register only; compare with earlier 53-video collection by playlist ID |
+| Best Shiva Songs in India 2026 \| Top Mahadev Bhakti … | 21 videos | Music register; distinguish original works from third-party songs |
+| Channel trailer for people who haven't subscribed | 1 video | Channel orientation; not automatically a knowledge-archive item |
+
+### Curation notes
+- Same or similar titles with different displayed counts are not assumed to be the same playlist. Compare playlist IDs and item IDs before merging.
+- A playlist count can change over time; preserve these as screenshot-observed counts, not canonical totals.
+- Courses labelled in lessons remain separate from playlists labelled in videos.
+- Music collections route to the separate music archive; Shorts and other short-form collections remain excluded from the full-length knowledge register.
+- For geopolitical, historical, financial and current-affairs videos, record publication date and independently verify factual claims before producing VARTA articles.
+- The screenshot is evidence of visible playlist names and counts only. Individual video URLs, playlist IDs, authorship and transcript contents still require direct verification.
