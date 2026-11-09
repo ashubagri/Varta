@@ -361,3 +361,18 @@ The working register now contains **48 video discovery leads across three batche
 - Count **HUM Mahadev** as one devotional/meditation music work.
 - Keep Pancha Nada and the five-elements soundscape titles in a provisional instrumental register until uploader provenance and audio are checked.
 - Maintain separate counts for canonical works, alternate uploads/versions, and narrated videos that use Suno-generated voice/music.
+
+
+## Music archive — discovery batch 03 (Nāda Brahma and football anthem)
+**Review date:** 2026-11-09  
+**Scope:** Further public video/music search and watch-page metadata checks.
+
+| Canonical work / title | Public link(s) | Initial classification | Evidence / status |
+|---|---|---|---|
+| [Music is the Hidden Architecture of Creation | Nāda Brahma, Rāga, Chakras & Cosmic Sound](https://www.youtube.com/watch?v=GLUwjhz2rT4) | One candidate upload | **E/F — Music-philosophy explainer or mixed audio work** | Public title and description frame music as the architecture of creation and discuss Nāda Brahma, rāga and chakras. Do not count as a standalone song without audio review. |
+| [ONE HEART, ONE GAME | Global Football Anthem 2026](https://music.youtube.com/watch?v=pj-FdERSTSw) | [YouTube Music track](https://music.youtube.com/watch?v=pj-FdERSTSw); [Hydrogen Awakening video result](https://www.youtube.com/watch?v=Ls2QZYs2l5w); [additional title variant](https://www.youtube.com/watch?v=8DnUZ7TUVWc) | **A — Original football anthem candidate** | Public results explicitly describe it as an original anthem and identify Ashu Bagri / Hydrogen Awakening. Multiple related uploads/title variants surfaced. Compare audio and channel attribution before counting each as a separate work. The phrase “official FIFA World Cup anthem” appears in titles, but no FIFA authorisation/endorsement has been verified; VARTA should describe it as a creator-made/fan anthem unless official designation is independently documented. |
+
+### Search results deliberately not promoted to the music catalogue
+- “Nāda Brahma” search also surfaced educational videos about sound and spirituality; those remain explainers unless audio shows a distinct musical composition.
+- “Hanuman Chalisa”, “Ganesha Song”, “Naam Bhagavate Vasudevaya” and “Pancha Tattva” searches returned recommendation panels or results without a verified Hydrogen Awakening music upload. They are not added as confirmed works based on search snippets alone.
+- The user's screenshot remains the evidence that titles such as Pancha Nada, Ananta Nada and other devotional pieces appear in the YouTube Music interface. Public search results are not a complete replacement for that signed-in library.
