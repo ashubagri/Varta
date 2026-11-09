@@ -206,5 +206,28 @@ Search date: 2026-11-09. These six additional video IDs surfaced in targeted pub
 **Research anchors:** Vālmīki Rāmāyaṇa, Sundara Kāṇḍa 5.1, 5.3, 5.54 and 5.55; Taittirīya Upaniṣad 2.1; Garbha Upaniṣad, Section 1; Bhattacharya & Banerji (2023), “Concept of Five Elements — An Ancient Indian Approach”.  
 **Editorial distinction:** Hanuman's association with Vāyu is grounded in the epic; the five-element mapping of mountain, ocean, fire, wind and sky is explicitly presented as a modern symbolic reading, not a direct scriptural declaration or scientific equivalence.
 
+
+## Editorial research note — Nāsadīya Sūkta candidate
+**Candidate channel video:** [The Hidden Vedic Truth of Creation — Nasadiya Sukta Decoded](https://www.youtube.com/watch?v=ErK-oet1PKg) (listed in discovery batch 02). This remains a discovery lead: the public result was found through a channel/topic search, but the watch-page uploader and transcript have not been independently verified. Do not describe the following research as a summary of Ashu Bagri's spoken argument.
+
+### Primary-text anchor
+- [Ṛgveda 10.129 — Sanskrit, transliteration and Griffith translation](https://rigveda.live/rigveda/mandala-10/hymn-129). The hymn has seven verses and closes by questioning whether the highest overseer knows the origin.
+- [Nāsadīya Sūkta — Sanskrit text and translation notes](https://adiveda.in/reading/vedic-sukta/nasadiya-suktam-rigveda-10-129/). This edition identifies its Sanskrit textual basis and explicitly distinguishes its editorial translation from a traditional commentary.
+- [Sāyaṇa's commentary on Nāsadīya Sūkta](https://www.wisdomlib.org/hinduism/essay/philosophical-hymns-rigveda/d/doc1888988.html). A traditional commentary reads the hymn through a creation framework, including the relation between manifest and unmanifest.
+
+### Interpretive range to preserve
+- Cassian R. Agera, “Creation in the Nasadiyasukta (Rg Veda X:129): A Metaphysical Exploration,” *Studies in Interreligious Dialogue* 15(2), 2005, pp. 155–164, [DOI record](https://poj.peeters-leuven.be/content.php/secure/poj/secure/counter/secure/POJ/POJ/images/POJ/RSS/secure/POJ/content.php?id=2004102&journal_code=SID&url=article.php), treats the hymn as a cosmogonic and metaphysical text.
+- Dmitri Semenov, “Nāsadīya Hymn from Adhyātma Perspective” (2015), [research paper](https://theasis.net/RgV/RV_10_129_skt.pdf), proposes a non-cosmogonic, self-oriented reading and documents the interpretive choices involved.
+- Prajnya Bora's study of Sāyaṇa's commentary gives an example of a traditional Vedāntic reading; it should not be conflated with the hymn's only possible meaning.
+
+### Fact-check boundaries for any future article
+1. **Scriptural evidence:** quote and identify Ṛgveda 10.129 itself; note that translations of difficult Sanskrit terms vary.
+2. **Traditional interpretation:** identify the commentator or school (for example, Sāyaṇa) rather than presenting one later reading as universal Vedic doctrine.
+3. **Historical scholarship:** acknowledge that scholars disagree about the hymn's genre, referents and philosophical implications.
+4. **Modern cosmology:** explain the Big Bang using modern observational evidence and mathematical cosmology in a separate section. Similar-sounding language about an origin or an initial state is not evidence that the hymn encodes modern cosmology.
+5. **Creator attribution:** do not attribute a specific Big Bang, quantum, or consciousness claim to Ashu Bagri until the actual video transcript or a reliable full description has been reviewed and the uploader/channel ID confirmed.
+
+**Editorial decision:** retain this video as a high-priority research candidate. Do not yet create or publish a transcript-derived article. The research above is an independent fact-checking framework, not a transcript review.
+
 ## Updated coverage statement — 2026-11-09
 The working register now contains **48 video discovery leads across three batches**, plus one playlist-level lead. This is not a complete channel inventory. Six new IDs in batch 03 still need canonical uploader/channel-ID verification; the two-part series and possible Akasha near-duplicate are flagged rather than silently merged. No batch 03 item is transcript-reviewed. The archive will only promote a source to transcript-reviewed after actual caption text or a clearly labelled human transcript has been inspected.
