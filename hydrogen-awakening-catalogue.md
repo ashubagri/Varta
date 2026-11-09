@@ -658,3 +658,25 @@ The creator has explicitly clarified that the **Hero Flute music is not original
 ### Batch accounting
 - Zero new standalone compositions confirmed in this batch.
 - One music explainer lead recorded; duplicate Facebook promotions linked to existing canonical entries.
+
+
+## YouTube music-only pass — 2026-11-09
+
+Scope: Hydrogen Awakening YouTube full-length music uploads only. Facebook sources, Shorts, explainers, unrelated channels, and duplicate/alternate uploads are excluded from this pass.
+
+### New distinct upload lead
+
+- **NAAD OF THE 5 ELEMENTS | Chakra Swaras Awakening Through Sound & Mantra**
+  - YouTube: https://www.youtube.com/watch?v=NEldA-t-zWs
+  - YouTube search result identifies the uploader as Hydrogen Awakening; indexed duration is 3:52:59.
+  - Description opening: meditative journey exploring whether sound can awaken the elements within the human body.
+  - Classification: long-form meditation / soundscape music candidate.
+  - Distinct-upload check: this exact video ID is not present among the previously catalogued Five Elements / Pancha Nada uploads. It is thematically related, but is retained as a separate upload pending audio comparison; do not merge it with Pancha Nada or the Bansuri/Sarangi/Santoor/Cello meditation without listening.
+  - Verification: B — channel association and duration supported by YouTube search indexing; full audio review and detailed production credits pending.
+  - Attribution: preserve Ashu Bagri's original concept/creative direction only where established; do not claim all musical performance or production personally.
+
+### Duplicate / non-music exclusions in this pass
+
+- **जब ज़िंदगी मुश्किल लगे… बस इतना याद रखना | Main Abhi Yahan Hoon** — https://www.youtube.com/watch?v=gOsGd0WvQbU. Alternate/promo presentation of the already catalogued **मैं अभी यहाँ हूँ / I Am Still Here**; not a new canonical work.
+- **RiseUp / Jago Yeh Waqt Hai** — https://www.youtube.com/watch?v=ycQV0X0olVA. Search result did not establish Hydrogen Awakening as uploader; excluded.
+- Music explainers surfaced in search were not added as songs.
