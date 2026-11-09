@@ -630,3 +630,31 @@ The creator has explicitly clarified that the **Hero Flute music is not original
 - Add one new direct-linked YouTube song candidate (Why Old Songs Never Die), but do not promote it to fully verified original composition until the audio and production credits are reviewed.
 - Add one Ganesha music-led explainer to the non-song register.
 - No new Suno project link was exposed in this batch.
+
+
+## New batch — 2026-11-09 (Facebook cross-check and deduplication)
+
+### Why Old Songs Never Die — duplicate Facebook promotions
+- Further search found two additional creator-published Facebook post variants for the same theme:
+  - https://www.facebook.com/ashu.bagri.948/posts/why-old-songs-never-die-%E0%A4%B8%E0%A5%8D%E0%A4%AE%E0%A5%83%E0%A4%A4%E0%A4%BF-%E0%A4%A8%E0%A4%BE%E0%A4%A6-%E0%A4%94%E0%A4%B0-%E0%A4%9A%E0%A5%87%E0%A4%A4%E0%A4%A8%E0%A4%BE-hydrogen-awakening-why-do-songs-from/1870573284318559/
+  - https://www.facebook.com/ashu.bagri.948/posts/why-old-songs-never-die-%E0%A4%B8%E0%A5%8D%E0%A4%AE%E0%A5%83%E0%A4%A4%E0%A4%bf-%E0%A4%A8%E0%A4%BE%E0%A4%A6-%E0%A4%94%E0%A4%B0-%E0%A4%9A%E0%A5%87%E0%A4%A4%E0%A4%A8%E0%A4%BE-hydrogen-awakening-why-do-songs-from/1870575070985047/
+- Both describe the same original Hydrogen Awakening song concept and sequence: Sound → Memory → Emotion → Awareness.
+- They are treated as promotional/post variants for the already catalogued YouTube work https://www.youtube.com/watch?v=QANCbEgT-gw, not as additional compositions. Canonical work count unchanged.
+
+### एक स्वर, एक लय | Vibration to Devotion
+- Creator-published Facebook video:
+  https://www.facebook.com/ashu.bagri.948/videos/what-happens-when-thousands-of-minds-become-one-through-music-the-science-of-div/1108317251745628/
+- Search metadata describes the theme as collective music, vibration, devotion, consciousness and attention.
+- Classification: music-related educational/reflective explainer, not a standalone song on current evidence.
+- Keep distinct from the previously catalogued YouTube explainer “एक स्वर (Ek Swar)” until a direct matching YouTube URL or audio comparison establishes identity.
+- Verification B — creator Facebook video identified; corresponding individual YouTube destination and audio review pending.
+
+### Ganesha cross-check
+- Search surfaced a second creator-published Facebook presentation:
+  https://www.facebook.com/ashu.bagri.948/videos/why-does-ganesha-have-an-elephant-head-the-hidden-wisdom-of-ganesha-hydrogen-awa/27964738966530575/
+- This carries the “गणेश — The Divine Symbol of Wisdom | Ganesha Song” title/description already documented. Treat it as another post/video presentation of that canonical candidate, not a new composition. Its relationship to the separate “The Science Behind His Divine Form” explainer remains pending direct video/audio comparison.
+- No individual YouTube watch URL or Suno project link was reliably resolved in this pass.
+
+### Batch accounting
+- Zero new standalone compositions confirmed in this batch.
+- One music explainer lead recorded; duplicate Facebook promotions linked to existing canonical entries.
