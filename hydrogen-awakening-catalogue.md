@@ -834,3 +834,15 @@ Page titles and descriptions were retrieved for all five. Full transcripts and c
 - The data-related video title visible at the bottom of the screenshot.
 
 No guessed IDs or substitute videos added.
+
+
+## Latest-episodes screenshot — fifth verification pass (2026-11-09)
+
+Two additional exact-title YouTube results were located:
+
+| Video | YouTube URL | Category | Verification |
+|---|---|---|---|
+| Quantum Physics & Spirituality: The Hidden Science of Consciousness | https://www.youtube.com/watch?v=TSW53QLaGGQ | Quantum consciousness / science and spirituality | A — exact page title and Hydrogen Awakening tag in YouTube metadata; transcript review pending |
+| Divine Anatomy: Exploring the Cosmic Symbolism of Shiva | https://www.youtube.com/watch?v=8w4WPgrYR-s | Shiva symbolism / spiritual interpretation | B — exact title and Hydrogen Awakening channel reference in search result; direct page metadata unavailable |
+
+No transcript or factual-claim review is implied. Other similar Vasus search results were excluded because they were different videos, not the exact screenshot title. The remaining playlist-only leads and the second Yama's Court item remain unresolved.
