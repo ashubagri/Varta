@@ -925,3 +925,23 @@ Other candidates held back in this pass:
 - “BTS, Hydrogen & The Hidden Science of Sound Energy” (LnQGEtCQkog): title/description mention Hydrogen Awakening, but direct uploader evidence was not exposed.
 - “Sama, Dana, Bheda, Danda” (T9GeSPJC5fY) and “How Chanakya Niti Explains India’s Secret Modern Geopolitics” (iIIjUMoxl7o): exact titles surfaced, but the fetched pages did not establish the uploader.
 - “Chanakya Niti Explained: How India Can Strategically Control Its Neighbors” (1_hBO8wQgVc) resolves to a Shorts page and is excluded from the full-length register.
+
+
+## Additional knowledge uploads — eleventh verification pass (2026-11-09)
+
+Five more individual Hydrogen Awakening uploads were confirmed from their YouTube watch pages:
+
+| Exact title | YouTube URL | Classification | Verification |
+|---|---|---|---|
+| The Hidden 95% of the Universe \| Shiva & Shakti? | https://www.youtube.com/watch?v=bFW3xXz5Z8Q | Cosmology / dark matter and dark energy with Shiva-Shakti symbolism | A — page text identifies Hydrogen Awakening, with subscriber count, views and publication date visible; full transcript review pending |
+| Shiva, Sound & Atoms: The Hidden Science of Vibration | https://www.youtube.com/watch?v=TH5QTvTI-tI | Nāda / sound / atomic symbolism | A — page text identifies Hydrogen Awakening; full-length 1280×720 metadata |
+| FROM THE FIRST STAR TO THE FIRST LIGHT \| How Hydrogen Created the Universe | https://www.youtube.com/watch?v=fmqu-Mw7-HI | Hydrogen / cosmic origins | A — page text identifies Hydrogen Awakening; 1280×720 video metadata; duration about 1 minute, so retain as a short landscape upload, not a transcript-reviewed source |
+| The Story of Hydrogen: From the First Star to the Human Mind | https://www.youtube.com/watch?v=3CKZWzR4j8s | Hydrogen / stellar origins / life | A — page text identifies Hydrogen Awakening; full-length page, publication date and views visible |
+| HOW HYDROGEN BECAME LIVING MATTER — From Stardust to Life | https://www.youtube.com/watch?v=983yFjYKY5Q | Hydrogen / origin of life | A — page text identifies Hydrogen Awakening; 1280×720 page and related-video listing show the channel; duration about 4:39 |
+| Hanumanji in the Five Elements? Fire, Water, Earth, Air & Space \| Part 2 | https://www.youtube.com/watch?v=gP0vOCqurbU | Hanuman / Pancha Mahābhūta | A — page text identifies Hydrogen Awakening; full-length page and publication date visible |
+
+**Duplicate control:** A second result for “Shiva, Sound & Atoms: The Hidden Science of Vibration” (PEd0qA2Emuc) has the same title and description theme. The directly readable Hydrogen Awakening page is TH5QTvTI-tI, so PEd0qA2Emuc is not counted separately pending comparison. The hydrogen-origin entries have related themes but distinct titles and descriptions; they are retained as separate uploads pending deeper content comparison.
+
+**Still unresolved:** the exact screenshot title “Brahma, Vishnu & Shiva in Your Body”, “Align with the Cosmos”, “Harnessing Your Inner Power”, and the specific “Sound & Hydrogen” playlist item did not yield reliable individual watch URLs in this pass. No guessed IDs were added.
+
+**Editorial note:** Channel ownership and page identity are verified; transcript and independent scientific/textual claim review are still pending. The approximately one-minute landscape upload is retained as a distinct upload but flagged for format review rather than assumed to be a conventional long-form episode.
