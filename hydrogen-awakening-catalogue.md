@@ -376,3 +376,28 @@ The working register now contains **48 video discovery leads across three batche
 - “Nāda Brahma” search also surfaced educational videos about sound and spirituality; those remain explainers unless audio shows a distinct musical composition.
 - “Hanuman Chalisa”, “Ganesha Song”, “Naam Bhagavate Vasudevaya” and “Pancha Tattva” searches returned recommendation panels or results without a verified Hydrogen Awakening music upload. They are not added as confirmed works based on search snippets alone.
 - The user's screenshot remains the evidence that titles such as Pancha Nada, Ananta Nada and other devotional pieces appear in the YouTube Music interface. Public search results are not a complete replacement for that signed-in library.
+
+
+
+## Music archive — discovery batch 04 (playlist and title verification)
+**Review date:** 2026-11-09  
+**Scope:** Follow-up searches for screenshot-visible titles and checks of public channel/playlist pages. This batch records useful verification outcomes; it does not inflate the confirmed-work count.
+
+### New findings and classification decisions
+| Candidate / result | Public evidence | Archive decision |
+|---|---|---|
+| [Kyun Chandni Raat Aur Samundar Humein Badal Dete Hain?](https://www.youtube.com/watch?v=oUypYYX92_A) | Public search identifies this as a Hydrogen Awakening knowledge/explainer video about moonlight, the sea, love and consciousness. | **E — Educational/philosophical video, not a standalone song on current evidence.** Do not confuse it with the separate romantic duet [चाँदनी में तुम](https://www.youtube.com/watch?v=w-pFGc0bMkc), already listed in batch 01. |
+| [कौन सा स्वर मन को शांत करता है?](https://www.youtube.com/watch?v=59B0wUVS724) | Public watch-page metadata exposes a question about which swara calms the mind; the description begins with a discussion of Sa, Ni and Dha. | **E/F — Music-education or spoken explainer candidate.** It is not confirmed as a musical composition. |
+| [I Am Still Here | Main Abhi Yahan Hoon | A Heart-Touching Song](https://www.youtube.com/watch?v=8rpd3U-a1KM) | A targeted search again returned this channel-associated song title and a description snippet stating it is not a copy of an existing song. | Retain the existing batch 01 entry; **do not create a second record**. Full audio and credits remain to be checked. |
+| “Music of Asia” and “Music of India” playlist results | Public searches returned these playlist pages, including Hydrogen Awakening titles among the displayed track snippets. Page extraction did not expose a reliable full track list or establish that every playlist item is creator-owned. | **Do not treat playlist membership or recommendation snippets as ownership evidence.** Verify each individual watch page and uploader before adding a work. |
+| “Ganesha — The Divine Symbol of Wisdom | Ganesha Song” | Search surfaced a Facebook video result associated with the creator's public Facebook profile, but no matching YouTube watch page with independently verified channel attribution was found in this pass. | **Screenshot/search lead only — not counted as a confirmed YouTube Music work.** Revisit when a direct track/watch URL or Suno project link is available. |
+| “The Music That Touches the Soul”, “Chandni Raat”, “Ragas, Chakras & Planets”, “Naam Bhagavate Vasudevaya” and “Ananta Nada” | Exact-title searches did not produce a sufficiently attributable individual music upload in this pass. Some terms surfaced unrelated educational material or recommendation panels. | Keep as **unverified title leads**; do not add to confirmed standalone music works. |
+
+### Public access limitation confirmed
+- The public channel videos and playlists pages expose the Hydrogen Awakening channel description but not a usable full video/playlist inventory in this extraction.
+- The public YouTube Music profile at https://music.youtube.com/@HydrogenAwakening displays a sign-in prompt rather than the creator's full music library.
+- A playlist title or a search-result snippet can include recommendations and third-party tracks. It is not sufficient proof of creator ownership, Suno origin or a distinct canonical composition.
+- This batch adds no new confirmed standalone song count. It narrows classification and prevents false positives.
+
+### Next practical archive step
+Use the direct individual track/watch links already visible in the user's signed-in YouTube Music library or Suno profile to resolve the remaining screenshot-led titles. For each one, record the individual URL, displayed artist/uploader, duration and whether the item is a song, instrumental, spoken narration, or a video using background music. Keep the 134 items as the user's reported Suno-library total until the individual projects are matched and deduplicated.
