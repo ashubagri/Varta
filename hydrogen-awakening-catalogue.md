@@ -231,3 +231,15 @@ Search date: 2026-11-09. These six additional video IDs surfaced in targeted pub
 
 ## Updated coverage statement — 2026-11-09
 The working register now contains **48 video discovery leads across three batches**, plus one playlist-level lead. This is not a complete channel inventory. Six new IDs in batch 03 still need canonical uploader/channel-ID verification; the two-part series and possible Akasha near-duplicate are flagged rather than silently merged. No batch 03 item is transcript-reviewed. The archive will only promote a source to transcript-reviewed after actual caption text or a clearly labelled human transcript has been inspected.
+
+
+## Published article — Nāsadīya Sūkta and the origin of the universe
+[Nāsadīya Sūkta: Did the Universe Have a Beginning?](https://ashubagri.github.io/Varta/nasadiya-sukta-creation-cosmos.html)
+
+**Editorial basis:** Original VARTA research explainer based on Ṛgveda 10.129 and independent scholarship. It examines the hymn's seven-verse movement from questions about being and non-being to its closing uncertainty about whether the highest overseer knows. It is not a transcript-derived summary of the candidate video [The Hidden Vedic Truth of Creation — Nasadiya Sukta Decoded](https://www.youtube.com/watch?v=ErK-oet1PKg).
+
+**Research anchors:** Ṛgveda 10.129 Sanskrit text and Griffith translation; Jamison and Brereton, *The Rigveda* (Oxford University Press, 2020); Jamison–Brereton Rigveda commentary project; Dmitri Semenov (2015), “Nāsadīya Hymn from Adhyātma Perspective”; NASA cosmology material on the Big Bang, CMB and inflation; Center for Astrophysics | Harvard & Smithsonian early-universe overview.
+
+**Editorial distinction:** The hymn is not described as an ancient formulation of the Big Bang, inflation or quantum cosmology. Sanskrit text, traditional/philosophical interpretations, modern scholarship and observational cosmology are treated as separate evidence layers.
+
+**Source-video status:** Candidate video remains a discovery lead. Its uploader/channel-ID match and transcript have not been independently verified; no claim is made that the article represents the creator's spoken argument.
