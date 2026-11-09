@@ -604,3 +604,29 @@ The creator has explicitly clarified that the **Hero Flute music is not original
 - Public YouTube Music profile search results also surfaced **संगीत कैसे लोगों को एक बनाता है** as a Hydrogen Awakening item. No exact individual URL or full metadata was exposed in this pass. Keep it as a possible alternate/title variant or related explainer lead; do not count it separately until its identity is confirmed.
 
 **Batch 11 count:** one creator-post-confirmed devotional song added to the verified-work register (YouTube URL pending); one music-related educational video added to the non-song register; one unverified related-title lead. No additional standalone song count is inferred.
+
+
+## New batch — 2026-11-09 (creator Facebook cross-reference)
+
+### Why Old Songs Never Die | स्मृति, नाद और चेतना
+- Creator-published Facebook post:
+  https://www.facebook.com/ashu.bagri.948/posts/why-old-songs-never-die-%E0%A4%B8%E0%A5%8D%E0%A4%AE%E0%A5%83%E0%A4%A4%E0%A4%BF-%E0%A4%A8%E0%A4%BE%E0%A4%A6-%E0%A4%94%E0%A4%B0-%E0%A4%9A%E0%A5%87%E0%A4%A4%E0%A4%A8%E0%A4%BE-hydrogen-awakening-why-do-songs-from/1870595597649661/
+- Direct YouTube link extracted from that post:
+  https://www.youtube.com/watch?v=QANCbEgT-gw
+- Facebook post text explicitly calls it an “original Hydrogen Awakening song” and frames the work as Sound → Memory → Emotion → Awareness, connecting musical memory and emotion with the Indian concept of Nāda.
+- Classification: original song / reflective music-led composition candidate. It references legacy singers and songs as cultural context; do not imply ownership of their works or recordings.
+- Attribution: creator-originated concept and explanatory framing supported by Ashu Bagri's own Facebook post. Lyrics, melody, vocals, arrangement and AI-production details still require inspection of the YouTube description/audio before assigning narrower credits.
+- Verification B+ — creator post contains the direct YouTube destination and detailed description; audio review and production-credit inspection pending.
+
+### Ganesha — The Science Behind His Divine Form
+- Creator-published Facebook video:
+  https://www.facebook.com/ashu.bagri.948/videos/why-does-ganesha-have-an-elephant-head-the-hidden-wisdom-of-ganesha-hydrogen-awa/4752210018393467/
+- Facebook title/description: “GANESHA — The Science Behind His Divine Form | Ancient Wisdom Meets Modern Science | Hydrogen Awakening.” It describes a “musical journey” exploring Ganesha symbolism: wisdom, listening, focus and transformation.
+- Classification: music-led educational/devotional explainer; not counted as a standalone song on current evidence.
+- Keep distinct from the separately documented 6:36 “गणेश — The Divine Symbol of Wisdom | Ganesha Song” creator Facebook post and matching YouTube playlist item. Whether these are separate edits, related videos or alternate versions remains unverified.
+- Verification B — creator-post content is accessible; individual YouTube destination and audio comparison pending.
+
+### Archive accounting note
+- Add one new direct-linked YouTube song candidate (Why Old Songs Never Die), but do not promote it to fully verified original composition until the audio and production credits are reviewed.
+- Add one Ganesha music-led explainer to the non-song register.
+- No new Suno project link was exposed in this batch.
