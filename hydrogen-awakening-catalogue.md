@@ -514,3 +514,25 @@ The creator has explicitly clarified that the **Hero Flute music is not original
 - **Attribution principle:** Ashu Bagri is credited only for his own original ideas, concepts, themes, scripts, lyrics, or creative direction where the evidence or creator confirmation supports that specific contribution. Existing songs, melodies, performances, film themes, or other third-party works must never be credited to him merely because they appear in a Hydrogen Awakening video, playlist, commentary, or edit.
 - A video may discuss or use a third-party work while the creator's original contribution is limited to commentary, explanation, or editorial framing. Record that distinction explicitly; do not transfer ownership of the underlying work to the channel owner.
 - This correction overrides any earlier provisional Hero Flute classification in this catalogue. Preserve the audit trail, but never count excluded works as original creations.
+
+
+## Music discovery batch 08 — 2026-11-09
+
+### Pancha Nada — creator-channel attribution cross-check
+- **Pancha Nada — The Five Inner Elements**
+  - Individual video: https://www.youtube.com/watch?v=8DV8-DQKZdc
+  - Search indexing for the exact title shows the next channel result as **Hydrogen Awakening**, and the indexed video description identifies the work as a meditative soundscape built around the five inner elements. The video's metadata keywords also include **Hydrogen Awakening channel**.
+  - Classification: **instrumental / meditative soundscape candidate**. Record as a Hydrogen Awakening channel item with the creative concept/theme attributed to Ashu Bagri only to the extent of his original five-elements framing and creative direction. AI-assisted audio production/ownership of every musical element is not independently verified here.
+  - Verification: **B — channel association supported by search index and metadata; full creator/production credits and audio review still pending**. Do not claim that the musical composition or performance itself was personally performed/composed by Ashu Bagri.
+
+### Ganesha — individual YouTube ID still unresolved
+- The **Ganesha** playlist (https://www.youtube.com/playlist?list=PLDpGZxutQ1u4) is indexed with a 6:37 item titled **गणेश — The Divine Symbol of Wisdom | Ganesha Song | Ancient Wisdom Meets Modern Science**, shown under **Hydrogen Awakening — Knowledge Hub**.
+- A matching creator Facebook post exists at https://www.facebook.com/ashu.bagri.948/videos/-%E0%A4%97%E0%A4%A3%E0%A5%87%E0%A4%B6-the-divine-symbol-of-wisdom-ganesha-song-ancient-wisdom-meets-modern-scien/1395333646044748/
+- The individual YouTube watch ID was not exposed by the playlist page or exact-title searches. Keep as a **playlist-verified lead**, not a separately confirmed work URL. Do not create a guessed link or count a second version.
+
+### Search hygiene
+- The phrase **Ananta Nada | Cosmic Meditation Music | Sound of Space** appeared only in a mixed search snippet and could not be tied confidently to an individual Hydrogen Awakening upload in this pass. Keep it unverified.
+- No attributable individual uploads were found for the earlier title leads **Chandni Raat**, **The Music That Touches the Soul**, or **Naam Bhagavate Vasudevaya** in this pass.
+- No Michael Jackson or Hero Flute material is added to original-work credits; both remain explicitly excluded under the creator's correction.
+
+**Counting rule:** batch 08 adds one B-level channel-associated original-concept soundscape candidate (Pancha Nada) and improves the Ganesha playlist lead, but adds **zero newly verified standalone original songs**.
