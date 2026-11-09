@@ -401,3 +401,37 @@ The working register now contains **48 video discovery leads across three batche
 
 ### Next practical archive step
 Use the direct individual track/watch links already visible in the user's signed-in YouTube Music library or Suno profile to resolve the remaining screenshot-led titles. For each one, record the individual URL, displayed artist/uploader, duration and whether the item is a song, instrumental, spoken narration, or a video using background music. Keep the 134 items as the user's reported Suno-library total until the individual projects are matched and deduplicated.
+
+
+
+## Suno cross-reference — public profile snapshot 01
+**Review date:** 2026-11-09  
+**Profile:** https://suno.com/@stratosphericmogul036  
+**Purpose:** Begin matching publicly visible Suno projects against the Hydrogen Awakening YouTube music register. This is a public-profile snapshot only; it is not a complete export of the user's signed-in Suno library.
+
+### Publicly visible profile data
+The public profile page currently exposes **12 songs** as its profile count and displays two song cards with the same title, **भारत की आत्मा**. The profile page links to these two distinct Suno project IDs:
+
+| Suno project | Public page | Visible content | Provisional interpretation |
+|---|---|---|---|
+| भारत की आत्मा — project 1 | https://suno.com/song/ffecd0f7-a2ae-4da3-8d66-7f008d7a43b8 | Full Hindi text is exposed. The piece opens with spoken narration, then moves into a devotional/Indian-classical/cinematic song structure with tanpura and bansuri cues, group chorus, swara/nāda themes, science-and-spirituality discussion and spoken sections. Model shown: V6-MINI. | **Mixed song + spoken-word / concept composition.** Not simply an instrumental and not a pure speech. It includes a clearly structured chorus and verses alongside spoken passages. |
+| भारत की आत्मा — project 2 | https://suno.com/song/0d06ae8e-6295-47cc-b28f-e6fd220d0f55 | Same title and style tags (devotional, Indian classical, cinematic) and V6-MINI model, but no lyrics or descriptive text were exposed on the public page. | **Possible alternate generation/version or incomplete project.** Do not count as a separate canonical work until audio and creation metadata are compared. |
+
+### Matching result against YouTube
+- Exact-title searches for “भारत की आत्मा” and “Bharat Ki Aatma” did **not** identify a clearly attributable Hydrogen Awakening YouTube music upload matching the two Suno projects.
+- Search results did surface unrelated India-history/knowledge videos using the same phrase; these are not accepted as matches.
+- Therefore the two Suno project IDs are recorded as **Suno-visible, YouTube match pending**. No YouTube canonical work has been linked to them yet.
+
+### Attribution and production notes
+- The Suno profile display name is **RTA**; the public profile handle is **@stratosphericmogul036**. The profile also links to the Hydrogen Awakening YouTube channel.
+- The visible style tags are devotional, Indian classical and cinematic. The project page shows V6-MINI.
+- The lyrics/content of project 1 include an explicit distinction between scientific study of sound/rhythm/brain activity and spiritual interpretation. Preserve that distinction if the piece is later described or excerpted.
+- The user's authorship statement remains: original ideas/concepts/creative direction are the user's; Suno is the AI-assisted production platform. Do not independently attribute every lyric, melody, vocal or instrumental performance without source-level confirmation.
+- The user's reported Suno library total remains **134 items** from their own account statement. The public profile's visible “12 songs” figure is a separate public-facing count and must not be treated as the full private library total or as a verified count of unique compositions.
+
+### Next matching protocol
+1. Capture the individual Suno song URL/ID for every public project exposed by the profile's “View all” route where accessible.
+2. Record exact title, visible lyrics/description, style tags and model; classify song, instrumental, spoken-word, mixed or incomplete.
+3. Search for an exact YouTube upload by title and distinctive lyric phrases, then verify the uploader/channel ID and compare audio before linking.
+4. Group alternate Suno generations under one canonical creative work where evidence supports that relationship.
+5. Keep a separate list of Suno projects not yet found on YouTube and YouTube videos not yet matched to Suno.
