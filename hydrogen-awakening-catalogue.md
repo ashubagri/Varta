@@ -808,3 +808,29 @@ Page titles and descriptions were retrieved for all five. Full transcripts and c
 - Harnessing Your Inner Power: The Human Body as a Biological Battery — playlist index exposes title and duration, but no individual video ID yet.
 - Yama's Court vs. Indian Courts (two similar uploads visible; exact individual IDs need title-specific resolution and duplicate comparison).
 - The data-related video title at the bottom of the screenshot.
+
+
+## Latest-episodes screenshot — fourth verification pass (2026-11-09)
+
+### Newly resolved individual upload
+
+- **Yama's Court vs. Indian Courts: Justice in 1 Year, Why Not for Us?**
+  - YouTube: https://www.youtube.com/watch?v=KSXiC-GDQSQ
+  - Search result description explicitly includes “Subscribe to Hydrogen Awakening for deeper awareness and clarity” and identifies the channel handle.
+  - Classification: mythology / justice-system comparison explainer.
+  - Verification: B — exact individual watch URL and channel reference found; transcript review pending.
+  - Duplicate control: screenshot showed two similar Yama's Court titles. Only this exact video ID is confirmed in this pass; do not infer the other title is a duplicate or a second work without its exact ID.
+
+### Playlist-level items still lacking individual watch IDs
+
+- **Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health** — appears in the Hydrogen Flow of Life playlist index at 5:05, but public playlist extraction did not expose its watch URL.
+- **Harnessing Your Inner Power: The Human Body as a Biological Battery** — title appears in the Hydrogen Alchemy playlist index, but no individual watch URL was exposed.
+- **Align with the Cosmos: A Guided Meditation for Energy Harmony** — search indexing associates the title with the channel playlist and shows a long-form duration, but no individual watch URL was exposed.
+
+### Still unresolved
+- Quantum Physics & Spirituality: The Hidden Science of Consciousness.
+- Brahma, Vishnu & Shiva in Your Body: The Ancient Code to Human Potential.
+- The second Yama's Court screenshot entry.
+- The data-related video title visible at the bottom of the screenshot.
+
+No guessed IDs or substitute videos added.
