@@ -1305,3 +1305,23 @@ Targeted public YouTube searches recovered five additional exact playlist IDs. E
 - The playlist ID PLbkEtoPVjuV_6cN4pa-g-6Wun1sQyZ1bl appeared in search under a slightly different title than the fetched page title. Preserve the fetched title and the search-title discrepancy; verify the playlist directly in a live browser before any rename.
 - Playlist titles and descriptions are channel-provided metadata, not independent validation of scientific or health claims.
 - The screenshot counts are historical visual observations only. Do not use them as current totals or as counts of unique videos.
+
+## Mandatory playlist-first study and deduplication rule — owner instruction (2026-11-09)
+
+The channel owner clarified that many videos are intentionally saved in multiple playlists. Therefore playlist membership must never be treated as a new video discovery by itself.
+
+### Required workflow before adding any video
+1. Study each playlist's complete item list first, including pagination or continuation until the full list is covered.
+2. Extract the exact 11-character YouTube video ID from every watch URL.
+3. Build one global video-ID master index across all playlists already studied.
+4. For every playlist, record its membership against the master ID rather than creating another video entry.
+5. If an ID already exists, mark it as an additional playlist placement only. Do not duplicate the canonical video record, article candidate, transcript task or archive entry.
+6. Compare title variants and alternate uploads separately. Different IDs are not duplicates merely because titles match; same IDs are duplicates even when playlist titles or labels differ.
+7. Keep playlist-level metadata (playlist ID, title, observed item count, study status) separate from the canonical video register.
+8. Do not publish or add new video records until the playlist's full item list has been studied and cross-playlist deduplication has been performed.
+
+### Current status
+- The six playlist IDs recovered in the second extraction pass are playlist leads only. Their full item lists have not yet been retrieved, so none is marked studied or deduplicated.
+- The earlier Energy Wars playlist URL is also unstudied at item level.
+- No individual video additions should be inferred from playlist counts, thumbnails, search snippets or partial page results.
+- The objective is one canonical record per unique video ID, with multiple playlist memberships stored as metadata. This prevents the same video from being repeated across VARTA's public archive.
