@@ -575,3 +575,32 @@ The creator has explicitly clarified that the **Hero Flute music is not original
 - The playlist URL above is now recorded as a first-party discovery route. The playlist extractor did not expose its track list in this pass. No titles have been guessed from it and no unrelated recommendation tracks have been added.
 
 **Counting rule:** batch 10 adds one original-song candidate with a possible English alternate title, not two confirmed distinct compositions. The creator's public playlist statement is collection-level evidence only; each track still requires individual verification.
+
+
+## Music discovery batch 11 — 2026-11-09
+
+### Ganesha — The Divine Symbol of Wisdom | Ganesha Song
+- Creator-published Facebook video:
+  https://www.facebook.com/ashu.bagri.948/videos/-%E0%A4%97%E0%A4%A3%E0%A5%87%E0%A4%B6-the-divine-symbol-of-wisdom-ganesha-song-ancient-wisdom-meets-modern-scien/1395333646044748/
+- The creator's own post explicitly calls this a **song** and describes it as a musical tribute to Ganesha and the symbolism of the elephant head, ears, eyes, trunk, belly and mouse. It frames the work as ancient wisdom meeting modern scientific thought.
+- The Ganesha YouTube playlist https://www.youtube.com/playlist?list=PLDpGZxutQ1u4 independently indexes a 6:37 item with the same title under Hydrogen Awakening.
+- Classification: **devotional/philosophical song — creator-post and playlist corroborated**.
+- YouTube individual watch URL remains unresolved; do not invent one. Retain the creator's Facebook video as a verified public work link and the playlist as corroboration.
+- Attribution: original concept/creative direction may be credited to Ashu Bagri; the post does not independently establish that all lyrics, melody, vocals or instrumental performance were personally created. Preserve any AI-production disclosure when the original upload is located.
+- Verification: **B+ — creator-published description plus matching channel playlist item; individual YouTube watch ID/audio review pending**.
+
+### एक स्वर (Ek Swar)
+- YouTube: https://www.youtube.com/watch?v=hDCh56TRrO8
+- The YouTube page metadata identifies Hydrogen Awakening in its tags and keywords, and the public Music profile search result lists **एक स्वर** under Hydrogen Awakening.
+- Description asks what happens when thousands sing together and discusses rhythm, attention, emotion and synchrony. This is a music-and-collective-consciousness explainer/visual, not established as a standalone song.
+- Classification: **music-related educational/reflective video**, not counted as a standalone composition.
+- Related creator-published explainer:
+  https://www.facebook.com/ashu.bagri.948/videos/what-happens-when-thousands-of-minds-become-one-through-music-the-science-of-div/1108317251745628/
+  Its description explicitly discusses sound, vibration, rhythm, attention, emotion, collective behaviour, chanting, Nāda Yoga and the distinction between scientific observation and spiritual interpretation.
+- Attribution: credit Ashu Bagri for the explanatory framing and creative direction, not for collective singing or any third-party musical performance shown/used.
+- Verification: **B — individual YouTube URL and channel-related metadata found; full audio/video review pending**.
+
+### Music profile discovery note
+- Public YouTube Music profile search results also surfaced **संगीत कैसे लोगों को एक बनाता है** as a Hydrogen Awakening item. No exact individual URL or full metadata was exposed in this pass. Keep it as a possible alternate/title variant or related explainer lead; do not count it separately until its identity is confirmed.
+
+**Batch 11 count:** one creator-post-confirmed devotional song added to the verified-work register (YouTube URL pending); one music-related educational video added to the non-song register; one unverified related-title lead. No additional standalone song count is inferred.
