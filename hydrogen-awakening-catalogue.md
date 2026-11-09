@@ -255,3 +255,15 @@ The working register now contains **48 video discovery leads across three batche
 **Editorial distinction:** The hymn's ritual-poetic cosmology is not presented as modern astrophysics or biology. The four-varṇa passage is discussed as an influential textual articulation; it is not treated as proof that the fully developed later jātī/caste system already existed in the early Ṛgvedic period. The article acknowledges the contested social implications and later reception of the verse.
 
 **Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites for source attribution.
+
+
+## Published article — Hiraṇyagarbha Sūkta and the Golden Embryo
+[Hiraṇyagarbha Sūkta: The Golden Embryo and the Origin of the Universe](https://ashubagri.github.io/Varta/hiranyagarbha-sukta-golden-embryo.html)
+
+**Editorial basis:** Independent VARTA research explainer based on Ṛgveda 10.121 (ten Triṣṭubh verses). It examines the golden embryo, the repeated refrain “kasmai devāya haviṣā vidhema” (“To which god shall we offer?”), the life-giving principle, primordial waters, Agni and the final address to Prajāpati. It is not a transcript-derived summary of a specific Hydrogen Awakening video.
+
+**Research anchors:** Vedic Heritage Portal primary text; Sanskrit text and commentary resources for Ṛgveda 10.121; Jamison and Brereton, *The Rigveda* (Oxford University Press, 2020), including their commentary on the hymn's unnamed creative principle and possible later addition of the final verse; Prajnya Bora (2014), study of Sāyaṇa's commentary.
+
+**Editorial distinction:** The hymn's embryo/waters/fire imagery is treated as Vedic poetic and theological language, not as a description of the Big Bang, plasma, hydrogen or quantum physics. Later identifications with Prajāpati and Brahmā are identified as developments in traditional interpretation, not assumed to be identical with every layer of the earliest hymn.
+
+**Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites.
