@@ -761,3 +761,26 @@ Source: user-provided screenshot of the channel's **Latest episodes** grid. This
 The following visible titles could not be matched confidently to an exact individual channel watch URL in this search pass: “Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health”; “Quantum Physics & Spirituality: The Hidden Science of Consciousness”; “The Hydrogen Code | Awakening | Cosmic Hydrogen”; “Vedic Deities & The Human Body”; “Why Is a Child Called Bhagwan Ka Roop?”; “Sheetala Mata: Science Behind Immunity & Disease Prevention”; “Energies Affecting Humans: Universal, Planetary & Internal Forces”; “Align with the Cosmos: A Guided Meditation for Energy Harmony”; “The Ancient Science of Mantras — Unlocking Cosmic Vibrations”; “Divine Anatomy: Exploring the Cosmic Symbolism of Shiva”; “The Secret Curse That Explains Why India Has Almost No Brahma Temples”; “Jyotirlinga & The Human Body”; “Brahma, Vishnu & Shiva in Your Body”; “Why Brahmins Lost Wealth?”; “How to Expand & Liberate Your Mind Beyond Vishnu, Brahma & Mahesh”; “8 Vasus, Rudras & Adityas”; “Rig Veda & Hydrogen: The Cosmic Connection”; “India & ASEAN: A Rig Vedic Connection”; “Vedic Science & AI”; “Harnessing Your Inner Power”; “Yama’s Court vs. Indian Courts”; and “RAAT Is Not Just a Name — It Is the Bija Mantra of the Solar Plexus”. These remain unresolved discovery leads; no guessed IDs or substituted related videos are recorded.
 
 The screenshot also shows multiple videos with similar Hanuman/Yama themes and repeated Yama’s Court titles. They must be compared by exact video ID before any consolidation. No screenshot entry is treated as transcript-reviewed merely because its title and page metadata were found.
+
+
+## Latest-episodes screenshot — second verification pass (2026-11-09)
+
+Further exact YouTube watch URLs resolved from the user's screenshot. These are knowledge-video entries, separate from the music register.
+
+| Exact video title | YouTube URL | Editorial category |
+|---|---|---|
+| Vedic Deities & The Human Body: Ancient Secrets of Energy & Consciousness | https://www.youtube.com/watch?v=2W_95sF0agU | Vedic knowledge / body symbolism |
+| Why Brahmins Lost Wealth? The Hidden Meaning... | https://www.youtube.com/watch?v=J64huM6Xny4 | Mythology / social-history interpretation |
+| How to Expand & Liberate Your Mind Beyond Vishnu, Brahma & Mahesh! | https://www.youtube.com/watch?v=pYgAIKRsy_g | Vedanta / self-inquiry |
+| Rig Veda & Hydrogen: The Cosmic Connection | https://www.youtube.com/watch?v=oDO2PsIPDDQ | Vedic text and hydrogen interpretation |
+| India & ASEAN: A Rig Vedic Connection | https://www.youtube.com/watch?v=cgh8cuwEkQw | Vedic history / geopolitics |
+| ‘RAM’ is not just a name—it is the Bija Mantra of the Solar Plexus (Manipura Chakra) | https://www.youtube.com/watch?v=g-RH7ryF-vE | Bija mantra / chakra explainer; traditional mantra is not claimed as original composition |
+| The Hydrogen Code: The Secret of the Universe | https://www.youtube.com/watch?v=rN0uOsZV20k | Hydrogen science / cosmology explainer |
+
+Individual page metadata confirms exact titles and descriptions for these seven URLs. This does not constitute full transcript or scientific-claim review.
+
+### Remaining unresolved screenshot leads
+
+Exact individual watch IDs remain unresolved for: Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health; Quantum Physics & Spirituality: The Hidden Science of Consciousness; Why Is a Child Called Bhagwan Ka Roop?; Energies Affecting Humans: Universal, Planetary & Internal Forces; Align with the Cosmos: A Guided Meditation for Energy Harmony; The Secret Curse That Explains Why India Has Almost No Brahma Temples; Jyotirlinga & The Human Body; Brahma, Vishnu & Shiva in Your Body; Vedic Science & AI: Researching the Future of Consciousness, Space & Brainwaves; Harnessing Your Inner Power: The Human Body as a Biological Battery; Yama's Court vs. Indian Courts; and the data-related video title visible at the bottom of the screenshot. Search did not return a sufficiently reliable exact match for these; no guessed IDs have been added.
+
+A separate title “The Hydrogen Code | Hydrogen Awakening | Cosmic Hydrogen” appears as a 5-minute item in the channel's Hydrogen Alchemy playlist, while the resolved upload “The Hydrogen Code: The Secret of the Universe” has a different title and video ID. Do not merge them until the exact screenshot item is resolved.
