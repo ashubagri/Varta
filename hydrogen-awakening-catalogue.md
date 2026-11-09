@@ -1269,3 +1269,19 @@ A fifth screenshot of the channel's Playlists page reveals further collections o
 - Large collections such as Vedic Wisdom (761) and The 5 Pillars (209) should be extracted in manageable pages and deduplicated against all other playlists.
 - Health, healing, longevity, bio-magnetic and gut-health claims require appropriate scientific/medical sources. Do not present playlist titles as established findings.
 - The screenshot establishes visible playlist names and counts only. It does not verify uploader identity, exact playlist IDs, video contents, transcripts or claims.
+
+## Exact playlist URL recovery — first extraction pass (2026-11-09)
+
+The public channel Playlists page was fetched, but its rendered response exposed only page-level metadata and not the dynamic playlist cards. A targeted search recovered one exact playlist URL:
+
+| Playlist | Exact playlist URL | Playlist ID | Screenshot count | Status |
+|---|---|---|---:|---|
+| Energy Wars & The Future of Energy | https://www.youtube.com/playlist?list=PLbkEtoPVjuV-4uQshkcHX8qpKugy00Ma_ | PLbkEtoPVjuV-4uQshkcHX8qpKugy00Ma_ | 99 videos in earlier screenshot | Playlist identity recovered; individual video links not extracted |
+
+The exact playlist page was fetched. Its title and description identify “Energy Wars & The Future of Energy”, but the page extraction returned only YouTube boilerplate rather than the dynamic list of video entries. Therefore no individual watch URLs have been inferred or added from this attempt.
+
+### Extraction status
+- Playlist-level URL recovery: 1 exact playlist ID.
+- Individual video watch URLs recovered from this playlist in this pass: 0.
+- Do not treat the screenshot count as a verified current item count.
+- Next extraction routes: use playlist cards in a live browser session or an accessible playlist-data source, then capture each exact watch URL and deduplicate by 11-character video ID.
