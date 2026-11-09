@@ -536,3 +536,20 @@ The creator has explicitly clarified that the **Hero Flute music is not original
 - No Michael Jackson or Hero Flute material is added to original-work credits; both remain explicitly excluded under the creator's correction.
 
 **Counting rule:** batch 08 adds one B-level channel-associated original-concept soundscape candidate (Pancha Nada) and improves the Ganesha playlist lead, but adds **zero newly verified standalone original songs**.
+
+
+## Music discovery batch 09 — 2026-11-09
+
+### Ananta Nada — related-result lead, not a verified separate work
+- Search results for **Ananta Nada | Cosmic Meditation Music | Sound of Space** returned the already-recorded **Pancha Nada — The Five Inner Elements** page (https://www.youtube.com/watch?v=8DV8-DQKZdc), with a related-result snippet showing **Hydrogen Awakening · Ananta Nada | Cosmic Meditation Music | Sound of Space · 11:47:37**.
+- This suggests a possible related video or playlist item, but no individual Ananta Nada watch URL or distinct upload identity was exposed. Keep it as an **unverified channel-associated lead**; do not count it as a separate work or attach a guessed URL.
+
+### Naam Bhagavate Vasudevaya — traditional mantra; creator-specific recording not located
+- Exact searches returned general references and recordings of the traditional **Om Namo Bhagavate Vasudevaya** mantra, but no attributable Hydrogen Awakening individual upload was established.
+- The mantra itself is traditional and must not be credited as an original Ashu Bagri composition. If a creator-produced arrangement, narration, or interpretation is later located, credit only the demonstrably original arrangement/commentary/creative direction—not the traditional mantra or any third-party melody/performance.
+
+### Other title leads
+- No attributable individual upload was found in this pass for **The Music That Touches the Soul** or **Chandni Raat**.
+- A broad search for **Music of India** did not produce a reliable result for a distinct original work.
+
+**Counting rule:** batch 09 adds no new confirmed original compositions. Ananta Nada remains an unresolved related-result lead; the traditional mantra is not treated as an original composition.
