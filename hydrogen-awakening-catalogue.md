@@ -553,3 +553,25 @@ The creator has explicitly clarified that the **Hero Flute music is not original
 - A broad search for **Music of India** did not produce a reliable result for a distinct original work.
 
 **Counting rule:** batch 09 adds no new confirmed original compositions. Ananta Nada remains an unresolved related-result lead; the traditional mantra is not treated as an original composition.
+
+
+## Music discovery batch 10 — 2026-11-09
+
+### Creator-published original-music collection statement
+- Ashu Bagri's public Facebook post **Discover the Music of Hydrogen Awakening!** explicitly describes the collection as including **original Hindi songs**, devotional melodies, inspirational music and AI-created musical experiences, and links to the channel's music playlist:
+  - Facebook post: https://www.facebook.com/ashu.bagri.948/videos/-discover-the-music-of-hydrogen-awakening-from-original-hindi-songs-and-devotion/2178812023029555/
+  - Linked YouTube playlist: https://www.youtube.com/playlist?list=PLGyXUyQlah6A
+- This is creator-authored evidence that the channel's music collection contains original Hindi songs. The playlist itself was not fully enumerable through the public page extractor in this pass, so individual tracks must still be verified one by one. Do not infer that every item in the playlist is original.
+
+### Main Abhi Yahan Hoon — original-song candidate supported by creator's own promotion
+- **मैं अभी यहाँ हूँ | Main Abhi Yahan Hoon | एक दिल छू लेने वाला गीत | Hindi Inspirational Song**
+  - YouTube: https://www.youtube.com/watch?v=8rpd3U-a1KM
+  - A creator-published Facebook promotion identifies this title as **Main Abhi Yahan Hoon: Heartfelt Hindi Song on Pain ...** and promotes the Hydrogen Awakening original Hindi-song collection. The YouTube page title identifies it as a Hindi inspirational song; related channel search indexing also shows a second English-titled version **I Am Here Right Now | A Heart-Touching Song | Hindi Inspirational Song**.
+  - Classification: **original Hindi inspirational song candidate**. Treat the Hindi and English-titled uploads as possible language/alternate versions of one canonical work until audio/lyrics comparison confirms whether they are translations, re-recordings, or separate works.
+  - Creative attribution: credit Ashu Bagri for the original concept/creative direction on the strength of the creator's own promotional context. Do not claim sole authorship of melody, lyrics, vocals or instrumental performance unless separately established. Suno/AI-assisted production disclosure should be retained where the upload labels it.
+  - Verification: **B — creator promotion and channel title support; full lyrics/audio and detailed production credits not yet inspected**.
+
+### Playlist access limitation
+- The playlist URL above is now recorded as a first-party discovery route. The playlist extractor did not expose its track list in this pass. No titles have been guessed from it and no unrelated recommendation tracks have been added.
+
+**Counting rule:** batch 10 adds one original-song candidate with a possible English alternate title, not two confirmed distinct compositions. The creator's public playlist statement is collection-level evidence only; each track still requires individual verification.
