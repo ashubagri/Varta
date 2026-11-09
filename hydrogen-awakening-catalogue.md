@@ -975,3 +975,17 @@ Two further full-length knowledge uploads were matched to individual YouTube wat
 | What Is Reality? The Greatest Mystery of Existence | https://www.youtube.com/watch?v=RR-U6cCD7R8 | Philosophy / consciousness / self-inquiry | B — exact page title, description and @HydrogenAwakening title marker; regular 1280×720 video page |
 
 Transcript review and independent verification of the philosophical, historical or scientific claims remain pending. Search results that lacked direct page attribution, including similar Nada Yoga and hydrogen-themed candidates, were held back rather than inferred from snippets.
+
+## Additional knowledge uploads — fourteenth verification pass (2026-11-09)
+
+Three further regular YouTube uploads were verified from individual page metadata. Each page exposes a Hydrogen Awakening video tag and 1280×720 video dimensions.
+
+| Exact title | YouTube URL | Classification | Verification |
+|---|---|---|---|
+| Kali's Secret Power to Heal Family Karma | https://www.youtube.com/watch?v=N-V_SqHglDE | Kali / mantra traditions / family karma | A — exact page title, description and Hydrogen Awakening video tag; regular 1280×720 video |
+| Hidden Hydrogen Secrets in Ancient Civilizations | https://www.youtube.com/watch?v=fKj5ZoS1VlY | Hydrogen / ancient civilizations | A — exact page title, description and Hydrogen Awakening video tag; regular 1280×720 video |
+| Guided Meditation on Throat Chakra & Nada Brahman with Vedic Chanting in Todi Raga | https://www.youtube.com/watch?v=3cCfylZWhXw | Nāda / meditation / Vedic chanting | A — exact page title, description and Hydrogen Awakening video tag; regular 1280×720 video |
+
+Editorial caution: the titles and descriptions are channel claims or explorations, not independent proof of historical, medical, or scientific propositions. Transcript review and external claim-checking remain pending.
+
+Held back: “Akshauhini: The Vedic Science of War & Consciousness” (FwYHa0bjYlo), “Vedic Secrets: What Numbers REALLY Mean in the Vedas!” (Mn8rgM5EAVU), and “The Vedic Science Behind Side Stance” (97aXe1H55R4) resolve to Shorts and are excluded from the full-length register. “Apsaras of Indraloka” (0VNo3J3DPp4) has a matching search result with the channel handle but its fetched page metadata did not expose a channel tag; held pending stronger direct attribution.
