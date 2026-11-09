@@ -311,7 +311,7 @@ The working register now contains **48 video discovery leads across three batche
 ### Music-related videos that should not automatically be counted as standalone songs
 | Work | Public source | Initial classification | Evidence / next check |
 |---|---|---|---|
-| [Hero Flute Theme: The Breath That Awakens Love](https://www.youtube.com/watch?v=SVPkLoZ3FIk) | Hydrogen Awakening search result | **F — Music/cultural commentary candidate** | Title/description frames the flute theme in the film *Hero*. Determine whether the audio is commentary, a cover/reuse of film music, or an original instrumental before including in original-music totals. |
+| [Hero Flute Theme: The Breath That Awakens Love](https://www.youtube.com/watch?v=SVPkLoZ3FIk) | Hydrogen Awakening search result | **EXCLUDED — not original** | References non-original film-associated flute music. Do not include in Ashu Bagri original-work credits or original-music totals. |
 | [Shiva’s Damru & Krishna’s Flute: The Cosmic Sound of Love, Silence & Vibration](https://www.youtube.com/watch?v=eztQUyPuBpw) and [same-title result](https://www.youtube.com/watch?v=GSyhiIDBIJk) | Hydrogen Awakening search results | **E/F — Sound/cultural explainer candidate; possible alternate/duplicate** | Two IDs surfaced with the same title and opening description. Compare duration, full content and upload provenance; do not count as two original songs. |
 | [Sound, Vibration, and the Universe: How Nada Yoga Meets Science](https://www.youtube.com/watch?v=S91qQC2gt_I) | Hydrogen Awakening | **E — Educational documentary** | Description and chapter outline cover Nāda Yoga, resonance, music, hydrogen, Om and consciousness. It links to the music profile but is not itself classified as a song. |
 
@@ -503,3 +503,14 @@ Exact-title searches for **Chandni Raat**, **The Music That Touches the Soul**, 
 - Hinglaj Mata remains the existing canonical devotional work with two related uploads; this batch did not establish a third distinct composition.
 
 **Counting rule:** batch 07 adds one playlist-cross-checked music-related Short/editorial item, but **zero new confirmed standalone compositions**. Third-party Shiva Damru results are explicitly excluded.
+
+
+## Creator-credit correction — user-confirmed scope (2026-11-09)
+
+The creator has explicitly clarified that the **Hero Flute music is not original** and the **Michael Jackson work/music is not theirs**.
+
+- **Hero Flute Theme** (including the full-video and Short references above): exclude from original compositions, original music credits, and any count of Ashu Bagri's original works. It may be retained only in a clearly labelled *non-original reference/commentary* or exclusion note for audit history.
+- **Michael Jackson-related work/music**: not created by Ashu Bagri; exclude from all creator-original credits, original-work counts, and the original music archive. No specific URL was supplied in this correction, so do not infer or attach one.
+- **Attribution principle:** Ashu Bagri is credited only for his own original ideas, concepts, themes, scripts, lyrics, or creative direction where the evidence or creator confirmation supports that specific contribution. Existing songs, melodies, performances, film themes, or other third-party works must never be credited to him merely because they appear in a Hydrogen Awakening video, playlist, commentary, or edit.
+- A video may discuss or use a third-party work while the creator's original contribution is limited to commentary, explanation, or editorial framing. Record that distinction explicitly; do not transfer ownership of the underlying work to the channel owner.
+- This correction overrides any earlier provisional Hero Flute classification in this catalogue. Preserve the audit trail, but never count excluded works as original creations.
