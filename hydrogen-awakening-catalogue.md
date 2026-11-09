@@ -1218,3 +1218,54 @@ A fourth screenshot of the channel's Playlists page shows further collections co
 - Similar Atma & Preta collections are kept separate pending playlist-ID and item-ID comparison.
 - The bottom row of the screenshot is cut off. Its titles and counts are not transcribed or inferred.
 - As with prior screenshots, visible names and counts do not establish individual video IDs, channel authorship, transcript contents or scientific validity. Extract exact watch URLs and verify each video page before adding it to the canonical archive.
+
+## Additional playlist discovery — fifth owner screenshot (2026-11-09)
+
+A fifth screenshot of the channel's Playlists page reveals further collections on Vedic wisdom, animals, energy, mantra, hydrogen, health, longevity and healing. Counts are transcribed from the visible screenshot and are not independently refreshed. Truncated titles are marked with an ellipsis.
+
+### Vedic wisdom, dharma and living systems
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Veda in 60 Seconds: Atomic Wisdom for the Modern Mind … | 17 videos | Short-form discovery; inspect individual format before inclusion |
+| Sanātana Dharma vs Hinduism: The Eternal OS v… | 9 videos | Dharma / religious history / philosophy; title truncated |
+| The Silent Givers: What Animals Teach Us About T… | 22 videos | Animals / ecology / ethics discovery |
+| Animals as Healers: The Bio-Magnetic Resonance of the … | 23 videos | Animal biology / healing claims; require scientific scrutiny |
+| Universal Energy & Life Force: The Physics of Prana… | 69 videos | Prana / energy / physics claims; separate established science from traditional concepts |
+| Inner Transformation & Ego Dissolution: The … | 20 videos | Consciousness / philosophy / practice discovery |
+| Vedic Wisdom: Ancient Intelligence for Modern Life… | 761 videos | Large Vedic knowledge discovery source; staged extraction needed |
+| Ancient Wisdom & Mantras: The Acoustic Software of th… | 42 videos | Mantra / sound / traditional knowledge discovery |
+| A Holistic Mindset: The Hydrogen Flow of Life … | 4 videos | Hydrogen / holistic philosophy discovery |
+
+### Sound, mantra, meditation and consciousness
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Mantras & Vibrational Healing: The Bio-Acoustic … | 59 videos | Sound / mantra / healing claims; route original music separately |
+| Exploring Consciousness & Energy: The Quantum Field … | 83 videos | Consciousness / quantum analogy discovery; check claims carefully |
+| Meditation & Consciousness \| Mind, Awareness & Inner … | 1 video | Compare with earlier 7-lesson course and other same-title lists by playlist ID |
+| Spiritual Practices for Inner Awakening: The Bio-Hacker … | 11 videos | Previously recorded from screenshot four; compare playlist ID |
+| Jatharagni: The Alchemical Fire of Gut Healing 🔥 | 45 videos | Ayurveda / digestion / health claims; medical claims need authoritative evidence |
+
+### Hydrogen, energy, health and longevity
+| Visible playlist title | Displayed count | Register / next action |
+|---|---:|---|
+| Hydrogen in Daily Life: The Practical Awakening \| … | 1 video | Hydrogen applications discovery |
+| Hydrogen Science & Health: The Molecule of Immortality… | 6 videos | Hydrogen / health claims; scrutinise medical claims |
+| Hydrogen & Spirituality: The Physics of the Soul \| … | 1 video | Hydrogen / philosophy; distinguish physics from metaphysical analogy |
+| Hydrogen & Health: The Key to Longevity \| … | 1 video | Longevity / health; require medical evidence |
+| Science of Hydrogen: The Future of Energy & Healing … | 2 videos | Hydrogen energy and health; separate technical and medical claims |
+| Hydrogen Sadhana: Sacred Rituals for Modern Vitality … | 66 videos | Hydrogen / spiritual practice discovery |
+| Solar Awakening: Sunlight, Prana & The Science of … | 66 videos | Solar energy / prana / health claims |
+| The Hydrogen Frontier: Science, Healing & The … | 66 videos | Hydrogen / science / health claims |
+| Hydrogen & Spiritual Awakening: The Higher … | 68 videos | Hydrogen / spirituality discovery |
+| Hydrogen & Energy: Unlock Your True Potential \| … | 73 videos | Hydrogen / energy / personal development |
+| Ancient Wisdom & Hydrogen: Scientific Evidence Revealed … | 90 videos | Hydrogen / ancient wisdom; independently assess evidence |
+| The Vital Force: Hydrogen Alchemy & The Secret of … | 75 videos | Hydrogen / vitality / alchemy; classify scientific and symbolic claims separately |
+| The 5 Pillars: Mudra, Mantra, Yoga, Kriya & Chakra … | 209 videos | Yoga / practice / body systems discovery |
+| Hydrogen Awakening: The Science & Spirituality o… | 71 episodes | Series/episodes; preserve episode count label rather than calling them videos |
+
+### Curation notes
+- “Veda in 60 Seconds” appears short-form by title; verify format and exclude Shorts from the full-length knowledge register.
+- Same or similar titles (Meditation & Consciousness; Spiritual Practices for Inner Awakening; hydrogen collections) must remain separate until playlist IDs and individual video IDs are compared.
+- Large collections such as Vedic Wisdom (761) and The 5 Pillars (209) should be extracted in manageable pages and deduplicated against all other playlists.
+- Health, healing, longevity, bio-magnetic and gut-health claims require appropriate scientific/medical sources. Do not present playlist titles as established findings.
+- The screenshot establishes visible playlist names and counts only. It does not verify uploader identity, exact playlist IDs, video contents, transcripts or claims.
