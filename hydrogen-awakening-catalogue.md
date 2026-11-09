@@ -166,4 +166,45 @@ Search date: 2026-11-08. These are additional public YouTube discovery leads fou
 - Duplicate/alternate-edit relationship, if any.
 - Decision: use as source / contextual lead only / exclude.
 
-**Current status:** The priority clusters above are an editorial work plan, not a claim that transcripts have been obtained. No new video is marked transcript-reviewed until its actual caption text has been inspected. The local command-line route has not yet been executed in this environment because outbound network access is unavailable; the user can run it on a computer with internet access if needed.
+**Current status:** The priority clusters above are an editorial work plan, not a claim that transcripts have been obtained. No new video is marked transcript-reviewed until its actual caption text has been inspected. **Local retrieval attempt — 2026-11-08 (user-run on Windows):** Python 3.14.10 and yt-dlp 2026.10.26 were installed and the script checked its 42 listed video IDs. The script summary was 1 check completed and 41 needing attention. The displayed log entries include HTTP 429 (Too Many Requests); the full log has not been independently classified into missing-caption cases versus request failures. No saved `.vtt` file has been independently verified, so this attempt does not establish a transcript-reviewed source. The GitHub script was then revised to request English/Hindi tracks only, add delays and stop immediately on HTTP 429. The copy already downloaded to the user's computer predates that revision; a future retry should use the updated GitHub copy and wait at least 24 hours after the rate-limit event.
+
+
+## Discovery batch 03 — five-elements, Hanuman and related public results
+Search date: 2026-11-09. These six additional video IDs surfaced in targeted public YouTube searches associated with Hydrogen Awakening / Hydrogen Awakening — Knowledge Hub. YouTube's page extraction exposed title and short description metadata, but did not expose the uploader field or transcript text for these pages. Treat them as discovery leads pending canonical channel-ID verification and transcript review.
+
+### Pancha Mahābhūta and modern-science series
+| Video | Review status |
+|---|---|
+| [The Five Elements Explained — Ancient Indian Wisdom Meets Modern Science — Part 1](https://www.youtube.com/watch?v=KojhYhX_abM) | Public title, description excerpt and keywords reviewed. The description opens by asking what connects earth, water, fire, air and space with the human body and nature. No transcript exposed. |
+| [The Five Elements Inside Us — Tesla, Hydrogen and the Universe (continuation of Part 1)](https://www.youtube.com/watch?v=Nz0NCFXwDwU) | Public title, description excerpt and keywords reviewed. Explicitly described as a continuation of Part 1; treat as a two-part sequence, not a duplicate. No transcript exposed. |
+| [How Earth, Water, Fire, Air, Ether Shape Your Body & Mind](https://www.youtube.com/shorts/5ZwfbaOlW1A) | Short-form discovery lead. Closely related to the Pancha Mahābhūta topic; may summarise or promote longer material, but a duplicate relationship is not confirmed. |
+
+### Hanuman and the five elements
+| Video | Review status |
+|---|---|
+| [Hanumanji in the Five Elements? Fire, Water, Earth, Air & Space — Part 2](https://www.youtube.com/watch?v=gP0vOCqurbU) | Public title and opening description excerpt reviewed. The visible description mentions Hanumanji, “Ma”, the heart, the five elements and a question about the name Maruti. The exact argument cannot be reconstructed without the full description or transcript. No transcript exposed. |
+| [Nepal Flood 2026: Glacier Kyon Toota? — Hydrogen Awakening Mein 5 Elements Ka Rahasya](https://www.youtube.com/watch?v=VNq22yk-vCA) | Public title and opening description excerpt reviewed; the description refers to the August 2026 Himalayan flood. Treat the disaster explanation as a separate environmental/geoscience source cluster and verify event details with official hydrology and glaciology sources before writing. No transcript exposed. |
+
+### Ākāśa / sound-related lead and playlist
+| Resource | Review status |
+|---|---|
+| [The Science & Spiritual Power of Akasha (Space Element)](https://www.youtube.com/watch?v=m2UQ0HokFAw) | Public search result surfaced a title closely resembling batch 02 video [jJr59cGdZGU](https://www.youtube.com/watch?v=jJr59cGdZGU). Possible near-duplicate or alternate edit; compare duration, narration and upload metadata before counting as a distinct treatment. |
+| [A Holistic Mindset: The Hydrogen Flow of Life — हाइड्रोजन: समग्र जीवन दर्शन](https://www.youtube.com/playlist?list=PLbkEtoPVjuV97cojxhOQ8hIvoHasxhsb1) | Playlist-level discovery lead. Its public description frames hydrogen as more than an element and uses the phrase “Language of the Soul”. Individual playlist videos have not yet been enumerated or reviewed. |
+
+### Duplicate and grouping decisions from batch 03
+- **Part 1 / Part 2:** KojhYhX_abM and Nz0NCFXwDwU are explicitly sequential; keep both IDs under one series, not as duplicates.
+- **Short vs long-form:** 5ZwfbaOlW1A may be a short-form summary of the five-elements theme; do not merge it with a longer video until the actual content is compared.
+- **Hanuman Part 2:** gP0vOCqurbU is a distinct epic-symbolism lead. No matching Part 1 was identified in this search batch.
+- **Akasha pair:** m2UQ0HokFAw and jJr59cGdZGU have highly similar titles; mark as a possible duplicate/alternate edit, not a confirmed duplicate.
+- **Flood explainer:** VNq22yk-vCA belongs in a separate environment/disaster cluster, even though its title uses the five-elements framing.
+- **Playlist:** PLbkEtoPVjuV97cojxhOQ8hIvoHasxhsb1 is not a video and is not included in the video-ID count.
+
+## Published article — Hanuman and the five elements
+[Hanuman and the Five Elements: Epic Text, Symbol and Meaning](https://ashubagri.github.io/Varta/hanuman-five-elements-text-symbol.html)  
+**Creator/source attribution:** Ashu Bagri, Hydrogen Awakening; prompted by the public video [Hanumanji in the Five Elements? Fire, Water, Earth, Air & Space — Part 2](https://www.youtube.com/watch?v=gP0vOCqurbU).  
+**Source-review status:** Public title and opening description excerpt reviewed; transcript not available in this batch. The article explicitly states this limitation and does not claim to summarise the full spoken argument.  
+**Research anchors:** Vālmīki Rāmāyaṇa, Sundara Kāṇḍa 5.1, 5.3, 5.54 and 5.55; Taittirīya Upaniṣad 2.1; Garbha Upaniṣad, Section 1; Bhattacharya & Banerji (2023), “Concept of Five Elements — An Ancient Indian Approach”.  
+**Editorial distinction:** Hanuman's association with Vāyu is grounded in the epic; the five-element mapping of mountain, ocean, fire, wind and sky is explicitly presented as a modern symbolic reading, not a direct scriptural declaration or scientific equivalence.
+
+## Updated coverage statement — 2026-11-09
+The working register now contains **48 video discovery leads across three batches**, plus one playlist-level lead. This is not a complete channel inventory. Six new IDs in batch 03 still need canonical uploader/channel-ID verification; the two-part series and possible Akasha near-duplicate are flagged rather than silently merged. No batch 03 item is transcript-reviewed. The archive will only promote a source to transcript-reviewed after actual caption text or a clearly labelled human transcript has been inspected.
