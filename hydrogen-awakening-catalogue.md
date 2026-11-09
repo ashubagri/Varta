@@ -291,3 +291,42 @@ The working register now contains **48 video discovery leads across three batche
 **Editorial distinction:** Turīya is presented as a philosophical teaching, not a measured sleep stage or brain-wave state. Research on chanting is described with limitations; no claim is made that Om is a unique cosmic frequency or that neuroscience proves the metaphysics.
 
 **Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites.
+
+
+## Music archive — discovery batch 01 (YouTube Music page and public video checks)
+**Review date:** 2026-11-09  
+**Scope:** Initial inventory from the user's signed-in YouTube Music screenshots, public channel/music references and targeted public video-page searches. This is a first-pass register, not a complete enumeration of every item visible in the Music library. Search snippets and recommendations are discovery leads; where the public watch page did not expose a full description, the classification is provisional.
+
+### Music-first works and likely standalone compositions
+| Work | Public source | Initial classification | Evidence / next check |
+|---|---|---|---|
+| [तू प्रकृति का सबसे सुंदर रूप](https://www.youtube.com/watch?v=4COEoAPyIhA) | Hydrogen Awakening | **A — Original Hindi song** | Description explicitly calls it an original Hindi romantic song by Ashu Bagri; gives artist, language, genre and themes. YouTube page labels production “Made with AI”. Credit original concept/creative direction to Ashu Bagri; disclose AI-assisted production. Do not infer individual lyric/composition credits beyond what is documented. |
+| [मैं अभी यहाँ हूँ / I Am Still Here](https://www.youtube.com/watch?v=8rpd3U-a1KM) | Hydrogen Awakening | **A — Hindi inspirational song (provisional)** | Public title and channel search result identify it as a Hindi inspirational song. Full description/audio and exact credits still need review. |
+| [चाँदनी में तुम](https://www.youtube.com/watch?v=w-pFGc0bMkc) | Hydrogen Awakening | **A — Hindi romantic duet** | Public watch page identifies a romantic Hindi duet and lists bansuri, santoor, sarangi, tanpura and subtle damaru. YouTube page labels production “Made with AI”. Treat as an original channel composition candidate; verify credits/lyrics and disclose AI assistance. |
+| [The Sound of Five Elements — Bansuri, Sarangi, Santoor, Cello & Tanpura Meditation](https://www.youtube.com/watch?v=3iCPoybBXzQ) | Hydrogen Awakening | **B — Instrumental / meditation music candidate** | Public title and description identify a cinematic musical journey and instrumental palette. Need listen and compare with related upload before counting as a separate composition. |
+| [The Sound of Five Elements — Pancha Mahabhutas](https://www.youtube.com/watch?v=n-cJ4hwdLF8) | Hydrogen Awakening | **B — Instrumental / meditation music candidate** | Public description calls it a meditative musical journey for relaxation, mindfulness and spiritual practice. Same broad theme as 3iCPoybBXzQ; compare audio, duration and edit before deciding duplicate/alternate version. |
+| [ONE HEART, ONE GAME — FIFA World Cup 2026 Anthem](https://www.youtube.com/watch?v=Ls2QZYs2l5w) | YouTube Music profile screenshot / public search result | **A — Anthem candidate; provenance pending** | Visible in the user's YouTube Music page and public search. Need verify exact channel uploader, credits, and whether “official anthem” is an independently authorised FIFA designation or simply the work's title/positioning. Do not imply FIFA endorsement without evidence. |
+| [music is nada yoga](https://www.youtube.com/watch?v=ja1AXtRR9Zw) | Hydrogen Awakening | **F — Short / music-and-speech mix (unclassified)** | Channel feed confirms title and upload, but accessible public metadata does not reveal whether it is a song, spoken piece or a short with music. Listen before classification. |
+
+### Music-related videos that should not automatically be counted as standalone songs
+| Work | Public source | Initial classification | Evidence / next check |
+|---|---|---|---|
+| [Hero Flute Theme: The Breath That Awakens Love](https://www.youtube.com/watch?v=SVPkLoZ3FIk) | Hydrogen Awakening search result | **F — Music/cultural commentary candidate** | Title/description frames the flute theme in the film *Hero*. Determine whether the audio is commentary, a cover/reuse of film music, or an original instrumental before including in original-music totals. |
+| [Shiva’s Damru & Krishna’s Flute: The Cosmic Sound of Love, Silence & Vibration](https://www.youtube.com/watch?v=eztQUyPuBpw) and [same-title result](https://www.youtube.com/watch?v=GSyhiIDBIJk) | Hydrogen Awakening search results | **E/F — Sound/cultural explainer candidate; possible alternate/duplicate** | Two IDs surfaced with the same title and opening description. Compare duration, full content and upload provenance; do not count as two original songs. |
+| [Sound, Vibration, and the Universe: How Nada Yoga Meets Science](https://www.youtube.com/watch?v=S91qQC2gt_I) | Hydrogen Awakening | **E — Educational documentary** | Description and chapter outline cover Nāda Yoga, resonance, music, hydrogen, Om and consciousness. It links to the music profile but is not itself classified as a song. |
+
+### Provenance and classification rules for this archive
+1. **Presence on YouTube Music is a discovery signal, not proof that every item is an original song.** Some music-profile entries may be videos, spoken pieces, AI voiceovers, reused music, alternate edits or recommendations.
+2. **Original concept and production credits are separate.** Credit Ashu Bagri for the original idea/creative direction where supported; only credit lyrics, composition, vocals or instrumental performance when the source confirms those contributions.
+3. **AI disclosure:** where YouTube's “How this was made” label says “Made with AI”, record AI-assisted/generated production transparently. This does not erase the creator's original concept or creative direction.
+4. **Do not count background beds under narration as standalone songs.** Put those in a separate “voiceover / AI narration with music” register if useful.
+5. **Do not infer that a track is a raga, mantra, healing frequency, or original instrumental merely from its thumbnail/title.** Listen to the audio and inspect the description/credits first.
+6. **Possible duplicate versions remain separate IDs until compared, then are linked under one canonical work.**
+7. **Current completeness:** this batch captures an initial subset identified from the Music page screenshots and public discovery. It does not yet enumerate the entire visible page or all tracks in the signed-in account. The public Music profile fetch is sign-in limited, so the user's screenshots remain a source for additional entries.
+
+### Next music-review actions
+- Continue down the signed-in YouTube Music page and capture the remaining titles/video links; use the visible page as the primary scope rather than assuming search results are exhaustive.
+- For each candidate, inspect the full description, duration, channel attribution and “How this was made” disclosure.
+- Where audio is accessible, listen to classify song vs instrumental vs spoken narration and compare possible alternate versions.
+- Maintain two separate totals: **standalone music works** and **videos using Suno voice/music as production elements**. Do not combine them.
+- Only after this first pass, compare the confirmed works against Suno projects/exports to establish which tracks used Suno voice, Suno music, both, or another source.
