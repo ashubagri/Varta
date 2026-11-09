@@ -243,3 +243,15 @@ The working register now contains **48 video discovery leads across three batche
 **Editorial distinction:** The hymn is not described as an ancient formulation of the Big Bang, inflation or quantum cosmology. Sanskrit text, traditional/philosophical interpretations, modern scholarship and observational cosmology are treated as separate evidence layers.
 
 **Source-video status:** Candidate video remains a discovery lead. Its uploader/channel-ID match and transcript have not been independently verified; no claim is made that the article represents the creator's spoken argument.
+
+
+## Published article — Puruṣa Sūkta and the Cosmic Being
+[Puruṣa Sūkta: The Cosmic Being and the Meaning of Creation](https://ashubagri.github.io/Varta/purusha-sukta-cosmic-being.html)
+
+**Editorial basis:** Independent VARTA research explainer based on Ṛgveda 10.90. It examines the cosmic Puruṣa, the one-quarter/three-quarter imagery, Virāj, the primordial sacrifice, cosmic correspondences and the four-varṇa passage. It is not a transcript-derived summary of a specific Hydrogen Awakening video.
+
+**Research anchors:** Ṛgveda 10.90 Sanskrit text and multiple translations; Jamison and Brereton, *The Rigveda* (Oxford University Press, 2020), including their discussion of the late Ṛgvedic social context; Jamison–Brereton commentary on Book 10; Emma Salter (2011), “Purusha Sukta: creating the cosmos and mapping the methods”.
+
+**Editorial distinction:** The hymn's ritual-poetic cosmology is not presented as modern astrophysics or biology. The four-varṇa passage is discussed as an influential textual articulation; it is not treated as proof that the fully developed later jātī/caste system already existed in the early Ṛgvedic period. The article acknowledges the contested social implications and later reception of the verse.
+
+**Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites for source attribution.
