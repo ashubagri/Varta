@@ -880,3 +880,16 @@ The Yama's Court playlist snippet again surfaced the already indexed title and d
   - Verification: A for title and channel branding metadata; transcript review pending.
   
 Other search candidates from this pass were not added: individual pages for i7iGeAblQEA and SdKQB7yQ1u0 did not expose reliable title metadata, so their search snippets alone were insufficient.
+
+
+## Additional knowledge uploads — eighth verification pass (2026-11-09)
+
+Three more individual channel uploads were verified and added to the knowledge-video register:
+
+| Exact title | YouTube URL | Category | Evidence |
+|---|---|---|---|
+| Brahma Vishnu Mahesh = Frequencies, Vibrations, Consciousness | Ancient Vedic Secret | https://www.youtube.com/watch?v=UoQPUXVDuGU | Vedic symbolism / frequency analogy | Video page identifies Hydrogen Awakening as channel; description and channel CTA present |
+| Sound is not entertainment | Hydrogen Awakening | https://www.youtube.com/watch?v=WqMRKDA6hVk | Nāda / Raga / sound and chakras | Page identifies Hydrogen Awakening as channel; exact title, date and description visible |
+| Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness | https://www.youtube.com/watch?v=vOpfJ41wK1s | Nāda Brahman / Indian music | Exact title, Hydrogen Awakening metadata tag and description verified |
+
+Duplicate caution: another search result surfaced a similarly titled Nada Brahman upload (Bk478mPnd_U). It is not added as a separate item pending comparison; the verified vOpfJ41wK1s entry is retained as the current canonical record. Shorts found in this pass were excluded.
