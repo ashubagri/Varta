@@ -267,3 +267,15 @@ The working register now contains **48 video discovery leads across three batche
 **Editorial distinction:** The hymn's embryo/waters/fire imagery is treated as Vedic poetic and theological language, not as a description of the Big Bang, plasma, hydrogen or quantum physics. Later identifications with Prajāpati and Brahmā are identified as developments in traditional interpretation, not assumed to be identical with every layer of the earliest hymn.
 
 **Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites.
+
+
+## Published article — Creation in the Upanishads
+[Creation in the Upanishads: Brahman, Atman and the Nature of Reality](https://ashubagri.github.io/Varta/upanishads-creation-brahman-atman.html)
+
+**Editorial basis:** Independent VARTA research explainer examining selected passages from Chāndogya Upaniṣad 6.2, Taittirīya Upaniṣad 2.1, Bṛhadāraṇyaka Upaniṣad 1.4 and Muṇḍaka Upaniṣad 1.1.7–9. It is not a claim that all Upanishads share one creation narrative and is not a transcript-derived summary of a specific Hydrogen Awakening video.
+
+**Research anchors:** Chāndogya 6.2.1 (sat, one without a second); Bṛhadāraṇyaka 1.4.1 (Ātman and “I am”); Muṇḍaka 1.1.7–9 (spider-web analogy and emergence from the Imperishable); published Sanskrit/translations and Śaṅkara commentary resources.
+
+**Editorial distinction:** Brahman and Ātman are treated as philosophical/theological terms, not as synonyms for physical energy, particles or fields. Differences among Vedānta schools are acknowledged. Modern cosmology and Upanishadic inquiry are compared as different methods and domains, not equated.
+
+**Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites.
