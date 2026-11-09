@@ -1285,3 +1285,23 @@ The exact playlist page was fetched. Its title and description identify “Energ
 - Individual video watch URLs recovered from this playlist in this pass: 0.
 - Do not treat the screenshot count as a verified current item count.
 - Next extraction routes: use playlist cards in a live browser session or an accessible playlist-data source, then capture each exact watch URL and deduplicate by 11-character video ID.
+
+## Exact playlist URL recovery — second extraction pass (2026-11-09)
+
+Targeted public YouTube searches recovered five additional exact playlist IDs. Each URL was then fetched individually; the fetched page title is recorded below as the stronger current page-level title evidence. YouTube's dynamic video cards still did not appear in the extracted page content, so no individual watch URLs were harvested in this pass.
+
+| Fetched playlist title | Exact playlist URL | Playlist ID | Screenshot / discovery relation | Status |
+|---|---|---|---|---|
+| Veda in 60 Seconds: Atomic Wisdom for the Modern Mind | https://www.youtube.com/playlist?list=PLbkEtoPVjuV_COCQqs5w6_9NzmVsrKZKo | PLbkEtoPVjuV_COCQqs5w6_9NzmVsrKZKo | Matches Veda in 60 Seconds collection; screenshot showed 17 videos | Exact playlist verified; short-form by title; exclude from full-length register until each format is checked |
+| The Vital Force: Hydrogen Alchemy & The Secret of Longevity | https://www.youtube.com/playlist?list=PLbkEtoPVjuV_6cN4pa-g-6Wun1sQyZ1bl | PLbkEtoPVjuV_6cN4pa-g-6Wun1sQyZ1bl | Search index associated this ID with “Hydrogen Alchemy & The Secret of Longevity”; fetched current page title is “The Vital Force…” | Exact playlist verified; title variation recorded, not silently normalised |
+| Hydrogen Science, Health & Longevity \| The Molecule of Life | https://www.youtube.com/playlist?list=PLbkEtoPVjuV-Np2vZW2NARmgBmA3MT0yn | PLbkEtoPVjuV-Np2vZW2NARmgBmA3MT0yn | Matches screenshot hydrogen science / health / longevity collection | Exact playlist verified; compare against other similarly named collections by playlist ID |
+| Hydrogen in the Body: The Bio-Spiritual Science | https://www.youtube.com/playlist?list=PLbkEtoPVjuV9BDnfT69ZgfPJUa-_VIkSe | PLbkEtoPVjuV9BDnfT69ZgfPJUa-_VIkSe | Matches screenshot's 116-video Hydrogen in the Body collection | Exact playlist verified; screenshot count not independently refreshed |
+| Mount Kailash, Meru & Cosmic Geography: The Earth's Energy Axis | https://www.youtube.com/playlist?list=PLbkEtoPVjuV8Q7EluJ_SM-K54Eag_7n1i | PLbkEtoPVjuV8Q7EluJ_SM-K54Eag_7n1i | Matches screenshot sacred geography / Mount Kailash collection | Exact playlist verified |
+| Hydrogen in Daily Life: The Practical Awakening | https://www.youtube.com/playlist?list=PLbkEtoPVjuV9qJnTa67Eon8UxvSmMSRt5 | PLbkEtoPVjuV9qJnTa67Eon8UxvSmMSRt5 | Matches screenshot's Hydrogen in Daily Life collection | Exact playlist verified |
+
+### Extraction results and cautions
+- Exact playlist URLs recovered in this pass: 6.
+- Individual video watch URLs extracted from these playlist pages: 0. The fetcher returned page titles/descriptions and YouTube footer links, but not the dynamic playlist entries.
+- The playlist ID PLbkEtoPVjuV_6cN4pa-g-6Wun1sQyZ1bl appeared in search under a slightly different title than the fetched page title. Preserve the fetched title and the search-title discrepancy; verify the playlist directly in a live browser before any rename.
+- Playlist titles and descriptions are channel-provided metadata, not independent validation of scientific or health claims.
+- The screenshot counts are historical visual observations only. Do not use them as current totals or as counts of unique videos.
