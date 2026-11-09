@@ -739,3 +739,25 @@ Verified public playlist/profile URLs:
 - Ganesha: https://www.youtube.com/playlist?list=PLDpGZxutQ1u4
 
 The screenshot also showed a My Mix and a New, Latest & Best / Top Ancient Secrets & Quantum Science playlist; these are not treated as music-source lists. A second Best Songs of All Time tile and duplicate-looking Music of Asia tiles are not separate compositions. Playlist membership is only a discovery lead: only individual full-length videos uploaded by Hydrogen Awakening qualify for the creator music register. Third-party tracks, Shorts, explainers and duplicate video IDs are excluded.
+
+
+## Screenshot discovery batch — Hydrogen Awakening latest episodes (2026-11-09)
+
+Source: user-provided screenshot of the channel's **Latest episodes** grid. This is a knowledge-video discovery batch, separate from the music-only register. Search results were used to resolve individual watch URLs; entries without a reliable exact match are left unresolved rather than guessed.
+
+### Resolved individual YouTube uploads
+
+| Video | YouTube URL | Classification / status |
+|---|---|---|
+| Chaitra Navratri: The Science and Spirituality Behind This Divine Festival | https://www.youtube.com/watch?v=IjKdVYjL0cg | Festival / Indian knowledge explainer; title and description retrieved; transcript review pending |
+| STOP Ignoring Hanuman's Quantum Powers and START Mastering Mahasiddhis | https://www.youtube.com/watch?v=VPRs9Wmtf1Q | Hanuman / yogic concepts explainer; description links to the related Hanuman's Quantum Powers video; distinct upload, not a duplicate of the companion |
+| Hanuman’s Quantum Powers: Vayu Tattva, Mahasiddhis & Yogic Science Explained | https://www.youtube.com/watch?v=IiYj5eRni24 | Hanuman / Vayu Tattva explainer; exact title and description retrieved; transcript review pending |
+| I Am Brahman, Not Brahma — The Hidden Truth of Shiva, Vishnu & Devi | https://www.youtube.com/watch?v=vKtkvP2FnZU | Vedanta / self-inquiry explainer; exact title and description retrieved; transcript review pending |
+| The Atomic Trinity: Vishnu as Proton, Brahma as Neutron, Shiva as Electron | https://www.youtube.com/watch?v=mbb9W5UXZH4 | Science-and-symbolism explainer; exact title and description retrieved; scientific analogy requires careful editorial qualification |
+| Hydrogen Awakening: The Hidden Link Between Science, Life & Consciousness | https://www.youtube.com/watch?v=18akvAuxx1M | Channel overview / hydrogen and consciousness explainer; exact title and description retrieved |
+
+### Screenshot items not added yet
+
+The following visible titles could not be matched confidently to an exact individual channel watch URL in this search pass: “Sound & Hydrogen: How Mantras and Frequencies Affect Your Energy & Health”; “Quantum Physics & Spirituality: The Hidden Science of Consciousness”; “The Hydrogen Code | Awakening | Cosmic Hydrogen”; “Vedic Deities & The Human Body”; “Why Is a Child Called Bhagwan Ka Roop?”; “Sheetala Mata: Science Behind Immunity & Disease Prevention”; “Energies Affecting Humans: Universal, Planetary & Internal Forces”; “Align with the Cosmos: A Guided Meditation for Energy Harmony”; “The Ancient Science of Mantras — Unlocking Cosmic Vibrations”; “Divine Anatomy: Exploring the Cosmic Symbolism of Shiva”; “The Secret Curse That Explains Why India Has Almost No Brahma Temples”; “Jyotirlinga & The Human Body”; “Brahma, Vishnu & Shiva in Your Body”; “Why Brahmins Lost Wealth?”; “How to Expand & Liberate Your Mind Beyond Vishnu, Brahma & Mahesh”; “8 Vasus, Rudras & Adityas”; “Rig Veda & Hydrogen: The Cosmic Connection”; “India & ASEAN: A Rig Vedic Connection”; “Vedic Science & AI”; “Harnessing Your Inner Power”; “Yama’s Court vs. Indian Courts”; and “RAAT Is Not Just a Name — It Is the Bija Mantra of the Solar Plexus”. These remain unresolved discovery leads; no guessed IDs or substituted related videos are recorded.
+
+The screenshot also shows multiple videos with similar Hanuman/Yama themes and repeated Yama’s Court titles. They must be compared by exact video ID before any consolidation. No screenshot entry is treated as transcript-reviewed merely because its title and page metadata were found.
