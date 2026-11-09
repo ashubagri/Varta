@@ -330,3 +330,34 @@ The working register now contains **48 video discovery leads across three batche
 - Where audio is accessible, listen to classify song vs instrumental vs spoken narration and compare possible alternate versions.
 - Maintain two separate totals: **standalone music works** and **videos using Suno voice/music as production elements**. Do not combine them.
 - Only after this first pass, compare the confirmed works against Suno projects/exports to establish which tracks used Suno voice, Suno music, both, or another source.
+
+
+## Music archive — discovery batch 02 (additional devotional and meditation works)
+**Review date:** 2026-11-09  
+**Scope:** Additional titles identified from the user's YouTube Music screenshots and targeted public searches. Entries below are included only where the watch page or channel attribution could be verified, or are explicitly labelled as screenshot-only candidates.
+
+### Confirmed Hydrogen Awakening music uploads
+| Canonical work | Public upload(s) | Initial classification | Evidence / notes |
+|---|---|---|---|
+| [Hinglaj Mata – Makran Ki Pukaar | Har Har Mahadev | Om Namah Shivaya](https://www.youtube.com/watch?v=Xqi9cniqU94) | [Upload 1](https://www.youtube.com/watch?v=Xqi9cniqU94); [Upload 2 / title-extended version](https://www.youtube.com/watch?v=P1F3zI15K7w) | **C — Cinematic devotional AI song** | Both watch pages identify Hydrogen Awakening as uploader and describe an original cinematic devotional anthem / AI-created song. Both pages carry “Made with AI”. Descriptions say “AI-generated music, lyrics, vocals, and visuals”; preserve this exact production disclosure. Two IDs appear to be closely related versions/uploads; compare audio and duration before deciding whether to merge as one canonical work with two versions. |
+| [HUM Mahadev — Shiva Meditation Music to Calm the Mind](https://www.youtube.com/watch?v=OTXGFUUp8-Y) | One verified upload | **C/B — Shiva meditation song / devotional meditation music** | Watch page identifies Hydrogen Awakening; description calls it a Shiva meditation song inspired by silence, stillness and awareness, using the bija mantra HUM. YouTube marks “Made with AI”. |
+
+### Screenshot-led candidates requiring uploader / track verification
+| Candidate title | Screenshot evidence | Initial status |
+|---|---|---|
+| [Pancha Nada — The Five Inner Elements](https://www.youtube.com/watch?v=8DV8-DQKZdc) | Title appears in the user's YouTube Music screenshots; public page title and description describe a meditative soundscape based on the five elements. | **B — Meditation soundscape candidate.** Public page extraction did not expose uploader identity, so keep provisional until channel ownership is verified. |
+| [The Sound of Five Elements — Bansuri, Sarangi, Santoor, Cello & Tanpura](https://www.youtube.com/watch?v=3iCPoybBXzQ) | Title and description surfaced from the channel/music discovery work; screenshot also shows related five-elements music. | **B — Instrumental / meditation music candidate.** Compare with the Pancha Mahābhūtas upload already listed in batch 01; uploader/audio matching remains to be checked. |
+| [The Sound of Five Elements — Pancha Mahabhutas](https://www.youtube.com/watch?v=n-cJ4hwdLF8) | Screenshot-led title candidate; public description calls it a meditative musical journey. | **B — Candidate / possible alternate version.** Do not count separately until channel provenance and audio comparison are completed. |
+
+### Exclusions and caution
+- A Hanuman Chalisa result surfaced in search, but the watch page did not establish that it was uploaded by Hydrogen Awakening. It is **not** added as a confirmed channel work in this batch.
+- Ganesha and Shiva's Third Eye search results included unrelated educational uploads or recommendations; they are not counted as music works on the basis of a title or thumbnail.
+- Search-result recommendation panels can show Hydrogen Awakening videos beside unrelated videos. A recommendation mention is not proof that the opened video belongs to the channel.
+- The title “Shiva’s Damru & Krishna’s Flute” surfaced under two video IDs, but both public pages lacked sufficient uploader metadata in the extraction. Keep them as unverified leads, not confirmed songs.
+- Do not treat the existence of a track on YouTube Music as proof that it is an independently composed song. Listen and inspect description, channel, audio and credits.
+
+### Updated work-counting approach
+- Count **Hinglaj Mata** initially as one canonical creative work with two candidate uploads/versions, not two separate songs.
+- Count **HUM Mahadev** as one devotional/meditation music work.
+- Keep Pancha Nada and the five-elements soundscape titles in a provisional instrumental register until uploader provenance and audio are checked.
+- Maintain separate counts for canonical works, alternate uploads/versions, and narrated videos that use Suno-generated voice/music.
