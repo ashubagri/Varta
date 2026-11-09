@@ -279,3 +279,15 @@ The working register now contains **48 video discovery leads across three batche
 **Editorial distinction:** Brahman and Ātman are treated as philosophical/theological terms, not as synonyms for physical energy, particles or fields. Differences among Vedānta schools are acknowledged. Modern cosmology and Upanishadic inquiry are compared as different methods and domains, not equated.
 
 **Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites.
+
+ 
+## Published article — Om (AUM) and the Māṇḍūkya Upaniṣad
+[Om (AUM): The Māṇḍūkya Upaniṣad and the Four States of Consciousness](https://ashubagri.github.io/Varta/om-mandukya-upanishad-four-states-consciousness.html)
+
+**Editorial basis:** Independent VARTA research explainer based on the twelve mantras of the Māṇḍūkya Upaniṣad. Covers Om, Ātman/Brahman, waking (Vaiśvānara), dream (Taijasa), deep sleep (Prājña), Turīya, and the A-U-M / amātra correspondences.
+
+**Research anchors:** Māṇḍūkya Upaniṣad text and translations; Gauḍapāda Kārikā and Śaṅkara Bhāṣya as later Advaita interpretations; Mooventhan et al. (2025) review of physiological effects of Om chanting; Kumar et al. (2025) review of Om Dhyāna; Perry et al. (2025) systematic review of neural correlates of chanting.
+
+**Editorial distinction:** Turīya is presented as a philosophical teaching, not a measured sleep stage or brain-wave state. Research on chanting is described with limitations; no claim is made that Om is a unique cosmic frequency or that neuroscience proves the metaphysics.
+
+**Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites.
