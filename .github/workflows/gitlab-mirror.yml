@@ -43,5 +43,5 @@ jobs:
           GIT_ASKPASS: ${{ runner.temp }}/git-askpass.sh
           GIT_TERMINAL_PROMPT: "0"
         run: |
-          git clone --mirror "https://github.com/${GITHUB_REPOSITORY}.git" varta.git
+          git clone --bare "https://github.com/${GITHUB_REPOSITORY}.git" varta.git
           git -C varta.git push --mirror "https://gitlab.com/ashubagri/varta.git"
