@@ -13,6 +13,14 @@
         a { color: #d4af37; text-decoration: none; }
         .youtube-box { border: 1px solid #d4af37; padding: 20px; margin-top: 40px; background-color: #0f1115; border-radius: 8px; text-align: center; }
         .youtube-box a { background-color: #d4af37; color: #000; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 10px; }
+        @media (max-width: 640px) {
+            body { padding: 16px; }
+            .container { box-sizing: border-box; width: 100%; padding: 24px 18px; }
+            h1 { font-size: clamp(1.65rem, 7vw, 2.2rem); line-height: 1.2; }
+            h2 { font-size: 1.25rem; }
+            .youtube-box { padding: 16px; }
+            .youtube-box a { max-width: 100%; box-sizing: border-box; }
+        }
     </style>
 
 <script type="application/ld+json">
