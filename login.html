@@ -29,6 +29,7 @@
     #message{min-height:24px;margin:16px 0 0;overflow-wrap:anywhere;font-size:.94rem}
     .links{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:.92rem}
     a{color:#174b8c}.hint{font-size:.83rem;margin:7px 0 0}
+    .skip-link{position:fixed;top:8px;left:8px;z-index:10000;padding:12px 16px;border-radius:8px;background:#0f172a;color:#fff;font-weight:700;text-decoration:none;transform:translateY(-160%)}.skip-link:focus,.skip-link:focus-visible{transform:translateY(0);outline:3px solid #d97706;outline-offset:3px}
     @media(max-width:760px){body{padding:16px}.layout{grid-template-columns:1fr;gap:16px}.intro{padding:10px 4px}.eyebrow{margin-top:16px}.intro p{font-size:1rem}.benefits{display:none}.card{padding:24px}}
   </style>
 
@@ -45,6 +46,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div id="varta-language-panel" role="region" aria-label="Choose your language" style="position:relative;z-index:1000;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:8px 16px;background:#f1f5f9;color:#0f172a;font:14px Arial,sans-serif;border-bottom:1px solid #dbe3ec">
   <span aria-hidden="true">🌐</span><strong>Language / भाषा</strong>
@@ -67,7 +69,7 @@ function googleTranslateElementInit() {
 @media(max-width:480px){#varta-language-panel{justify-content:center;flex-wrap:wrap;padding:8px}#varta-language-panel strong{font-size:13px}}
 </style>
 
-  <main class="layout">
+  <main id="main-content" class="layout">
     <section class="intro" aria-labelledby="welcome-title">
       <a href="index.html" class="brand" aria-label="VARTA home">VARTA</a>
       <span class="eyebrow">Bharat Digital Universe</span>
