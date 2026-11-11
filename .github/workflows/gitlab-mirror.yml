@@ -1,0 +1,47 @@
+name: Mirror GitHub repository to GitLab
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitlab-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    name: Push repository mirror to GitLab
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure GitLab authentication
+        env:
+          GITLAB_MIRROR_TOKEN: ${{ secrets.GITLAB_MIRROR_TOKEN }}
+        run: |
+          if [ -z "$GITLAB_MIRROR_TOKEN" ]; then
+            echo "Missing GITLAB_MIRROR_TOKEN repository secret."
+            exit 1
+          fi
+          cat > "$RUNNER_TEMP/git-askpass.sh" <<'EOF'
+          #!/bin/sh
+          case "$1" in
+            *Username*) printf '%s\n' 'oauth2' ;;
+            *Password*) printf '%s\n' "$GITLAB_MIRROR_TOKEN" ;;
+            *) exit 1 ;;
+          esac
+          EOF
+          chmod 700 "$RUNNER_TEMP/git-askpass.sh"
+      - name: Mirror all branches and tags
+        env:
+          GITLAB_MIRROR_TOKEN: ${{ secrets.GITLAB_MIRROR_TOKEN }}
+          GIT_ASKPASS: ${{ runner.temp }}/git-askpass.sh
+          GIT_TERMINAL_PROMPT: "0"
+        run: |
+          git clone --bare "https://github.com/${GITHUB_REPOSITORY}.git" varta.git
+          git -C varta.git push --mirror "https://gitlab.com/ashubagri/varta.git"
