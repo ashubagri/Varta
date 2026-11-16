@@ -280,7 +280,7 @@ The working register now contains **48 video discovery leads across three batche
 
 **Source-video status:** No specific Hydrogen Awakening video is attributed. Video uploader identity and transcript review remain prerequisites.
 
- 
+
 ## Published article — Om (AUM) and the Māṇḍūkya Upaniṣad
 [Om (AUM): The Māṇḍūkya Upaniṣad and the Four States of Consciousness](https://ashubagri.github.io/Varta/om-mandukya-upanishad-four-states-consciousness.html)
 
@@ -339,7 +339,7 @@ The working register now contains **48 video discovery leads across three batche
 ### Confirmed Hydrogen Awakening music uploads
 | Canonical work | Public upload(s) | Initial classification | Evidence / notes |
 |---|---|---|---|
-| [Hinglaj Mata – Makran Ki Pukaar | Har Har Mahadev | Om Namah Shivaya](https://www.youtube.com/watch?v=Xqi9cniqU94) | [Upload 1](https://www.youtube.com/watch?v=Xqi9cniqU94); [Upload 2 / title-extended version](https://www.youtube.com/watch?v=P1F3zI15K7w) | **C — Cinematic devotional AI song** | Both watch pages identify Hydrogen Awakening as uploader and describe an original cinematic devotional anthem / AI-created song. Both pages carry “Made with AI”. Descriptions say “AI-generated music, lyrics, vocals, and visuals”; preserve this exact production disclosure. Two IDs appear to be closely related versions/uploads; compare audio and duration before deciding whether to merge as one canonical work with two versions. |
+| [Hinglaj Mata – Makran Ki Pukaar &#124; Har Har Mahadev &#124; Om Namah Shivaya](https://www.youtube.com/watch?v=Xqi9cniqU94) | [Upload 1](https://www.youtube.com/watch?v=Xqi9cniqU94); [Upload 2 / title-extended version](https://www.youtube.com/watch?v=P1F3zI15K7w) | **C — Cinematic devotional AI song** | Both watch pages identify Hydrogen Awakening as uploader and describe an original cinematic devotional anthem / AI-created song. Both pages carry “Made with AI”. Descriptions say “AI-generated music, lyrics, vocals, and visuals”; preserve this exact production disclosure. Two IDs appear to be closely related versions/uploads; compare audio and duration before deciding whether to merge as one canonical work with two versions. |
 | [HUM Mahadev — Shiva Meditation Music to Calm the Mind](https://www.youtube.com/watch?v=OTXGFUUp8-Y) | One verified upload | **C/B — Shiva meditation song / devotional meditation music** | Watch page identifies Hydrogen Awakening; description calls it a Shiva meditation song inspired by silence, stillness and awareness, using the bija mantra HUM. YouTube marks “Made with AI”. |
 
 ### Screenshot-led candidates requiring uploader / track verification
@@ -369,8 +369,8 @@ The working register now contains **48 video discovery leads across three batche
 
 | Canonical work / title | Public link(s) | Initial classification | Evidence / status |
 |---|---|---|---|
-| [Music is the Hidden Architecture of Creation | Nāda Brahma, Rāga, Chakras & Cosmic Sound](https://www.youtube.com/watch?v=GLUwjhz2rT4) | One candidate upload | **E/F — Music-philosophy explainer or mixed audio work** | Public title and description frame music as the architecture of creation and discuss Nāda Brahma, rāga and chakras. Do not count as a standalone song without audio review. |
-| [ONE HEART, ONE GAME | Global Football Anthem 2026](https://music.youtube.com/watch?v=pj-FdERSTSw) | [YouTube Music track](https://music.youtube.com/watch?v=pj-FdERSTSw); [Hydrogen Awakening video result](https://www.youtube.com/watch?v=Ls2QZYs2l5w); [additional title variant](https://www.youtube.com/watch?v=8DnUZ7TUVWc) | **A — Original football anthem candidate** | Public results explicitly describe it as an original anthem and identify Ashu Bagri / Hydrogen Awakening. Multiple related uploads/title variants surfaced. Compare audio and channel attribution before counting each as a separate work. The phrase “official FIFA World Cup anthem” appears in titles, but no FIFA authorisation/endorsement has been verified; VARTA should describe it as a creator-made/fan anthem unless official designation is independently documented. |
+| [Music is the Hidden Architecture of Creation &#124; Nāda Brahma, Rāga, Chakras & Cosmic Sound](https://www.youtube.com/watch?v=GLUwjhz2rT4) | One candidate upload | **E/F — Music-philosophy explainer or mixed audio work** | Public title and description frame music as the architecture of creation and discuss Nāda Brahma, rāga and chakras. Do not count as a standalone song without audio review. |
+| [ONE HEART, ONE GAME &#124; Global Football Anthem 2026](https://music.youtube.com/watch?v=pj-FdERSTSw) | [YouTube Music track](https://music.youtube.com/watch?v=pj-FdERSTSw); [Hydrogen Awakening video result](https://www.youtube.com/watch?v=Ls2QZYs2l5w); [additional title variant](https://www.youtube.com/watch?v=8DnUZ7TUVWc) | **A — Original football anthem candidate** | Public results explicitly describe it as an original anthem and identify Ashu Bagri / Hydrogen Awakening. Multiple related uploads/title variants surfaced. Compare audio and channel attribution before counting each as a separate work. The phrase “official FIFA World Cup anthem” appears in titles, but no FIFA authorisation/endorsement has been verified; VARTA should describe it as a creator-made/fan anthem unless official designation is independently documented. |
 
 ### Search results deliberately not promoted to the music catalogue
 - “Nāda Brahma” search also surfaced educational videos about sound and spirituality; those remain explainers unless audio shows a distinct musical composition.
@@ -388,7 +388,7 @@ The working register now contains **48 video discovery leads across three batche
 |---|---|---|
 | [Kyun Chandni Raat Aur Samundar Humein Badal Dete Hain?](https://www.youtube.com/watch?v=oUypYYX92_A) | Public search identifies this as a Hydrogen Awakening knowledge/explainer video about moonlight, the sea, love and consciousness. | **E — Educational/philosophical video, not a standalone song on current evidence.** Do not confuse it with the separate romantic duet [चाँदनी में तुम](https://www.youtube.com/watch?v=w-pFGc0bMkc), already listed in batch 01. |
 | [कौन सा स्वर मन को शांत करता है?](https://www.youtube.com/watch?v=59B0wUVS724) | Public watch-page metadata exposes a question about which swara calms the mind; the description begins with a discussion of Sa, Ni and Dha. | **E/F — Music-education or spoken explainer candidate.** It is not confirmed as a musical composition. |
-| [I Am Still Here | Main Abhi Yahan Hoon | A Heart-Touching Song](https://www.youtube.com/watch?v=8rpd3U-a1KM) | A targeted search again returned this channel-associated song title and a description snippet stating it is not a copy of an existing song. | Retain the existing batch 01 entry; **do not create a second record**. Full audio and credits remain to be checked. |
+| [I Am Still Here &#124; Main Abhi Yahan Hoon &#124; A Heart-Touching Song](https://www.youtube.com/watch?v=8rpd3U-a1KM) | A targeted search again returned this channel-associated song title and a description snippet stating it is not a copy of an existing song. | Retain the existing batch 01 entry; **do not create a second record**. Full audio and credits remain to be checked. |
 | “Music of Asia” and “Music of India” playlist results | Public searches returned these playlist pages, including Hydrogen Awakening titles among the displayed track snippets. Page extraction did not expose a reliable full track list or establish that every playlist item is creator-owned. | **Do not treat playlist membership or recommendation snippets as ownership evidence.** Verify each individual watch page and uploader before adding a work. |
 | “Ganesha — The Divine Symbol of Wisdom | Ganesha Song” | Search surfaced a Facebook video result associated with the creator's public Facebook profile, but no matching YouTube watch page with independently verified channel attribution was found in this pass. | **Screenshot/search lead only — not counted as a confirmed YouTube Music work.** Revisit when a direct track/watch URL or Suno project link is available. |
 | “The Music That Touches the Soul”, “Chandni Raat”, “Ragas, Chakras & Planets”, “Naam Bhagavate Vasudevaya” and “Ananta Nada” | Exact-title searches did not produce a sufficiently attributable individual music upload in this pass. Some terms surfaced unrelated educational material or recommendation panels. | Keep as **unverified title leads**; do not add to confirmed standalone music works. |
@@ -878,7 +878,7 @@ The Yama's Court playlist snippet again surfaced the already indexed title and d
   - Exact title, description and Hydrogen Awakening video tag are present in YouTube page metadata.
   - Classification: channel introduction / mission statement; knowledge archive, not music.
   - Verification: A for title and channel branding metadata; transcript review pending.
-  
+
 Other search candidates from this pass were not added: individual pages for i7iGeAblQEA and SdKQB7yQ1u0 did not expose reliable title metadata, so their search snippets alone were insufficient.
 
 
@@ -1359,8 +1359,8 @@ These four YouTube Music URLs were checked against the existing register. YouTub
 |---|---|---|
 | `W4ekQt-pGSg` | [Music is vibration arranged with consciousness &#124; Feel the Sound &#124; Awaken the Soul](https://music.youtube.com/watch?v=W4ekQt-pGSg) · 7:01 | Already noted as a discovery lead. YouTube Music displays Hydrogen Awakening, but channel-ID verification and transcript review remain pending. |
 | `PIBzhSlxL5E` | [Ragas, Chakras & Planets: The Secret Science of Nāda Yoga Hidden in India](https://music.youtube.com/watch?v=PIBzhSlxL5E) · 7:02 | Existing catalogue ID; duplicate link only. Do not create another record. |
-| `kzOrX6nFX8A` | [Hanuman Chalisa 108 Times | Powerful Morning Protection Mantra](https://music.youtube.com/watch?v=kzOrX6nFX8A) · 7:02 | New page-level lead. The page displays Hydrogen Awakening, but canonical channel ID, audio provenance and playlist membership are not confirmed. Treat as devotional audio, not as an original composition without further evidence. |
-| `vOpfJ41wK1s` | [Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness](https://music.youtube.com/watch?v=vOpfJ41wK1s) · 4:27 | Existing catalogue ID; repeated link only. Keep one canonical record and retain the note that claims about 432 Hz and the Maheshwara Sūtras require source-checking. |
+| `kzOrX6nFX8A` | [Hanuman Chalisa 108 Times &#124; Powerful Morning Protection Mantra](https://music.youtube.com/watch?v=kzOrX6nFX8A) · 7:02 | New page-level lead. The page displays Hydrogen Awakening, but canonical channel ID, audio provenance and playlist membership are not confirmed. Treat as devotional audio, not as an original composition without further evidence. |
+| `vOpfJ41wK1s` | [Nada Brahman: The Shiva Frequency Hidden in Indian Music &#124; Sound, Silence & Consciousness](https://music.youtube.com/watch?v=vOpfJ41wK1s) · 4:27 | Existing catalogue ID; repeated link only. Keep one canonical record and retain the note that claims about 432 Hz and the Maheshwara Sūtras require source-checking. |
 
 ### Research update — acoustic fire and sound/matter
 
@@ -1396,15 +1396,15 @@ This follow-up cross-checks the recent YouTube Music links against the working r
 |---|---|---|
 | `oUypYYX92_A` | [Kyun Chandni Raat Aur Samundar Humein Badal Dete Hain? 🌕🌊 &#124; Prem Aur Chetna Ka Rahasya](https://www.youtube.com/watch?v=oUypYYX92_A). The canonical YouTube page metadata includes Hydrogen Awakening as a video tag and a description beginning with a moonlit-night / sea-waves framing. | Retain as the channel-associated source for the moonlight, sea, love and consciousness theme. Used as the creator source for the new VARTA article below. |
 | `TfsaSPDmMAM` | [Moon, Waves & Silence &#124; The Hidden Science of Love, Consciousness & Nature](https://music.youtube.com/watch?v=TfsaSPDmMAM) · 6:33. The YouTube Music description snippet repeats the Hindi title of `oUypYYX92_A`. The page did not expose a canonical channel ID or a reliable uploader field in this review. | Related title / possible alternate edit or re-presentation of the `oUypYYX92_A` topic. The IDs differ, so this is **not an exact duplicate by ID**. Keep as a related discovery lead; do not count it as a separately verified channel upload or create a second article until uploader and audio/transcript comparison are possible. |
- 
+
 ### Nāda, music and devotional links rechecked
 
 | Video ID | Page title / duration | Decision |
 |---|---|---|
-| `W4ekQt-pGSg` | [Music is vibration arranged with consciousness | Feel the Sound | Awaken the Soul](https://music.youtube.com/watch?v=W4ekQt-pGSg) · 7:01 | YouTube Music page displays Hydrogen Awakening, but the canonical YouTube watch page did not expose usable uploader metadata in this pass. Retain the existing discovery lead; channel-ID verification and transcript review remain pending. Do not classify as a standalone song from the title alone. |
+| `W4ekQt-pGSg` | [Music is vibration arranged with consciousness &#124; Feel the Sound &#124; Awaken the Soul](https://music.youtube.com/watch?v=W4ekQt-pGSg) · 7:01 | YouTube Music page displays Hydrogen Awakening, but the canonical YouTube watch page did not expose usable uploader metadata in this pass. Retain the existing discovery lead; channel-ID verification and transcript review remain pending. Do not classify as a standalone song from the title alone. |
 | `PIBzhSlxL5E` | [Ragas, Chakras & Planets: The Secret Science of Nāda Yoga Hidden in India](https://music.youtube.com/watch?v=PIBzhSlxL5E) · 7:02 | Already in the Nāda / swara / raga / chakra register. Repeated link only; keep one canonical record for this ID. Compare with similarly titled but different-ID uploads separately. |
 | `kzOrX6nFX8A` | [Hanuman Chalisa 108 Times &#124; Powerful Morning Protection Mantra &#124; Remove Fear & Negativity](https://music.youtube.com/watch?v=kzOrX6nFX8A) · 7:02 | New page-level devotional lead. YouTube Music displays Hydrogen Awakening, but the canonical watch page did not expose a reliable channel ID, transcript or audio-provenance evidence. Keep as an unverified devotional recording candidate; do not credit the traditional Chalisa text or the recording as an original composition without separate evidence. |
-| `vOpfJ41wK1s` | [Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness](https://music.youtube.com/watch?v=vOpfJ41wK1s) · 4:27 | Already present in the Nāda archive and source article. The repeated user link is the same video ID; count once. Existing note about claims concerning 432 Hz and the Maheshwara Sūtras still requires primary-source checking. |
+| `vOpfJ41wK1s` | [Nada Brahman: The Shiva Frequency Hidden in Indian Music &#124; Sound, Silence & Consciousness](https://music.youtube.com/watch?v=vOpfJ41wK1s) · 4:27 | Already present in the Nāda archive and source article. The repeated user link is the same video ID; count once. Existing note about claims concerning 432 Hz and the Maheshwara Sūtras still requires primary-source checking. |
 
 ### Caption and transcript access check
 
