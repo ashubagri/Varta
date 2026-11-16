@@ -890,7 +890,7 @@ Three more individual channel uploads were verified and added to the knowledge-v
 |---|---|---|---|
 | Brahma Vishnu Mahesh = Frequencies, Vibrations, Consciousness | Ancient Vedic Secret | https://www.youtube.com/watch?v=UoQPUXVDuGU | Vedic symbolism / frequency analogy | Video page identifies Hydrogen Awakening as channel; description and channel CTA present |
 | Sound is not entertainment | Hydrogen Awakening | https://www.youtube.com/watch?v=WqMRKDA6hVk | Nāda / Raga / sound and chakras | Page identifies Hydrogen Awakening as channel; exact title, date and description visible |
-| Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness | https://www.youtube.com/watch?v=vOpfJ41wK1s | Nāda Brahman / Indian music | Exact title, Hydrogen Awakening metadata tag and description verified |
+| Nada Brahman: The Shiva Frequency Hidden in Indian Music &#124; Sound, Silence & Consciousness | https://www.youtube.com/watch?v=vOpfJ41wK1s | Nāda Brahman / Indian music | Exact title, Hydrogen Awakening metadata tag and description verified |
 
 Duplicate caution: another search result surfaced a similarly titled Nada Brahman upload (Bk478mPnd_U). It is not added as a separate item pending comparison; the verified vOpfJ41wK1s entry is retained as the current canonical record. Shorts found in this pass were excluded.
 
@@ -1357,7 +1357,7 @@ These four YouTube Music URLs were checked against the existing register. YouTub
 
 | Video ID | Page title / duration | Result |
 |---|---|---|
-| `W4ekQt-pGSg` | [Music is vibration arranged with consciousness | Feel the Sound | Awaken the Soul](https://music.youtube.com/watch?v=W4ekQt-pGSg) · 7:01 | Already noted as a discovery lead. YouTube Music displays Hydrogen Awakening, but channel-ID verification and transcript review remain pending. |
+| `W4ekQt-pGSg` | [Music is vibration arranged with consciousness &#124; Feel the Sound &#124; Awaken the Soul](https://music.youtube.com/watch?v=W4ekQt-pGSg) · 7:01 | Already noted as a discovery lead. YouTube Music displays Hydrogen Awakening, but channel-ID verification and transcript review remain pending. |
 | `PIBzhSlxL5E` | [Ragas, Chakras & Planets: The Secret Science of Nāda Yoga Hidden in India](https://music.youtube.com/watch?v=PIBzhSlxL5E) · 7:02 | Existing catalogue ID; duplicate link only. Do not create another record. |
 | `kzOrX6nFX8A` | [Hanuman Chalisa 108 Times | Powerful Morning Protection Mantra](https://music.youtube.com/watch?v=kzOrX6nFX8A) · 7:02 | New page-level lead. The page displays Hydrogen Awakening, but canonical channel ID, audio provenance and playlist membership are not confirmed. Treat as devotional audio, not as an original composition without further evidence. |
 | `vOpfJ41wK1s` | [Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness](https://music.youtube.com/watch?v=vOpfJ41wK1s) · 4:27 | Existing catalogue ID; repeated link only. Keep one canonical record and retain the note that claims about 432 Hz and the Maheshwara Sūtras require source-checking. |
@@ -1384,3 +1384,44 @@ The public descriptions of the three acoustic-fire uploads were reviewed, but no
 
 **Creator-source attribution:** Ashu Bagri / Hydrogen Awakening; related public channel-feed uploads are S91qQC2gt_I, NsmFONZI2Es and ylG8g39ZndE. Public descriptions and chapter markers reviewed on 2026-11-16; transcript text was not retrieved.  
 **Editorial result:** The revised section distinguishes acoustic manipulation of microscopic objects from claims about atomic restructuring, and separates the traditional cosmological language of Nāda/Śabda from experimentally measurable acoustics.
+
+
+## YouTube Music and moonlight follow-up — 2026-11-16
+
+This follow-up cross-checks the recent YouTube Music links against the working register and the public YouTube page metadata. The official channel RSS snapshot above remains limited to 15 entries dated 8 October–7 November; these YouTube Music pages do not extend that feed snapshot or prove complete channel coverage.
+
+### Moon, waves and silence cluster
+
+| Video ID | Public page evidence | Grouping and register decision |
+|---|---|---|
+| `oUypYYX92_A` | [Kyun Chandni Raat Aur Samundar Humein Badal Dete Hain? 🌕🌊 &#124; Prem Aur Chetna Ka Rahasya](https://www.youtube.com/watch?v=oUypYYX92_A). The canonical YouTube page metadata includes Hydrogen Awakening as a video tag and a description beginning with a moonlit-night / sea-waves framing. | Retain as the channel-associated source for the moonlight, sea, love and consciousness theme. Used as the creator source for the new VARTA article below. |
+| `TfsaSPDmMAM` | [Moon, Waves & Silence &#124; The Hidden Science of Love, Consciousness & Nature](https://music.youtube.com/watch?v=TfsaSPDmMAM) · 6:33. The YouTube Music description snippet repeats the Hindi title of `oUypYYX92_A`. The page did not expose a canonical channel ID or a reliable uploader field in this review. | Related title / possible alternate edit or re-presentation of the `oUypYYX92_A` topic. The IDs differ, so this is **not an exact duplicate by ID**. Keep as a related discovery lead; do not count it as a separately verified channel upload or create a second article until uploader and audio/transcript comparison are possible. |
+ 
+### Nāda, music and devotional links rechecked
+
+| Video ID | Page title / duration | Decision |
+|---|---|---|
+| `W4ekQt-pGSg` | [Music is vibration arranged with consciousness | Feel the Sound | Awaken the Soul](https://music.youtube.com/watch?v=W4ekQt-pGSg) · 7:01 | YouTube Music page displays Hydrogen Awakening, but the canonical YouTube watch page did not expose usable uploader metadata in this pass. Retain the existing discovery lead; channel-ID verification and transcript review remain pending. Do not classify as a standalone song from the title alone. |
+| `PIBzhSlxL5E` | [Ragas, Chakras & Planets: The Secret Science of Nāda Yoga Hidden in India](https://music.youtube.com/watch?v=PIBzhSlxL5E) · 7:02 | Already in the Nāda / swara / raga / chakra register. Repeated link only; keep one canonical record for this ID. Compare with similarly titled but different-ID uploads separately. |
+| `kzOrX6nFX8A` | [Hanuman Chalisa 108 Times &#124; Powerful Morning Protection Mantra &#124; Remove Fear & Negativity](https://music.youtube.com/watch?v=kzOrX6nFX8A) · 7:02 | New page-level devotional lead. YouTube Music displays Hydrogen Awakening, but the canonical watch page did not expose a reliable channel ID, transcript or audio-provenance evidence. Keep as an unverified devotional recording candidate; do not credit the traditional Chalisa text or the recording as an original composition without separate evidence. |
+| `vOpfJ41wK1s` | [Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness](https://music.youtube.com/watch?v=vOpfJ41wK1s) · 4:27 | Already present in the Nāda archive and source article. The repeated user link is the same video ID; count once. Existing note about claims concerning 432 Hz and the Maheshwara Sūtras still requires primary-source checking. |
+
+### Caption and transcript access check
+
+Direct public English, Hindi and English auto-caption timed-text endpoints were checked for `TfsaSPDmMAM`, `W4ekQt-pGSg` and `PIBzhSlxL5E`; each returned empty content. No transcript text was retrieved for this group. YouTube Music page titles and short description snippets are metadata, not transcript evidence. Do not quote or attribute detailed spoken claims to these videos until captions or a reliable transcript are available.
+
+### Grouping and duplicate decisions
+
+- The moonlight/sea pair `oUypYYX92_A` and `TfsaSPDmMAM` is a **related-topic pair with possible alternate presentation**, not an exact duplicate. The second page's uploader identity remains unverified.
+- `PIBzhSlxL5E` and `vOpfJ41wK1s` are existing Nāda-cluster records. Repeated links do not add entries.
+- `W4ekQt-pGSg` remains a metadata-only discovery lead; it is not merged with the Ragas/Chakras video merely because the subjects overlap.
+- `kzOrX6nFX8A` remains a devotional recording candidate, separate from knowledge explainers and from any verified original-song count.
+- Playlist membership and recommendations must still be reconciled by exact video ID before the master channel catalogue is treated as complete.
+
+### Published article — Moon, Waves & Silence
+
+[Moon, Waves & Silence: What Science Says About Tides, Moonlight and the Human Mind](https://ashubagri.github.io/Varta/moon-waves-silence-moonlight-tides-mind.html)
+
+**Creator attribution:** Ashu Bagri / Hydrogen Awakening, with the channel-associated source `oUypYYX92_A`. The related YouTube Music listing `TfsaSPDmMAM` is linked as a discovery lead, not represented as channel-ID verified. Public metadata was reviewed on 16 November 2026; no transcript text was retrieved.
+
+**Editorial scope:** NASA moon-phase and moonlight explanations; NOAA tide and wind-wave material; mixed human sleep findings (including a 2021 field study, a 2015 analysis and a 2024 conference abstract); music neuroscience; WHO noise guidance; and a clearly labelled discussion of Indian symbolic interpretations. The article does not claim that the Moon controls love, mood or consciousness.
