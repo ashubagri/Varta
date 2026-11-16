@@ -921,7 +921,7 @@ Not added in this pass:
 
 Other candidates held back in this pass:
 - “Unlocking Inner Harmony: Nada Yoga & the 7 Chakras Explained” (itRUKhmAEDE): page metadata did not expose the uploader, so channel ownership is not sufficiently established.
-- “Music is vibration arranged with consciousness” (W4ekQt-pGSg): page metadata did not expose the uploader or a channel marker.
+- “Music is vibration arranged with consciousness” (W4ekQt-pGSg): the YouTube Music page now displays the channel label “Hydrogen Awakening” and a Nāda/rāga/chakra description, but does not expose a canonical channel ID or structured uploader field. Keep as a page-level discovery lead pending channel-ID verification and playlist reconciliation.
 - “BTS, Hydrogen & The Hidden Science of Sound Energy” (LnQGEtCQkog): title/description mention Hydrogen Awakening, but direct uploader evidence was not exposed.
 - “Sama, Dana, Bheda, Danda” (T9GeSPJC5fY) and “How Chanakya Niti Explains India’s Secret Modern Geopolitics” (iIIjUMoxl7o): exact titles surfaced, but the fetched pages did not establish the uploader.
 - “Chanakya Niti Explained: How India Can Strategically Control Its Neighbors” (1_hBO8wQgVc) resolves to a Shorts page and is excluded from the full-length register.
@@ -1325,3 +1325,62 @@ The channel owner clarified that many videos are intentionally saved in multiple
 - The earlier Energy Wars playlist URL is also unstudied at item level.
 - No individual video additions should be inferred from playlist counts, thumbnails, search snippets or partial page results.
 - The objective is one canonical record per unique video ID, with multiple playlist memberships stored as metadata. This prevents the same video from being repeated across VARTA's public archive.
+
+
+## Public channel RSS snapshot — 2026-11-16 (observation, not a complete inventory)
+
+The official YouTube channel feed at https://www.youtube.com/feeds/videos.xml?channel_id=UCP04RXz7t6dRm6u48g-vedA returned **15 feed entries** in this fetch. The visible publication window ran from 2026-10-08 to 2026-11-07. This is a recent-feed snapshot only: it is not the channel's full upload history, does not enumerate playlist membership, and does not establish complete channel coverage.
+
+**Owner's playlist-first rule remains in force:** entries below are feed observations, not permission to create duplicate canonical records. Five IDs were already present in this working register and are recorded as RSS corroboration only. Ten feed-only IDs remain discovery candidates until complete playlist item lists have been extracted and cross-playlist deduplication performed.
+
+| Published (UTC) | Public feed title | Video ID | Feed-level editorial note | Register treatment |
+|---|---|---|---|---|
+| 2026-11-07 | [Is Sound More Powerful Than Physical Force?](https://www.youtube.com/watch?v=NsmFONZI2Es) | `NsmFONZI2Es` | Short-form presentation; description makes a broad claim that sound can “reorganize atomic structures”. Requires scale- and mechanism-specific correction; see updated acoustics guide. | Feed-only candidate; playlist reconciliation pending |
+| 2026-11-07 | [Is Sound More Powerful Than All 5 Elements?](https://www.youtube.com/watch?v=ylG8g39ZndE) | `ylG8g39ZndE` | Description frames sound as a primordial source of the five elements in Vedic cosmology and compares this with wave mechanics. Treat the cosmological statement as traditional/philosophical, not a demonstrated physical mechanism. | Feed-only candidate; playlist reconciliation pending |
+| 2026-11-07 | [Can Sound Actually Put Out Fire?](https://www.youtube.com/watch?v=WspdtrS12Xg) | `WspdtrS12Xg` | Short-form description invokes 30 Hz sub-bass and says sound strips away oxygen/fuel vapour. The mechanism is over-simplified; controlled studies focus on flame-flow and combustion-stability effects. | Feed-only candidate; source for updated acoustic-fire article |
+| 2026-10-25 | [Hydrogen Awakening — Science, Ancient Wisdom, and the Mysteries of Our Universe](https://www.youtube.com/watch?v=WOZlks70BMU) | `WOZlks70BMU` | General channel overview / promotional upload; not treated as a specific knowledge claim. | Feed-only candidate; format and playlist placement pending |
+| 2026-10-25 | [The Hydrogen Code: Signal Nobody Could Explain — Episode 1](https://www.youtube.com/watch?v=1Al78RVfXnA) | `1Al78RVfXnA` | Description explicitly identifies the story, signal and manuscript plot as fictional. Exclude from factual science evidence; may be indexed separately as fiction. | Feed-only candidate; fiction classification |
+| 2026-10-25 | [Can Sound Waves Put Out Fire? The 30 Hz Mystery!](https://www.youtube.com/watch?v=AU-XwXuxrKg) | `AU-XwXuxrKg` | English Short. Its description correctly cautions that 30 Hz alone does not guarantee extinction and that outcomes depend on intensity, distance and flame type. | Feed-only candidate; related to WspdtrS12Xg, not the same ID |
+| 2026-10-25 | [क्या ध्वनि से बुझ सकती है आग? — Sound Waves vs Fire](https://www.youtube.com/watch?v=qnvjLNigTqM) | `qnvjLNigTqM` | Hindi Short on the same acoustic-fire topic; description also warns that the technique is not a universal fire-safety replacement. | Feed-only candidate; Hindi companion to AU-XwXuxrKg, not the same ID |
+| 2026-10-20 | [Sound, Vibration, and the Universe: How Nada Yoga Meets Science](https://www.youtube.com/watch?v=S91qQC2gt_I) | `S91qQC2gt_I` | Part 4 description includes chapter markers for sound, Nāda Yoga, resonance, hydrogen/stars and Om meditation. Useful long-form source description; transcript text was not retrieved. | Already in register; RSS corroboration only |
+| 2026-10-20 | [The Origin of the Universe — Hydrogen, Stars & Cosmic Mysteries, Part 3](https://www.youtube.com/watch?v=zg1zkJ0etSg) | `zg1zkJ0etSg` | Long-form series description covers Big Bang cosmology, hydrogen, star formation, stellar nucleosynthesis and ancient cosmology. Independent science review required before article use. | Feed-only candidate; playlist reconciliation pending |
+| 2026-10-20 | [The Five Elements Inside Us — Tesla, Hydrogen and the Universe, Part 2](https://www.youtube.com/watch?v=Nz0NCFXwDwU) | `Nz0NCFXwDwU` | Part 2 description distinguishes traditional philosophical concepts from scientific explanations. | Already in register; RSS corroboration only |
+| 2026-10-20 | [Dussehra: Apne Andar Ke 10 Ravan Ko Jalao!](https://www.youtube.com/watch?v=G1180bgYSso) | `G1180bgYSso` | Hindi Short using the ten-headed Rāvaṇa as an ethical/inner-transformation metaphor. Treat as contemporary interpretation, not a claim about the epic's textual history. | Feed-only candidate; playlist reconciliation pending |
+| 2026-10-19 | [The Five Elements Explained — Ancient Indian Wisdom Meets Modern Science, Part 1](https://www.youtube.com/watch?v=KojhYhX_abM) | `KojhYhX_abM` | Part 1 description explicitly says symbolic associations are not scientifically proven equivalences. | Already in register; RSS corroboration only |
+| 2026-10-11 | [Rare Big B Doordarshan Interview: Mastering Inner Stillness](https://www.youtube.com/watch?v=YZScAaCKEN4) | `YZScAaCKEN4` | Short using archival Doordarshan footage; the description credits Doordarshan Archives / Prasar Bharati. Do not attribute the underlying footage to Ashu Bagri. | Feed-only candidate; third-party footage provenance noted |
+| 2026-10-09 | [तू प्रकृति का सबसे सुंदर रूप](https://www.youtube.com/watch?v=4COEoAPyIhA) | `4COEoAPyIhA` | Description identifies an original Hindi romantic song by Ashu Bagri. Keep in the separate music register, not the knowledge-video article queue. | Already in music register; RSS corroboration only |
+| 2026-10-08 | [music is nada yoga](https://www.youtube.com/watch?v=ja1AXtRR9Zw) | `ja1AXtRR9Zw` | Channel feed confirms the title, but available metadata does not establish whether this is a song, spoken piece or mixed short. Listen before assigning a music subtype. | Already in register; classification remains open |
+
+### YouTube Music link inbox — reviewed 2026-11-16
+
+These four YouTube Music URLs were checked against the existing register. YouTube Music exposed page-level titles and channel labels, but not a canonical channel ID field; do not promote page-level labels to channel-ID verification.
+
+| Video ID | Page title / duration | Result |
+|---|---|---|
+| `W4ekQt-pGSg` | [Music is vibration arranged with consciousness | Feel the Sound | Awaken the Soul](https://music.youtube.com/watch?v=W4ekQt-pGSg) · 7:01 | Already noted as a discovery lead. YouTube Music displays Hydrogen Awakening, but channel-ID verification and transcript review remain pending. |
+| `PIBzhSlxL5E` | [Ragas, Chakras & Planets: The Secret Science of Nāda Yoga Hidden in India](https://music.youtube.com/watch?v=PIBzhSlxL5E) · 7:02 | Existing catalogue ID; duplicate link only. Do not create another record. |
+| `kzOrX6nFX8A` | [Hanuman Chalisa 108 Times | Powerful Morning Protection Mantra](https://music.youtube.com/watch?v=kzOrX6nFX8A) · 7:02 | New page-level lead. The page displays Hydrogen Awakening, but canonical channel ID, audio provenance and playlist membership are not confirmed. Treat as devotional audio, not as an original composition without further evidence. |
+| `vOpfJ41wK1s` | [Nada Brahman: The Shiva Frequency Hidden in Indian Music | Sound, Silence & Consciousness](https://music.youtube.com/watch?v=vOpfJ41wK1s) · 4:27 | Existing catalogue ID; repeated link only. Keep one canonical record and retain the note that claims about 432 Hz and the Maheshwara Sūtras require source-checking. |
+
+### Research update — acoustic fire and sound/matter
+
+The public descriptions of the three acoustic-fire uploads were reviewed, but no transcript text was retrieved. The descriptions are therefore source leads, not quotations from a transcript. A focused research check found:
+- A 2025 review reports that low-frequency sound can affect flame stability through airflow disturbance, while also noting unresolved operating parameters and limited evidence for solid fuels and complex environments: [Research Status and Progress of Acoustic Fire Extinguishing Technology](https://www.mdpi.com/2571-6255/8/4/129).
+- A 2024 laboratory study tested a high-power acoustic extinguisher against a paraffin candle and varied frequency/harmonic parameters; this is not proof of a general-purpose extinguisher: [Experimental Study of the Influence of Even Harmonics on Flame Extinguishing](https://www.mdpi.com/2076-3417/14/24/11809).
+- A 2021 experimental paper studied low-frequency waves below 21 Hz and frequency sweeps using a prototype device: [Analysis of Flame Suppression Capabilities Using Low-Frequency Acoustic Waves](https://www.mdpi.com/2073-8994/13/7/1299).
+- Acoustic tweezers and ultrasonic fields can manipulate microscopic, micro- and nanoscale particles; this does not justify a general statement that ordinary audible sound reorganises atomic structures: [Acoustic Tweezers for Particle and Fluid Micromanipulation](https://www.annualreviews.org/content/journals/10.1146/annurev-fluid-010719-060154) and [Comparing Acoustic and Optical Forces for Biomedical Research](https://www.nature.com/articles/s42254-020-0215-3).
+
+### Published article updated — acoustic fire suppression
+
+[Acoustic Fire Suppression: What Low-Frequency Sound Can—and Cannot—Do](https://ashubagri.github.io/Varta/acoustic-fire-suppression.html)
+
+**Creator-source attribution:** Ashu Bagri / Hydrogen Awakening; related public uploads are WspdtrS12Xg, AU-XwXuxrKg and qnvjLNigTqM. Public descriptions reviewed on 2026-11-16; transcript text was not retrieved.  
+**Editorial result:** The article explains controlled small-flame experiments, distinguishes a frequency value from the full acoustic operating conditions, corrects the oversimplified “removing oxygen” description, and warns that acoustic methods are not substitutes for approved fire protection.  
+**Evidence basis:** Peer-reviewed 2021, 2024 and 2025 acoustic-fire studies listed above.
+
+### Existing article expanded — sound, vibration and Nāda
+
+[Sound, Vibration and Resonance: From Physics to Nāda Yoga](https://ashubagri.github.io/Varta/sound-vibration-resonance-nada.html)
+
+**Creator-source attribution:** Ashu Bagri / Hydrogen Awakening; related public channel-feed uploads are S91qQC2gt_I, NsmFONZI2Es and ylG8g39ZndE. Public descriptions and chapter markers reviewed on 2026-11-16; transcript text was not retrieved.  
+**Editorial result:** The revised section distinguishes acoustic manipulation of microscopic objects from claims about atomic restructuring, and separates the traditional cosmological language of Nāda/Śabda from experimentally measurable acoustics.
