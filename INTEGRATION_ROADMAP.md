@@ -19,11 +19,12 @@
 
 ## Remaining checks
 
-- [ ] Enable Supabase leaked-password protection in Auth settings and rerun the security advisor.
+- [ ] Enable Supabase leaked-password protection in Auth settings and rerun the security advisor. **Plan gate:** the connected Supabase organization is on the Free plan; Supabase documents this feature as Pro and above. Do not mark this complete unless the plan supports it and the advisor warning clears.
 - [ ] Test signup, email verification, sign-in, password reset, sign-out, profile save, posts, replies, likes, follows, notifications, reports, and moderator-only pages with real user accounts.
 - [ ] Verify video upload, private object access, moderation result handling, and retry behavior with a test account.
-- [ ] Verify the deployed sitemap and robots file in a browser and submit the sitemap in Google Search Console.
-- [ ] Review the static-site check results after it is merged into `main`.
+- [ ] Connect the Google account with access to the Search Console property in OpenSEO, then submit and inspect the VARTA sitemap in Google Search Console.
+- [x] Verify the live sitemap and robots endpoints: `sitemap.xml` returns 50 URLs and `robots.txt` references the project sitemap (2026-11-23).
+- [x] Review the static-site check on `main`: workflow run #134 passed (2026-11-18).
 
 ## Stack Exchange research integration — design only
 
