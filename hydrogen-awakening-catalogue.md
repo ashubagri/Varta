@@ -1425,3 +1425,48 @@ Direct public English, Hindi and English auto-caption timed-text endpoints were 
 **Creator attribution:** Ashu Bagri / Hydrogen Awakening, with the channel-associated source `oUypYYX92_A`. The related YouTube Music listing `TfsaSPDmMAM` is linked as a discovery lead, not represented as channel-ID verified. Public metadata was reviewed on 16 November 2026; no transcript text was retrieved.
 
 **Editorial scope:** NASA moon-phase and moonlight explanations; NOAA tide and wind-wave material; mixed human sleep findings (including a 2021 field study, a 2015 analysis and a 2024 conference abstract); music neuroscience; WHO noise guidance; and a clearly labelled discussion of Indian symbolic interpretations. The article does not claim that the Moon controls love, mood or consciousness.
+
+
+## Public channel RSS recheck and cosmic-origins research batch — 2026-11-23
+
+The official channel feed at https://www.youtube.com/feeds/videos.xml?channel_id=UCP04RXz7t6dRm6u48g-vedA was fetched again on 23 November 2026. It returned the same 15 entries observed in the 16 November snapshot, with the visible publication window still 2026-10-08 to 2026-11-07. No newer feed item appeared in this response. This is a limited recent-feed observation, not a full channel history and not proof that every playlist or upload has been inventoried.
+
+### Cosmic hydrogen, stars and creation inquiry — confirmed source cluster
+
+The following four videos are present in the official RSS feed with the target channel ID. Their public descriptions and, where available, chapter markers were reviewed. They are grouped as one connected series rather than four unrelated article topics.
+
+| Part | Video | Source-description coverage | Register decision |
+|---|---|---|---|
+| 1 | [The Five Elements Explained — Ancient Indian Wisdom Meets Modern Science](https://www.youtube.com/watch?v=KojhYhX_abM) · `KojhYhX_abM` | Pancha Mahābhūta, nature and the stated distinction between symbolic associations and scientific equivalence. | Channel-ID confirmed by RSS; series source. |
+| 2 | [The Five Elements Inside Us — Tesla, Hydrogen and the Universe](https://www.youtube.com/watch?v=Nz0NCFXwDwU) · `Nz0NCFXwDwU` | Human body, electric vehicles, hydrogen, the Sun, photosynthesis and ākāśa; description explicitly says traditional and scientific systems are not identical. | Existing canonical ID; RSS corroboration only, not a new video record. |
+| 3 | [The Origin of the Universe — Hydrogen, Stars & Cosmic Mysteries](https://www.youtube.com/watch?v=zg1zkJ0etSg) · `zg1zkJ0etSg` | Big Bang model, hydrogen, star formation, stellar nucleosynthesis, ancient Indian cosmology and the difference between science and philosophy. | Channel-ID confirmed by RSS; previously feed-only candidate, now used as a specific source for the new VARTA article. |
+| 4 | [Sound, Vibration, and the Universe: How Nada Yoga Meets Science](https://www.youtube.com/watch?v=S91qQC2gt_I) · `S91qQC2gt_I` | Public chapter markers include sound and vibration, Nāda Yoga, resonance, hydrogen/stars and Om meditation. | Existing canonical ID; RSS corroboration only. |
+
+### Caption availability check
+
+Public timed-text endpoints were tested for English manual captions and English auto-captions for all four videos, plus Hindi timed-text for Parts 2 and 3. The tested endpoints returned empty content. This does not prove that no caption track exists in any language or interface; it means no usable transcript was retrieved in this pass. No timestamped spoken claim is attributed to the videos. The article uses the public descriptions and chapter markers as source context and independently verifies its astrophysics.
+
+### Fact-checking references used for the article
+
+- NASA, [Early Universe](https://science.nasa.gov/mission/webb/early-universe/) — primordial nucleosynthesis, recombination, cosmic dark ages, first stars and reionization.
+- NASA, [What Were the First Stars Like?](https://science.nasa.gov/mission/webb/science-overview/science-explainers/what-were-the-first-stars-like/) — Population III stars and remaining observational uncertainty.
+- NASA, [Stars](https://science.nasa.gov/universe/stars/) — stellar evolution and the formation/dispersal of elements.
+- U.S. Department of Energy, [DOE Explains… Nucleosynthesis](https://www.energy.gov/science/doe-explainsnucleosynthesis) — Big Bang nucleosynthesis and neutron-rich production of heavy elements.
+- European Southern Observatory, [First Identification of a Heavy Element Born from Neutron Star Collision](https://www.eso.org/public/news/eso1917/) (2019-10-23) — strontium observed in the aftermath of a neutron-star merger.
+- [Ṛgveda 10.129 — Nāsadīya Sūkta](https://vedshala.org/rigveda/10/129) and Jamison & Brereton, [The Rigveda](https://academic.oup.com/book/33632) — textual reference and modern scholarly translation/context.
+
+### Published article — hydrogen, stars and cosmic origins
+
+[Hydrogen, Stars and the Making of Elements: Following the Universe’s Cosmic Story](https://ashubagri.github.io/Varta/hydrogen-cosmic-origins.html)
+
+**Creator attribution:** Ashu Bagri / Hydrogen Awakening. Supporting series videos: `KojhYhX_abM`, `Nz0NCFXwDwU`, `zg1zkJ0etSg` and `S91qQC2gt_I`.  
+**Source status:** Channel identity confirmed through the official RSS feed; public descriptions and chapter markers reviewed on 23 November 2026; no usable transcript retrieved.  
+**Editorial scope:** Primordial nucleosynthesis, recombination, the cosmic dark ages, first stars, stellar fusion, supernovae and neutron-star mergers; a separate reading of Ṛgveda 10.129; and explicit distinctions among established science, historical/scriptural evidence, traditional interpretation and personal synthesis.  
+**Publication:** New original VARTA article in the Science section; cross-linked from the Indian Knowledge section, the Nāsadīya Sūkta article and the Hydrogen Awakening archive hub.
+
+### Repeat-link and duplicate audit — 2026-11-23
+
+- `vOpfJ41wK1s` was submitted repeatedly in the conversation; it remains one canonical Nāda-cluster ID. No duplicate record or second article was created.
+- `PIBzhSlxL5E` remains one existing Nāda/Rāga/Chakra record; repeat submissions do not create another entry.
+- `W4ekQt-pGSg` and `kzOrX6nFX8A` remain YouTube Music page-level leads. Their YouTube Music pages display Hydrogen Awakening, but this feed refresh did not establish canonical channel-ID provenance or playlist membership. Do not count either as a verified original composition or a transcript-reviewed knowledge source.
+- Playlist-first reconciliation remains mandatory. No playlist is marked fully studied in this batch because its complete item list and pagination were not retrieved.
