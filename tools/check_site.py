@@ -134,7 +134,8 @@ def main():
                     errors.append(f"sitemap.xml: URL points to missing file: {url}")
             for source, parser in parsed.items():
                 robots = parser.meta.get("robots", "index,follow").lower()
-                if "noindex" in robots:
+                is_verification_file = source.name.startswith("google") and source.name.endswith(".html")
+                if "noindex" in robots or is_verification_file:
                     continue
                 rel = source.relative_to(ROOT).as_posix()
                 expected = BASE_URL if rel == "index.html" else f"{BASE_URL}/{rel}"
