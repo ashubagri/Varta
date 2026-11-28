@@ -103,7 +103,8 @@ def main():
                 inbound[target.resolve()].add(source.resolve())
 
         robots = parser.meta.get("robots", "index,follow").lower()
-        if "noindex" not in robots:
+        is_verification_file = source.name.startswith("google") and source.name.endswith(".html")
+        if "noindex" not in robots and not is_verification_file:
             if not parser.title:
                 warnings.append(f"{source.relative_to(ROOT)}: indexable page has no <title>.")
             if not parser.meta.get("description"):
@@ -146,7 +147,7 @@ def main():
 
     # Report likely orphaned indexable content; utility/noindex pages are excluded.
     for source, parser in parsed.items():
-        if source.name == "index.html" or "noindex" in parser.meta.get("robots", "index,follow").lower():
+        if source.name == "index.html" or (source.name.startswith("google") and source.name.endswith(".html")) or "noindex" in parser.meta.get("robots", "index,follow").lower():
             continue
         if not inbound.get(source):
             warnings.append(f"{source.relative_to(ROOT)}: no internal HTML page links to this indexable page (possible orphan).")
