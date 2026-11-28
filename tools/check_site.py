@@ -32,6 +32,12 @@ def resolve_target(source, value):
     path = unquote(parts.path)
     if not path:
         return None
+    # GitHub Pages serves this repository under /Varta/. Strip that deployment
+    # prefix before resolving root-relative site assets and links.
+    if path == "/Varta":
+        path = "/"
+    elif path.startswith("/Varta/"):
+        path = path[len("/Varta"):]
     target = ROOT / path.lstrip("/") if path.startswith("/") else source.parent / path
     target = target.resolve()
     try:
