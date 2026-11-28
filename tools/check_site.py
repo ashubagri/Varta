@@ -99,7 +99,7 @@ def main():
                 errors.append(f"{source.relative_to(ROOT)}: unsafe or invalid local path: {value}")
             elif not target.exists():
                 errors.append(f"{source.relative_to(ROOT)}: missing local target: {value}")
-            elif target.suffix.lower() == ".html" and target.resolve() in inbound:
+            elif target.suffix.lower() == ".html" and target.resolve() in inbound and target.resolve() != source.resolve():
                 inbound[target.resolve()].add(source.resolve())
 
         robots = parser.meta.get("robots", "index,follow").lower()
